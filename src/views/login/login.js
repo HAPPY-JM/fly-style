@@ -25,7 +25,7 @@ async function handleSubmit(e) {
   const email = emailInput.value;
   const password = passwordInput.value;
 
-  // 잘 입력했는지 확인
+  // 잘 입력했는지 확인 
   const isEmailValid = validateEmail(email);
   const isPasswordValid = password.length >= 4;
 
