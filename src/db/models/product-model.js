@@ -48,6 +48,12 @@ export class ProductModel {
     return updatedProduct;
   }
 
+  async deleteProduct( productName ) {
+      //상품 삭제
+      const deleteProduct = await Product.deleteOne({Name: productName});
+      return deleteProduct;
+  }
+
 }
 
 const productModel = new ProductModel();

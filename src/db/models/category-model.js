@@ -19,6 +19,12 @@ export class CategoryModel {
         const updatedCategory = await Category.findOneAndUpdate(filter, update, option);
         return updatedCategory;
     }
+
+    async deleteCategory( categoryName ) {
+        //상품 삭제
+        const deleteCategory = await Category.deleteOne({Name: categoryName});
+        return deleteCategory;
+    }
 }
 
 const categoryModel = new CategoryModel();
