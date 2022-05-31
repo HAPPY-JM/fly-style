@@ -7,16 +7,6 @@ const Address = new Schema({
   address2: String,
 });
 
-const Cart = new Schema({
-  productId: {
-    type: Schema.type.objectId,
-    ref: "products",
-  },
-  quantity: {
-    type: Number,
-  },
-});
-
 const OrderSchema = new Schema(
   {
     orderId: {
@@ -25,7 +15,7 @@ const OrderSchema = new Schema(
       unique: true,
     },
     userId: {
-      type: Schema.type.objectId,
+      type: Schema.Types.objectId,
       required: true,
       ref: "users",
     },
@@ -35,14 +25,23 @@ const OrderSchema = new Schema(
       default: Date.now,
     },
     products: {
-      type: [Cart],
+      type: [
+        {
+          quantity: Number,
+          productId: {
+            type: Schema.Types.objectId,
+            ref: "products",
+          },
+        }.populate("productId"),
+      ],
       required: true,
     },
+    totalPrice: Number,
     delivery: {
       type: {
         name: String,
         Address,
-        comment: String,
+        comment: String, //배송관련요청
       },
       required: true,
     },
