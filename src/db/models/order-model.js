@@ -9,8 +9,26 @@ export class OrderModel {
     const createdNewOrder = await Order.create(orderInfo);
     return createdNewOrder;
   }
-
+  //주문 완료
+  //주문 조회
+  async findById(orderId) {
+    const orderList = await Order.find({ orderId })
+      .sort({ createdAt })
+      .populate(userId);
+    return orderList;
+  }
   //유저별로 주문조회
+  async findByuserId(userId) {
+    const userOrderList = await Order.find({ userId })
+      .sort({ createdAt })
+      .populate(userId);
+    return userOrderList;
+  }
 
   //관리자가 모든 주문조회
+  async findAll() {
+    const orders = await Order.find({}).sort({ createdAt }).populate(userId);
+  }
+
+  //주문 취소
 }
