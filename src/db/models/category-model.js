@@ -20,3 +20,7 @@ export class CategoryModel {
         return updatedCategory;
     }
 }
+
+const categoryModel = new CategoryModel();
+
+export { categoryModel };
