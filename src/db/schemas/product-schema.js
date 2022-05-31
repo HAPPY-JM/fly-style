@@ -7,14 +7,14 @@ const ProductSchema = new Schema({
         Required:true,
     },//상품이름
     Category:{
-        type: Array[String],
+        type: [String],
         required:true,
     },//상품카테고리
     Brand:{
         type:String,
     },//제조사
     Price:{
-        type:number,
+        type:Number,
         Required : true,
     },//가격
     Content:{
@@ -27,8 +27,7 @@ const ProductSchema = new Schema({
     // },
 
     Size:{
-        type:array[string],
-        Items:{}
+        type:[String]
     },
 })
 
