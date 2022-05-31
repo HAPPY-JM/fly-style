@@ -48,15 +48,6 @@ export class ProductModel {
     return updatedProduct;
   }
 
-  async updateCategory({ productName, update }) {
-    // 카테고리 수정
-    const filter = { Name: productName };
-    const option = { returnOriginal: false };
-  
-    const updatedCategory = await Product.findOneAndUpdate(filter, update, option);
-    return updatedCategory;
-  }
-
 }
 
 const productModel = new ProductModel();

@@ -6,10 +6,11 @@ const ProductSchema = new Schema({
         type:String,
         Required:true,
     },//상품이름
-    Category:{
-        type: [String],
+    Category:[{
+        type: Schema.Types.objectId,
+        ref:"category",
         required:true,
-    },//상품카테고리
+    }],//상품카테고리
     Brand:{
         type:String,
     },//제조사
