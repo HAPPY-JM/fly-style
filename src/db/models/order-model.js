@@ -28,7 +28,12 @@ export class OrderModel {
   //관리자가 모든 주문조회
   async findAll() {
     const orders = await Order.find({}).sort({ createdAt }).populate(userId);
+    return orders;
   }
 
   //주문 취소
+  async delete(orderId) {
+    const result = await Order.deleteOne({ orderId });
+    return result;
+  }
 }
