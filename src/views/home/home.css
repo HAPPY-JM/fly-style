@@ -1,3 +1,15 @@
+html, body{
+  margin: 0;
+height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .div-container {
   display: flex;
   align-items: center;
