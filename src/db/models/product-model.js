@@ -39,18 +39,18 @@ export class ProductModel {
     const priceProduct = await Product.filter(prod => prod.Price >=lowprice && prod.Price < highprice);
   }
 
-  async updateProduct({ productName, update }) {
+  async editProduct({ productId, update }) {
     //상품 정보 수정(상품명, 상품카테고리, 상품제조사, 상품가격, 상품설명, 사이즈 변경)
-    const filter = { Name: productName };
+    const filter = { _id: productId };
     const option = { returnOriginal: false };
     
     const updatedProduct = await Product.findOneAndUpdate(filter, update, option);
     return updatedProduct;
   }
 
-  async deleteProduct( productName ) {
+  async deleteProduct( productId ) {
       //상품 삭제
-      const deleteProduct = await Product.deleteOne({Name: productName});
+      const deleteProduct = await Product.deleteOne({_id: productId});
       return deleteProduct;
   }
 
