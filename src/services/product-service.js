@@ -17,7 +17,7 @@ class ProductService {
         const productName = await this.productModel.findByName(name);
         if (productName) {
         throw new Error(
-            "이 상품명은 현재 존재합니다. 다른 상품명을 입력해 주세요."
+            "이 상품명은 이미 존재합니다. 다른 상품명을 입력해 주세요."
         );
         }
 
@@ -34,52 +34,36 @@ class ProductService {
         return createdNewProduct;
     }
 
+    //상품 목록
+    async productList(){
+        const products = await this.productModel.findAll();
+        return products;
+    }
 
-    // async setProduct(productInfoRequired, toUpdate) {
-    //     // 객체 destructuring
-    //     const { userId, currentPassword } = userInfoRequired;
-    
-    //     // 우선 해당 id의 유저가 db에 있는지 확인
-    //     let user = await this.userModel.findById(userId);
-    
-    //     // db에서 찾지 못한 경우, 에러 메시지 반환
-    //     if (!user) {
-    //       throw new Error("가입 내역이 없습니다. 다시 한 번 확인해 주세요.");
-    //     }
-    
-    //     // 이제, 정보 수정을 위해 사용자가 입력한 비밀번호가 올바른 값인지 확인해야 함
-    
-    //     // 비밀번호 일치 여부 확인
-    //     const correctPasswordHash = user.password;
-    //     const isPasswordCorrect = await bcrypt.compare(
-    //       currentPassword,
-    //       correctPasswordHash
-    //     );
-    
-    //     if (!isPasswordCorrect) {
-    //       throw new Error(
-    //         "현재 비밀번호가 일치하지 않습니다. 다시 한 번 확인해 주세요."
-    //       );
-    //     }
-    
-    //     // 이제 드디어 업데이트 시작
-    
-    //     // 비밀번호도 변경하는 경우에는, 회원가입 때처럼 해쉬화 해주어야 함.
-    //     const { password } = toUpdate;
-    
-    //     if (password) {
-    //       const newPasswordHash = await bcrypt.hash(password, 10);
-    //       toUpdate.password = newPasswordHash;
-    //     }
-    
-    //     // 업데이트 진행
-    //     user = await this.userModel.update({
-    //       userId,
-    //       update: toUpdate,
-    //     });
-    
-    //     return user;
-    //   }
+
+    //상품 수정
+    async editProduct( productId, update ) {
+        const editProduct = await this.productModel.editProduct(productId, update);
+        return editProduct;
+    }
+
+    //상품 삭제
+    async deleteProduct( productId ){
+        const deleteProduct = await this.productModel.deleteProduct(productId);
+        return deleteProduct;
+    }
+
+    //카테고리로 상품 찾기
+    async findByCategory( category ){
+        const findProduct = await this.productModel.findByCategory(category);
+        return findProduct;
+    }
+
+    //상품 상세
+    async viewProductData( productId ){
+        const product = await this.productModel.findById( productId );
+        return product;
+    }
 
 }
 
