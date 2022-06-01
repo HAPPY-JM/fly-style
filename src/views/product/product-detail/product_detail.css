@@ -1,0 +1,63 @@
+html, body{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+/* 헤더 */
+header{
+    border-style: dashed;
+    width: 100%;
+    /* position: fixed; */
+}
+nav{
+    margin: 2rem;
+    float:right;
+}
+li{
+    display: inline-block;
+    list-style: none;
+    font-size: 16px;
+    margin-right: 50px;
+}
+
+/* 바디 */
+/* #maindiv{
+    
+} */
+/* 이미지칸 */
+img{
+    text-align:right;
+
+}
+#productImagediv{
+    padding: 5%;
+    width: 50%;
+    float: left;
+    border-style: dashed;
+}
+/* 제품인포칸 */
+#productInfodiv{
+    padding:5%;
+    width: 50%;
+    float: right;
+    height: auto;
+    border-style: dashed;
+    overflow: auto;
+} 
+#productPrice, #productButton, #productDetail{
+    margin-top: 2rem;
+}
+#productDetail{
+    margin-top: 5rem;
+}
+/* 푸터 */
+footer{
+    height: 50px;
+    border-style: dashed;
+}
+footer div{
+    text-align: center;
+    padding: 1rem;
+}

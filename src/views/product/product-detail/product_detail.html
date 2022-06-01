@@ -36,20 +36,46 @@
     <header>
         <nav>
             <div>
-                <li>계정관리</li>
-                <li>로그아웃</li>
-                <li>카트</li>
+                <li><a>계정관리</a></li>
+                <li><a>로그아웃</a></li>
+                <li><a>장바구니</a></li>
             </div>
         </nav>
     </header>
     
     <main>
-        <div>
-            <img src="skirt.jpg" alt="스커트 제품사진(테스트)">
-
+      <div id="content-warp">
+        
+        <div id="productImagediv">
+          <img id="productImg" src="skirt.jpg" alt="스커트 제품사진(테스트)">
         </div>
-    </main>
 
-    <footer></footer>
+        <div id="productInfodiv">
+            <p id="productName" class="title is-3">상품이름</p>
+            <div id="productPrice">
+              <p class="title is-5">30,000원</p>
+            </div>
+            <div id="productButton">
+              <button class="button is-success is-light" id="buttonBuy">구매하기</button>
+              <button class="button is-info is-light" id="buttonBasket">장바구니</button>
+            </div>
+            <div>
+              <p id="productDetail">제품 상세설명 란<br>
+                <!-- sdf<br>sdf<br>
+                sdf<br>sdf<br>sdfs<br>
+                sdf<br>sdf<br>sdf<br>sd<br>fs<br>df<br>sdf<br>
+                ada<br>sd<br> -->
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+    <footer>
+      <div>
+        <p>5팀 푸터</p>
+      </div>
+    </footer>
 </body>
 </html>
