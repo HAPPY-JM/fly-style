@@ -40,7 +40,7 @@ export class ProductModel {
     return priceProduct;
   }
 
-  async editProduct({ productId, update }) {
+  async editProduct( productId, update ) {
     //상품 정보 수정(상품명, 상품카테고리, 상품제조사, 상품가격, 상품설명, 사이즈 변경)
     const filter = { _id:productId };
     const option = { returnOriginal: false };
