@@ -84,4 +84,49 @@ orderRouter.post("/cart", async (req, res, next) => {
   }
 });
 
+orderRouter.get("/userOrders", async function (req, res, next) {
+  try {
+    // req (request)의 body 에서 데이터 가져오기
+    const userId = /*req.currentUserId;*/ req.body.userId;
+
+    // 위 데이터를 유저 db에 추가하기
+    const Orderlists = await orderService.findByUserId(userId);
+
+    // 사용자 목록(배열)을 JSON 형태로 프론트에 보
+    // res.render('order/complete',{newOrder});
+    res.status(201).json(Orderlists);
+  } catch (error) {
+    next(error);
+  }
+});
+
+orderRouter.get("/list/:orderId", async function (req, res, next) {
+  try {
+    // req (request)의 body 에서 데이터 가져오기
+    const orderId = /*req.currentUserId;*/ req.params;
+
+    // 위 데이터를 유저 db에 추가하기
+    const order = await orderService.findById(orderId);
+
+    // 사용자 목록(배열)을 JSON 형태로 프론트에 보
+    // res.render('order/complete',{newOrder});
+    res.status(201).json(order);
+  } catch (error) {
+    next(error);
+  }
+});
+
+orderRouter.get("/all", async function (req, res, next) {
+  try {
+    // 위 데이터를 유저 db에 추가하기
+    const Orderlists = await orderService.findAll();
+
+    // 사용자 목록(배열)을 JSON 형태로 프론트에 보
+    // res.render('order/complete',{newOrder});
+    res.status(201).json(Orderlists);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export { orderRouter };
