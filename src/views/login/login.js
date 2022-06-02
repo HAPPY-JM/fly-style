@@ -66,6 +66,9 @@ async function handleSubmit(e) {
     //redirectUrl=/userlist
     const string = "string";
     console.log(redirectUrl, string);
+    //localhost:5000/api/userlist
+
+    //const order=await Api.get("/order/only/629880390b9398828a062283");
     const userlist = await Api.get("/api" + redirectUrl);
     //router.get('/api/userlist')
     // 로그인 성공
