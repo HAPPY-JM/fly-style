@@ -53,8 +53,8 @@ class OrderService {
     return userOrderList;
   }
 
-  async findById(orderId) {
-    const order = await this.orderModel.findByuserId(userId);
+  async findById(_id) {
+    const order = await this.orderModel.findById(_id);
     return order;
   }
 

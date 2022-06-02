@@ -27,10 +27,10 @@ const OrderSchema = new Schema(
       type: [
         {
           quantity: Number,
-          productId: String, //{
-          //   type: String, //Schema.Types.objectId,
-          //   // ref: "products",
-          // },
+          productId: {
+            type: Schema.Types.ObjectId,
+            ref: "product",
+          },
         },
       ],
       required: true,

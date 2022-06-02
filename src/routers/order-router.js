@@ -2,6 +2,7 @@ import { Router } from "express";
 import is from "@sindresorhus/is";
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
 import { orderService } from "../services";
+import mongoose from "mongoose";
 
 const orderRouter = Router();
 
@@ -90,7 +91,7 @@ orderRouter.get("/userOrders", async function (req, res, next) {
     const userId = /*req.currentUserId;*/ req.body.userId;
 
     // 위 데이터를 유저 db에 추가하기
-    const Orderlists = await orderService.findByUserId(userId);
+    const Orderlists = await orderService.findByuserId(userId);
 
     // 사용자 목록(배열)을 JSON 형태로 프론트에 보
     // res.render('order/complete',{newOrder});
@@ -100,13 +101,17 @@ orderRouter.get("/userOrders", async function (req, res, next) {
   }
 });
 
-orderRouter.get("/list/:orderId", async function (req, res, next) {
+orderRouter.get("/list", async function (req, res, next) {
   try {
     // req (request)의 body 에서 데이터 가져오기
-    const orderId = /*req.currentUserId;*/ req.params;
+    //objectId로 바꿔주어야 검색 가능하다~!!
+    const _id = /*req.currentUserId;*/ mongoose.Types.ObjectId(
+      req.query.orderId
+    );
+    // console.log(typeof _id);
 
     // 위 데이터를 유저 db에 추가하기
-    const order = await orderService.findById(orderId);
+    const order = await orderService.findById(_id);
 
     // 사용자 목록(배열)을 JSON 형태로 프론트에 보
     // res.render('order/complete',{newOrder});
@@ -119,7 +124,7 @@ orderRouter.get("/list/:orderId", async function (req, res, next) {
 orderRouter.get("/all", async function (req, res, next) {
   try {
     // 위 데이터를 유저 db에 추가하기
-    const Orderlists = await orderService.findAll();
+    const Orderlists = await orderService.orderLists();
 
     // 사용자 목록(배열)을 JSON 형태로 프론트에 보
     // res.render('order/complete',{newOrder});
