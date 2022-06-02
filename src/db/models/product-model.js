@@ -18,7 +18,7 @@ export class ProductModel {
 
   async findById(productId) {
     //특정 아이디를 가진 상품 찾기
-    const idProduct = await Product.findOne({ productId });
+    const idProduct = await Product.findOne({ _id:productId });
     return idProduct;
   }
 
@@ -42,7 +42,7 @@ export class ProductModel {
 
   async editProduct({ productId, update }) {
     //상품 정보 수정(상품명, 상품카테고리, 상품제조사, 상품가격, 상품설명, 사이즈 변경)
-    const filter = { productId };
+    const filter = { _id:productId };
     const option = { returnOriginal: false };
     
     const updatedProduct = await Product.findOneAndUpdate(filter, update, option);
@@ -51,7 +51,7 @@ export class ProductModel {
 
   async deleteProduct( productId ) {
       //상품 삭제
-      const deleteProduct = await Product.deleteOne({ productId });
+      const deleteProduct = await Product.deleteOne({ _id:productId });
       return deleteProduct;
   }
 

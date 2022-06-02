@@ -24,8 +24,7 @@ productRouter.post('/add', loginRequired, adminRequired, async (req, res, next) 
             size
         });
 
-        res.json(newProduct);
-        // res.redirect(`/product/${newProduct.objectId}`);
+        res.redirect(`/product/${newProduct._id}`);
         }
     }catch(err){
         next(err);
@@ -58,9 +57,8 @@ productRouter.patch('/edit/:id', loginRequired, adminRequired, async(req, res) =
         ...(size && {size}),
     };
 
-    const editProduct = await productService.editProduct(productId, updateData);
-    
-    res.json(editProduct);
+    await productService.editProduct(productId, updateData);
+
     res.redirect(`/product/${productId}`);
 }); 
 
@@ -69,8 +67,8 @@ productRouter.patch('/edit/:id', loginRequired, adminRequired, async(req, res) =
 productRouter.delete('/:id', loginRequired, adminRequired, async(req, res) => {
     const productId = req.params.id;
 
-    const deleteProduct = await productService.deleteProduct(productId);
-    res.send(`상품을 삭제했습니다.`);
+    await productService.deleteProduct(productId);
+    // res.send(`상품을 삭제했습니다.`);
     res.redirect('/');
 });
 
