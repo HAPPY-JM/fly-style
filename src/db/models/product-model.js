@@ -4,15 +4,15 @@ import { ProductSchema } from "../schemas/product-schema";
 const Product = model("product", ProductSchema);
 
 export class ProductModel {
-  async findByCategory(Category) {
-    //특정 카테고리의 상품 찾기
-    const categoryProduct = await Product.findOne({ Category });
-    return categoryProduct;
-  }
+  // async findByCategory(category) {
+  //   //특정 카테고리의 상품 찾기
+  //   const categoryProduct = await Product.findOne({ category });
+  //   return categoryProduct;
+  // }
 
-  async findByName(Name) {
+  async findByName(name) {
     //특정 이름의 상품 찾기
-    const nameProduct = await Product.findOne({ Name });
+    const nameProduct = await Product.findOne({ name });
     return nameProduct;
   }
 
@@ -34,11 +34,11 @@ export class ProductModel {
     return allProducts;
   }
 
-  async findPrice(lowprice, highprice) {
-    //lowprice이상 highprice미만 가격대 상품 찾기
-    const priceProduct = await Product.filter(prod => prod.Price >=lowprice && prod.Price < highprice);
-    return priceProduct;
-  }
+  // async findPrice(lowprice, highprice) {
+  //   //lowprice이상 highprice미만 가격대 상품 찾기
+  //   const priceProduct = await Product.filter(prod => prod.Price >=lowprice && prod.Price < highprice);
+  //   return priceProduct;
+  // }
 
   async editProduct( productId, update ) {
     //상품 정보 수정(상품명, 상품카테고리, 상품제조사, 상품가격, 상품설명, 사이즈 변경)

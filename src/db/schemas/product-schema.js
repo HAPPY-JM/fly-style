@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import { CategoryModel } from '../models/category-model';
 
 const ProductSchema = new Schema({
     // _id:objectId,//상품Id
@@ -8,11 +9,11 @@ const ProductSchema = new Schema({
         required:true,
     },//상품이름
 
-    category:{
-        type: Array,
+    category:[{
+        type: Schema.Types.ObjectId,
+        ref:'category',
         required:true,
-        items: {type: String},
-    },//상품카테고리
+    }],//상품카테고리
 
     price:{
         type:Number,
