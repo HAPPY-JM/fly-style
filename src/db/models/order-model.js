@@ -17,6 +17,7 @@ export class OrderModel {
       .populate(userId);
     return orderList;
   }
+
   //유저별로 주문조회
   async findByuserId(userId) {
     const userOrderList = await Order.find({ userId })
@@ -31,9 +32,25 @@ export class OrderModel {
     return orders;
   }
 
+  //주문상태변경
+  async update(orderId, orderStatus) {
+    const query = { _id: orderId };
+    const option = { returnOriginal: false };
+    const updatedOrder = await User.findOneAndUpdate(
+      filter,
+      orderStatus,
+      option
+    );
+    return updatedOrder;
+  }
+
   //주문 취소
   async delete(orderId) {
     const result = await Order.deleteOne({ orderId });
     return result;
   }
 }
+
+const orderModel = new OrderModel();
+
+export { orderModel };
