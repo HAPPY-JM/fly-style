@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <meta charset="utf-8" />
+
+        <title>쇼핑-데모</title>
+        <!-- 아이콘 -->
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/elice-rabbit-favicon.png"
+        />
+        <!-- bulma css 관련 -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+        />
+        <!-- 폰트 어썸: 아이콘 -->
+        <script
+          defer
+          src="https://kit.fontawesome.com/7630448495.js"
+          crossorigin="anonymous"
+        ></script>
+        <!-- 커스텀 css, js -->
+        <link rel="stylesheet" href="product_detail.css">
+        <script src="./product_detail.js"></script>
+      </head>
+
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <li><a>계정관리</a></li>
+                <li><a>로그아웃</a></li>
+                <li><a>장바구니</a></li>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+      <div id="content-warp">
+        
+        <div id="productImagediv">
+          <img id="productImg" src="skirt.jpg" alt="스커트 제품사진(테스트)">
+        </div>
+
+        <div id="productInfodiv">
+            <p id="productName" class="title is-3">상품이름</p>
+            <div id="productPrice">
+              <p class="title is-5">30,000원</p>
+            </div>
+            <div id="productButton">
+              <button class="button is-success is-light" id="buttonBuy">구매하기</button>
+              <button class="button is-info is-light" id="buttonBasket">장바구니</button>
+            </div>
+            <div>
+              <p id="productDetail">제품 상세설명 란<br>
+                <!-- sdf<br>sdf<br>
+                sdf<br>sdf<br>sdfs<br>
+                sdf<br>sdf<br>sdf<br>sd<br>fs<br>df<br>sdf<br>
+                ada<br>sd<br> -->
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+    <footer>
+      <div>
+        <p>5팀 푸터</p>
+      </div>
+    </footer>
+</body>
+</html>
