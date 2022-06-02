@@ -3,28 +3,28 @@ import { Schema } from "mongoose";
 const ProductSchema = new Schema({
     // _id:objectId,//상품Id
 
-    Name:{
+    name:{
         type:String,
-        Required:true,
+        required:true,
     },//상품이름
 
-    Category:{
+    category:{
         type: Array,
         required:true,
         items: {type: String},
     },//상품카테고리
 
-    Price:{
+    price:{
         type:Number,
-        Required : true,
+        required : true,
     },//가격
 
-    Content:{
+    content:{
         type:String,
-        Required: true,
+        required: true,
     },//상품설명
 
-    Brand:{
+    brand:{
         type:String,
     },//제조사
     
@@ -32,7 +32,7 @@ const ProductSchema = new Schema({
 
     // },
 
-    Size:{
+    size:{
         type: Array,
         items: {type: String},
     },
