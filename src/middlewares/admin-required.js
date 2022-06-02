@@ -6,6 +6,7 @@ function adminRequired(req, res, next) {
   if (req.currentUserRole !== "admin") {
     console.log("관리자 페이지 입니다.");
     res.status(403).json({
+      //오류
       result: "forbidden-approach",
       reason: "관리자인 유저만 사용할 수 있는 서비스입니다.",
     });

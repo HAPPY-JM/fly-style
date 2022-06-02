@@ -11,29 +11,48 @@ export class OrderModel {
   }
   //주문 완료
   //주문 조회
-  async findById(orderId) {
-    const orderList = await Order.find({ orderId })
-      .sort({ createdAt })
-      .populate(userId);
+  async findById(_id) {
+    const orderList = await Order.findOne({ _id })
+      .sort({ createdAt: 1 })
+      .populate(["userId", "products.productId"]);
     return orderList;
   }
+
   //유저별로 주문조회
   async findByuserId(userId) {
     const userOrderList = await Order.find({ userId })
-      .sort({ createdAt })
-      .populate(userId);
+      .sort({ createdAt: 1 })
+      .populate(["userId", "products.productId"]);
     return userOrderList;
   }
 
   //관리자가 모든 주문조회
   async findAll() {
-    const orders = await Order.find({}).sort({ createdAt }).populate(userId);
+    const orders = await Order.find({})
+      .sort({ createdAt: 1 })
+      .populate(["userId", "products.productId"]);
     return orders;
   }
 
+  //주문상태변경
+  async update(_id, orderStatus) {
+    const query = { _id };
+    const option = { returnOriginal: false };
+    const updatedOrder = await Order.findOneAndUpdate(
+      query,
+      { orderStatus },
+      option
+    );
+    return updatedOrder;
+  }
+
   //주문 취소
-  async delete(orderId) {
-    const result = await Order.deleteOne({ orderId });
+  async delete(_id) {
+    const result = await Order.deleteOne({ _id });
     return result;
   }
 }
+
+const orderModel = new OrderModel();
+
+export { orderModel };

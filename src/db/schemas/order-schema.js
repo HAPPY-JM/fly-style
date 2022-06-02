@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, SchemaTypes } from "mongoose";
 import autoIncrement from "mongoose-auto-increment";
 
 const Address = new Schema({
@@ -9,13 +9,8 @@ const Address = new Schema({
 
 const OrderSchema = new Schema(
   {
-    orderId: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
     userId: {
-      type: Schema.Types.objectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "users",
     },
@@ -24,15 +19,19 @@ const OrderSchema = new Schema(
       required: true,
       default: Date.now,
     },
+    orderStatus: {
+      type: String,
+      default: `상품준비중`,
+    },
     products: {
       type: [
         {
           quantity: Number,
           productId: {
-            type: Schema.Types.objectId,
-            ref: "products",
+            type: Schema.Types.ObjectId,
+            ref: "product",
           },
-        }.populate("productId"),
+        },
       ],
       required: true,
     },
@@ -53,10 +52,10 @@ const OrderSchema = new Schema(
   }
 );
 
-OrderSchema.plugin(autoIncrement.plugin, {
-  model: "orders",
-  field: "orderId",
-  startAt: 1,
-});
+// OrderSchema.plugin(autoIncrement.plugin, {
+//   model: "orders",
+//   field: "orderId",
+//   startAt: 1,
+// });
 
 export { OrderSchema };
