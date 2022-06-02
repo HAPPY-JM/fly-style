@@ -14,12 +14,12 @@ class ProductService {
         const { name, category, price, content, brand, size } = productInfo;
     
       // 상품명 중복 확인
-        const productName = await this.productModel.findByName(name);
-        if (productName) {
+        const nameProduct = await this.productModel.findByName(name);
+        if (nameProduct) {
             throw new Error(
                 "이 상품명은 이미 존재합니다. 다른 상품명을 입력해 주세요."
             );
-        }
+        }else{
 
       // 상품명 중복은 이제 아니므로, 상품등록을 진행함
 
@@ -29,6 +29,7 @@ class ProductService {
         const createdNewProduct = await this.productModel.create(newProductInfo);
 
         return createdNewProduct;
+        }
     }
 
     //상품 목록
