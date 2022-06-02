@@ -10,7 +10,7 @@ import { productService } from "../services";
 const productRouter = Router();
 
 
-//상품 등록
+//상품 등록 (login 확인, admin 확인)
 productRouter.post('/add', loginRequired, adminRequired, async (req, res, next) => {
     try{
         {const { name, category, price, content, brand, size } = req.body;
@@ -25,7 +25,8 @@ productRouter.post('/add', loginRequired, adminRequired, async (req, res, next) 
         });
 
         res.json(newProduct);
-        res.redirect(`/product/${newProduct.objectId}`);}
+        // res.redirect(`/product/${newProduct.objectId}`);
+        }
     }catch(err){
         next(err);
     }
@@ -42,7 +43,7 @@ productRouter.get('/', async (req, res) => {
 
 
 
-//상품 수정
+//상품 수정 (login 확인, admin 확인)
 productRouter.patch('/edit/:id', loginRequired, adminRequired, async(req, res) => {
     const productId = req.params.id;
 
@@ -64,7 +65,7 @@ productRouter.patch('/edit/:id', loginRequired, adminRequired, async(req, res) =
 }); 
 
 
-//상품 삭제
+//상품 삭제 (login 확인, admin 확인)
 productRouter.delete('/:id', loginRequired, adminRequired, async(req, res) => {
     const productId = req.params.id;
 
