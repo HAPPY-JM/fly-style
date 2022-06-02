@@ -23,10 +23,7 @@ class ProductService {
 
       // 상품명 중복은 이제 아니므로, 상품등록을 진행함
 
-      // 우선 새로운 objectId 생성
-        const productId = await mongoose.Types.objectId();
-
-        const newProductInfo = { productId, name, category, price, content, brand, size };
+        const newProductInfo = { name, category, price, content, brand, size };
 
       // db에 저장
         const createdNewProduct = await this.productModel.create(newProductInfo);

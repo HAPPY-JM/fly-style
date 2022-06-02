@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 
 const ProductSchema = new Schema({
-    _id:objectId,//상품Id
+    // _id:objectId,//상품Id
 
     Name:{
         type:String,
