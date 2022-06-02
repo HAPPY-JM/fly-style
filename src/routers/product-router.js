@@ -4,7 +4,6 @@ import { Router } from "express";
 import { loginRequired } from "../middlewares";
 import { adminRequired } from '../middlewares';
 import { productService } from "../services";
-import { productModel } from '../db';
 
 
 
