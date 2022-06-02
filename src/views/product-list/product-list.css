@@ -1,11 +1,8 @@
 /* 전체 */
-*{
-    box-sizing: border-box;
-}
+
 body{
     width: 100vw;
-    height: 100vh;
-    
+    height: 100vh;   
 }
 /* 헤더 */
 header {
@@ -22,20 +19,15 @@ header {
 /* 메인 화면 ( 카테고리 , 목록 리스트 )*/
 main {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
-    /* padding: 2% 10% 10% 2%; */
-    /* background-color: antiquewhite; */
-    padding: 10px 250px;
-
+    padding: 10px 10% 10px 10%;
 }
 
 /* 카테고리 */
 main .category-list{
-    /* border: 1px solid black; */
     width: 15%;
     margin: 30px;
-
 }
 
 main .category-list ul li {
@@ -48,18 +40,24 @@ main .category-list ul li {
 main .section {
     display: flex;
     flex-wrap: wrap;
+
 }
 
 main .section .product-item {
-    margin: 20px;
+    margin: 30px;
     width: 230px;
-    height: 230px;
+    height: 380px;
+
 }
 
-.card-content{
+main .section .card-content{
     padding: 0.5rem;
 }
 
 .card-content .media-content p:last-child{
     margin-top: 10px;
 }
+
+/* footer{
+    position: relative;
+} */
