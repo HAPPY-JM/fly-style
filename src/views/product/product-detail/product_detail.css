@@ -1,16 +1,22 @@
+/* 페이지 상단 여백을 지우기 위함, 푸터 배치를 위함 */
 html, body{
     height: 100%;
 }
+
 body{
     display: flex;
     flex-direction: column;
 }
 /* 헤더 */
+/* 우선 div들의 구역을 
+    눈으로 보기위해 dashed로 임의 표시 */
 header{
     border-style: dashed;
     width: 100%;
     /* position: fixed; */
 }
+
+/* 상단 메뉴바 구역 */
 nav{
     margin: 2rem;
     float:right;
@@ -22,22 +28,22 @@ li{
     margin-right: 50px;
 }
 
-/* 바디 */
-/* #maindiv{
-    
-} */
-/* 이미지칸 */
+/* 여기부터 바디 */
+/* 이미지 div */
 img{
     text-align:right;
 
 }
+/* 이미지 왼쪽 float 배치 */
 #productImagediv{
     padding: 5%;
     width: 50%;
     float: left;
     border-style: dashed;
 }
-/* 제품인포칸 */
+
+/* 제품인포 div */
+/* 인포 왼쪽배치 */
 #productInfodiv{
     padding:5%;
     width: 50%;
@@ -46,13 +52,17 @@ img{
     border-style: dashed;
     overflow: auto;
 } 
+/* top간격을 같은 비율로 가격, 버튼, 상세 */
 #productPrice, #productButton, #productDetail{
     margin-top: 2rem;
 }
+/* 상세부분은 간격을 더 줌 */
 #productDetail{
     margin-top: 5rem;
 }
+
 /* 푸터 */
+/* 페이지 맨 하단에 푸터 고정기능 추가 예정 */
 footer{
     height: 50px;
     border-style: dashed;
