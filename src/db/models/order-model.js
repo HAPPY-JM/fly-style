@@ -35,20 +35,20 @@ export class OrderModel {
   }
 
   //주문상태변경
-  async update(orderId, orderStatus) {
-    const query = { _id: orderId };
+  async update(_id, orderStatus) {
+    const query = { _id };
     const option = { returnOriginal: false };
-    const updatedOrder = await User.findOneAndUpdate(
-      filter,
-      orderStatus,
+    const updatedOrder = await Order.findOneAndUpdate(
+      query,
+      { orderStatus },
       option
     );
     return updatedOrder;
   }
 
   //주문 취소
-  async delete(orderId) {
-    const result = await Order.deleteOne({ orderId });
+  async delete(_id) {
+    const result = await Order.deleteOne({ _id });
     return result;
   }
 }

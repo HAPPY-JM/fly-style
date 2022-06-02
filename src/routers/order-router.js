@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 const orderRouter = Router();
 
 //  바로주문하기
-orderRouter.post("/only/:productId", async function (req, res, next) {
+orderRouter.post("/only", async function (req, res, next) {
   try {
     if (is.emptyObject(req.body)) {
       throw new Error(
@@ -16,7 +16,7 @@ orderRouter.post("/only/:productId", async function (req, res, next) {
     }
 
     // req (request)의 body 에서 데이터 가져오기
-    const { productId } = req.params;
+    const { productId } = req.query;
     const quantity = 1;
     const userId = /*req.currentUserId;*/ req.body.userId;
     const name = req.body.name;
@@ -129,6 +129,34 @@ orderRouter.get("/all", async function (req, res, next) {
     // 사용자 목록(배열)을 JSON 형태로 프론트에 보
     // res.render('order/complete',{newOrder});
     res.status(201).json(Orderlists);
+  } catch (error) {
+    next(error);
+  }
+});
+
+orderRouter.patch("/updateStat", async function (req, res, next) {
+  try {
+    const _id = mongoose.Types.ObjectId(req.query.orderId);
+    const orderStatus = req.body.orderStatus;
+    const result = await orderService.orderUpdate(_id, orderStatus);
+
+    // 사용자 목록(배열)을 JSON 형태로 프론트에 보
+    // res.render('order/complete',{newOrder});
+    res.status(201).json(result);
+  } catch (error) {
+    next(error);
+  }
+});
+//주문 삭제
+orderRouter.delete("/cancel", async function (req, res, next) {
+  try {
+    const _id = mongoose.Types.ObjectId(req.query.orderId);
+
+    const result = await orderService.orderDelete(_id);
+
+    // 사용자 목록(배열)을 JSON 형태로 프론트에 보
+    // res.render('order/complete',{newOrder});
+    res.status(201).json(result);
   } catch (error) {
     next(error);
   }

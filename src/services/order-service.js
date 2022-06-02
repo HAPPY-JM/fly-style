@@ -62,6 +62,16 @@ class OrderService {
     const orders = await this.orderModel.findAll();
     return orders;
   }
+
+  async orderUpdate(_id, orderStatus) {
+    const updatedOrder = await this.orderModel.update(_id, orderStatus);
+    return updatedOrder;
+  }
+
+  async orderDelete(_id) {
+    const result = await this.orderModel.delete(_id);
+    return result;
+  }
 }
 
 const orderService = new OrderService(orderModel);
