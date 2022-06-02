@@ -14,24 +14,22 @@ class ProductService {
         const { name, category, price, content, brand, size } = productInfo;
     
       // 상품명 중복 확인
-        const productName = await this.productModel.findByName(name);
-        if (productName) {
-        throw new Error(
-            "이 상품명은 이미 존재합니다. 다른 상품명을 입력해 주세요."
-        );
-        }
+        const nameProduct = await this.productModel.findByName(name);
+        if (nameProduct) {
+            throw new Error(
+                "이 상품명은 이미 존재합니다. 다른 상품명을 입력해 주세요."
+            );
+        }else{
 
       // 상품명 중복은 이제 아니므로, 상품등록을 진행함
 
-      // 우선 새로운 objectId 생성
-        const productId = await mongoose.Types.objectId();
-
-        const newProductInfo = { productId, name, category, price, content, brand, size };
+        const newProductInfo = { name, category, price, content, brand, size };
 
       // db에 저장
         const createdNewProduct = await this.productModel.create(newProductInfo);
 
         return createdNewProduct;
+        }
     }
 
     //상품 목록

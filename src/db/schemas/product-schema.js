@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 
 const ProductSchema = new Schema({
-    _id:objectId,//상품Id
+    // _id:objectId,//상품Id
 
     Name:{
         type:String,
@@ -9,8 +9,9 @@ const ProductSchema = new Schema({
     },//상품이름
 
     Category:{
-        type: [String],
+        type: Array,
         required:true,
+        items: {type: String},
     },//상품카테고리
 
     Price:{
@@ -32,7 +33,8 @@ const ProductSchema = new Schema({
     // },
 
     Size:{
-        type:[String]
+        type: Array,
+        items: {type: String},
     },
 })
 
