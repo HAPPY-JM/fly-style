@@ -11,13 +11,16 @@ body{
 /* 우선 div들의 구역을 
     눈으로 보기위해 dashed로 임의 표시 */
 header{
+    float: right;
+    background-color:beige;
     border-style: dashed;
     width: 100%;
-    /* position: fixed; */
+    position: fixed;
 }
 
 /* 상단 메뉴바 구역 */
 nav{
+
     margin: 2rem;
     float:right;
 }
@@ -27,23 +30,25 @@ li{
     font-size: 16px;
     margin-right: 50px;
 }
-
 /* 여기부터 바디 */
-/* 이미지 div */
+
+#content-warp{
+    margin-top: 5rem;   
+}
+/* 이미지div */
 img{
     text-align:right;
-
+    height: 100%;
+    max-height: 600px;
 }
-/* 이미지 왼쪽 float 배치 */
+/* 이미지 float 왼쪽으로 배치 */
 #productImagediv{
     padding: 5%;
     width: 50%;
     float: left;
     border-style: dashed;
 }
-
 /* 제품인포 div */
-/* 인포 왼쪽배치 */
 #productInfodiv{
     padding:5%;
     width: 50%;
@@ -61,11 +66,22 @@ img{
     margin-top: 5rem;
 }
 
+/* bulma 버튼 색상 커스텀 */
+#buttonBuy{
+    background-color: #FFE5D9;
+    color: #9D8189;
+}
+#buttonBasket{
+    background-color: #CAF0F8;
+    color: #00B4D8;
+}
 /* 푸터 */
 /* 페이지 맨 하단에 푸터 고정기능 추가 예정 */
 footer{
     height: 50px;
     border-style: dashed;
+    /* position: absolute; */
+    /* bottom: 0 */
 }
 footer div{
     text-align: center;
