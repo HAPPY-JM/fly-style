@@ -9,7 +9,8 @@ class CategoryService {
     }
     
     // 카테고리등록
-    async addCategory(newCategoryInfo) {
+    async addCategory(categoryInfo) {
+        const {name} = categoryInfo;
     
       // 카테고리 중복 확인
         const nameCategory = await this.categoryModel.findByName(name);
@@ -20,6 +21,8 @@ class CategoryService {
         }else{
 
       // 카테고리 중복은 이제 아니므로, 카테고리등록을 진행함
+
+        const newCategoryInfo = {name};
 
       // db에 저장
         const createdNewCategory = await this.categoryModel.create(newCategoryInfo);
