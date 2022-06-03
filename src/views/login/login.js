@@ -41,12 +41,24 @@ async function handleSubmit(e) {
 
     const result = await Api.post("/api/login", data);
     const token = result.token;
-
+    const role = result.role;
+    console.log(role);
     // 로그인 성공, 토큰을 세션 스토리지에 저장
     // 물론 다른 스토리지여도 됨
+
+    if (location.pathname !== "/dkssudgktpdyadmin/" && role === "admin") {
+      return alert("다른경로로 로그인 해주십시오");
+    } else if (
+      location.pathname === "/dkssudgktpdyadmin/" &&
+      role !== "admin"
+    ) {
+      return alert("권한이 없습니다");
+    }
+
     sessionStorage.setItem("token", token);
 
     alert(`정상적으로 로그인되었습니다.`);
+
     if (location.pathname === "/dkssudgktpdyadmin/") {
       await Api.get("/admins");
     }
