@@ -34,6 +34,7 @@
       
 <!-- 여기부터 바디 -->
 <body>
+  <div id="body-warper">
     <header>
       <!-- 헤더 (상단 메뉴바) -->
         <nav>
@@ -47,7 +48,7 @@
     
     <main>
       <!-- 메인 컨텐츠(제품상세) -->
-      <div id="content-warp">
+      <div id="content-wrap">
         
         <!-- 이미지 파일을 띄우는 div -->
         <div id="productImagediv">
@@ -64,32 +65,46 @@
             <div id="productPrice">
               <p class="title is-5">30,000원</p>
             </div>
+
+            <div id="productSizewrap"></div>
+            <label class="label" for="size">사이즈</label>
+            <div class="select is-info" id="productSizeSelecter">
+               <select name="size" id="productSize">
+
+                <option value="free">FREE</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+              </select>
+            </div>
             <!-- 구매하기, 장바구니 버튼의 div-->
             <div id="productButton">
               <button class="button is-success is-light" id="buttonBuy">구매하기</button>
               <button class="button is-info is-light" id="buttonBasket">장바구니</button>
             </div>
 
-            <div>
+            <div id="productDetaildiv">
               <!-- 제품 상세설명을 가져오는 p -->
               <p id="productDetail">제품 상세설명 란<br>
                 <!-- 아래는 상세설명이 길어질 경우를 테스트하기 위함 -->
-                <!-- sdf<br>sdf<br>
-                sdf<br>sdf<br>sdfs<br>
-                sdf<br>sdf<br>sdf<br>sd<br>fs<br>df<br>sdf<br>
-                ada<br>sd<br> -->
+              
               </p>
             </div>
 
           </div>
         </div>
-      </main>
 
-      <!-- 최하단 푸터 -->
-    <footer>
-      <div>
-        <p>5팀 푸터</p>
+      </main>
+      
+      <div id="float-clear">
+
       </div>
-    </footer>
+      <!-- 최하단 푸터 -->
+      <footer>
+        <div>
+          <p>5팀 푸터</p>
+        </div>
+      </footer>
+  </div>
 </body>
 </html>
