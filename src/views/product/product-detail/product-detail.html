@@ -34,17 +34,35 @@
       
 <!-- 여기부터 바디 -->
 <body>
-  <div id="body-warper">
-    <header>
-      <!-- 헤더 (상단 메뉴바) -->
-        <nav>
-            <div>
-                <li><a>계정관리</a></li>
-                <li><a>로그아웃</a></li>
-                <li><a>장바구니</a></li>
-            </div>
-        </nav>
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="../../fly-style-logo.png" alt="logo"/>
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              <span class="icon">
+                <i class="fas fa-cart-shopping">　</i>
+              </span>
+               cart
+            </a>
+            <a class="navbar-item">
+                <span>login</span>
+              </a>
+          </div>
+        </div>
+      </div>
     </header>
+  </div>
     
     <main>
       <!-- 메인 컨텐츠(제품상세) -->
@@ -85,7 +103,9 @@
 
             <div id="productDetaildiv">
               <!-- 제품 상세설명을 가져오는 p -->
-              <p id="productDetail">제품 상세설명 란<br>
+              <p id="productDetail">제품 상세설명 란 : <br><br>
+                  베이지색상 롱 랩스커트 입니다. <br>
+                
                 <!-- 아래는 상세설명이 길어질 경우를 테스트하기 위함 -->
               
               </p>
