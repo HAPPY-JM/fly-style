@@ -42,6 +42,7 @@ html, body{
 .hero-body{
   display: flex;
   flex-direction: column;
+  padding-top: 0;
 }
 
 .main-content{
