@@ -15,7 +15,9 @@ const fileStorage = multer.diskStorage({
         cb(null ,path.join(__dirname, `../uploads`))
     },
     filename : (req,file,cb)=>{
-        cb(null ,Date.now() +"__"+file.originalname)
+        // cb(null ,Date.now() +"__"+file.originalname) 
+        // 데이터의 중복성 방지
+        cb(null,file.originalname)
     },
     // fileFilter : (req , file ,cb) =>{
     //     if(file.size > 50000){
@@ -23,7 +25,9 @@ const fileStorage = multer.diskStorage({
     //     }
     // }
 })
-const upload = multer({storage :fileStorage ,limits : {fileSize :24 * 24 * 24 }})
+// 파일 사이즈 제한 단위 계산 후 지정예정
+const upload = multer({storage :fileStorage,limits : {fileSize :1024 * 1024 * 1024 } })
+
 // multerRouter.get('/uploading',express.static('../uploads'),(req,res)=>{
 //         // const {originalname} = req.files
 //         console.log(req.body)
