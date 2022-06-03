@@ -6,14 +6,12 @@ body{
 }
 /* 헤더 */
 header {
-    height: 20%;
-    padding: 3%;
+    height: 25%;
+    padding: 5%;
     position: sticky;
     top: 0;
     background-color: white;
     z-index: 1;
-    border-bottom: 1px solid grey;
-    
 }
 
 /* 메인 화면 ( 카테고리 , 목록 리스트 )*/
