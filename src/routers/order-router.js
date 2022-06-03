@@ -134,6 +134,7 @@ orderRouter.get("/all", async function (req, res, next) {
   }
 });
 
+//주문상태변경
 orderRouter.patch("/updateStat", async function (req, res, next) {
   try {
     const _id = mongoose.Types.ObjectId(req.query.orderId);
@@ -147,6 +148,7 @@ orderRouter.patch("/updateStat", async function (req, res, next) {
     next(error);
   }
 });
+
 //주문 삭제
 orderRouter.delete("/cancel", async function (req, res, next) {
   try {
@@ -154,8 +156,7 @@ orderRouter.delete("/cancel", async function (req, res, next) {
 
     const result = await orderService.orderDelete(_id);
 
-    // 사용자 목록(배열)을 JSON 형태로 프론트에 보
-    // res.render('order/complete',{newOrder});
+    //주문삭제 결과 전송
     res.status(201).json(result);
   } catch (error) {
     next(error);
