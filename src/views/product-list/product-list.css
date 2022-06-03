@@ -1,0 +1,61 @@
+/* 전체 */
+
+body{
+    width: 100vw;
+    height: 100vh;   
+}
+/* 헤더 */
+header {
+    height: 25%;
+    padding: 5%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+/* 메인 화면 ( 카테고리 , 목록 리스트 )*/
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px 10% 10px 10%;
+}
+
+/* 카테고리 */
+main .category-list{
+    width: 15%;
+    margin: 30px;
+}
+
+main .category-list ul li {
+    border-bottom: 1px solid grey;
+    margin-bottom: .5rem;
+}
+
+/* 제품 목록 아이템 */
+
+main .section {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+main .section .product-item {
+    margin: 30px;
+    width: 230px;
+    height: 380px;
+
+}
+
+main .section .card-content{
+    padding: 0.5rem;
+}
+
+.card-content .media-content p:last-child{
+    margin-top: 10px;
+}
+
+/* footer{
+    position: relative;
+} */

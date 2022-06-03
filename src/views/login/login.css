@@ -1,8 +1,41 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.hero{
+  justify-content: space-evenly;
+}
+
+.hero-head{
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item img{
+  max-height: 4rem;
+}
+
+header{
+  margin: 0;
+  padding: 0;
+}
+
+.navbar{
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+
 .login-form-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 85vh;
+  width: 100%;
 }
 
 .login-form-box {
@@ -15,4 +48,34 @@
 
 .login-form-box .button {
   font-weight: bold;
+}
+
+.input{
+  border: none;
+}
+
+.navbar{
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+
+.hero.is-success {
+  background-color: #fff;
+  color: black;
+}
+
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+.hero-body{
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+#submitButton{
+  background-color: royalblue;
 }
