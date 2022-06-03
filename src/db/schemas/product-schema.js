@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import { CategoryModel } from "../models/category-model";
 
 const ProductSchema = new Schema({
   // _id:objectId,//상품Id

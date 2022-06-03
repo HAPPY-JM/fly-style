@@ -1,4 +1,4 @@
-import { Schema, SchemaTypes } from "mongoose";
+import { Schema } from "mongoose";
 import autoIncrement from "mongoose-auto-increment";
 
 const Address = new Schema({
@@ -10,6 +10,11 @@ const Address = new Schema({
 //주문스키마
 const OrderSchema = new Schema(
   {
+    orderId: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
     userId: {
       //주문한 유저 아이디
       type: Schema.Types.ObjectId,
@@ -20,10 +25,6 @@ const OrderSchema = new Schema(
       type: Date,
       required: true,
       default: Date.now,
-    },
-    orderStatus: {
-      type: String,
-      default: `상품준비중`,
     },
     products: {
       type: [

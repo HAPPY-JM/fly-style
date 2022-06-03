@@ -1,4 +1,4 @@
-import { productModel } from "../db";
+import { productModel, categorytModel } from "../db";
 import mongoose from "mongoose";
 
 //프로덕트라우터에서 사용
@@ -51,11 +51,11 @@ class ProductService {
         return deleteProduct;
     }
 
-    //카테고리로 상품 찾기
-    async findByCategory( category ){
-        const findProduct = await this.productModel.findByCategory(category);
-        return findProduct;
-    }
+    // //카테고리로 상품 찾기
+    // async findByCategory( category ){
+    //     const findProduct = await this.productModel.findByCategory(category);
+    //     return findProduct;
+    // }
 
     //상품 상세
     async viewProductData( productId ){

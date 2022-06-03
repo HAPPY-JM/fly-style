@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>쇼핑-n팀</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FLY your STYLE! 스타일날다">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FLY your STYLE :: 스타일날다">
+    <meta property="og:description" content="FLY your STYLE! 스타일날다">
+    <meta property="og:image" content="logo_og.png">
+    <title>FLY your STYLE :: 스타일날다</title>
     <!-- 아이콘 -->
     <link
       rel="icon"
@@ -26,55 +32,148 @@
     <link rel="stylesheet" href="home.css" />
     <script src="home.js" type="module" defer></script>
   </head>
+
+
   <body>
-    <!-- 헤더 -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="container mt-3">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="/elice-rabbit.png" width="30" height="30" />
-            <span class="has-text-link">쇼핑-n팀</span>
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-          <div class="navbar-end breadcrumb my-auto" aria-label="breadcrumbs">
-            <ul id="navbar">
-              <li><a href="/login">로그인</a></li>
-              <li><a href="/register">회원가입</a></li>
-              <li>
-                <a href="#cart" aria-current="page">
+    <section class="hero is-success is-fullheight">
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head">
+        <header class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                <img src="../fly-style-logo.png" alt="logo"/>
+              </a>
+              <span class="navbar-burger" data-target="navbarMenuHeroC">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenuHeroC" class="navbar-menu">
+              <div class="navbar-end">
+                <a class="navbar-item">
                   <span class="icon">
-                    <i class="fas fa-cart-shopping"></i>
+                    <i class="fas fa-cart-shopping">　</i>
                   </span>
-                  <span>카트</span>
+                   장바구니
                 </a>
-              </li>
-            </ul>
+                <a class="navbar-item">
+                    <span>login</span>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
+        </header>
       </div>
-    </nav>
+      <div class="tabs is-centered">
+        <ul>
+          <li><a>TOP</a></li>
+          <li><a>BOTTOM</a></li>
+          <li><a>SHOES</a></li>
+          <li><a>ACC</a></li>
+        </ul>
+      </div>
+    
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+          <div class="main-content">
+            <span>이미지 슬라이더 입니다.</span>
+          </div>
+          <div class="new-arrival">
+            <span>신상품 목록 입니다.</span>
+          </div>
+          </p>
+      </div>
+    
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot">
+        contributed by Team-5 @elice <br>
+        all rights reserved
+      </div>
+    </section>
 
-    <div class="div-container">
-      <div class="landing" id="landingDiv">
-        <h1>랜딩 페이지</h1>
+    <!-- 헤더 
+    <div id="wrap" class="wrap">
+      <header class="header">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+              <img src="../fly-style-logo.png" alt="logo"/>
+            </a>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+        
+          <div id="navbarBasicExample" class="navbar-menu">
+            
+        
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-primary">
+                    <strong>Sign up</strong>
+                  </a>
+                  <a class="button is-light">
+                    Log in
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!--<div class="logo">
+          <a class="navbar-item" href="/">
+            <img src="../fly-style-logo.png" alt="logo"/>
+          </a>
+        </div>
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="container mt-3">
+              <div class="navbar-brand">
+                <a
+                  role="button"
+                  class="navbar-burger"
+                  aria-label="menu"
+                  aria-expanded="false"
+                  data-target="navbarBasicExample"
+                >
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+      
+                <div class="navbar-end breadcrumb my-auto" aria-label="breadcrumbs">
+                  <ul id="navbar">
+                    <li><a href="/login">login</a></li>
+                    <li>
+                      <a href="#cart" aria-current="page">
+                        <span class="icon">
+                          <i class="fas fa-cart-shopping"></i>
+                        </span>
+                        <span>cart</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>            
+          </nav> 
+      </header>
+      <div class="tablist">hi</div>
+    <div class="content">
+      <div class="aside">
+        hi
       </div>
-      <div class="greeting" id="greetingDiv">
-        <h1>안녕하세요!</h1>
+      <div class="main">
+        hello
       </div>
     </div>
-
+    <div class="footer">
+      <p>contributed by team 5 @elice</p>
+    </div>
+  </div>
   </body>
 </html>
