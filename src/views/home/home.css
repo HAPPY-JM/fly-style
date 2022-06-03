@@ -1,19 +1,173 @@
-.div-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+html, body{
+  margin: 0;
   height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.landing {
-  cursor: pointer;
-  border: 1px solid red;
-  padding: 10px;
+.header {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
 
-.greeting {
-  cursor: pointer;
-  border: 1px solid blue;
-  padding: 10px;
-  margin-left: 3rem;
+.navbar-item img{
+  max-height: 4rem;
+}
+
+.hero.is-success {
+  background-color: #fff;
+  color: black;
+}
+
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+.hero{
+  justify-content: space-evenly;
+}
+
+.hero-body{
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.main-content{
+  flex: 3;
+  width: 100%;
+  background-color: #4373d9;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+ul{
+  list-style:none;
+}
+
+.slide-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: seagreen;
+  overflow: hidden;
+}
+
+.slider{
+  display: flex;
+  top: 0;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  text-align: center;
+}
+
+.item:nth-child(2){
+  width: 100%;
+  background-color: darkgray;
+}
+
+.item:nth-child(3){
+  background-color: gray;
+}
+
+.btn{
+  font-size: 50px;
+}
+.prev{
+  position:absolute;
+  top:30%;
+  left:0;
+}
+.next{
+  position:absolute;
+  top:30%;
+  right:0%;
+}
+.container ul{
+  -webkit-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+  -o-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+  transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+}
+
+.new-arrival{
+  flex:1;
+  width: 100%;
+  background-color: #ffe600;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+
+.logo img{
+    cursor: pointer;
+}
+
+.tablist {
+    height: 70px;
+
+    background-color: lemonchiffon;
+}
+
+.navbar{
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.content {
+    display: flex;
+    flex: 1;
+
+}
+
+.hero-foot{
+  color: grey;
+  background-color: lightgrey;
+}
+
+
+.aside {
+    display: flex;
+    flex: 1;
+    background-color: #bfbab078;
+}
+.main{
+    display: flex;
+    flex: 1;
+    overflow: auto;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

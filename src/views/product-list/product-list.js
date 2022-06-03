@@ -37,8 +37,4 @@ productsObj.map(e => getProductsListData(e));
 
 productSection.innerHTML = productInnerData;
 
-
-
-
-
     

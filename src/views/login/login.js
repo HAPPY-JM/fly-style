@@ -51,11 +51,11 @@ async function handleSubmit(e) {
       await Api.get("/admins");
     }
 
-    if (location.search == "null" || !location.search) {
-      //로그인버튼으로 바로 들어왔을때(쿼리없다)
-      window.location.href = "/"; //이부분은 생각하면 복잡하니까 차차 생각합쉬다...
-      return;
-    }
+    // if (location.search == "null" || !location.search) {
+    //   //로그인버튼으로 바로 들어왔을때(쿼리없다)
+    //   window.location.href = "/"; //이부분은 생각하면 복잡하니까 차차 생각합쉬다...
+    //   return;
+    // }
 
     // 로그인 성공
     //api get을 통한 userlist 불러오기는 가능한데 그냥 get userlist라우팅은 안됨(토큰 잃어버린다) 왜??
@@ -67,13 +67,19 @@ async function handleSubmit(e) {
     const string = "string";
     console.log(redirectUrl, string);
     //localhost:5000/api/userlist
-
+    location.href = document.referrer;
     //const order=await Api.get("/order/only/629880390b9398828a062283");
-    const userlist = await Api.get("/api" + redirectUrl);
+    // const userlist = await Api.get("/api" + redirectUrl);
     //router.get('/api/userlist')
     // 로그인 성공
     //api get을 통한 userlist 불러오기는 가능한데 그냥 get userlist라우팅은 안됨(토큰 잃어버린다) 왜??
     //get으로 불러온 데이터를 넣어서 routing 어떻게 할지 생각해보면 좋을듯..?
+    console.log(userlist);
+    // 기본 페이지로 이동
+    // 원래 코드
+    // window.location.href = "/";
+
+    //window.location.href = "/api/userlist";
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);

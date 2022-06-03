@@ -1,4 +1,4 @@
-import { Schema, SchemaTypes } from "mongoose";
+import { Schema } from "mongoose";
 import autoIncrement from "mongoose-auto-increment";
 
 const Address = new Schema({
@@ -9,8 +9,13 @@ const Address = new Schema({
 
 const OrderSchema = new Schema(
   {
+    orderId: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
     userId: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.objectId,
       required: true,
       ref: "users",
     },
@@ -18,10 +23,6 @@ const OrderSchema = new Schema(
       type: Date,
       required: true,
       default: Date.now,
-    },
-    orderStatus: {
-      type: String,
-      default: `상품준비중`,
     },
     products: {
       type: [
@@ -51,6 +52,9 @@ const OrderSchema = new Schema(
     timestamps: true,
   }
 );
+
+//유저별로 주문목록 검색시 인덱싱으로 검색속도 향상
+OrderSchema.index({ userId: 1 });
 
 // OrderSchema.plugin(autoIncrement.plugin, {
 //   model: "orders",
