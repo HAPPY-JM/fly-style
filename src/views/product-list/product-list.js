@@ -6,35 +6,34 @@ const response = await fetch(url);
 const data = await response.json();
 
 const productsObj = data.products;
-//console.log(JSON.parse(productJson));
-console.log(productsObj);
 
+// 상품 목록에 넣을 데이터 변수
 let productInnerData = "";
 
-const productDataDiv = `
-<div class="card product-item">
-<a href="#">
-    <div class="card-image">
-        <figure class="image is-square">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-        </figure>
-    </div>
-    <div class="card-content">
-        <div class="media">
-            <div class="media-content">
-                <p class="title is-4">Nike</p>
-                <p class="subtitle is-6">Jordan 1 Retro High OG Black Mocha</p>
-                <p class="title is-5">12000원</p>
+function getProductsListData(e){
+    productInnerData +=  `
+    <div class="card product-item">
+    <a href="#">
+        <div class="card-image">
+            <figure class="image is-square">
+                <img src="${e.imgSrc}" alt="Placeholder image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-5">${e.name}</p>
+                    <p class="subtitle is-7">${e.content}</p>
+                    <p class="title is-6">${e.price}</p>
+                </div>
             </div>
         </div>
+    </a>
     </div>
-</a>
-</div>
-`;
-
-for(let i = 0 ; i < 10 ; i++){
-    productInnerData += productDataDiv;
+    `
 }
+
+productsObj.map(e => getProductsListData(e));
 
 productSection.innerHTML = productInnerData;
 
