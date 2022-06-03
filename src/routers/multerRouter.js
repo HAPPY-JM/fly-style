@@ -4,7 +4,10 @@ import path from "path";
 import aws from "aws-sdk"
 import multerS3 from "multer-s3"
 const multerRouter = express.Router();
-aws.config.loadFromPath(path.join(__dirname + "../../config/s3.json"))
+
+
+// multer-s3 모듈 이용 기능 구현중 
+/* aws.config.loadFromPath(path.join(__dirname + "../../config/s3.json"))
 
 const s3 = new aws.S3();
 
@@ -28,8 +31,12 @@ multerRouter.post('/single' , upload.single('image'),async(req,res)=>{
     await img.save()
     res.staus(200).json({img : req.file.location})
 })
+ */
 
 
+
+
+// multer 모듈이용 기능 구현
 /* 
 const multerRouter = express.Router();
 
