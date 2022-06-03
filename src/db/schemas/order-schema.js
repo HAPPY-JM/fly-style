@@ -29,10 +29,10 @@ const OrderSchema = new Schema(
         {
           quantity: Number,
           productId: {
-            type: Schema.Types.objectId,
-            ref: "products",
+            type: Schema.Types.ObjectId,
+            ref: "product",
           },
-        }.populate("productId"),
+        },
       ],
       required: true,
     },
@@ -53,10 +53,13 @@ const OrderSchema = new Schema(
   }
 );
 
-OrderSchema.plugin(autoIncrement.plugin, {
-  model: "orders",
-  field: "orderId",
-  startAt: 1,
-});
+//유저별로 주문목록 검색시 인덱싱으로 검색속도 향상
+OrderSchema.index({ userId: 1 });
+
+// OrderSchema.plugin(autoIncrement.plugin, {
+//   model: "orders",
+//   field: "orderId",
+//   startAt: 1,
+// });
 
 export { OrderSchema };
