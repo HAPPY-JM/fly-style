@@ -47,6 +47,6 @@ export class CategoryModel {
 }
 
 
-const categorytModel = new CategoryModel();
+const categoryModel = new CategoryModel();
 
-export { categorytModel };
+export { categoryModel };
