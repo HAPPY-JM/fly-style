@@ -52,6 +52,9 @@ const OrderSchema = new Schema(
   }
 );
 
+//유저별로 주문목록 검색시 인덱싱으로 검색속도 향상
+OrderSchema.index({ userId: 1 });
+
 // OrderSchema.plugin(autoIncrement.plugin, {
 //   model: "orders",
 //   field: "orderId",
