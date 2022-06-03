@@ -1,4 +1,4 @@
-import { productModel } from "../db";
+import { productModel, categorytModel } from "../db";
 import mongoose from "mongoose";
 
 //프로덕트라우터에서 사용
