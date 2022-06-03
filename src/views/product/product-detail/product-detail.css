@@ -134,16 +134,17 @@ img{
     padding: 5% 10% 5% 10%;
     background-color: #d6e4f7;
     color: #4e7dc3;
-    outline: none;
-    box-shadow:none;
 }
 #buttonBasket{
     margin: 5%;
     padding: 5% 10% 5% 10%;
-    background-color: #CAF0F8;
-    color: #00B4D8;
-    outline: none;
-    box-shadow:none;
+    background-color: #b1c5e1;
+    color: #395f97;
+}
+
+#productSize{
+    border-color: #395f97;
+
 }
 /* 푸터 */
 /* 페이지 맨 하단에 푸터 고정기능 추가 예정 */
