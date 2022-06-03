@@ -7,14 +7,16 @@ const Address = new Schema({
   address2: String,
 });
 
+//주문스키마
 const OrderSchema = new Schema(
   {
     userId: {
+      //주문한 유저 아이디
       type: Schema.Types.ObjectId,
       required: true,
       ref: "users",
     },
-    orderdate: {
+    orderDate: {
       type: Date,
       required: true,
       default: Date.now,

@@ -42,6 +42,7 @@ class OrderService {
     return createdNewOrder;
   }
 
+  //카트에 주문 한개씩 추가
   addCart(item) {
     this.cart.push(item);
     return this.cart;
@@ -53,21 +54,25 @@ class OrderService {
     return userOrderList;
   }
 
+  //아이디별 주문 조회
   async findById(_id) {
     const order = await this.orderModel.findById(_id);
     return order;
   }
 
+  //모든주문조회
   async orderLists() {
     const orders = await this.orderModel.findAll();
     return orders;
   }
 
+  //오더 상태 업데이트
   async orderUpdate(_id, orderStatus) {
     const updatedOrder = await this.orderModel.update(_id, orderStatus);
     return updatedOrder;
   }
 
+  //오더 취소
   async orderDelete(_id) {
     const result = await this.orderModel.delete(_id);
     return result;
