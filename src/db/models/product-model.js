@@ -12,13 +12,13 @@ export class ProductModel {
 
   async findByName(name) {
     //특정 이름의 상품 찾기
-    const nameProduct = await Product.findOne({ name });
+    const nameProduct = await Product.findOne({ name }).populate('category');
     return nameProduct;
   }
 
   async findById(productId) {
     //특정 아이디를 가진 상품 찾기
-    const idProduct = await Product.findOne({ _id:productId });
+    const idProduct = await Product.findOne({ _id:productId }).populate('category');
     return idProduct;
   }
 
@@ -30,7 +30,7 @@ export class ProductModel {
 
   async findAll() {
     //모든 상품 가져오기
-    const allProducts = await Product.find({});
+    const allProducts = await Product.find({}).populate('category');
     return allProducts;
   }
 
