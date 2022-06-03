@@ -4,3 +4,5 @@ yarn.lock
 **product
 *product-detail/
 
+### my ignore ###
+src/config/s3.json
