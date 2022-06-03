@@ -7,28 +7,33 @@ class CategoryService {
     constructor(categoryModel) {
         this.categoryModel = categoryModel;
     }
-
-    // 카테고리 생성
-    async addCategory(categoryName) {
-        // 객체 destructuring
-        const name = categoryName;
-
-        // 카테고리 중복 확인
+    
+    // 카테고리등록
+    async addCategory(newCategoryInfo) {
+    
+      // 카테고리 중복 확인
         const nameCategory = await this.categoryModel.findByName(name);
         if (nameCategory) {
             throw new Error(
-                "이 카테고리는 이미 존재합니다. 다른 상품명을 입력해 주세요."
+                "이 카테고리는 이미 존재합니다. 다른 카테고리를 입력해 주세요."
             );
         }else{
 
-        // 카테고리 중복은 이제 아니므로, 카테고리 생성을 진행함
+      // 카테고리 중복은 이제 아니므로, 카테고리등록을 진행함
 
-        // db에 저장
-        const createdNewCategory = await this.categoryModel.create(name);
+      // db에 저장
+        const createdNewCategory = await this.categoryModel.create(newCategoryInfo);
 
         return createdNewCategory;
         }
     }
+
+    //카테고리 목록
+    async categoryList(){
+        const categories = await this.categoryModel.findAll();
+        return categories;
+    }
+
 
     //카테고리 수정
     async editCategory( categoryId, update ) {
