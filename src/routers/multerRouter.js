@@ -46,11 +46,36 @@ const upload = multer({storage :fileStorage,limits : {fileSize :1024 * 1024 * 10
 //       console.log(originalname) 
 //       res.json({succes : true })
 // })
+// multerRouter.get('/img',(req,res)=>{
+//     res.sendFile(req.files)
+// })
+
 multerRouter.get('/read',(req,res)=>{
     res.sendFile(path.join(__dirname,"index.html"))
 })
-multerRouter.post('/multiple', upload.array("files",4),(req,res)=>{
+
+multerRouter.post('/multiple', upload.array("files",4),async(req,res)=>{
     console.log(req.files)
+    // const { path ,filename} = req.files
+    // console.log(path)
+    // const data = req.files
+    // console.log(req.files)
+    const data = req.files;
+    // console.log(data.map(el=>el.path))
+    const pathImage = data.map(el=>el,path)
+    console.log(pathImage)
+    // function a(data) {
+    //     if(Array.isArray(data)){
+    //        for(let i = 0; i < data.length; i )
+    //         Object.values()
+    //     }
+    //     console.log(a(data))
+    // }
+    // let pathData = path
+    // console.log(req.files[0][path])
+
+    // console.log(path.dirname("req.files.path"))
+    //path.normalize() 경로확인
     res.send('success')
 })
 export { multerRouter }
