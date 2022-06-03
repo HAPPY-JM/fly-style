@@ -24,6 +24,10 @@ html, body{
   max-height: 4rem;
 }
 
+#login_status{
+  color: lightslategray;
+}
+
 #login_status:hover{
   background-color: #fff;
   cursor: default;
@@ -52,12 +56,10 @@ html, body{
   
 }
 
-
-
 .order_control_box{
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 3rem;
   justify-content: center;
   align-items: center;
 }
@@ -65,7 +67,66 @@ html, body{
 .user_control_box{
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 3rem;
   justify-content: center;
   align-items: center;
 }
+
+.button.is-link.is-outlined{
+  background-color: transparent;
+  border-color: lightgrey;
+  color: lightslategray;
+}
+
+#order-control{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#order-control:hover{
+  background-color: #8AADEC;
+  border: none;
+}
+
+#user-control{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#user-control:hover{
+  background-color: #8AADEC;
+  border: none;
+}
+
+.order_control_description{
+  text-transform: uppercase;
+  line-height: 2;
+  background-image: linear-gradient(transparent calc(100% - 3px), #8ea0ff 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.order_control_description.color {
+  background-image: linear-gradient(transparent 60%, #6448ff 40%);
+}
+
+.order_control_description:hover{
+  background-size: 100% 100%;
+}
+
+.user_control_description{
+  text-transform: uppercase;
+  line-height: 2;
+  background-image: linear-gradient(transparent calc(100% - 3px), #8ea0ff 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.user_control_description.color {
+  background-image: linear-gradient(transparent 60%, #6448ff 40%);
+}
+
+.user_control_description:hover{
+  background-size: 100% 100%;
+}
+

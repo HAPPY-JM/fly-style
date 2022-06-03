@@ -30,8 +30,8 @@
   crossorigin="anonymous"
 ></script>
 <!-- 커스텀 css, js -->
-<link rel="stylesheet" href="admin-control.css" />
-<script src="home.js" type="module" defer></script>
+<link rel="stylesheet" href="admin-order-control.css" />
+<script src="admin-order-control.js" type="module" defer></script>
 </head>
 
 <body>
@@ -63,7 +63,7 @@
               </a>
               <a class="navbar-item">
                   <span>logout</span>
-                </a>
+              </a>
             </div>
           </div>
         </div>
@@ -74,14 +74,22 @@
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
         <div class="main-content">
-          
-          <div class="buttons are-medium">
-            <button class="button is-link is-outlined" id="order-control">
-              회원 관리
-            </button>
-            <button class="button is-link is-outlined" id="user-control">
-              주문 관리
-            </button>
+          <div class="title">주문 목록</div>
+          <hr />
+          <div class="container is-max-widescreen">
+            <div class="notification is-primary">
+              <div class="order-container">
+                <div class="orders-top">
+                  <div class="date">DATE</div>
+                  <div class="order">ORDER</div>
+                  <div class="quantity">QAUNTITY</div>
+                  <div class="status">STATUS</div>
+                  <div class="delete">CANCLE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           </div>
         </div>
         </p>
