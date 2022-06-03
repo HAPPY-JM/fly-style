@@ -53,3 +53,19 @@ html, body{
 }
 
 
+
+.order_control_box{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_control_box{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
