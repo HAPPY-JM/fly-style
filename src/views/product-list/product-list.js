@@ -1,6 +1,13 @@
 const productSection = document.querySelector('.section');
 
+// mock data 생성하여(./product.json) 가져온 데이터를 화면에 뿌려준다. 
+const url = './products.json';
+const response = await fetch(url);
+const data = await response.json();
 
+const productsObj = data.products;
+//console.log(JSON.parse(productJson));
+console.log(productsObj);
 
 let productInnerData = "";
 
@@ -32,15 +39,7 @@ for(let i = 0 ; i < 10 ; i++){
 productSection.innerHTML = productInnerData;
 
 
-// mock data 생성하여(./product.json) 가져온 데이터를 화면에 뿌려준다. 
-const productJson = fetch('./product.json')
-.then((res) => res.json())
-.then((data)=> data)
-.then((result) =>result.products);
 
-
-//console.log(JSON.parse(productJson));
-console.log(productJson);
 
 
     
