@@ -9,7 +9,7 @@ export class OrderModel {
     const createdNewOrder = await Order.create(orderInfo);
     return createdNewOrder;
   }
-  //주문 완료
+
   //주문 조회
   async findById(_id) {
     const orderList = await Order.findOne({ _id })

@@ -1,16 +1,13 @@
 import * as Api from "/api.js";
-// import { randomId } from "/useful-functions.js";
 
 // 요소(element), input 혹은 상수
 const token = sessionStorage.getItem("token");
-console.log(token);
+
 const login = document.getElementById("login");
 const userDetail = document.getElementById("userDetail");
 const productPrice = document.getElementById("productPrice");
 const productName = document.getElementById("productName");
 const productDetail = document.getElementById("productDetail");
-
-console.log(login);
 
 addAllElements();
 addAllEvents();
@@ -39,7 +36,7 @@ function insertTextToLanding(data) {
   }
 
   productDetail.innerHTML = data.content;
-  productPrice.innerText = `${data.price}원`;
+  productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
 }
 
@@ -52,9 +49,11 @@ function loginout() {
   }
 }
 
+//'api/product/detail/:id'
+//서버에 상품 디테일 요청
 async function getDataFromApi() {
-  // 예시 URI입니다. 현재 주어진 프로젝트 코드에는 없는 URI입니다.
   const URLSearch = new URLSearchParams(location.search);
+  //(?id=여기부분)
   const id = URLSearch.get("id");
   const data = await Api.get(`/api/product/detail`, id);
   console.log(data);

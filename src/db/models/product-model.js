@@ -12,13 +12,15 @@ export class ProductModel {
 
   async findByName(name) {
     //특정 이름의 상품 찾기
-    const nameProduct = await Product.findOne({ name }).populate('category');
+    const nameProduct = await Product.findOne({ name }).populate("category");
     return nameProduct;
   }
 
   async findById(productId) {
     //특정 아이디를 가진 상품 찾기
-    const idProduct = await Product.findOne({ _id:productId }).populate('category');
+    const idProduct = await Product.findOne({ _id: productId }).populate(
+      "category"
+    );
     return idProduct;
   }
 
@@ -30,7 +32,7 @@ export class ProductModel {
 
   async findAll() {
     //모든 상품 가져오기
-    const allProducts = await Product.find({}).populate('category');
+    const allProducts = await Product.find({}).populate("category");
     return allProducts;
   }
 
@@ -40,21 +42,24 @@ export class ProductModel {
   //   return priceProduct;
   // }
 
-  async editProduct( productId, update ) {
+  async editProduct(productId, update) {
     //상품 정보 수정(상품명, 상품카테고리, 상품제조사, 상품가격, 상품설명, 사이즈 변경)
-    const filter = { _id:productId };
+    const filter = { _id: productId };
     const option = { returnOriginal: false };
-    
-    const updatedProduct = await Product.findOneAndUpdate(filter, update, option);
+
+    const updatedProduct = await Product.findOneAndUpdate(
+      filter,
+      update,
+      option
+    );
     return updatedProduct;
   }
 
-  async deleteProduct( productId ) {
-      //상품 삭제
-      const deleteProduct = await Product.deleteOne({ _id:productId });
-      return deleteProduct;
+  async deleteProduct(productId) {
+    //상품 삭제
+    const deleteProduct = await Product.deleteOne({ _id: productId });
+    return deleteProduct;
   }
-
 }
 
 const productModel = new ProductModel();

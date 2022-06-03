@@ -4,7 +4,7 @@ import { userService } from "../services";
 
 const adminRouter = Router();
 
-adminRouter.get("/userlist", async function (req, res, next) {
+adminRouter.get("/userList", async function (req, res, next) {
   try {
     // 전체 사용자 목록을 얻음
     const users = await userService.getUsers();

@@ -71,8 +71,8 @@ class UserService {
 
     // 2개 프로퍼티를 jwt 토큰에 담음
     const token = jwt.sign({ userId: user._id, role: user.role }, secretKey);
-
-    return { token };
+    const role = user.role;
+    return { token, role };
   }
 
   // 사용자 목록을 받음.
