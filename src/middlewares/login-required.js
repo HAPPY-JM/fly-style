@@ -9,11 +9,11 @@ function loginRequired(req, res, next) {
   // 토큰이 "null" 일 경우, login_required 가 필요한 서비스 사용을 제한함.
   if (!userToken || userToken === "null") {
     console.log("서비스 사용 요청이 있습니다.하지만, Authorization 토큰: 없음");
-    res.status(403).json({
-      result: "forbidden-approach",
-      reason: "로그인한 유저만 사용할 수 있는 서비스입니다.",
-    });
-
+    // res.status(403).json({
+    //   result: "forbidden-approach",
+    //   reason: "로그인한 유저만 사용할 수 있는 서비스입니다.",
+    // });
+    res.redirect(`/login?url=${req.url}`); //loginrequired
     return;
   }
 
@@ -24,10 +24,13 @@ function loginRequired(req, res, next) {
     const secretKey = process.env.JWT_SECRET_KEY || "secret-key";
     const jwtDecoded = jwt.verify(userToken, secretKey); //정상적인 토큰인지 secretKey를 가지고 검증
 
-    const userId = jwtDecoded.userId;
+    const userId = jwtDecoded.userId; //mongodb user.id
+    const userRole = jwtDecoded.role; //mongodb user.role
 
     // 라우터에서 req.currentUserId를 통해 유저의 id에 접근 가능하게 됨
     req.currentUserId = userId; //헤더에 토큰 currentUserId에 담아서(?) 다음 미들웨어에(?) 전달
+    req.currentUserRole = userRole; //admin 넣는다
+    console.log(userRole);
 
     next();
   } catch (error) {
