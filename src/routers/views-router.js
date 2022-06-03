@@ -12,6 +12,10 @@ viewsRouter.use("/login", serveStatic("login"));
 viewsRouter.use("/dkssudgktpdyadmin", serveStatic("login"));
 viewsRouter.use("/product/detail", serveStatic("product_detail"));
 
+viewsRouter.use("/product-list", serveStatic("product-list"));
+viewsRouter.use("/cart", serveStatic("cart"));
+
+
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));
 
@@ -19,6 +23,7 @@ viewsRouter.use("/", serveStatic(""));
 // 이 때 ${resource}.html 을 기본 파일로 설정함.
 function serveStatic(resource) {
   //view의 기본 디렉터리 설정
+  // console.log(__dirname);
   const resourcePath = path.join(__dirname, `../views/${resource}`);
   const option = {
     index: `${resource}.html`,
