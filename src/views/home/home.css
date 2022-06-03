@@ -35,10 +35,13 @@ html, body{
   color: black;
 }
 
+.hero{
+  justify-content: space-evenly;
+}
+
 .hero-body{
   display: flex;
   flex-direction: column;
-  padding-top: 0;
 }
 
 .main-content{
@@ -137,7 +140,8 @@ ul{
 }
 
 .hero-foot{
-  color: #cdcdcd;
+  color: grey;
+  background-color: lightgrey;
 }
 
 
