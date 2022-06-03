@@ -1,4 +1,7 @@
 # Dependencies
 node_modules
 yarn.lock
-.DS_Store
+DS_Store
+
+### my ignore ###
+src/config/s3.json
