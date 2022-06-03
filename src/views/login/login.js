@@ -74,6 +74,12 @@ async function handleSubmit(e) {
     // 로그인 성공
     //api get을 통한 userlist 불러오기는 가능한데 그냥 get userlist라우팅은 안됨(토큰 잃어버린다) 왜??
     //get으로 불러온 데이터를 넣어서 routing 어떻게 할지 생각해보면 좋을듯..?
+    console.log(userlist);
+    // 기본 페이지로 이동
+    // 원래 코드
+    // window.location.href = "/";
+
+    //window.location.href = "/api/userlist";
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);

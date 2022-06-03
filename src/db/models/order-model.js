@@ -17,7 +17,6 @@ export class OrderModel {
       .populate(["userId", "products.productId"]);
     return orderList;
   }
-
   //유저별로 주문조회
   async findByuserId(userId) {
     const userOrderList = await Order.find({ userId })
@@ -52,7 +51,3 @@ export class OrderModel {
     return result;
   }
 }
-
-const orderModel = new OrderModel();
-
-export { orderModel };

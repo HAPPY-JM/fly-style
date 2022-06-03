@@ -24,12 +24,12 @@ function loginRequired(req, res, next) {
     const secretKey = process.env.JWT_SECRET_KEY || "secret-key";
     const jwtDecoded = jwt.verify(userToken, secretKey); //정상적인 토큰인지 secretKey를 가지고 검증
 
-    const userId = jwtDecoded.userId; //mongodb user.id
-    const userRole = jwtDecoded.role; //mongodb user.role
+    const userId = jwtDecoded.userId;
+    const userRole = jwtDecoded.role;
 
     // 라우터에서 req.currentUserId를 통해 유저의 id에 접근 가능하게 됨
     req.currentUserId = userId; //헤더에 토큰 currentUserId에 담아서(?) 다음 미들웨어에(?) 전달
-    req.currentUserRole = userRole; //admin 넣는다
+    req.currentUserRole = userRole;
     console.log(userRole);
 
     next();
