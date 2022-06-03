@@ -72,12 +72,12 @@ productRouter.delete('/:id', loginRequired, adminRequired, async(req, res) => {
     res.redirect('/');
 });
 
-//카테고리별 상품
-productRouter.get('/:category', async(req, res) => {
-    const category = req.params.category;
-    const categoryProduct = await productService.findByCategory(category);
-    res.json(categoryProduct);
-});
+// //카테고리별 상품
+// productRouter.get('/:category', async(req, res) => {
+//     const category = req.params.category;
+//     const categoryProduct = await productService.findByCategory(category);
+//     res.json(categoryProduct);
+// });
 
 
 //상품 상세 보기
