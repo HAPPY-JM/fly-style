@@ -1,7 +1,36 @@
-import express from "express";
+import express, { Router } from "express";
 import multer from "multer";
 import path from "path";
+import aws from "aws-sdk"
+import multerS3 from "multer-s3"
+const multerRouter = express.Router();
+aws.config.loadFromPath(path.join(__dirname + "../../config/s3.json"))
 
+const s3 = new aws.S3();
+
+const upload = multer({
+    storage : multerS3({
+        s3 :s3,
+        bucket : 'product imges',
+        acl : 'public-read',
+        contentType : multerS3.AUTO_CONTENT_TYPE,
+        key : function (req,file ,cb ) {
+            cb(null ,`${Date.now}_${file.originalname}`)
+        }
+    })
+})
+multerRouter.get('/read',(req,res)=>{
+    res.sendFile(path.join(__dirname,"form-data.html"))
+})
+
+multerRouter.post('/single' , upload.single('image'),async(req,res)=>{
+    const img = req.imges;
+    await img.save()
+    res.staus(200).json({img : req.file.location})
+})
+
+
+/* 
 const multerRouter = express.Router();
 
 // const uploads = multer({
@@ -19,11 +48,6 @@ const fileStorage = multer.diskStorage({
         // 데이터의 중복성 방지
         cb(null,file.originalname)
     },
-    // fileFilter : (req , file ,cb) =>{
-    //     if(file.size > 50000){
-    //         cb(null,false)
-    //     }
-    // }
 })
 // 파일 사이즈 제한 단위 계산 후 지정예정
 const upload = multer({storage :fileStorage,limits : {fileSize :1024 * 1024 * 1024 } })
@@ -33,49 +57,22 @@ const upload = multer({storage :fileStorage,limits : {fileSize :1024 * 1024 * 10
 //         console.log(req.body)
 //     res.json({succes : true})
 // })
-// multerRouter.post("/onec/upload", uploads.single("file"),(req, res, next)=>{
-//     const { originalname } = req.file
-//       console.log(originalname)    
-//       res.json({파일이름 : originalname   })
-//     //프론트 단에 파일 요청시 originalname 사용
-// })
-// // 배열로 받아오고 받아온 인덱스? 
-// multerRouter.post("/many/upload", uploads.array("files",4),(req, res, next)=>{
-//     console.log(req.files)
-//     const { originalname } = req.files
-//       console.log(originalname) 
-//       res.json({succes : true })
-// })
-// multerRouter.get('/img',(req,res)=>{
-//     res.sendFile(req.files)
-// })
-
 multerRouter.get('/read',(req,res)=>{
-    res.sendFile(path.join(__dirname,"index.html"))
+    res.sendFile(path.join(__dirname,"form-data.html"))
 })
-
+multerRouter.get('/read',(req,res)=>{
+    res.sendFile("../uploads/:path")
+})
 multerRouter.post('/multiple', upload.array("files",4),async(req,res)=>{
     console.log(req.files)
-    // const { path ,filename} = req.files
-    // console.log(path)
-    // const data = req.files
-    // console.log(req.files)
     const data = req.files;
-    // console.log(data.map(el=>el.path))
     const pathImage = data.map(el=>el,path)
     console.log(pathImage)
-    // function a(data) {
-    //     if(Array.isArray(data)){
-    //        for(let i = 0; i < data.length; i )
-    //         Object.values()
-    //     }
-    //     console.log(a(data))
-    // }
-    // let pathData = path
-    // console.log(req.files[0][path])
-
-    // console.log(path.dirname("req.files.path"))
-    //path.normalize() 경로확인
     res.send('success')
 })
+ */
+
+
+
+
 export { multerRouter }
