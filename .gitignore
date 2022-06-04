@@ -2,7 +2,7 @@
 node_modules
 yarn.lock
 **product
-*product-detail/
+*product_detail
 
 ### my ignore ###
 src/config/s3.json
