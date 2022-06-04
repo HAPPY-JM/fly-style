@@ -6,7 +6,7 @@ const token = sessionStorage.getItem("token");
 const login = dom("#login");
 const productPrice = dom("#productPrice");
 const productName = dom("#productName");
-const productDetail = dom("productDetail");
+const productDetail = dom("#productDetail");
 
 getProductRender();
 addAllEvents();
@@ -49,6 +49,6 @@ async function getDataFromApi() {
   const URLSearch = new URLSearchParams(location.search);
   //(?id=여기부분)
   const id = URLSearch.get("id");
-  const data = await Api.get(`/api/product/detail`, id);
+  const data = await Api.get(`/api/product`, id);
   return data;
 }
