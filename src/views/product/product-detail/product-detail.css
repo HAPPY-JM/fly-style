@@ -154,14 +154,14 @@ img{
 }
 
 footer{
-    color: grey;
-    background-color: lightgrey;
+    color: rgb(149, 172, 208);
+    background-color: rgb(232, 242, 249);
     position: relative;
     bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
-
+    padding: 8px;
 }
 
   
