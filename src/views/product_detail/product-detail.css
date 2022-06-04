@@ -1,12 +1,28 @@
 /* 페이지 상단 여백을 지우기 위함, 푸터 배치를 위함 */
 html, body{
-    height: 100%;
-}
+
+    margin: 0;
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    font-family: 'NEXON Lv1 Gothic OTF';
+  }
 
 body{
     display: flex;
     flex-direction: column;
 }
+
+/* body전체를 한번 감싸는 div */
+#body-wraper{
+
+    background-color: azure;    
+    width: 100%;
+    height:auto;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 50px;
+}
+
 /* 헤더 */
 /* 우선 div들의 구역을 
     눈으로 보기위해 dashed로 임의 표시 */
@@ -68,6 +84,143 @@ footer{
     border-style: dashed;
 }
 footer div{
-    text-align: center;
-    padding: 1rem;
+
+    float: right;
+    background-color:#d9f2f7;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    padding-bottom: 5px;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
 }
+
+
+/* 상단 메뉴바 구역 */
+
+.navbar{
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+    position: fixed;
+  }
+  
+  .navbar-menu{
+    margin: 1rem;
+  }
+  
+  .navbar-item{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-item img{
+    max-height: 4rem;
+  }
+  
+  .hero.is-success {
+    background-color: #fff;
+    color: black;
+  }
+  
+  .hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+    background-color: #e2e2e2;
+    color: black;
+  }
+  
+  .hero{
+    justify-content: space-evenly;
+  }
+  
+  
+  .hero-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    
+  }
+  
+/* 여기부터 바디 */
+
+#content-wrap{
+    margin-top: 150px;   
+}
+/* 이미지div */
+img{
+
+    height: 100%;
+    max-height: 400px;
+}
+/* 이미지 float 왼쪽으로 배치 */
+#productImagediv{
+    position: fixed;
+    text-align:right;
+    padding:5%;
+    width: 50%;
+    float: left;
+
+}
+/* 제품인포 div */
+#productInfodiv{
+    padding:5% 5% 5% 7%;
+    width: 50%;
+    float: right;
+    height: auto;
+    border-left: 2px solid rgb(215, 215, 215);
+    overflow: auto;
+} 
+#productName{
+    font-size: 1.5rem;
+}
+
+/* top간격을 같은 비율로 가격, 버튼, 상세 */
+#productPrice, #productButton, #productDetail{
+    margin-top: 50px;
+}
+/* 상세부분은 간격을 더 줌 */
+#productDetaildiv{
+    margin-top: 50px;
+}
+#productSizewrap{
+    margin-top: 30px;
+}
+#productButton{
+    text-align: center;
+    margin-top: 60px;
+}
+/* bulma 버튼 색상 커스텀 */
+#buttonBuy{
+    margin: 5%;
+    padding: 5% 10% 5% 10%;
+    background-color: #d6e4f7;
+    color: #4e7dc3;
+}
+#buttonBasket{
+    margin: 5%;
+    padding: 5% 10% 5% 10%;
+    background-color: #b1c5e1;
+    color: #395f97;
+}
+
+#productSize{
+    border-color: #395f97;
+
+}
+/* 푸터 */
+/* 페이지 맨 하단에 푸터 고정기능 추가 예정 */
+#float-clear{
+    clear: both;
+
+}
+
+footer{
+    color: rgb(149, 172, 208);
+    background-color: rgb(232, 242, 249);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 8px;
+}
+
