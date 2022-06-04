@@ -10,14 +10,12 @@ const categoryRouter = Router();
 //카테고리 등록 (login 확인, admin 확인)
 categoryRouter.post('/add', loginRequired, adminRequired, async (req, res, next) => {
     try{
-        {const { name } = req.body;
+        const { name } = req.body;
 
-        const newCategory = await categoryService.addCategory({
-            name
-        });
+        const newCategory = await categoryService.addCategory({name});
 
         res.json(newCategory);
-        }
+        
     }catch(err){
         next(err);
     }

@@ -1,9 +1,7 @@
 import { Router } from "express";
 
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
-import { loginRequired } from "../middlewares";
-
-import { adminRequired } from '../middlewares';
+import { loginRequired,adminRequired } from "../middlewares";
 import { productService, categoryService } from "../services";
 
 
@@ -12,7 +10,7 @@ const productRouter = Router();
 //상품 등록 (login 확인, admin 확인)
 productRouter.post("/add",/*loginRequired, adminRequired,*/ async (req, res, next) => {
     try {
-        {
+        
         const { name, category, price, content, brand, size } = req.body;
 
         const newProduct = await productService.addProduct({
@@ -25,12 +23,12 @@ productRouter.post("/add",/*loginRequired, adminRequired,*/ async (req, res, nex
         });
 
         res.redirect(`/product/${newProduct._id}`);
-        }
+        
     } catch (err) {
         next(err);
     }
-    }
-);
+    
+});
 
 //상품 목록
 productRouter.get("/", async (req, res) => {
