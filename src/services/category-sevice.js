@@ -18,7 +18,7 @@ class CategoryService {
             throw new Error(
                 "이 카테고리는 이미 존재합니다. 다른 카테고리를 입력해 주세요."
             );
-        }else{
+        }
 
       // 카테고리 중복은 이제 아니므로, 카테고리등록을 진행함
 
@@ -28,7 +28,7 @@ class CategoryService {
         const createdNewCategory = await this.categoryModel.create(newCategoryInfo);
 
         return createdNewCategory;
-        }
+        
     }
 
     //카테고리 목록
