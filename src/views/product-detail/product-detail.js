@@ -1,17 +1,12 @@
 import * as Api from "/api.js";
+import dom from "/dom.js";
 
 // 요소(element), input 혹은 상수
 const token = sessionStorage.getItem("token");
-
-const login = document.getElementById("login");
-const userDetail = document.getElementById("userDetail");
-
-// const login = document.getElementById("login");
-// const userDetail = document.getElementById("userDetail");
-
-const productPrice = document.getElementById("productPrice");
-const productName = document.getElementById("productName");
-const productDetail = document.getElementById("productDetail");
+const login = dom("#login");
+const productPrice = dom("#productPrice");
+const productName = dom("#productName");
+const productDetail = dom("productDetail");
 
 addAllElements();
 addAllEvents();
