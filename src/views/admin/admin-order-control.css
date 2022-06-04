@@ -47,61 +47,24 @@ html, body{
   justify-content: space-evenly;
 }
 
-
 .hero-body{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding-top: 0;
-  
 }
 
-.login-form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 85vh;
-  width: 100%;
-}
-
-.login-form-box {
-  width: 30rem;
-}
-
-.login-form-box .title {
-  text-align: center;
-}
-
-.login-form-box .button {
-  font-weight: bold;
-}
-
-.input{
-  border: none;
-}
-
-.navbar{
-  width: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
-}
-
-
-.hero.is-success {
-  background-color: #fff;
-  color: black;
-}
-
-.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
-  background-color: #e2e2e2;
-  color: black;
-}
-
-.hero-body{
+.main-content{
   display: flex;
   flex-direction: column;
-  padding-top: 0;
+  color: slategray;
+  min-width: 1000px;
 }
 
-#submitButton{
-  background-color: royalblue;
+.hero.is-success .title{
+  color: slategray;
+}
+
+.order-container{
+  min-width: 100%;
 }

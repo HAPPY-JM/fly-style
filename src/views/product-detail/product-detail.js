@@ -1,37 +1,31 @@
 import * as Api from "/api.js";
+import dom from "/dom.js";
 
 // 요소(element), input 혹은 상수
 const token = sessionStorage.getItem("token");
+const login = dom("#login");
+const productPrice = dom("#productPrice");
+const productName = dom("#productName");
+const productDetail = dom("productDetail");
 
-const login = document.getElementById("login");
-const userDetail = document.getElementById("userDetail");
-const productPrice = document.getElementById("productPrice");
-const productName = document.getElementById("productName");
-const productDetail = document.getElementById("productDetail");
-
-addAllElements();
+getProductRender();
 addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-async function addAllElements() {
+async function getProductRender() {
   const data = await getDataFromApi();
-  insertTextToLanding(data);
+  landingRender(data);
 }
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
   login.addEventListener("click", loginout);
-  //   userDetail.addEventListener("click", user);
 }
 
-function insertTextToLanding(data) {
+function landingRender(data) {
   if (token === "null" || !token) {
-    userDetail.innerHTML = "회원가입";
-    userDetail.href = "/register";
     login.innerHTML = "로그인";
   } else {
-    userDetail.innerHTML = "계정관리";
-    userDetail.href = "";
     login.innerHTML = "로그아웃";
   }
 
@@ -56,7 +50,5 @@ async function getDataFromApi() {
   //(?id=여기부분)
   const id = URLSearch.get("id");
   const data = await Api.get(`/api/product/detail`, id);
-  console.log(data);
   return data;
-  // console.log({ data });
 }

@@ -10,19 +10,27 @@ html, body{
   height: 100%;
 }
 
-.header {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: flex;
-  height: 70px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
+.navbar{
+  width: 100%;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  }
+  
+.logo img{
+  cursor: pointer;
+}
+
+.tablist {
+  height: 70px;
+
+  background-color: lemonchiffon;
 }
 
 .navbar-item img{
   max-height: 4rem;
+}
+
+#logo:hover{
+  background-color: #fff;
 }
 
 .hero.is-success {
@@ -90,19 +98,25 @@ ul{
   background-color: gray;
 }
 
-.btn{
-  font-size: 50px;
-}
 .prev{
   position:absolute;
   top:30%;
   left:0;
 }
+.prev img{
+  width: 1.5rem;
+}
+
 .next{
   position:absolute;
   top:30%;
   right:0%;
 }
+.next img{
+  width: 1.5rem;
+}
+
+
 .container ul{
   -webkit-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
   -o-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
@@ -118,49 +132,10 @@ ul{
   justify-content: center;
 }
 
-
-.logo img{
-    cursor: pointer;
-}
-
-.tablist {
-    height: 70px;
-
-    background-color: lemonchiffon;
-}
-
-.navbar{
-  width: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
-}
-
-.content {
-    display: flex;
-    flex: 1;
-
-}
-
 .hero-foot{
   color: grey;
   background-color: lightgrey;
-}
-
-
-.aside {
-    display: flex;
-    flex: 1;
-    background-color: #bfbab078;
-}
-.main{
-    display: flex;
-    flex: 1;
-    overflow: auto;
-}
-
-.footer{
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 20px;
+  font-size: smaller;
 }
 
 
