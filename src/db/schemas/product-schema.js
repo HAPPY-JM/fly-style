@@ -2,23 +2,22 @@ import { Schema } from "mongoose";
 import { CategoryModel } from "../models/category-model";
 
 const ProductSchema = new Schema({
-  // _id:objectId,//상품Id
 
   name: {
     type: String,
     required: true,
-  }, //상품이름
+  }, 
 
   category: {
-    type: Array,
-    required: true,
-    items: { type: String },
-  }, //상품카테고리
+    typd: Schema.Types.ObjectId,
+    ref:'category',
+    // required: true,
+  }, 
 
   price: {
     type: Number,
     required: true,
-  }, //가격
+  }, 
 
   content: {
     type: String,
@@ -27,7 +26,7 @@ const ProductSchema = new Schema({
 
   brand: {
     type: String,
-  }, //제조사
+  }, 
 
   // Img:{
 
