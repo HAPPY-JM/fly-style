@@ -10,9 +10,8 @@ const ProductSchema = new Schema({
   }, //상품이름
 
   category: {
-    type: Array,
-    required: true,
-    items: { type: String },
+    type: Schema.Types.ObjectId,
+    ref : 'category',
   }, //상품카테고리
 
   price: {
