@@ -18,7 +18,7 @@ export class CategoryModel {
     }
 
     async create(categoryInfo) {
-    //카테고리 생성(상품등록)
+    //카테고리 생성(카테고리등록)
         const createdNewCategory = await Category.create(categoryInfo);
         return createdNewCategory;
     }
