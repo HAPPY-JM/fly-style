@@ -21,7 +21,7 @@ productRouter.post("/", loginRequired, adminRequired, async (req, res, next) => 
             size,
         });
 
-        res.redirect(`/product/${newProduct._id}`);
+        res.redirect(`/api/product/${newProduct._id}`);
     } catch (err) {
         next(err);
     }
@@ -41,17 +41,23 @@ productRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
     const { name, category, price, content, brand, size } = req.body;
 
     const updateData = {
-        ...(name && { name }),
-        ...(category && { category }),
-        ...(price && { price }),
-        ...(content && { content }),
-        ...(brand && { brand }),
-        ...(size && { size }),
+        // ...(name && { name }),
+        // ...(category && { category }),
+        // ...(price && { price }),
+        // ...(content && { content }),
+        // ...(brand && { brand }),
+        // ...(size && { size }),
+        name,
+        category,
+        price,
+        content,
+        brand,
+        size,
     };
 
     await productService.editProduct(productId, updateData);
 
-    res.redirect(`/product/${productId}`);
+    res.redirect(`/api/product/${productId}`);
     }
 );
 
@@ -61,7 +67,7 @@ productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
 
     await productService.deleteProduct(productId);
   // res.send(`상품을 삭제했습니다.`);
-    res.redirect("/");
+    res.redirect("/api/product");
 });
 
 
