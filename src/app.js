@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { viewsRouter, userRouter, adminRouter } from "./routers";
+import { viewsRouter, userRouter, adminRouter, orderRouter, productRouter } from "./routers";
 import { adminRequired, errorHandler, loginRequired } from "./middlewares";
 
 const app = express();
