@@ -82,7 +82,6 @@ productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
 //상품 상세 보기
 productRouter.get("/:id", async (req, res) => {
     const productId = req.params.id;
-    console.log(productId);
     const productData = await productService.viewProductData(productId);
     res.json(productData);
 });
