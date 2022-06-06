@@ -64,4 +64,4 @@ export class ProductModel {
 
 const productModel = new ProductModel();
 
-export { productModel };
+export { productModel, Product };
