@@ -3,13 +3,12 @@ import { Router } from "express";
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
 import { loginRequired, adminRequired } from "../middlewares";
 import { productService, categoryService } from "../services";
-import { Product } from "../db/models";
 
 
 const productRouter = Router();
 
 //상품 등록 (login 확인, admin 확인)
-productRouter.post("/", loginRequired, adminRequired, async (req, res, next) => {
+productRouter.post("/", /*loginRequired, adminRequired,*/ async (req, res, next) => {
     try {
         const { name, category, price, content, brand, size } = req.body;
 
@@ -33,31 +32,25 @@ productRouter.get("/", async (req, res) => {
 
     const page = Number(req.query.page || 1); // 현재 페이지 번호
     const perPage = Number(req.query.perPage || 10); // 한 페이지당 표시할 상품 수
+
+    const productList = productService.productList();
     
-    const [total, productList] = await Promise.all([
-        Product.countDocuments({}),
-        productService.productList().sort({createdAt:-1})
-                                    .skip(perPage * (page-1))
-                                    .limit(perPage)
+    const [total, products] = await Promise.all([
+        productService.countDocuments(),
+        productService.pagination(productList, page, perPage)
     ]);
     const totalPage = Math.ceil(total/perPage);
 
-    res.send({ productList, page, perPage, totalPage });
+    res.send({ products, page, perPage, totalPage });
 });
 
 //상품 수정 (login 확인, admin 확인)
-productRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
+productRouter.patch("/:id", /*loginRequired, adminRequired,*/ async (req, res) => {
     const productId = req.params.id;
 
     const { name, category, price, content, brand, size } = req.body;
 
     const updateData = {
-        // ...(name && { name }),
-        // ...(category && { category }),
-        // ...(price && { price }),
-        // ...(content && { content }),
-        // ...(brand && { brand }),
-        // ...(size && { size }),
         name,
         category,
         price,
@@ -73,7 +66,7 @@ productRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
 );
 
 //상품 삭제 (login 확인, admin 확인)
-productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
+productRouter.delete("/:id", /*loginRequired, adminRequired,*/ async (req, res) => {
     const productId = req.params.id;
 
     await productService.deleteProduct(productId);

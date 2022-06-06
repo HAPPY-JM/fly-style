@@ -37,6 +37,20 @@ class ProductService {
         return products;
     }
 
+    //상품 total 개수
+    async countDocuments(){
+        const countDocuments = await this.productModel.countDocuments();
+        return countDocuments;
+    }
+
+    //페이지네이션
+    async pagination(productList, page, perPage){
+        const protuctsPaging = await productList.sort({createdAt:-1})
+                                                .skip(perPage * (page-1))
+                                                .limit(perPage);
+        return protuctsPaging;
+    }
+
 
     //상품 수정
     async editProduct( productId, update ) {
