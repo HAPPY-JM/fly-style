@@ -64,31 +64,22 @@ main {
     width: 100%;
     height: auto;
     display: flex;
-    padding: 10px 10%;
-}
-
-/* 카테고리 */
-main .category-list{
-    width: 15%;
-    margin: 30px;
-}
-
-main .category-list ul li {
-    border-bottom: 1px solid grey;
-    margin-bottom: .5rem;
+    /* background-color: aqua; */
 }
 
 /* 제품 목록 아이템 */
 
 main .section {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-
+    /* background-color: red; */
+    margin: 10px 12%;
 }
 
 main .section .product-item {
     margin: 30px;
-    width: 230px;
+    width: 20%;
     height: 380px;
 
 }
