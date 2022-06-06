@@ -114,9 +114,7 @@ main .section .card-content{
 
 
 #pagination{
-  /* display: block; */
   display: flex;
-  /* justify-content: space-evenly; */
   flex-direction: row;
   text-align: center;
   justify-content: center;
