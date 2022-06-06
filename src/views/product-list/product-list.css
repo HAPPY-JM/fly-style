@@ -107,6 +107,14 @@ main .section .card-content{
     margin-top: 10px;
 }
 
+#pagination{
+  /* display: block; */
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items:flex-end;
+  text-align: center;
+}
+
 /* footer{
     position: relative;
 } */
