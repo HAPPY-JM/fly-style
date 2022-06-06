@@ -1,10 +1,5 @@
 /* 전체 */
 
-/* body{
-    width: 100vw;
-    height: 100vh;   
-} */
-
 html, body{
     margin: 0;
     height: 100vh;
@@ -56,7 +51,6 @@ html, body{
     justify-content: space-evenly;
   }
   
-  
   .hero-body{
     display: flex;
     justify-content: center;
@@ -70,7 +64,7 @@ main {
     width: 100%;
     height: auto;
     display: flex;
-    padding: 10px 10% 10px 10%;
+    padding: 10px 10%;
 }
 
 /* 카테고리 */
@@ -107,9 +101,9 @@ main .section .card-content{
     margin-top: 10px;
 }
 
-/* footer{
-    position: relative;
-} */
-
-
   
+.hero-foot{
+  color: grey;
+  background-color: lightgrey;
+  font-size: smaller;
+}
