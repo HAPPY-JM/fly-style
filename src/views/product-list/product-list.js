@@ -1,11 +1,16 @@
-const productSection = document.querySelector('.section');
+import * as Api from "/api.js";
 
-// mock data 생성하여(./product.json) 가져온 데이터를 화면에 뿌려준다. 
-const url = './products.json';
-const response = await fetch(url);
-const data = await response.json();
+const productSection = document.querySelector(".section");
+
+// mock data 생성하여(./product.json) 가져온 데이터를 화면에 뿌려준다.
+// const url = "./products.json";
+const data = await Api.get("/api/product");
+// const response = await fetch(url);
+// const data = await response.json();
+console.log(data);
 
 const productsObj = data.products;
+console.log(productsObj);
 
 // 상품 목록에 넣을 데이터 변수
 let productInnerData = "";
@@ -24,12 +29,12 @@ let productInnerData = "";
 2. a href=''
 
 const data = await Api.get(`/api/email/${sessionStorage.getItem('email')}`);
-*/ 
+*/
 
-function getProductsListData(e){
-    productInnerData +=  `
+function getProductsListData(e) {
+  productInnerData += `
     <div class="card product-item" id="productNum${e.id}">
-    <a href="/detail/${e._id}">
+    <a href="/product?id=${e._id}">
         <div class="card-image">
             <figure class="image is-square">
                 <img src="${e.imgSrc}" alt="Placeholder image">
@@ -46,11 +51,9 @@ function getProductsListData(e){
         </div>
     </a>
     </div>
-    `
+    `;
 }
 
-productsObj.map(e => getProductsListData(e));
+data.map((e) => getProductsListData(e));
 
 productSection.innerHTML = productInnerData;
-
-    

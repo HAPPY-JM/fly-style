@@ -9,7 +9,7 @@ export class OrderModel {
     const createdNewOrder = await Order.create(orderInfo);
     return createdNewOrder;
   }
-  //주문 완료
+
   //주문 조회
   async findById(_id) {
     const orderList = await Order.findOne({ _id })
@@ -35,10 +35,9 @@ export class OrderModel {
 
   //주문상태변경
   async update(_id, orderStatus) {
-    const query = { _id };
     const option = { returnOriginal: false };
     const updatedOrder = await Order.findOneAndUpdate(
-      query,
+      { _id },
       { orderStatus },
       option
     );
@@ -51,3 +50,7 @@ export class OrderModel {
     return result;
   }
 }
+
+const orderModel = new OrderModel();
+
+export { orderModel };

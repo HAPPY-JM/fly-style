@@ -24,27 +24,30 @@ class OrderService {
     //         Comment,
     //     }
     // }
-    const { userId, totalPrice, name, address } = orderInfo;
-    const products = this.cart;
+    const {
+      userId,
+      totalPrice,
+      name,
+      Address,
+      phoneNumber,
+      products,
+      comment,
+    } = orderInfo;
+
     const newOrderInfo = {
       userId,
       products,
       totalPrice,
       delivery: {
         name,
-        Address: address,
-        comment: "" && userInfo.comment,
+        phoneNumber,
+        Address,
+        comment,
       },
     };
 
     const createdNewOrder = await this.orderModel.create(newOrderInfo);
-    this.cart = [];
     return createdNewOrder;
-  }
-
-  addCart(item) {
-    this.cart.push(item);
-    return this.cart;
   }
 
   //유저별 주문 조회
@@ -53,21 +56,25 @@ class OrderService {
     return userOrderList;
   }
 
+  //아이디별 주문 조회
   async findById(_id) {
     const order = await this.orderModel.findById(_id);
     return order;
   }
 
+  //모든주문조회
   async orderLists() {
     const orders = await this.orderModel.findAll();
     return orders;
   }
 
+  //오더 상태 업데이트
   async orderUpdate(_id, orderStatus) {
     const updatedOrder = await this.orderModel.update(_id, orderStatus);
     return updatedOrder;
   }
 
+  //오더 취소
   async orderDelete(_id) {
     const result = await this.orderModel.delete(_id);
     return result;

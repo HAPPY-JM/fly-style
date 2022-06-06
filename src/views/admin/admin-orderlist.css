@@ -24,6 +24,10 @@ html, body{
   max-height: 4rem;
 }
 
+#login_status{
+  color: lightslategray;
+}
+
 #login_status:hover{
   background-color: #fff;
   cursor: default;
@@ -43,13 +47,40 @@ html, body{
   justify-content: space-evenly;
 }
 
-
 .hero-body{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding-top: 0;
-  
 }
 
+.container{
+  width: 100%;
+  margin: 0;
+}
 
+.notification{
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.main-content{
+  display: flex;
+  flex-direction: column;
+  color: slategray;
+  width: 100%;
+}
+
+.hero.is-success .title{
+  color: slategray;
+}
+
+.order-container{
+  min-width: 100%;
+}
+
+.orders-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
