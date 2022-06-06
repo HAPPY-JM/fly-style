@@ -1,16 +1,15 @@
 import { Router } from "express";
 
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
-import { loginRequired,adminRequired } from "../middlewares";
+import { loginRequired, adminRequired } from "../middlewares";
 import { productService, categoryService } from "../services";
 
 
 const productRouter = Router();
 
 //상품 등록 (login 확인, admin 확인)
-productRouter.post("/add",/*loginRequired, adminRequired,*/ async (req, res, next) => {
+productRouter.post("/", loginRequired, adminRequired, async (req, res, next) => {
     try {
-        
         const { name, category, price, content, brand, size } = req.body;
 
         const newProduct = await productService.addProduct({
@@ -22,12 +21,10 @@ productRouter.post("/add",/*loginRequired, adminRequired,*/ async (req, res, nex
             size,
         });
 
-        res.redirect(`/product/${newProduct._id}`);
-        
+        res.redirect(`/api/product/${newProduct._id}`);
     } catch (err) {
         next(err);
     }
-    
 });
 
 //상품 목록
@@ -38,23 +35,29 @@ productRouter.get("/", async (req, res) => {
 });
 
 //상품 수정 (login 확인, admin 확인)
-productRouter.patch("/edit/:id",loginRequired,adminRequired,async (req, res) => {
+productRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
     const productId = req.params.id;
 
     const { name, category, price, content, brand, size } = req.body;
 
     const updateData = {
-        ...(name && { name }),
-        ...(category && { category }),
-        ...(price && { price }),
-        ...(content && { content }),
-        ...(brand && { brand }),
-        ...(size && { size }),
+        // ...(name && { name }),
+        // ...(category && { category }),
+        // ...(price && { price }),
+        // ...(content && { content }),
+        // ...(brand && { brand }),
+        // ...(size && { size }),
+        name,
+        category,
+        price,
+        content,
+        brand,
+        size,
     };
 
     await productService.editProduct(productId, updateData);
 
-    res.redirect(`/product/${productId}`);
+    res.redirect(`/api/product/${productId}`);
     }
 );
 
@@ -64,7 +67,7 @@ productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
 
     await productService.deleteProduct(productId);
   // res.send(`상품을 삭제했습니다.`);
-    res.redirect("/");
+    res.redirect("/api/product");
 });
 
 
@@ -77,9 +80,8 @@ productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
 
 
 //상품 상세 보기
-productRouter.get("/detail/:id", async (req, res) => {
+productRouter.get("/:id", async (req, res) => {
     const productId = req.params.id;
-    console.log(productId);
     const productData = await productService.viewProductData(productId);
     res.json(productData);
 });

@@ -10,15 +10,27 @@ html, body{
   height: 100%;
 }
 
-.header {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: flex;
-  height: 70px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
+.navbar{
+  width: 100%;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  }
+  
+.logo img{
+  cursor: pointer;
+}
+
+.tablist {
+  height: 70px;
+
+  background-color: lemonchiffon;
+}
+
+.navbar-item img{
+  max-height: 4rem;
+}
+
+#logo:hover{
+  background-color: #fff;
 }
 
 .hero.is-success {
@@ -29,6 +41,10 @@ html, body{
 .hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
   background-color: #e2e2e2;
   color: black;
+}
+
+.hero{
+  justify-content: space-evenly;
 }
 
 .hero-body{
@@ -46,6 +62,67 @@ html, body{
   justify-content: center;
 }
 
+ul{
+  list-style:none;
+}
+
+.slide-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: seagreen;
+  overflow: hidden;
+}
+
+.slider{
+  display: flex;
+  top: 0;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  text-align: center;
+}
+
+.item:nth-child(2){
+  width: 100%;
+  background-color: darkgray;
+}
+
+.item:nth-child(3){
+  background-color: gray;
+}
+
+.prev{
+  position:absolute;
+  top:30%;
+  left:0;
+}
+.prev img{
+  width: 1.5rem;
+}
+
+.next{
+  position:absolute;
+  top:30%;
+  right:0%;
+}
+.next img{
+  width: 1.5rem;
+}
+
+
+.container ul{
+  -webkit-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+  -o-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+  transition: all 0.25s cubic-bezier(1, .01, .32, 1);
+}
+
 .new-arrival{
   flex:1;
   width: 100%;
@@ -55,45 +132,10 @@ html, body{
   justify-content: center;
 }
 
-
-.logo img{
-    cursor: pointer;
-}
-.tablist {
-    height: 70px;
-
-    background-color: lemonchiffon;
-}
-.navbar{
-  width: 100%;
-}
-
-.content {
-    display: flex;
-    flex: 1;
-
-}
-
 .hero-foot{
-  color: #cdcdcd;
-}
-
-
-.aside {
-    display: flex;
-    flex: 1;
-    background-color: #bfbab078;
-}
-.main{
-    display: flex;
-    flex: 1;
-    overflow: auto;
-}
-
-.footer{
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 20px;
+  color: grey;
+  background-color: lightgrey;
+  font-size: smaller;
 }
 
 

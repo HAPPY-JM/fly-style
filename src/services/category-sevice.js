@@ -19,7 +19,6 @@ class CategoryService {
                 "이 카테고리는 이미 존재합니다. 다른 카테고리를 입력해 주세요."
             );
         }
-
       // 카테고리 중복은 이제 아니므로, 카테고리등록을 진행함
 
         const newCategoryInfo = {name};
