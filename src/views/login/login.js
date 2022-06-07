@@ -7,12 +7,15 @@ import { $, setToken } from "/utils.js";
 const emailInput = document.querySelector("#emailInput");
 const passwordInput = document.querySelector("#passwordInput");
 const submitButton = document.querySelector("#submitButton");
+const headerParent = $(".hero");
 
 addAllElements();
 addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-async function addAllElements() {}
+async function addAllElements() {
+  header(headerParent);
+}
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
