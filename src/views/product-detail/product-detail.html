@@ -13,7 +13,7 @@
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/elice-rabbit-favicon.png"
+          href="../../fly-style-favicon.png"
         />
         <!-- bulma css 관련 -->
         <link
@@ -28,6 +28,7 @@
         ></script>
         <!-- 커스텀 css, js -->
         <link rel="stylesheet" href="product-detail.css">
+
         <script src="./product-detail.js" type="module" defer></script>
       </head>
 
@@ -84,7 +85,7 @@
               <p class="title is-5">30,000원</p>
             </div>
 
-            <div id="productSizewrap"></div>
+            <div id="productSizewrap">
             <label class="label" for="size">사이즈</label>
             <div class="select is-info" id="productSizeSelecter">
                <select name="size" id="productSize">
@@ -94,7 +95,12 @@
                 <option value="m">M</option>
                 <option value="l">L</option>
               </select>
+             </div>
             </div>
+          <div id="productQuantitywrap">
+            <label class="label" for="quantity">수량</label>
+            <input id="quantity" class="input is-info" type="number" placeholder="Info input">
+          </div>
             <!-- 구매하기, 장바구니 버튼의 div-->
             <div id="productButton">
               <button class="button is-link is-light" id="buttonBuy">구매하기</button>
@@ -110,9 +116,8 @@
                 
             </div>
 
-          </div>
         </div>
-
+    </div>
       </main>
       
       <div id="float-clear">
@@ -128,3 +133,4 @@
   </div>
 </body>
 </html>
+
