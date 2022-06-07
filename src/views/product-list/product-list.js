@@ -26,7 +26,7 @@ const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
 const categorySection = $('.header-category-list');
 //페이지네이션
-const paginationClass = $(".pagination");
+const paginationClass = $("#pagination");
 
 
 // 상품 목록에 넣을 데이터 변수
@@ -69,7 +69,7 @@ function pagination(productData) {
     for (let i = 1; i <= productData.totalPage; i++) {
       paginationEl += `
           <td>
-              <a href="/product?page=${i}">
+              <a href="/products?page=${i}">
                   ${i} 
               </a>
           </td>
