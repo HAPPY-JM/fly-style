@@ -56,29 +56,11 @@ html, body{
   
 }
 
-.order-list-box{
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  justify-content: center;
-  align-items: center;
-}
 
-.user-list-box{
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  justify-content: center;
-  align-items: center;
-}
 
-.inventory-list-box{
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  justify-content: center;
-  align-items: center;
-}
+
+
+
 
 .button.is-link.is-outlined{
   background-color: transparent;
@@ -86,22 +68,14 @@ html, body{
   color: lightslategray;
 }
 
-#order-list{
-  font-family: 'NEXON Lv1 Gothic OTF';
-}
 
-#order-list:hover{
-  background-color: #8AADEC;
-  border: none;
-}
-
-#user-list{
-  font-family: 'NEXON Lv1 Gothic OTF';
-}
-
-#user-list:hover{
-  background-color: #8AADEC;
-  border: none;
+/* 주문 관리 */
+.order-list-box{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .order-list-description{
@@ -121,6 +95,24 @@ html, body{
   background-size: 100% 100%;
 }
 
+#order-list{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#order-list:hover{
+  background-color: #8AADEC;
+  border: none;
+}
+
+/* 회원 관리 */
+.user-list-box{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .user-list-description{
   text-transform: uppercase;
   line-height: 2;
@@ -138,7 +130,24 @@ html, body{
   background-size: 100% 100%;
 }
 
-/*  */
+#user-list{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#user-list:hover{
+  background-color: #8AADEC;
+  border: none;
+}
+
+/* 상품 관리 */
+.inventory-list-box{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .inventory-list-description{
   text-transform: uppercase;
   line-height: 2;
@@ -154,4 +163,13 @@ html, body{
 
 .inventory-list-description:hover{
   background-size: 100% 100%;
+}
+
+#inventory-list{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#inventory-list:hover{
+  background-color: #8AADEC;
+  border: none;
 }
