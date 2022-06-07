@@ -36,12 +36,6 @@ export class ProductModel {
     return allProducts;
   }
 
-  async countDocuments(){
-    //상품개수
-    const countDocuments = await Product.countDocuments({});
-    return countDocuments;
-  }
-
   // async findPrice(lowprice, highprice) {
   //   //lowprice이상 highprice미만 가격대 상품 찾기
   //   const priceProduct = await Product.filter(prod => prod.Price >=lowprice && prod.Price < highprice);
