@@ -1,45 +1,47 @@
 import * as Api from "/api.js";
 import * as fnc from "/useful-functions.js";
-import dom from "/dom.js";
+import { $ } from "/utils.js";
 
 // 요소(element), input 혹은 상수
 
-const buyButton = dom("#buyButton");
+const buyButton = $("#buyButton");
 
-// getProductRender();
+getProductRender();
 addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-// async function getProductRender() {
-//   const data = await getDataFromApi();
-//   landingRender(data);
-// }
+async function getProductRender() {
+  //  const data = await getDataFromApi();
+  landingRender();
+}
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
   buyButton.addEventListener("click", orderComplete);
 }
 
-// function landingRender(data) {
-//   if (token === "null" || !token) {
-//     login.innerHTML = "로그인";
-//   } else {
-//     login.innerHTML = "로그아웃";
-//   }
-
-//   productDetail.innerHTML = data.content;
-//   productPrice.innerHTML = `${data.price}원`;
-//   productName.innerHTML = data.name;
-// }
+function landingRender() {
+  const URLSearch = new URLSearchParams(location.search);
+  const id = URLSearch.get("direct");
+  if (id) {
+    const products = JSON.parse(sessionStorage.getItem(`order`));
+    sessionStorage.removeItem("order");
+    const { productId, quantity, size, price } = products;
+    $("#productName").innerText = productId;
+    $("#PriceTotal").innerText = size;
+    $("#deliveryFee").innerText = quantity;
+    $("#orderPriceTotal").innerText = price;
+  }
+}
 
 async function orderComplete() {
-  const name = dom("#orderName").value;
-  const phoneNumber = dom("#orderPhoneNumber").value;
-  const zoneCode = dom("#zoneCode").value;
-  const address1 = dom("#orderAddress").value;
-  const address2 = dom("#addressDetail").value;
-  const totalPrice = fnc.convertToNumber(dom("#orderPriceTotal").innerText);
-  const comment = dom("#orderRequest").value;
+  const name = $("#orderName").value;
+  const phoneNumber = $("#orderPhoneNumber").value;
+  const zoneCode = $("#zoneCode").value;
+  const address1 = $("#orderAddress").value;
+  const address2 = $("#addressDetail").value;
+  const totalPrice = fnc.convertToNumber($("#orderPriceTotal").innerText);
+  const comment = $("#orderRequest").value;
   const products = [
     {
       quantity: 2,
