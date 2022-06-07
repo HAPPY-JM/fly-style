@@ -1,116 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- 아이콘 -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/elice-rabbit-favicon.png"
-    />
-    <!-- bulma css 관련 -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <!-- 폰트 어썸: 아이콘 -->
-    <script
-      defer
-      src="https://kit.fontawesome.com/7630448495.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- 커스텀 css, js -->
-    <link rel="stylesheet" href="product-list.css" />
-    <script src="product-list.js" type="module" defer></script>
-  </head>
 
-  <body>
-    <!-- 헤더 -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- 아이콘 -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/elice-rabbit-favicon.png" />
+  <!-- bulma css 관련 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <!-- 폰트 어썸: 아이콘 -->
+  <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
+  <!-- 커스텀 css, js -->
+  <link rel="stylesheet" href="product-list.css" />
+  <script src="product-list.js" type="module" defer></script>
+</head>
 
-    <!-- <header>
-        <div class="tabs is-large">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/product-list">Shop</a></li>
-                <li><a href="/cart">Cart</a></li>
-                <li><a href="/login">login</a></li>
-            </ul>
+<body>
+  <!-- 헤더 -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img src="../fly-style-logo.png" alt="logo" />
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </div>
-    </header> -->
-
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-              <img src="../fly-style-logo.png" alt="logo" />
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="/cart">
+              <span class="icon">
+                <i class="fas fa-cart-shopping">　</i>
+              </span>
+              cart
             </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item" href="/cart">
-                <span class="icon">
-                  <i class="fas fa-cart-shopping">　</i>
-                </span>
-                cart
-              </a>
-              <a class="navbar-item" href="/product-list">
-                <span>shop</span>
-              </a>
-              <a class="navbar-item" href="/login">
-                <span>login</span>
-              </a>
-            </div>
+            <a class="navbar-item" href="/products">
+              <span>shop</span>
+            </a>
+            <a class="navbar-item" href="/login">
+              <span>login</span>
+            </a>
           </div>
         </div>
-      </header>
-    </div>
-
-    <main>
-      <!-- 메뉴 -->
-      <aside class="menu category-list">
-        <p class="menu-label">General</p>
-        <ul class="menu-list">
-          <li><a>Dashboard</a></li>
-          <li><a>Customers</a></li>
-        </ul>
-        <p class="menu-label">Administration</p>
-        <p class="menu-label">Transactions</p>
-        <ul class="menu-list">
-          <li><a>Payments</a></li>
-          <li><a>Transfers</a></li>
-          <li><a>Balance</a></li>
-        </ul>
-      </aside>
-
-      <!-- 제품 목록 리스트 -->
-      <section class="section">
-        <!-- product-list.js / productSection -->
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Bulma</strong> by
-          <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is
-          licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
-          website content is licensed
-          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            >CC BY NC SA 4.0</a
-          >.
-        </p>
       </div>
-    </footer>
-  </body>
+    </header>
+    <div class="tabs is-centered">
+      <ul class="header-category-list">
+        <!-- <li><a>TOP</a></li>
+        <li><a>BOTTOM</a></li>
+        <li><a>SHOES</a></li>
+        <li><a>ACC</a></li> -->
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <!-- 제품 목록 리스트 -->
+    <section class="section">
+      <!-- product-list.js / productSection -->
+    </section>
+  </main>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    contributed by Team-5 @elice <br>
+    all rights reserved
+  </div>
+</body>
+
 </html>

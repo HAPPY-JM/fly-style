@@ -2,52 +2,59 @@
 {
   "products": [
     {
-      "_id": "1",
       "name": "Nike",
+      "catorory" : "shoes",
       "price": "347,000원",
       "content": "나이키 x 트래비스 스캇 에어맥스 1 캑터스 브라운",
+      "brand":"Nike",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
     },
     {
-      "_id": "2",
       "name": "Nike",
+      "catorory" : "shoes",
       "price": "188,000원",
       "content": "나이키 덩크 로우 레트로 블랙",
+      "brand":"Nike",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMTExMDNfMTc1/MDAxNjM1OTE2NjgwNzg2.8dFHlfL9rdg9eD3Y30FMe5ufyxftbHFoZP5--W6VM0Yg.-4fLaDSTBFw-ZSBbQrYv1g98RZQmgDlQq-I2rOGWHMAg.PNG/a_1c6e37b668c640b8b1294ee459182b9e.png?type=m_webp"
     },
     {
-      "_id": "3",
       "name": "Nike",
+      "catorory" : "shoes",
       "price": "298,000원",
       "content": "나이키 x 스투시 에어포스 1 '07 미드 SP 블랙 앤 라이트 본",
+      "brand":"Nike",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMjA1MTZfMTUz/MDAxNjUyNjY4MzQ5NzQ0.KrS4BvMwL5A5VQWRpzwJQXS-6WbR7bDMHV5BcZFgkYAg.ttStdioabFKDADPv7UnFYSHKPfmC8GQkpgwQY2A0_7Ug.PNG/a_82c516ec1891448aae220b4f9eec71b1.png?type=m_webp"
     },
     {
-      "_id": "4",
       "name": "Nike",
+      "catorory" : "shoes",
       "price": "144,000원",
       "content": "나이키 에어포스 1 '07 로우 화이트",
+      "brand":"Nike",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMDEwMjJfMjYy/MDAxNjAzMzMzOTM3NDQ4.hA5DSH6wrREy9wUF3CJlxMlYcbOQm3REeJBs5Pg5ycYg.sVU-CCPnedVjQsGaiwiT31Mab4lVvlI9EMTVCbYfjN8g.PNG/p_12831_0_ead2bb299f7448ef95315f1f364d4f3f.png?type=m_webp"
     },
     {
-      "_id": "5",
       "name": "Nike",
+      "catorory" : "shoes",
       "price": "333,000원",
       "content": "나이키 x 트래비스 스캇 에어맥스 1 캑터스 골드",
+      "brand":"Nike",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMTExMDNfMjk2/MDAxNjM1OTA3NjcwNDc5.CJZ-M6slM7S01ISoe22k3iqaga7NvyqzM1kjM5CvEeQg.RkguYWG8pxlRZMi8Cv_y8vi6p4vyfi08_tdC7Kzj-fAg.PNG/a_beca1ed6836f4901986f3e78c76d7c47.png?type=m_webp"
     },
     {
-      "_id": "6",
       "name": "Nike",
+      "catorory" : "shoes",
       "price": "230,000원",
       "content": "나이키 덩크 로우 레트로 울프 그레이",
+      "brand":"Nike",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMjAyMDRfMjE1/MDAxNjQzOTQ3OTcwNDU3.Z5q_SKgBRvCWF17yUn2wOFraMrUnYUos8_DDv0J-U_gg.dDzwVnbHdYR5wdMRbyFgTfbeD_2gcFscXDoAsB4feBgg.PNG/a_4c45b1d00d3c4f97a28c40ecb106e566.png?type=m_webp"
     },
     {
-      "_id": "7",
       "name": "Jordan",
+      "catorory" : "shoes",
       "price": "204,000원",
       "content": "Jordan 1 Mid Light Smoke Grey Anthracite",
+      "brand":"Jordan",
       "imgSrc" : "https://kream-phinf.pstatic.net/MjAyMTEyMjBfMTA4/MDAxNjM5OTg0MjQxMTYy.F0BGHeY9Lo5okE_K4MrvzWTvO5XQ72TPW7BDhqWZUHUg.0lz1wS4mL94VUWaFzY9RIoiHuARng_qo5Ss7Eir-xk0g.PNG/a_1fef41f2dc8a4c5f9ce69aff036113e3.png?type=m_webp"
     }
   ]
