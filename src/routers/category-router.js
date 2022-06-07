@@ -7,8 +7,8 @@ const categoryRouter = Router();
 //카테고리 등록 (login 확인, admin 확인)
 categoryRouter.post(
   "/",
-  loginRequired,
-  adminRequired,
+  /*loginRequired,
+  adminRequired,*/
   async (req, res, next) => {
     try {
       const { name } = req.body;
@@ -41,6 +41,7 @@ categoryRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
 
   await categoryService.editCategory(categoryId, updateData);
 
+  // redirect는 최대한 지양하는게 좋지않을까요?
   res.redirect("/category");
 });
 
