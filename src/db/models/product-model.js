@@ -4,11 +4,11 @@ import { ProductSchema } from "../schemas/product-schema";
 const Product = model("product", ProductSchema);
 
 export class ProductModel {
-  // async findByCategory(category) {
-  //   //특정 카테고리의 상품 찾기
-  //   const categoryProduct = await Product.findOne({ category });
-  //   return categoryProduct;
-  // }
+  async findByCategory(category) {
+    //특정 카테고리의 상품 찾기
+    const products = await Product.find({ category });
+    return products;
+  }
 
   async findByName(name) {
     //특정 이름의 상품 찾기
