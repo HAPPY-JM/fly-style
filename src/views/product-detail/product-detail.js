@@ -1,51 +1,39 @@
 import * as Api from "/api.js";
 import { $, getToken } from "/utils.js";
-import * as Cart from "/cart.js";
+import * as Cart from "/cart_fnc.js";
+import header from "/header.js";
 
 // 요소(element), input 혹은 상수
 const token = sessionStorage.getItem("token");
+
 const buttonBuy = $("#buttonBuy");
-const login = $("#login");
 const productPrice = $("#productPrice");
 const productName = $("#productName");
 const productDetail = $("#productDetail");
 const buttonBasket = $("#buttonBasket");
+const headerParent = $("body");
 const data = await getDataFromApi();
 const size = "free";
+
 getProductRender();
 addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 async function getProductRender() {
   landingRender(data);
+  header(headerParent);
 }
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
-  login.addEventListener("click", loginout);
   buttonBuy.addEventListener("click", order);
   buttonBasket.addEventListener("click", addCart);
 }
 
 function landingRender(data) {
-  if (token === "null" || !token) {
-    login.innerHTML = "로그인";
-  } else {
-    login.innerHTML = "로그아웃";
-  }
-
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
-}
-
-function loginout() {
-  if (token === "null" || !token) {
-    location.href = "/login";
-  } else {
-    sessionStorage.removeItem("token");
-    location.reload();
-  }
 }
 
 function order() {

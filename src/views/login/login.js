@@ -68,7 +68,7 @@ async function handleSubmit(e) {
     //admin 경로로 정상적으로 로그인한 관리자는
     if (location.pathname === "/dkssudgktpdyadmin/") {
       //관리자 루트 페이지로~~
-      window.location.href = "/";
+      window.location.href = "/admin";
       // await Api.get("/admins"); //href admin-page
     } else if (document.referrer.includes("login") || !document.referrer) {
       window.location.href = "/";
