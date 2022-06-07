@@ -1,10 +1,18 @@
 import * as Api from "/api.js";
 
 const productSection = document.querySelector(".section");
+//localhost:5000/products/?category="slfjsalkfjalsfjl"
+const URLSearch = new URLSearchParams(location.search);
+//(?id=여기부분)
+// GET /api/product/slfjsalkfjalsfjl
+const id = URLSearch.get("category");
 
 // mock data 생성하여(./product.json) 가져온 데이터를 화면에 뿌려준다.
 // const url = "./products.json";
+//특정 카테고리에 어떤 상품 리스트들이있는지 이걸 배열으로 받아와서 뿌려줘야겠죠?
 const data = await Api.get("/api/product");
+
+// GET /api/product/:id
 // const response = await fetch(url);
 // const data = await response.json();
 console.log(data);
