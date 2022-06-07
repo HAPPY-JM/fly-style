@@ -1,43 +1,47 @@
 import { Schema } from "mongoose";
-import { CategoryModel } from "../models/category-model";
+// import { CategoryModel } from "../models/category-model";
 
-const ProductSchema = new Schema({
-  // _id:objectId,//상품Id
+const ProductSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
 
-  name: {
-    type: String,
-    required: true,
-  }, //상품이름
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "category",
+      // required: true,
+    },
 
-  category: {
-    type: Array,
-    required: true,
-    items: { type: String },
-  }, //상품카테고리
+    price: {
+      type: Number,
+      required: true,
+    },
 
-  price: {
-    type: Number,
-    required: true,
-  }, //가격
+    content: {
+      type: String,
+      required: true,
+    }, //상품설명
 
-  content: {
-    type: String,
-    required: true,
-  }, //상품설명
+    brand: {
+      type: String,
+    },
 
-  brand: {
-    type: String,
-  }, //제조사
+    // Img:{
 
-  // Img:{
+    // },
 
-  // },
-
-  size: {
-    type: Array,
-    items: { type: String },
-    default: ["free"],
+    size: {
+      type: Array,
+      items: { type: String },
+      default: ["free"],
+    },
   },
-});
+  {
+    collection: "products",
+    timestamps: true,
+  }
+);
 
 export { ProductSchema };

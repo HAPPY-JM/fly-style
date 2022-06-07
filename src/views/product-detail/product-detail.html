@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <meta charset="utf-8" />
+
+        <title>쇼핑-데모</title>
+        <!-- 아이콘 -->
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/elice-rabbit-favicon.png"
+        />
+        <!-- bulma css 관련 -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+        />
+        <!-- 폰트 어썸: 아이콘 -->
+        <script
+          defer
+          src="https://kit.fontawesome.com/7630448495.js"
+          crossorigin="anonymous"
+        ></script>
+        <!-- 커스텀 css, js -->
+        <link rel="stylesheet" href="product-detail.css">
+        <script src="./product-detail.js" type="module" defer></script>
+      </head>
+
+      
+<!-- 여기부터 바디 -->
+<body>
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="../fly-style-logo.png" alt="logo"/>
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              <span class="icon">
+                <i class="fas fa-cart-shopping">　</i>
+              </span>
+               cart
+            </a>
+            <a class="navbar-item">
+                <span id="login">login</span>
+              </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+    
+    <main>
+      <!-- 메인 컨텐츠(제품상세) -->
+      <div id="content-wrap">
+        
+        <!-- 이미지 파일을 띄우는 div -->
+        <div id="productImagediv">
+          <img id="productImg" src="skirt.jpg" alt="스커트 제품사진(테스트)">
+        </div>
+
+        <!-- 제품의 정보를 띄우는 div -->
+        <div id="productInfodiv">
+
+          <!-- 제품 이름을 가져오는 p -->
+            <p id="productName" class="title is-3">상품이름</p>
+            
+            <!-- 제품 가격을 가져오는 div-->
+            <div id="productPrice">
+              <p class="title is-5">30,000원</p>
+            </div>
+
+            <div id="productSizewrap"></div>
+            <label class="label" for="size">사이즈</label>
+            <div class="select is-info" id="productSizeSelecter">
+               <select name="size" id="productSize">
+
+                <option value="free">FREE</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+              </select>
+            </div>
+            <!-- 구매하기, 장바구니 버튼의 div-->
+            <div id="productButton">
+              <button class="button is-link is-light" id="buttonBuy">구매하기</button>
+              <button class="button is-info is-light" id="buttonBasket">장바구니</button>
+            </div>
+
+            <div id="productDetaildiv">
+              <!-- 제품 상세설명을 가져오는 p -->
+              <p id="productDetail">제품 상세설명 란 : <br><br>
+                  베이지색상 롱 랩스커트 입니다. <br>
+                
+                <!-- 아래는 상세설명이 길어질 경우를 테스트하기 위함 -->
+                
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+      
+      <div id="float-clear">
+        <footer>
+          <div class="hero-foot">
+            contributed by Team-5 @elice <br>
+            all rights reserved
+          </div>
+        </footer>
+      </div>
+      <!-- 최하단 푸터 -->
+
+  </div>
+</body>
+</html>

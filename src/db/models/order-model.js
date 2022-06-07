@@ -35,10 +35,9 @@ export class OrderModel {
 
   //주문상태변경
   async update(_id, orderStatus) {
-    const query = { _id };
     const option = { returnOriginal: false };
     const updatedOrder = await Order.findOneAndUpdate(
-      query,
+      { _id },
       { orderStatus },
       option
     );
@@ -51,3 +50,7 @@ export class OrderModel {
     return result;
   }
 }
+
+const orderModel = new OrderModel();
+
+export { orderModel };

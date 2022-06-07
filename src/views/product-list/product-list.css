@@ -1,0 +1,115 @@
+/* 전체 */
+
+/* body{
+    width: 100vw;
+    height: 100vh;   
+} */
+
+html, body{
+    margin: 0;
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    font-family: 'NEXON Lv1 Gothic OTF';
+  }
+
+/* 헤더 */
+/* header {
+    height: 25%;
+    padding: 5%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+} */
+
+
+.navbar{
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  }
+  
+  .navbar-menu{
+    margin: 1rem;
+  }
+  
+  .navbar-item{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-item img{
+    max-height: 4rem;
+  }
+  
+  .hero.is-success {
+    background-color: #fff;
+    color: black;
+  }
+  
+  .hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+    background-color: #e2e2e2;
+    color: black;
+  }
+  
+  .hero{
+    justify-content: space-evenly;
+  }
+  
+  
+  .hero-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+
+
+/* 메인 화면 ( 카테고리 , 목록 리스트 )*/
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px 10% 10px 10%;
+}
+
+/* 카테고리 */
+main .category-list{
+    width: 15%;
+    margin: 30px;
+}
+
+main .category-list ul li {
+    border-bottom: 1px solid grey;
+    margin-bottom: .5rem;
+}
+
+/* 제품 목록 아이템 */
+
+main .section {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+main .section .product-item {
+    margin: 30px;
+    width: 230px;
+    height: 380px;
+
+}
+
+main .section .card-content{
+    padding: 0.5rem;
+}
+
+.card-content .media-content p:last-child{
+    margin-top: 10px;
+}
+
+/* footer{
+    position: relative;
+} */
+
+
+  

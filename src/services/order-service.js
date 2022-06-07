@@ -24,28 +24,30 @@ class OrderService {
     //         Comment,
     //     }
     // }
-    const { userId, totalPrice, name, address } = orderInfo;
-    const products = this.cart;
+    const {
+      userId,
+      totalPrice,
+      name,
+      Address,
+      phoneNumber,
+      products,
+      comment,
+    } = orderInfo;
+
     const newOrderInfo = {
       userId,
       products,
       totalPrice,
       delivery: {
         name,
-        Address: address,
-        comment: "" && userInfo.comment,
+        phoneNumber,
+        Address,
+        comment,
       },
     };
 
     const createdNewOrder = await this.orderModel.create(newOrderInfo);
-    this.cart = [];
     return createdNewOrder;
-  }
-
-  //카트에 주문 한개씩 추가
-  addCart(item) {
-    this.cart.push(item);
-    return this.cart;
   }
 
   //유저별 주문 조회

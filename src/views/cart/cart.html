@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 아이콘 -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/elice-rabbit-favicon.png" />
+    <!-- bulma css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <!-- 폰트 어썸: 아이콘 -->
+    <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="cart.css" />
+    <script src="cart.js" type="module" defer></script>
+</head>
+
+<body>
+    <!-- <header>
+        <div class="tabs is-large">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product-list">Shop</a></li>
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/login">login</a></li>
+            </ul>
+        </div>
+    </header> -->
+
+    <!-- 헤더 -->
+    <div class="hero-head">
+        <header class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/">
+                        <img src="../fly-style-logo.png" alt="logo" />
+                    </a>
+                    <span class="navbar-burger" data-target="navbarMenuHeroC">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="/cart">
+                            <span class="icon">
+                                <i class="fas fa-cart-shopping">　</i>
+                            </span>
+                            cart
+                        </a>
+                        <a class="navbar-item" href="/product-list">
+                            <span>shop</span>
+                        </a>
+                        <a class="navbar-item" href="/login">
+                            <span>login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <!-- 카트입니다 -->
+        <section>
+            <h2>장바구니</h2>
+            <ul>
+                <li>아이템 1</li>
+                <li>아이템 2</li>
+                <li>아이템 3</li>
+                <li>아이템 4</li>
+            </ul>
+        </section>
+        <aside>주문정보</aside>
+    </main>
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
