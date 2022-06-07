@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { $ } from "/utils.js";
+import { $, getToken } from "/utils.js";
 import * as Cart from "/cart.js";
 
 // 요소(element), input 혹은 상수
@@ -52,6 +52,11 @@ function order() {
   if (sessionStorage.getItem("order")) {
     return alert("오류가 있습니다");
   }
+  if (getToken() === "null" || !getToken()) {
+    alert("유저만 주문할 수 있습니다. 로그인 해주세요.");
+    window.location.href = "/login";
+    return;
+  }
   const quantity = 2;
   sessionStorage.setItem(
     `order`,
@@ -80,7 +85,7 @@ function addCart() {
 async function getDataFromApi() {
   const URLSearch = new URLSearchParams(location.search);
   //(?id=여기부분)
-  const id = URLSearch.get("id");
+  const id = URLSearch.get("_id");
   const data = await Api.get(`/api/product`, id);
   console.log(data);
   return data;
