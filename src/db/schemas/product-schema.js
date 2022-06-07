@@ -1,23 +1,22 @@
 import { Schema } from "mongoose";
-import { CategoryModel } from "../models/category-model";
+// import { CategoryModel } from "../models/category-model";
 
 const ProductSchema = new Schema({
-
   name: {
     type: String,
     required: true,
-  }, 
+  },
 
   category: {
     type: Schema.Types.ObjectId,
-    ref:'category',
+    ref: "category",
     // required: true,
-  }, 
+  },
 
   price: {
     type: Number,
     required: true,
-  }, 
+  },
 
   content: {
     type: String,
@@ -26,7 +25,7 @@ const ProductSchema = new Schema({
 
   brand: {
     type: String,
-  }, 
+  },
 
   // Img:{
 

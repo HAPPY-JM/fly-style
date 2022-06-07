@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>쇼핑-n팀</title>
-  <!-- 아이콘 -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/elice-rabbit-favicon.png" />
-  <html lang="ko">
-
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +21,11 @@
     <!-- 커스텀 css, js -->
     <link rel="stylesheet" href="home.css" />
     <script src="home.js" type="module" defer></script>
+    <!-- Link Swiper's CSS -->
+    <link
+     rel="stylesheet"
+     href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
   </head>
 
       <body>
@@ -66,33 +63,37 @@
 
           <div class="tabs is-centered">
             <ul>
-              <li><a>TOP</a></li>
-              <li><a>BOTTOM</a></li>
-              <li><a>SHOES</a></li>
-              <li><a>ACC</a></li>
+              <li><a href="상의 카테고리">TOP</a></li>
+              <li><a href="하의 카테고리">BOTTOM</a></li>
+              <li><a href="신발 카테고리">SHOES</a></li>
+              <li><a href="악세사리 카테고리">ACC</a></li>
             </ul>
           </div>
 
           <!-- Hero content: will be in the middle -->
           <div class="hero-body">
             <div class="main-content">
-              <div class="slide-container">
-                <!--프로모션 이미지 슬라이더-->
-                <ul class="slider">
-                  <li class="item">첫번째 이미지</li>
-                  <li class="item">두번째 이미지</li>
-                  <li class="item">세번째 이미지</li>
-              </ul>
-          </div>
-          <div class="btn">
-              <a class="prev" style="text-decoration: none;">
-                <img src="../arrow-left.png"/>
-              </a>
-              <a class="next" style="text-decoration: none;">
-                <img src="../arrow-right.png"/>
-              </a>
-          </div>
-      </div>
+          <!-- Swiper -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
+                       alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.unsplash.com/photo-1483181957632-8bda974cbc91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
+                  alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.unsplash.com/photo-1480528813727-199fa7208f62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
+                  alt="">
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+            </div>
             <div class="new-arrival">
               <div class="columns">
                 <div class="column">
@@ -123,5 +124,27 @@
   </section>
 
 </body>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      }
+    });
+  </script>
 </html>

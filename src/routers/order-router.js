@@ -5,18 +5,20 @@ import mongoose from "mongoose";
 const orderRouter = Router();
 
 //  바로주문하기
-orderRouter.post("/purchase", async function (req, res, next) {
-  // const {userId = /*req.currentUserId;*/ req.body.userId; //여기는 나중에 바꿔줄 예정 (주석값으로)
-  const { userId, address, comment, products } = req.body;
+orderRouter.post("/", async function (req, res, next) {
+  const userId = req.currentUserId; //여기는 나중에 바꿔줄 예정 (주석값으로)
+  const { name, Address, comment, products, phoneNumber } = req.body;
   const totalPrice = Number(req.body.totalPrice);
 
   try {
     // 위 데이터를 유저 db에 추가하기
     const newOrder = await orderService.addOrder({
       userId,
+      name,
+      phoneNumber,
       totalPrice,
       products,
-      address,
+      Address,
       comment,
     });
 
@@ -100,7 +102,7 @@ orderRouter.get("/lists", async function (req, res, next) {
 });
 
 //주문상태변경
-orderRouter.patch("/status/:orderId", async function (req, res, next) {
+orderRouter.patch("/orderStat/:orderId", async function (req, res, next) {
   try {
     const _id = mongoose.Types.ObjectId(req.params.orderId);
     const { orderStatus } = req.body;
