@@ -73,17 +73,10 @@
           <!-- product-list.js / productSection -->
         </section>
       
-        //페이지네이션
+        <!-- 페이지네이션 -->
         <div id="pagination">
           <ul>
-            <tr>
-              <script type="text/javascript">
-                for(let i = 1; i <= totalPage; i++){
-                    document.write("<td>");
-                    document.write("<a href=" + `/api/post?page=${i}&perPage=${perPage}` + ">" + i + "</a>");
-                    document.write("</td>");
-                }
-              </script>
+            <tr class="pagination">
             </tr>
           </ul>
         </div>
