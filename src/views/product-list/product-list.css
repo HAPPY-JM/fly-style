@@ -99,3 +99,23 @@ main .section .card-content{
   background-color: lightgrey;
   font-size: smaller;
 }
+
+/* 스크롤 업 버튼 */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #527ae7;
+  color: #fff;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.scroll-top:hover{
+  background-color: #3562dd;
+}
