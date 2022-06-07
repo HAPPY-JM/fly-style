@@ -8,16 +8,6 @@ html, body{
   }
 
 /* 헤더 */
-/* header {
-    height: 25%;
-    padding: 5%;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 1;
-} */
-
-
 .navbar{
     width: 100%;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
@@ -64,7 +54,6 @@ main {
     width: 100%;
     height: auto;
     display: flex;
-    /* background-color: aqua; */
 }
 
 /* 제품 목록 아이템 */
@@ -94,6 +83,36 @@ main .section .card-content{
 }
 
   
+.main-item-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
+}
+
+
 .hero-foot{
   color: grey;
   background-color: lightgrey;
