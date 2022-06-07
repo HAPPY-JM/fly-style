@@ -36,6 +36,7 @@ productRouter.get("/", async (req, res) => {
     const page = Number(req.query.page || 1); // 현재 페이지 번호
     const perPage = Number(req.query.perPage || 12); // 한 페이지당 표시할 상품 수
 
+
     const productList = await productService.productList();
     
     const [total, productsPerPage] = await Promise.all([
@@ -44,7 +45,7 @@ productRouter.get("/", async (req, res) => {
     ]);
     const totalPage = Math.ceil(total/perPage);
 
-    res.json({ productsPerPage, page, perPage, totalPage });
+    res.send({ productsPerPage, totalPage });
 });
 
 
