@@ -136,19 +136,29 @@ img{
 /* bulma 버튼 색상 커스텀 */
 #buttonBuy{
     margin: 5%;
-    padding: 5% 10% 5% 10%;
+    padding: 8% 10% 8% 10%;
     background-color: #d6e4f7;
     color: #4e7dc3;
 }
 #buttonBasket{
     margin: 5%;
-    padding: 5% 10% 5% 10%;
+    padding: 8% 10% 8% 10%;
     background-color: #b1c5e1;
     color: #395f97;
 }
+.input.is-info, select.is-info{
+  width: 7rem;
+  height: 3rem;
+  border-color: #a4c1ee;
+}
 
 #productSize{
-    border-color: #395f97;
+    width: 7rem;
+    height: 3rem;
+    border-color: #a4c1ee;
+}
+#productQuantitywrap{
+  margin-top: 2rem;
 }
 
 /* 푸터 */
