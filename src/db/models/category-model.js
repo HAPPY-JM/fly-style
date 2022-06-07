@@ -16,11 +16,11 @@ export class CategoryModel {
     return idCategory;
   }
 
-  async create(categoryInfo) {
-    //카테고리 생성(상품등록)
-    const createdNewCategory = await Category.create(categoryInfo);
-    return createdNewCategory;
-  }
+    async create(categoryInfo) {
+    //카테고리 생성(카테고리등록)
+        const createdNewCategory = await Category.create(categoryInfo);
+        return createdNewCategory;
+    }
 
   async findAll() {
     //모든 카테고리 가져오기

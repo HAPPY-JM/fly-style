@@ -36,13 +36,13 @@ categoryRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
   const { name } = req.body;
 
   const updateData = {
-    ...(name && { name }),
+    // ...(name && { name }),
+    name,
   };
 
   await categoryService.editCategory(categoryId, updateData);
 
-  // redirect는 최대한 지양하는게 좋지않을까요?
-  res.redirect("/category");
+  res.redirect("/api/category");
 });
 
 //카테고리 삭제 (login 확인, admin 확인)
@@ -55,7 +55,7 @@ categoryRouter.delete(
 
     await categoryService.deleteCategory(categoryId);
     // res.send(`카테고리를 삭제했습니다.`);
-    res.redirect("/");
+    res.redirect("/api/category");
   }
 );
 

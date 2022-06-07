@@ -46,19 +46,26 @@ productRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
 
   const { name, category, price, content, brand, size } = req.body;
 
-  const updateData = {
-    ...(name && { name }),
-    ...(category && { category }),
-    ...(price && { price }),
-    ...(content && { content }),
-    ...(brand && { brand }),
-    ...(size && { size }),
-  };
+    const updateData = {
+        // ...(name && { name }),
+        // ...(category && { category }),
+        // ...(price && { price }),
+        // ...(content && { content }),
+        // ...(brand && { brand }),
+        // ...(size && { size }),
+        name,
+        category,
+        price,
+        content,
+        brand,
+        size,
+    };
 
   await productService.editProduct(productId, updateData);
 
-  res.redirect(`/product/${productId}`);
-});
+    res.redirect(`/api/product/${productId}`);
+    }
+);
 
 //상품 삭제 (login 확인, admin 확인)
 productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
@@ -66,7 +73,7 @@ productRouter.delete("/:id", loginRequired, adminRequired, async (req, res) => {
 
   await productService.deleteProduct(productId);
   // res.send(`상품을 삭제했습니다.`);
-  res.redirect("/");
+    res.redirect("/api/product");
 });
 
 ///api/product/shirts
@@ -81,10 +88,9 @@ productRouter.get("/lists/:category", async (req, res) => {
 
 //상품 상세 보기
 productRouter.get("/:id", async (req, res) => {
-  const productId = req.params.id;
-  console.log(productId);
-  const productData = await productService.viewProductData(productId);
-  res.json(productData);
+    const productId = req.params.id;
+    const productData = await productService.viewProductData(productId);
+    res.json(productData);
 });
 
 export { productRouter };
