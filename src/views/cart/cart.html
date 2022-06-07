@@ -63,7 +63,7 @@
                 </div>
             </div>
             <!-- 장바구니 안 -->
-            <div class="container">
+            <div class="container cart-main">
                 <!-- 장바구니  -->
                 <table class="table cart-table">
                     <colgroup>
@@ -76,11 +76,11 @@
                     </colgroup>
                     <thead>
                         <tr>
-                            <th>
+                            <td>
                                 <label class="checkbox">
                                     <input type="checkbox">
                                 </label>
-                            </th>
+                            </td>
                             <th>전체 선택</th>
                             <th>가격</th>
                             <th></th>
@@ -89,12 +89,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>
+                        <tr class="cart-items">
+                            <td class="cart-items-checkbox">
                                 <label class="checkbox">
                                     <input type="checkbox">
                                 </label>
-                            </th>
+                            </td>
                             <td class="cart-products-info">
                                 <figure>
                                     <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
@@ -105,23 +105,23 @@
                                     <div class="product-description subtitle is-7">신발 설명</div>
                                 </div>
                             </td>
-                            <td>34,000원</td>
+                            <td class="product-price">34,000원</td>
                             <td></td>
-                            <td id="test">
+                            <td>
                                 <div class="product-count">
                                     <button>-</button>
                                     <input class="input" type="number" min="1" max="99" value="1" />
                                     <button>+</button>
                                 </div>
                             </td>
-                            <td><button>삭제</button></td>
+                            <td><button class="delete-btn">삭제</button></td>
                         </tr>
-                        <tr>
-                            <th>
+                        <tr class="cart-items">
+                            <td class="cart-items-checkbox">
                                 <label class="checkbox">
                                     <input type="checkbox">
                                 </label>
-                            </th>
+                            </td>
                             <td class="cart-products-info">
                                 <figure>
                                     <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
@@ -132,16 +132,16 @@
                                     <div class="product-description subtitle is-7">신발 설명</div>
                                 </div>
                             </td>
-                            <td>34,000원</td>
+                            <td class="product-price">34,000원</td>
                             <td></td>
-                            <td id="test">
+                            <td>
                                 <div class="product-count">
                                     <button>-</button>
                                     <input class="input" type="number" min="1" max="99" value="1" />
                                     <button>+</button>
                                 </div>
                             </td>
-                            <td><button>삭제</button></td>
+                            <td><button class="delete-btn">삭제</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -150,19 +150,19 @@
                 <div class="tile order-list">
                     <div class="box order-summary">
                         <div class="header">
-                            <p class="title is-5">결제정보</p>
+                            <p>결제정보</p>
                         </div>
                         <div class="order-info">
                             <div class="info">
-                                <p class="subtitle is-6">상품수</p>
+                                <p class="order-count">상품수</p>
                                 <p id="productsCount">1개</p>
                             </div>
                             <div class="info">
-                                <p class="subtitle is-6">상품금액</p>
+                                <p class="order-price">상품금액</p>
                                 <p id="productsTotal">19,000원</p>
                             </div>
                             <div class="info">
-                                <p class="subtitle is-6">배송비</p>
+                                <p class="order-delivery">배송비</p>
                                 <p id="deliveryFee">3,000원</p>
                             </div>
                         </div>

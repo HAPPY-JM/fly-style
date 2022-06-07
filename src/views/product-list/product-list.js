@@ -1,11 +1,9 @@
 import * as Api from "/api.js";
 import dom from "/dom.js";
 
+// api에서 상품리스트 데이터와 카테고리 데이터 받아오기 
 const productData =await Api.get('/api/product');
 const categoryData = await Api.get('/category');
-console.log(productData);
-
-
 
 // 상품 리스트 섹션
 const productSection = dom('.section');
@@ -18,13 +16,11 @@ let productInnerData = "";
 // 카테고리목록에 넣을 데이터 변수 
 let categoryInnerData = "";
 
-console.log(categorySection);
-console.log(categoryData);
-
+// 카테고리 넣을 함수 구현
 function addCategoryListData(categoryData){
     categoryInnerData += `<li><a>${categoryData.name}</a></li>`
 }
-
+// 상품 넣을 함수 구현
 function addProductsListData(productData){
     //"/product-detail?id="
     productInnerData +=  `
