@@ -47,12 +47,6 @@ productRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
   const { name, category, price, content, brand, size } = req.body;
 
     const updateData = {
-        // ...(name && { name }),
-        // ...(category && { category }),
-        // ...(price && { price }),
-        // ...(content && { content }),
-        // ...(brand && { brand }),
-        // ...(size && { size }),
         name,
         category,
         price,

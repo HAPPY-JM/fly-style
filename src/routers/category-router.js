@@ -36,7 +36,6 @@ categoryRouter.patch("/:id", loginRequired, adminRequired, async (req, res) => {
   const { name } = req.body;
 
   const updateData = {
-    // ...(name && { name }),
     name,
   };
 
