@@ -27,7 +27,7 @@ export default function header(parent) {
           </div>
         </div>
       </div>
-    </header> -->
+    </header>
     
   </div>
   `;
