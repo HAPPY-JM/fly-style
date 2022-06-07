@@ -30,45 +30,14 @@
   crossorigin="anonymous"
 ></script>
 <!-- 커스텀 css, js -->
-<link rel="stylesheet" href="admin-orderlist.css" />
-<script src="admin-orderlist.js" type="module" defer></script>
+<link rel="stylesheet" href="admin-list.css" />
+<script src="admin-list.js" type="module" defer></script>
 </head>
 
 <body>
-  <section class="hero is-success is-fullheight">
     <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              <img src="../fly-style-logo.png" alt="logo"/>
-            </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item" id="login_status">
-                <span>관리자 계정으로 로그인 중입니다</span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon">
-                  <i class="fas fa-cart-shopping">　</i>
-                </span>
-                 cart
-              </a>
-              <a class="navbar-item">
-                  <span>logout</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
+    <section class="hero is-success is-fullheight" id="headerParent">
+
     
   
     <!-- Hero content: will be in the middle -->
@@ -80,11 +49,11 @@
             <div class="notification is-primary">
               <div class="order-container">
                 <div class="orders-top">
-                  <div class="date">DATE</div>
-                  <div class="order">ORDER</div>
-                  <div class="quantity">QAUNTITY</div>
-                  <div class="status">STATUS</div>
-                  <div class="delete">CANCLE</div>
+                  <div class="date">날짜</div>
+                  <div class="order">구매상품</div>
+                  <div class="quantity">개수</div>
+                  <div class="status">배송상태</div>
+                  <div class="delete">취소하기</div>
                 </div>
               </div>
             </div>

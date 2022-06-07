@@ -61,10 +61,17 @@ main {
   width: 100%;
 }
 
+table{
+  width: 100%;
+  padding: 2%;
+}
+
+
 .cart-header {
   display: flex;
   align-items: center;
   border-bottom: 1px solid gray;
+
 }
 
 .section .container {
@@ -72,40 +79,72 @@ main {
   justify-content: space-between;
 }
 
-.container .cart-table {
+/* 카트 전체 테이블 */
+
+.cart-main{
+  display: flex;
+  width: 100%;
+  
+}
+
+
+.cart-table {
   margin-right: 5%;
-  width: 75%;
+  width: 70%;
 }
 
-figure{
-  /* position: relative; */
-  width: 40%;
+
+
+/* 장바구니 */
+tbody .cart-items{
+  height: auto;
 }
 
-figure img {
-  overflow: hidden;
-}
 
-.tile .order-summary {
-  width: 90%;
-}
-
-.cart-products-info{
+/* 카트 이미지 및 신발명 상품 설명 */
+.cart-items .cart-products-info {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+}
+.cart-items .cart-products-info figure{
+  width: 30%;
 }
 
-.product-count {
+/* 카트 아이템 이미지 사진 */
+/* 신발명 신발 설명  */
+
+/* 카트 가격 */
+/* 카트 상품 가격 */
+.cart-items .cart-product-price{
+  vertical-align: middle;
+}
+.cart-items .cart-product-price div{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.product-count button {
-  width: 3em;
+/* 상품 수량 */
+.cart-items .cart-products-count{
+  vertical-align: middle;
+  height: 100%;
+}
+.cart-items .cart-products-count .product-count{
+  display: flex;
+  flex-direction: row;
 }
 
-.product-count input {
-margin: 0 0.5em;
+.cart-items .cart-products-count .product-count input {
+  /* background-color: rebeccapurple; */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: auto;
+}
+.cart-items .cart-products-count .product-count button{
+  border: none;
+
 }
 
 input::-webkit-outer-spin-button,
@@ -113,13 +152,24 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+.cart-product-price div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-items .cart-delete-btn{
+  height: 100%;
+  vertical-align: middle;
+}
+
 /* 주문 정보 */
-/* .order-list {
-  width: 100%;
-} */
+
+.tile .order-summary {
+  width: 90%;
+}
 
 .order-list{
-  margin-top: 1em;
+  margin-top: 1rem;
   height: auto;
 }
 .order-list .order-summary{
@@ -128,16 +178,16 @@ input::-webkit-inner-spin-button {
 
 .order-list .header p{
   border-bottom: 1px solid gray;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   font-weight: bold;
-  padding-bottom: 0.5em ;
+  padding-bottom: 0.5rem ;
 }
 
 .order-info .order-count,.order-price,.order-delivery,.total-label{
   font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: .3em;
-  margin-top: .3em;
+  margin-bottom: .3rem;
+  margin-top: .3rem;
 }
 
 
@@ -147,3 +197,23 @@ input::-webkit-inner-spin-button {
   background-color: lightgrey;
   font-size: smaller;
 }
+
+
+@media screen and (max-width: 860px) {
+  .cart-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+  }
+  .cart-table{
+    width: 100%;
+  }
+  .order-list{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+

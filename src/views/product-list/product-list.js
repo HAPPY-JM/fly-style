@@ -87,3 +87,26 @@ productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
 paginationClass.innerHTML = pagination(productData);
 
+
+//scroll up button
+function scrollUp(e) {
+    let target = document.getElementById(e);
+    target.addEventListener("click", function(){
+      window.scrollTo({top:0, left:0, behavior:'smooth'});
+    })
+  }
+  
+  scrollUp("scroll-btn");
+
+var aTags = document.querySelectorAll('header a');
+for(var i = 0; i < aTags.length; i ++) {
+    aTags[i].onclick = function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute("href"));
+
+        window.scrollTo({
+            'behavior': 'smooth',
+            'top': target.offsetTop
+        })
+    }
+}
