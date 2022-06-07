@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <title>쇼핑-데모</title>
+    <!-- 아이콘 -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../fly-style-favicon.png"
+    />
+    <!-- bulma css 관련 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <!-- 폰트 어썸: 아이콘 -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/7630448495.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 커스텀 css, js -->
+    <link rel="stylesheet" href="my-page-order-list.css">
+    <script src="./order.js" defer></script>
+  </head>
+<body>
+    <div class="hero-head">
+        <header class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                <img src="../fly-style-logo.png" alt="logo"/>
+              </a>
+              <span class="navbar-burger" data-target="navbarMenuHeroC">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenuHeroC" class="navbar-menu">
+              <div class="navbar-end">
+                <a class="navbar-item">
+                  <span class="icon">
+                    <i class="fas fa-cart-shopping"></i>
+                  </span>
+                   cart
+                </a>
+                <a class="navbar-item">
+                    <span>login</span>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+
+    <section class="section">
+        <div class="container">
+            <div id="orderListTitle">
+                <h1 class="title">주문내역조회</h1>
+            </div>
+        </div>
+    </section>
+    <div id="orderListTable">
+       <table class="table is-fullwidth" >
+         <thead>
+            <tr id="tableTitle">
+                <th title="date">주문날짜</th>
+                <th title="orderInfo">주문정보</th>
+                <th title="state">상태</th>
+                <th title="cancellation">신청</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tableBody">
+                <td id="date">2022-06-08</td>
+                <td id="orderInfo">남성정장 / 1개</td>
+                <td id="state">상품 준비중</td>
+                <td id="cancellation"><button class="button is-link is-light" id="cancellationButton">주문취소</button></td>
+            </tr>
+            <tr class="tableBody">
+                <td>2022-06-08</td>
+                <td>아이보리니트 / 1개</td>
+                <td>상품 준비중</td>
+                <td><button class="button is-link is-light" id="cancellationButton">주문취소</button></td>
+            </tr>
+ 
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
