@@ -9,8 +9,8 @@ const categoryRouter = Router();
 //카테고리 등록 (login 확인, admin 확인)
 categoryRouter.post(
   "/",
-  loginRequired,
-  adminRequired,
+  /*loginRequired,
+  adminRequired,*/
   async (req, res, next) => {
     try {
       const { name } = req.body;

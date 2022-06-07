@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // html, css, js 라우팅
 app.use(viewsRouter);
-app.use("/", multerRouter);
+// app.use("/", multerRouter);
 //이미 파일 가져 올때 사용
 // api 라우팅
 // 아래처럼 하면, userRouter 에서 '/login' 으로 만든 것이 실제로는 앞에 /api가 붙어서

@@ -50,3 +50,7 @@ export class OrderModel {
     return result;
   }
 }
+
+const orderModel = new OrderModel();
+
+export { orderModel };

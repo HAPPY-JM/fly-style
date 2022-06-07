@@ -1,16 +1,21 @@
 import * as Api from "/api.js";
 import { validateEmail } from "/useful-functions.js";
+import header from "/header.js";
+import { $, setToken } from "/utils.js";
 
 // 요소(element), input 혹은 상수
 const emailInput = document.querySelector("#emailInput");
 const passwordInput = document.querySelector("#passwordInput");
 const submitButton = document.querySelector("#submitButton");
+const headerParent = $(".hero");
 
 addAllElements();
 addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-async function addAllElements() {}
+async function addAllElements() {
+  header(headerParent);
+}
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
@@ -37,7 +42,8 @@ async function handleSubmit(e) {
   // 로그인 api 요청
   try {
     const data = { email, password };
-
+    console.log(document.referrer);
+    console.log(document.referrer.includes("login"));
     const result = await Api.post("/api/login", data);
     const token = result.token;
     const role = result.role;
@@ -54,30 +60,22 @@ async function handleSubmit(e) {
     ) {
       return alert("권한이 없습니다");
     }
-
-    sessionStorage.setItem("token", token);
+    console.log(token, role);
+    setToken({ token, role });
 
     alert(`정상적으로 로그인되었습니다.`);
-
+    console.log(document.referrer);
     //admin 경로로 정상적으로 로그인한 관리자는
     if (location.pathname === "/dkssudgktpdyadmin/") {
       //관리자 루트 페이지로~~
-      await Api.get("/admins");
+      window.location.href = "/";
+      // await Api.get("/admins"); //href admin-page
+    } else if (document.referrer.includes("login") || !document.referrer) {
+      window.location.href = "/";
+      //console.log(window.location.href);
+    } else {
+      location.href = document.referrer;
     }
-
-    // 로그인 성공
-    //뒤로가기 구현하기 전에 사용했던 코드
-    //location.search->?url=/userlist
-    // const URLSearch = new URLSearchParams(location.search);
-    // const redirectUrl = URLSearch.get("url");
-    // //redirectUrl=/userlist
-    // const string = "string";
-    // console.log(redirectUrl, string);
-
-    //로그인성공
-
-    //뒤로가기(원래보려던 페이지로 가면서 새로고침)
-    location.href = document.referrer;
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);

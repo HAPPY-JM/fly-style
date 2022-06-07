@@ -28,7 +28,7 @@
         ></script>
         <!-- 커스텀 css, js -->
         <link rel="stylesheet" href="order.css">
-        <script src="./order.js"></script>
+        <script src="./order.js" type="module" defer></script>
       </head>
 
 <body>
@@ -127,8 +127,8 @@
                 <div class="field-body search">
                   <div class="field">
                     <p class="control">
-                      <input class="input is-info" id="orderAddress" type="text"
-                        placeholder="주소찾기를 클릭해 주세요."/>
+                      <input class="input is-info" id="zoneCode" type="text"
+                        placeholder="우편번호"/>
                     </p>
                   </div>
                   <div>
@@ -140,6 +140,17 @@
                 </div>
               </div>
                 <!-- 상세주소 입력 div / id : addressDetail -->
+              <div class="field is-horizontal">
+                <div class="field-label is-normal no-label"></div>
+                <div class="field-body">
+                  <div class="field">
+                    <p class="control">
+                      <input class="input is-info" id="orderAddress" type="text" 
+                        placeholder="주소찾기를 클릭해주세요."/>
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div class="field is-horizontal">
                 <div class="field-label is-normal no-label"></div>
                 <div class="field-body">
@@ -215,4 +226,20 @@
         </div>
     </div>
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+  //다음 주소 API 구현
+  //이걸 js파일에 따로빼는 방법도 있을까? 그렇다면 data전체를 넘겨줄수 있어서 편할거같기도하다
+    window.onload = function(){
+    document.getElementById("searchAddressButton").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("zoneCode").value = data.zonecode; // 주소 넣기
+                document.getElementById("orderAddress").value = data.address; // 주소 넣기
+                document.querySelector("#addressDetail").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+</script>
 </html>
