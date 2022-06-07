@@ -1,6 +1,6 @@
 import * as Api from "/api.js";
 import * as fnc from "/useful-functions.js";
-import { $ } from "/utils.js";
+import { $, getToken } from "/utils.js";
 
 // 요소(element), input 혹은 상수
 
