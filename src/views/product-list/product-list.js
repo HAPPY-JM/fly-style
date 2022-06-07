@@ -4,7 +4,7 @@ import dom from "/dom.js";
 const productData =await Api.get('/api/product');
 const categoryData = await Api.get('/category');
 console.log(productData);
-//console.log(categoryData);
+
 
 
 // 상품 리스트 섹션
@@ -22,7 +22,7 @@ console.log(categorySection);
 console.log(categoryData);
 
 function addCategoryListData(categoryData){
-    categoryInnerData += ` <li><a>${categoryData.name}</a></li>`
+    categoryInnerData += `<li><a>${categoryData.name}</a></li>`
 }
 
 function addProductsListData(productData){
@@ -32,7 +32,7 @@ function addProductsListData(productData){
     <a href="/product?_id=${productData._id}">
         <div class="card-image">
             <figure class="image is-square">
-                <img src="${productData.size}" alt="Placeholder image">
+                <img src="${productData.imgSrc}" alt="Placeholder image">
             </figure> 
         </div>
         <div class="card-content">
