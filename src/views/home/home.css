@@ -69,8 +69,8 @@ ul{
 
 /* 이미지 슬라이더 "swiper" */
 .swiper {
-  width: 100%;
-  height: inherit;
+  width: 60%;
+  height: 60%;
 }
 
 .swiper-slide {
