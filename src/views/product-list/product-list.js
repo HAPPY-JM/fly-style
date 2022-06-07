@@ -24,7 +24,7 @@ const productSection = dom('.section');
 const categorySection = dom('.header-category-list');
 
 //페이지네이션
-const paginationClass = dom('.pagination');
+const paginationClass = document.querySelector('.pagination');
 
 
 
@@ -41,19 +41,19 @@ function addCategoryListData(categoryData){
 function addProductsListData(productData){
     //"/product-detail?id="
     productInnerData +=  `
-    <div class="card product-item" id="${productData._id}">
-    <a href="/product?_id=${productData._id}">
+    <div class="card product-item" id="${productData.productsPerPage._id}">
+    <a href="/product?_id=${productData.productsPerPage._id}">
         <div class="card-image">
             <figure class="image is-square">
-                <img src="${productData.imgSrc}" alt="Placeholder image">
+                <img src="${productData.productsPerPage.imgSrc}" alt="Placeholder image">
             </figure> 
         </div>
         <div class="card-content">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-5">${productData.name}</p>
-                    <p class="subtitle is-7">${productData.content}</p>
-                    <p class="title is-6">${productData.price}</p>
+                    <p class="title is-5">${productData.productsPerPage.name}</p>
+                    <p class="subtitle is-7">${productData.productsPerPage.content}</p>
+                    <p class="title is-6">${productData.productsPerPage.price}</p>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@ function addProductsListData(productData){
 function pagination(productData){
     for(let i = 1; i <= totalPage; i++){
         document.write("<td>");
-        document.write("<a href=" + `/api/post?page=${i}&perPage=${productData.perPage}` + ">" + i + "</a>");
+        document.write("<a href=" + `/api/product?page=${i}&perPage=${productData.perPage}` + ">" + i + "</a>");
         document.write("</td>");
     }
 }
