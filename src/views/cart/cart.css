@@ -61,10 +61,17 @@ main {
   width: 100%;
 }
 
+table{
+  width: 100%;
+  padding: 2%;
+}
+
+
 .cart-header {
   display: flex;
   align-items: center;
   border-bottom: 1px solid gray;
+
 }
 
 .section .container {
@@ -73,27 +80,26 @@ main {
 }
 
 /* 카트 전체 테이블 */
-.container .cart-table {
+
+.cart-main{
+  display: flex;
+  width: 100%;
+  
+}
+
+
+.cart-table {
   margin-right: 5%;
-  width: 75%;
+  width: 70%;
 }
 
 
 
 /* 장바구니 */
 tbody .cart-items{
-  /* height: auto; */
-  /* background-color: green; */
-  height: 7rem;
+  height: auto;
 }
 
-
-tbody .cart-items td {
-  /* border: 1px solid black;*/
-  /* background-color: red;  */
-  /* height: 8rem; */
-
-}
 
 /* 카트 이미지 및 신발명 상품 설명 */
 .cart-items .cart-products-info {
@@ -108,52 +114,58 @@ tbody .cart-items td {
 
 /* 카트 아이템 이미지 사진 */
 /* 신발명 신발 설명  */
-.cart-items .cart-products-info .product-info div{
-  padding-bottom: .5em;
-}
 
 /* 카트 가격 */
 /* 카트 상품 가격 */
+.cart-items .cart-product-price{
+  vertical-align: middle;
+}
 .cart-items .cart-product-price div{
   display: flex;
-  margin-top: 3rem;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
 }
 
 /* 상품 수량 */
+.cart-items .cart-products-count{
+  vertical-align: middle;
+  height: 100%;
+}
 .cart-items .cart-products-count .product-count{
   display: flex;
   flex-direction: row;
-  margin-top: 3rem;
 }
 
 .cart-items .cart-products-count .product-count input {
-  margin-left: .5rem;
-  margin-right: .5rem;
+  /* background-color: rebeccapurple; */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: auto;
 }
+.cart-items .cart-products-count .product-count button{
+  border: none;
 
-
-.cart-items td:last-child .cart-delete-btn{
-  margin-top: 3rem;
-  /* background-color: aqua; */
 }
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-
-
+.cart-product-price div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-items .cart-delete-btn{
+  height: 100%;
+  vertical-align: middle;
+}
 
 /* 주문 정보 */
 
 .tile .order-summary {
   width: 90%;
-  /* background-color: rebeccapurple; */
 }
 
 .order-list{
@@ -187,6 +199,21 @@ input::-webkit-inner-spin-button {
 }
 
 
-/* .cart-items td{
-  border: 1px solid black;
-} */
+@media screen and (max-width: 860px) {
+  .cart-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+  }
+  .cart-table{
+    width: 100%;
+  }
+  .order-list{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
