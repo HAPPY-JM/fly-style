@@ -2,7 +2,7 @@ import * as Api from "../api.js";
 import { $ } from "../utils.js";
 const URLSearch = new URLSearchParams(location.search);
 const page = Number(URLSearch.get("page")) || 1;
-const category = categoryData.name;
+const category = URLSearch.get("category");
 console.log(page);
 console.log(category);
 
