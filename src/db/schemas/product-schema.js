@@ -28,9 +28,10 @@ const ProductSchema = new Schema(
       type: String,
     },
 
-    // Img:{
-
-    // },
+    Img:{
+      type : String,
+      required : true,
+    },
 
     size: {
       type: Array,
