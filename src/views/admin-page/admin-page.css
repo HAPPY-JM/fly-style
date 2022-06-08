@@ -56,11 +56,11 @@ html, body{
   
 }
 
-
-
-
-
-
+.main_content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .button.is-link.is-outlined{
   background-color: transparent;
