@@ -43,21 +43,19 @@ let productInnerData = "";
 let categoryInnerData = "";
 
 
-//hrefCategory
-function hrefCate(category){
-    let href = "";
-    if(category =="all"){
-        href = "/products";
-    }else{
-        href = `/products/${category}`;
-    }
-    return href;
-}
-const hrefCategory = hrefCate(category);
+// //hrefCategory
+// function hrefCate(category){
+//     if(category == "all"){
+//         return href = "/products";
+//     }else{
+//         return href = `/products?category=${category}`;
+//     }
+// }
+// const hrefCategory = hrefCate(category);
 
 // 카테고리 넣을 함수 구현
-function addCategoryListData(categoryData, hrefCategory) {
-  categoryInnerData += `<li><a href = ${hrefCategory}>${categoryData.name}</a></li>`;
+function addCategoryListData(categoryData) {
+  categoryInnerData += `<li><a href = /products?category=${categoryData.name}>${categoryData.name}</a></li>`;
 }
 
 
@@ -92,7 +90,7 @@ function pagination(productData, categoryData) {
     for (let i = 1; i <= productData.totalPage; i++) {
       paginationEl += `
           <td>
-              <a href="/products/${categoryData.name}?page=${i}">
+              <a href="/products?category=${productData.categoryname}&page=${i}">
                   ${i} 
               </a>
           </td>
