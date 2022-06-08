@@ -1,10 +1,21 @@
 import * as Api from "../api.js";
 import { $ } from "../utils.js";
+import header from "/header.js";
 const URLSearch = new URLSearchParams(location.search);
 const page = Number(URLSearch.get("page")) || 1;
 const category = URLSearch.get("category");
 console.log(page);
 console.log(category);
+
+// 요소(element), input 혹은 상수
+// const headerParent = $(".hero");
+const headerParent = $("body");
+addAllElements();
+
+// html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
+async function addAllElements() {
+  header(headerParent);
+}
 
 
 //localhost:5000/products/?category="slfjsalkfjalsfjl"
@@ -115,6 +126,9 @@ function pagination(productData, cookieCategory) {
 
 productData.productsPerPage.map((productData) => addProductsListData(productData));
 categoryData.map((categoryData) => addCategoryListData(categoryData));
+// console.log('----------------------------');
+// console.log(productInnerData);
+// console.log('----------------------------');
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;

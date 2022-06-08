@@ -71,11 +71,11 @@ main .section .product-item {
     width: 20%;
     height: 30%;
     padding: 1em;
-
-}
-
+  }
+  
 main .section .card-content{
     padding: 0.5rem 1rem;
+    color: black; 
 }
 
 .card-content .media-content p:last-child{
