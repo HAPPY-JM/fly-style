@@ -1,10 +1,11 @@
 import * as Api from "../api.js";
 import { $ } from "../utils.js";
+import header from "/header.js";
 const URLSearch = new URLSearchParams(location.search);
 const page = Number(URLSearch.get("page")) || 1;
 
-
 // 요소(element), input 혹은 상수
+// const headerParent = $(".hero");
 const headerParent = $("body");
 addAllElements();
 
@@ -30,7 +31,7 @@ async function addAllElements() {
 // api에서 상품리스트 데이터와 카테고리 데이터 받아오기
 const productData = await Api.get(`/api/product?page=${page}`);
 const categoryData = await Api.get("/api/category");
-console.log(productData);
+// console.log(productData);
 // 상품 리스트 섹션
 const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
@@ -73,7 +74,6 @@ function addProductsListData(productData) {
     `;
 }
 
-
 function pagination(productData) {
     let paginationEl = ``;
     for (let i = 1; i <= productData.totalPage; i++) {
@@ -86,12 +86,15 @@ function pagination(productData) {
         `;
     }
     console.log(paginationEl);
-    console.log(paginationClass);
+    // console.log(paginationClass);
     return paginationEl;
   }
 
 productData.productsPerPage.map((productData) => addProductsListData(productData));
 categoryData.map((categoryData) => addCategoryListData(categoryData));
+// console.log('----------------------------');
+// console.log(productInnerData);
+// console.log('----------------------------');
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
