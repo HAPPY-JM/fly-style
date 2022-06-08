@@ -147,13 +147,13 @@ img{
   color: #395f97;
 }
 .input.is-info, select.is-info{
-width: 7rem;
+width: 10rem;
 height: 3rem;
 border-color: #a4c1ee;
 }
 
 #productSize{
-  width: 7rem;
+  width: 10rem;
   height: 3rem;
   border-color: #a4c1ee;
 }
