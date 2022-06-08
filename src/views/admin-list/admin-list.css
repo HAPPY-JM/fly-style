@@ -1,3 +1,7 @@
+html{
+  font-size: 16px;
+}
+
 html, body{
   margin: 0;
   height: 100vh;
@@ -68,6 +72,29 @@ main{
 }
 
 .table thead{
-  height: 3rem;
+  height: 4rem;
   background-color: #00D1B2;
+}
+
+.table thead tr{
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+
+}
+
+.table thead tr th{
+  color: white;
+  vertical-align: middle;
+}
+
+.table tbody tr{
+  /* background-color: red; */
+  vertical-align: middle;
+}
+
+.table tbody tr td{
+  /* background-color: green; */
+  vertical-align: middle;
+  text-align: center;
 }

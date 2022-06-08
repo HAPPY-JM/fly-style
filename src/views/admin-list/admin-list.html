@@ -25,7 +25,7 @@
 
 <body>
 
-  <div class="hero-head">
+  <!-- <div class="hero-head">
     <header class="navbar">
       <div class="container">
         <div class="navbar-brand">
@@ -53,127 +53,65 @@
         </div>
       </div>
     </header>
-  </div>
+  </div> -->
   <!-- <section class="hero is-success is-fullheight" id="headerParent"> -->
 
   <!-- Hero head: will stick at the top -->
+
+  <!-- <div class="date">날짜</div>
+  <div class="order">구매상품</div>
+  <div class="quantity">개수</div>
+  <div class="status">배송상태</div>
+  <div class="delete">취소하기</div> -->
 
   <main>
     <div class="title">주문 목록</div>
     <hr />
     <table class="table is-hoverable">
+      <colgroup>
+        <col width="15%">
+        <col width="15%">
+        <col width="30%">
+        <col width="10%">
+        <col width="15%">
+        <col width="15%">
+      </colgroup>
       <thead>
         <tr>
-          <th>Team</th>
-          <th>Team</th>
-          <th>Team</th>
-          <th>Team</th>
-          <th>Team</th>
+          <th>사용자 ID</th>
+          <th>주문 날짜</th>
+          <th>구매 상품</th>
+          <th>개수</th>
+          <th>배송상태</th>
+          <th>취소하기</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <th>Team</th>
-          <th>Team</th>
-          <th>Team</th>
-          <th>Team</th>
-          <th>Team</th>
+          <th colspan="6"></th>
         </tr>
       </tfoot>
       <tbody>
         <tr>
-          <th>1</th>
-          <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester
-              City</a> <strong>(C)</strong>
+          <td>admin</td>
+          <td>2022-06-08</td>
+          <td>남자옷</td>
+          <td>10개</td>
+          <td>배송중</td>
+          <td>
+            <button class="button">삭제</button>
           </td>
-          <td>38</td>
-          <td>23</td>
-          <td>12</td>
-
         </tr>
         <tr>
-          <th>2</th>
-          <td><a href="https://en.wikipedia.org/wiki/Arsenal_F.C." title="Arsenal F.C.">Arsenal</a></td>
-          <td>38</td>
-
-          <td>+29</td>
-          <td>71</td>
+          <td>admin</td>
+          <td>2022-06-08</td>
+          <td>남자옷</td>
+          <td>10개</td>
+          <td>배송중</td>
+          <td>
+            <button class="button">삭제</button>
+          </td>
         </tr>
-        <tr>
-          <th>3</th>
-          <td><a href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C." title="Tottenham Hotspur F.C.">Tottenham
-              Hotspur</a></td>
-          <td>38</td>
-          <td>19</td>
-          <td>13</td>
-        </tr>
-        <!-- <tr class="is-selected"> -->
-        <tr>
-          <th>4</th>
-          <td><a href="https://en.wikipedia.org/wiki/Manchester_City_F.C." title="Manchester City F.C.">Manchester
-              City</a></td>
-          <td>38</td>
-          <td>9</td>
-          <td>Qualification for the <a
-              href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round"
-              title="2016–17 UEFA Champions League">Champions League play-off round</a></td>
-        </tr>
-        <tr>
-          <th>5</th>
-          <td><a href="https://en.wikipedia.org/wiki/Manchester_United_F.C." title="Manchester United F.C.">Manchester
-              United</a></td>
-          <td>38</td>
-          <td>19</td>
-          <td>Qualification for the <a
-              href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
-              title="2016–17 UEFA Europa League">Europa League group stage</a></td>
-        </tr>
-        <tr>
-          <th>6</th>
-          <td><a href="https://en.wikipedia.org/wiki/Southampton_F.C." title="Southampton F.C.">Southampton</a></td>
-          <td>38</td>
-          <td>18</td>
-          <td>Qualification for the <a
-              href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
-              title="2016–17 UEFA Europa League">Europa League group stage</a></td>
-        </tr>
-        <tr>
-          <th>7</th>
-          <td><a href="https://en.wikipedia.org/wiki/West_Ham_United_F.C." title="West Ham United F.C.">West Ham
-              United</a></td>
-          <td>38</td>
-          <td>14</td>
-          <td>Qualification for the <a
-              href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round"
-              title="2016–17 UEFA Europa League">Europa League third qualifying round</a></td>
-        </tr>
-        <tr>
-          <th>8</th>
-          <td><a href="https://en.wikipedia.org/wiki/Liverpool_F.C." title="Liverpool F.C.">Liverpool</a></td>
-          <td>38</td>
-          <td>16</td>
-          <td>60</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>9</th>
-          <td><a href="https://en.wikipedia.org/wiki/Stoke_City_F.C." title="Stoke City F.C.">Stoke City</a></td>
-          <td>38</td>
-          <td>14</td>
-          <td>9</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>10</th>
-          <td><a href="https://en.wikipedia.org/wiki/Chelsea_F.C." title="Chelsea F.C.">Chelsea</a></td>
-          <td>38</td>
-          <td>12</td>
-          <td>14</td>
-          <td></td>
-        </tr>
-
-
-
       </tbody>
     </table>
   </main>
