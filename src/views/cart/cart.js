@@ -11,6 +11,7 @@ const productTotal = $("#productsTotal");
 const deliveryFee = $("#deliveryFee");
 const totalPrice = $("#orderTotal");
 let tableInnerData = "";
+const lists = Cart.list("cart");
 addAllElements();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
@@ -21,96 +22,111 @@ function addAllElements() {
   setOrderDatas();
 }
 
+// function setOrderDatas() {
+//   setProductCount();
+//   setProductTotal();
+//   setDeliveryFee();
+//   setTotalPrice();
+// }
+
+// function checkBox() {}
+
 function setOrderDatas() {
-  setProductCount();
-  setProductTotal();
-  setDeliveryFee();
-  setTotalPrice();
-}
-
-function setProductCount() {
-  const quantitys = document.querySelectorAll(".quantityinput");
-  let total = 0;
-  for (let j = 0; j < quantitys.length; j++) {
-    total += Number(quantitys[j].value);
+  const checkBoxs = document.querySelectorAll(".checkBoxs");
+  console.log(checkBoxs);
+  const quantitys = document.querySelectorAll("#quantityinput");
+  const productPrice = document.querySelectorAll(".cart-product-price");
+  let totalCount = 0;
+  let productsPrice = 0;
+  for (let j = 0; j < lists.length; j++) {
+    if (checkBoxs[j].checked) {
+      totalCount += Number(quantitys[j].value);
+      productsPrice += Fnc.convertToNumber(productPrice[j].innerText);
+    }
   }
-  productCount.innerHTML = `${Fnc.addCommas(total)}개`;
-}
-
-function setProductTotal() {
-  const productPrice = document.querySelectorAll(".product-price");
-  let total = 0;
-  for (let j = 0; j < productPrice.length; j++) {
-    total += Fnc.convertToNumber(productPrice[j].innerText);
-  }
-  productTotal.innerHTML = `${Fnc.addCommas(total)}원`;
-}
-
-function setDeliveryFee() {
-  if (Fnc.convertToNumber(productTotal.innerText) >= 50000) {
+  productCount.innerHTML = `${Fnc.addCommas(totalCount)}개`;
+  productTotal.innerHTML = `${Fnc.addCommas(productsPrice)}원`;
+  if (productsPrice >= 50000) {
     deliveryFee.innerHTML = `0원`;
   } else {
     deliveryFee.innerHTML = `3,000원`;
   }
-}
-
-function setTotalPrice() {
   const total =
     Fnc.convertToNumber(productTotal.innerHTML) +
     Fnc.convertToNumber(deliveryFee.innerHTML);
   totalPrice.innerHTML = `${Fnc.addCommas(total)}원`;
 }
 
+// function setProductTotal() {
+//   const productPrice = document.querySelectorAll(".cart-product-price");
+//   let total = 0;
+//   for (let j = 0; j < productPrice.length; j++) {
+//     total += Fnc.convertToNumber(productPrice[j].innerText);
+//   }
+//   productTotal.innerHTML = `${Fnc.addCommas(total)}원`;
+// }
+
+// function setDeliveryFee() {
+//   if (Fnc.convertToNumber(productTotal.innerText) >= 50000) {
+//     deliveryFee.innerHTML = `0원`;
+//   } else {
+//     deliveryFee.innerHTML = `3,000원`;
+//   }
+// }
+
+// function setTotalPrice() {
+//   const total =
+//     Fnc.convertToNumber(productTotal.innerHTML) +
+//     Fnc.convertToNumber(deliveryFee.innerHTML);
+//   totalPrice.innerHTML = `${Fnc.addCommas(total)}원`;
+// }
+
 function addtableTrData(data) {
   tableInnerData += `
-    <tr class="cart-items">
-                <td class="cart-items-checkbox">
-                  <label class="checkbox">
-                    <input type="checkbox" />
-                  </label>
-                </td>
-                <td class="cart-products-info">
-                  <figure>
-                    <img
-                      src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
-                      alt="상품이미지"
-                    />
-                  </figure>
-                </td>
-                <td class="is-vcentered">
-                  <div class="product-info">
-                    <div class="product-name title is-5">${data.name}</div>
-                    <div class="product-description subtitle is-7">
-                      ${data.content}
-                    </div>
-                  </div>
-                </td>
-                <td class="product-price is-vcentered">${
-                  data.price * data.quantity
-                }</td>
-                <td class="is-vcentered">
-                  <div class="product-count">
-                    <button class="minus-btn">-</button>
-                    <input
-                      class="quantityinput"
-                      type="number"
-                      min="1"
-                      max="99"
-                      value=${data.quantity}
-                    />
-                    <button class="plus-btn">+</button>
-                  </div>
-                </td>
-                <td class="is-vcentered">
-                  <button class="delete-btn">삭제</button>
-                </td>
-              </tr>
+  <tr class="cart-items">
+    <td class="cart-items-checkbox">
+        <label class="checkbox">
+            <input class='checkBoxs' type="checkbox">
+        </label>
+    </td>
+    <td class="cart-imgs-info">
+        <figure>
+            <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
+                alt="신발">
+        </figure>
+        
+    </td>
+    <td class="cart-product-info is-vcentered">
+        <div class="product-info">
+            <div class="product-name title is-5">${data.name}</div>
+            <div class="product-description subtitle is-7">${data.content}</div>
+        </div>
+    </td>
+    <td class="cart-product-price">
+        <div>${data.price * data.quantity}</div>
+    </td>
+    <td class="cart-products-count">
+        <div class="product-count">
+            <button class="minus-btn">-</button>
+            <input id="quantityinput" class="input" type="number" min="1" max="99" value=${
+              data.quantity
+            } />
+            <button class="plus-btn">+</button>
+        </div>
+    </td>
+    <td class="cart-delete-btn">
+        <div>
+            <button class="delete-btn button is-text">삭제</button>
+        </div>
+    </td>
+  </tr>
+
+
     `;
 }
 
 function getCartDatas() {
   const tbody = document.createElement("tbody");
-  const lists = Cart.list();
   lists.map((data) => {
     addtableTrData(data);
   });
@@ -119,38 +135,53 @@ function getCartDatas() {
 }
 
 function addButtonEvents() {
-  const lists = Cart.list();
   const minusBtns = document.querySelectorAll(".minus-btn");
   const plusBtns = document.querySelectorAll(".plus-btn");
   const deleteBtns = document.querySelectorAll(".delete-btn");
-  const quantityField = document.querySelectorAll(".quantityinput");
-  const productPrice = document.querySelectorAll(".product-price");
+  const quantityField = document.querySelectorAll("#quantityinput");
+  const productPrice = document.querySelectorAll(".cart-product-price");
+  const checkBoxs = document.querySelectorAll(".checkBoxs");
+  const purchaseButton = $("#purchaseButton");
+  purchaseButton.addEventListener("click", purchase);
   for (let i = 0; i < lists.length; i++) {
+    checkBoxs[i].addEventListener("click", () => {
+      setOrderDatas();
+    });
     minusBtns[i].addEventListener("click", () => {
-      const product = Cart.get(lists[i]._id);
+      const product = Cart.get(lists[i]._id, "cart");
       if (product.quantity <= 1) {
         return;
       }
-      Cart.update(product._id, "quantity", product.quantity - 1);
+      Cart.update(product._id, "quantity", product.quantity - 1, "cart");
       quantityField[i].value = product.quantity - 1;
       productPrice[i].innerText = product.price * (product.quantity - 1);
       setOrderDatas();
     });
     plusBtns[i].addEventListener("click", () => {
-      const product = Cart.get(lists[i]._id);
+      const product = Cart.get(lists[i]._id, "cart");
       if (product.quantity >= 99) {
         return;
       }
-      Cart.update(product._id, "quantity", product.quantity + 1);
+      Cart.update(product._id, "quantity", product.quantity + 1, "cart");
       quantityField[i].value = product.quantity + 1;
       productPrice[i].innerText = product.price * (product.quantity + 1);
       setOrderDatas();
     });
     deleteBtns[i].addEventListener("click", () => {
       alert(`삭제하시겠습니까?`);
-      Cart.remove(lists[i]._id);
+      Cart.remove(lists[i]._id, "cart");
       location.reload();
       return;
     });
   }
+}
+
+async function purchase() {
+  const checkBoxs = document.querySelectorAll(".checkBoxs");
+  for (let j = 0; j < lists.length; j++) {
+    if (checkBoxs[j].checked) {
+      Cart.add(lists[j], lists[j].quantity, "order");
+    }
+  }
+  location.href = `/order?cart=true`;
 }

@@ -1,40 +1,39 @@
-export const list = () => {
-  return JSON.parse(window.localStorage.getItem("cart")) || [];
+export const list = (key) => {
+  return JSON.parse(window.localStorage.getItem(key)) || [];
 };
 
-const save = (data) => {
-  window.localStorage.setItem("cart", JSON.stringify(data));
+const save = (data, key) => {
+  window.localStorage.setItem(key, JSON.stringify(data));
 };
 
-export const clear = () => {
-  window.localStorage.removeItem("cart");
+export const clear = (key) => {
+  window.localStorage.removeItem(key);
 };
 
-export const get = (id) => list().find((product) => product._id === id);
+export const get = (id, key) => list(key).find((product) => product._id === id);
 
-export const exists = (id) => !!get(id);
+export const exists = (id, key) => !!get(id, key);
 
-export const add = (product, quantity) =>
-  exists(product._id)
-    ? update(product._id, "quantity", get(product._id).quantity + quantity)
-    : save(list().concat({ ...product, quantity: quantity }));
+export const add = (product, quantity, key) =>
+  exists(product._id, key)
+    ? update(
+        product._id,
+        "quantity",
+        get(product._id, key).quantity + quantity,
+        key
+      )
+    : save(list(key).concat({ ...product, quantity: quantity }), key);
 
-export const remove = (id) =>
-  save(list().filter((product) => product._id !== id));
-
-export const update = (id, field, value) =>
+export const remove = (id, key) =>
   save(
-    list().map((product) =>
+    list(key).filter((product) => product._id !== id),
+    key
+  );
+
+export const update = (id, field, value, key) =>
+  save(
+    list(key).map((product) =>
       product._id === id ? { ...product, [field]: value } : product
-    )
+    ),
+    key
   );
-
-const total = (cb) =>
-  list().reduce(
-    (sum, product) =>
-      isCallback(cb) ? cb(sum, product) : (sum += subtotal(product)),
-    0
-  );
-
-const subtotal = (product) =>
-  isCalcable(product) ? product.price * product.quantity : 0;

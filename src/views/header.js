@@ -50,9 +50,11 @@ export default function header(parent) {
   } else if (role === "admin") {
     login.innerHTML = "logout";
     join.innerHTML = "adminPage";
+    join.href = "/admin";
   } else {
     login.innerHTML = "logout";
     join.innerHTML = "myPage";
+    join.href = "/myPage";
     cart();
   }
 
