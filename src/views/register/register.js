@@ -8,13 +8,16 @@ const emailInput = document.querySelector('#emailInput');
 const passwordInput = document.querySelector('#passwordInput');
 const passwordConfirmInput = document.querySelector('#passwordConfirmInput');
 const submitButton = document.querySelector('#submitButton');
-const headerParent = $(".hero");
+const headerParent = $("body");
 
 addAllElements();
 addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-async function addAllElements() {}
+function addAllElements() {
+	header(headerParent);
+}
+
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
@@ -84,9 +87,4 @@ async function handleSubmit(e) {
 			text: `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`
 		});
   }
-}
-
-
-async function addAllElements() {
-  header(headerParent);
 }
