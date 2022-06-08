@@ -54,11 +54,21 @@ html, body{
   padding-top: 0;
 }
 
+.container{
+  width: 100%;
+  margin: 0;
+}
+
+.notification{
+  width: 100%;
+  border-radius: 1rem;
+}
+
 .main-content{
   display: flex;
   flex-direction: column;
   color: slategray;
-  min-width: 1000px;
+  width: 100%;
 }
 
 .hero.is-success .title{
@@ -67,4 +77,10 @@ html, body{
 
 .order-container{
   min-width: 100%;
+}
+
+.orders-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

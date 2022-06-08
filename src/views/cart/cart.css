@@ -1,73 +1,219 @@
-html, body{
-    margin: 0;
-    height: 100vh;
-    min-height: -webkit-fill-available;
-    font-family: 'NEXON Lv1 Gothic OTF';
-  }
-  
-  /* 헤더 */
-  .navbar{
-    width: 100%;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
-  }
-  
-  .navbar-menu{
-    margin: 1rem;
-  }
-  
-  .navbar-item{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .navbar-item img{
-    max-height: 4rem;
-  }
-  
-  .hero.is-success {
-    background-color: #fff;
-    color: black;
-  }
-  
-  .hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
-    background-color: #e2e2e2;
-    color: black;
-  }
-  
-  .hero{
-    justify-content: space-evenly;
-  }
-  
-  
-  .hero-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 0;
-    
-  }
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
 
-/* header {
-    height: 25%;
-    padding: 5%;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 1;
-} */
+/* 헤더 */
+/******************헤더******************/
+.navbar {
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  cursor: pointer;
+}
+
+.tablist {
+  height: 70px;
+  background-color: lemonchiffon;
+}
+
+.navbar-item img {
+  max-height: 4rem;
+}
+
+#logo:hover {
+  background-color: #fff;
+}
+
+.hero.is-success {
+  background-color: #fff;
+  color: black;
+}
+
+.hero.is-success .navbar-link.is-active,
+.hero.is-success .navbar-link:hover,
+.hero.is-success a.navbar-item.is-active,
+.hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+.hero {
+  justify-content: space-evenly;
+}
+
 
 /* 메인 */
 
 main {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.section {
+  width: 100%;
+}
+
+table{
+  width: 100%;
+  padding: 2%;
+}
+
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+
+}
+
+.section .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 카트 전체 테이블 */
+
+.cart-main{
+  display: flex;
+  width: 100%;
+  
+}
+
+
+.cart-table {
+  margin-right: 5%;
+  width: 70%;
+}
+
+
+
+/* 장바구니 */
+tbody .cart-items{
+  height: auto;
+}
+
+
+/* 카트 이미지 및 신발명 상품 설명 */
+.cart-items .cart-products-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart-items .cart-products-info figure{
+  width: 30%;
+}
+
+/* 카트 아이템 이미지 사진 */
+/* 신발명 신발 설명  */
+
+/* 카트 가격 */
+/* 카트 상품 가격 */
+.cart-items .cart-product-price{
+  vertical-align: middle;
+}
+.cart-items .cart-product-price div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 상품 수량 */
+.cart-items .cart-products-count{
+  vertical-align: middle;
+  height: 100%;
+}
+.cart-items .cart-products-count .product-count{
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-items .cart-products-count .product-count input {
+  /* background-color: rebeccapurple; */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: auto;
+}
+.cart-items .cart-products-count .product-count button{
+  border: none;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.cart-product-price div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-items .cart-delete-btn{
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* 주문 정보 */
+
+.tile .order-summary {
+  width: 90%;
+}
+
+.order-list{
+  margin-top: 1rem;
+  height: auto;
+}
+.order-list .order-summary{
+  height: auto;
+}
+
+.order-list .header p{
+  border-bottom: 1px solid gray;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem ;
+}
+
+.order-info .order-count,.order-price,.order-delivery,.total-label{
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: .3rem;
+  margin-top: .3rem;
+}
+
+
+/* 푸터 */
+.hero-foot{
+  color: grey;
+  background-color: lightgrey;
+  font-size: smaller;
+}
+
+
+@media screen and (max-width: 860px) {
+  .cart-main{
     display: flex;
-    padding: 10px 10% 10px 10%;
-    /* border: 1px solid black; */
-    background-color: aquamarine;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+  }
+  .cart-table{
+    width: 100%;
+  }
+  .order-list{
+    width: 100%;
+    justify-content: center;
+  }
 }
-section , aside {
-    border: 1px solid black;
-}
+
 

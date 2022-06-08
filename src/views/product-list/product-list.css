@@ -1,10 +1,5 @@
 /* 전체 */
 
-/* body{
-    width: 100vw;
-    height: 100vh;   
-} */
-
 html, body{
     margin: 0;
     height: 100vh;
@@ -13,16 +8,6 @@ html, body{
   }
 
 /* 헤더 */
-/* header {
-    height: 25%;
-    padding: 5%;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 1;
-} */
-
-
 .navbar{
     width: 100%;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
@@ -56,7 +41,6 @@ html, body{
     justify-content: space-evenly;
   }
   
-  
   .hero-body{
     display: flex;
     justify-content: center;
@@ -70,41 +54,59 @@ main {
     width: 100%;
     height: auto;
     display: flex;
-    padding: 10px 10% 10px 10%;
-}
-
-/* 카테고리 */
-main .category-list{
-    width: 15%;
-    margin: 30px;
-}
-
-main .category-list ul li {
-    border-bottom: 1px solid grey;
-    margin-bottom: .5rem;
 }
 
 /* 제품 목록 아이템 */
-
 main .section {
+    width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-
+    margin: 10px 10%;
+    padding: 2em;
 }
 
 main .section .product-item {
-    margin: 30px;
-    width: 230px;
-    height: 380px;
+    margin: 1em;
+    width: 20%;
+    height: 30%;
+    padding: 1em;
 
 }
 
 main .section .card-content{
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .card-content .media-content p:last-child{
     margin-top: 10px;
+}
+
+.temp{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
 }
 
 /* footer{
@@ -113,3 +115,58 @@ main .section .card-content{
 
 
   
+.main-item-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
+}
+
+
+.hero-foot{
+  color: grey;
+  background-color: lightgrey;
+  font-size: smaller;
+}
+
+/* 스크롤 업 버튼 */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #527ae7;
+  color: #fff;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.scroll-top:hover{
+  background-color: #3562dd;
+}

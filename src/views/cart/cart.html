@@ -18,23 +18,12 @@
 </head>
 
 <body>
-    <!-- <header>
-        <div class="tabs is-large">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/product-list">Shop</a></li>
-                <li><a href="/cart">Cart</a></li>
-                <li><a href="/login">login</a></li>
-            </ul>
-        </div>
-    </header> -->
-
     <!-- 헤더 -->
     <div class="hero-head">
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="/">
+                    <a class="navbar-item">
                         <img src="../fly-style-logo.png" alt="logo" />
                     </a>
                     <span class="navbar-burger" data-target="navbarMenuHeroC">
@@ -45,16 +34,13 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item" href="/cart">
+                        <a class="navbar-item">
                             <span class="icon">
                                 <i class="fas fa-cart-shopping">　</i>
                             </span>
                             cart
                         </a>
-                        <a class="navbar-item" href="/product-list">
-                            <span>shop</span>
-                        </a>
-                        <a class="navbar-item" href="/login">
+                        <a class="navbar-item">
                             <span>login</span>
                         </a>
                     </div>
@@ -65,29 +51,189 @@
 
     <main>
         <!-- 카트입니다 -->
-        <section>
-            <h2>장바구니</h2>
-            <ul>
-                <li>아이템 1</li>
-                <li>아이템 2</li>
-                <li>아이템 3</li>
-                <li>아이템 4</li>
-            </ul>
+        <section class="section">
+            <div class="cart-header">
+                <div class="title">
+                    <p class="is-size-2">장바구니</p>
+                </div>
+                <div class="subtitle">
+                    <p class="is-size-6">
+                        &gt; &nbsp; 주문결제 &nbsp; &gt; &nbsp;주문완료
+                    </p>
+                </div>
+            </div>
+            <!-- 장바구니 안 -->
+            <div class="container cart-main">
+                <!-- 장바구니  -->
+                <table class="table cart-table">
+                    <colgroup>
+                        <col width="5%">
+                        <col width="50%">
+                        <col width="10%">
+                        <col width="15%">
+                        <col width="10%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <th>전체 선택</th>
+                            <th>가격</th>
+                            <th>수량</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cart-items">
+                            <td class="cart-items-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td class="cart-products-info">
+                                <figure>
+                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
+                                        alt="신발">
+                                </figure>
+                                <div class="product-info">
+                                    <div class="product-name title is-5">신발명</div>
+                                    <div class="product-description subtitle is-7">신발 설명</div>
+                                </div>
+                            </td>
+                            <td class="cart-product-price">
+                                <div>34,000원</div>
+                            </td>
+                            <!-- <td></td> -->
+                            <td class="cart-products-count">
+                                <div class="product-count">
+                                    <button>-</button>
+                                    <input class="input" type="number" min="1" max="99" value="1" />
+                                    <button>+</button>
+                                </div>
+                            </td>
+                            <td class="cart-delete-btn">
+                                <div>
+                                    <button class="button is-text">삭제</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="cart-items">
+                            <td class="cart-items-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td class="cart-products-info">
+                                <figure>
+                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
+                                        alt="신발">
+                                </figure>
+                                <div class="product-info">
+                                    <div class="product-name title is-5">신발명</div>
+                                    <div class="product-description subtitle is-7">신발 설명</div>
+                                </div>
+                            </td>
+                            <td class="cart-product-price">
+                                <div>34,000원</div>
+                            </td>
+                            <!-- <td></td> -->
+                            <td class="cart-products-count">
+                                <div class="product-count">
+                                    <button>-</button>
+                                    <input class="input" type="number" min="1" max="99" value="1" />
+                                    <button>+</button>
+                                </div>
+                            </td>
+                            <td class="cart-delete-btn">
+                                <div>
+                                    <button class="button is-text">삭제</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="cart-items">
+                            <td class="cart-items-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                </label>
+                            </td>
+                            <td class="cart-products-info">
+                                <figure>
+                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
+                                        alt="신발">
+                                </figure>
+                                <div class="product-info">
+                                    <div class="product-name title is-5">신발명</div>
+                                    <div class="product-description subtitle is-7">신발 설명</div>
+                                </div>
+                            </td>
+                            <td class="cart-product-price">
+                                <div>34,000원</div>
+                            </td>
+                            <!-- <td></td> -->
+                            <td class="cart-products-count">
+                                <div class="product-count">
+                                    <button>-</button>
+                                    <input class="input" type="number" min="1" max="99" value="1" />
+                                    <button>+</button>
+                                </div>
+                            </td>
+                            <td class="cart-delete-btn">
+                                <div>
+                                    <button class="button is-text">삭제</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 주문 정보 -->
+                <div class="tile order-list">
+                    <div class="box order-summary">
+                        <div class="header">
+                            <p>결제정보</p>
+                        </div>
+                        <div class="order-info">
+                            <div class="info">
+                                <p class="order-count">상품수</p>
+                                <p id="productsCount">1개</p>
+                            </div>
+                            <div class="info">
+                                <p class="order-price">상품금액</p>
+                                <p id="productsTotal">19,000원</p>
+                            </div>
+                            <div class="info">
+                                <p class="order-delivery">배송비</p>
+                                <p id="deliveryFee">3,000원</p>
+                            </div>
+                        </div>
+                        <div class="total">
+                            <p class="total-label">총 결제금액</p>
+                            <p class="total-price" id="orderTotal">22,000원</p>
+                        </div>
+                        <div class="purchase">
+                            <button class="button is-info" id="purchaseButton">
+                                구매하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
-        <aside>주문정보</aside>
+
+
+
     </main>
 
-
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
-        </div>
-    </footer>
-
+    <div class="hero-foot">
+        contributed by Team-5 @elice <br>
+        all rights reserved
+    </div>
 
 </body>
 

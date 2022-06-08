@@ -1,7 +1,7 @@
-import { getToken } from "/utils.js";
+import { getToken } from "./utils.js";
 // api 로 GET 요청 (/endpoint/params 형태로 요청함)
 async function get(endpoint, params = "") {
-  const apiUrl = `${endpoint}/${params}`;
+  const apiUrl = params ? `${endpoint}/${params}` : `${endpoint}`;
   console.log(`%cGET 요청: ${apiUrl} `, "color: #a25cd1;");
   console.log(`${getToken()}`);
   const res = await fetch(apiUrl, {
