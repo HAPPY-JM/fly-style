@@ -82,7 +82,24 @@ main .section .card-content{
     margin-top: 10px;
 }
 
+<<<<<<< Updated upstream
   
+=======
+.image img:hover{
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+.temp{
+  display: flex;
+  flex-direction: column;
+}
+
+/* footer{
+    position: relative;
+} */
+
+>>>>>>> Stashed changes
 .main-item-list{
   display: flex;
   justify-content: center;
@@ -90,7 +107,7 @@ main .section .card-content{
   flex-direction: column;
 }
 
-
+/* 페이지네이션 */
 #pagination{
   display: flex;
   flex-direction: row;
