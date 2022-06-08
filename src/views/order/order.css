@@ -66,16 +66,21 @@ html, body{
     text-align: right;
 } */
 #addressInfodiv{
-  float: left;
-  width: 45%;
-  margin: 10vh 0 10vh 5vw;
-}
+  justify-content: center;
+  margin: 5% auto 5% auto;
+  width: 65%;
 
+
+}
+#orderInfo{
+
+  flex-direction: column;
+  justify-content: center;
+}
 #orderInfodiv{
-  text-align: left;
-  float: right;
-  width: 40%;
-  margin: 10vh 5vw 10vh 0;
+  margin: 5% auto 5% auto;
+  width: 65%;
+
 }
 
 .subtitle.is-5, .subtitle.is-6{
