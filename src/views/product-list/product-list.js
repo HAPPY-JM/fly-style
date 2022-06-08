@@ -2,6 +2,9 @@ import * as Api from "../api.js";
 import { $ } from "../utils.js";
 const URLSearch = new URLSearchParams(location.search);
 const page = Number(URLSearch.get("page")) || 1;
+const category = URLSearch.get("category");
+console.log(page);
+console.log(category);
 
 
 //localhost:5000/products/?category="slfjsalkfjalsfjl"
@@ -18,9 +21,14 @@ const page = Number(URLSearch.get("page")) || 1;
 // const response = await fetch(url);
 // const data = await response.json();
 // api에서 상품리스트 데이터와 카테고리 데이터 받아오기
-const productData = await Api.get(`/api/product?page=${page}`);
+const productData = await Api.get(`/api/product/${category}?page=${page}`);
 const categoryData = await Api.get("/api/category");
 console.log(productData);
+// //카테고리별 상품데이터 가져오기
+// const productsCategory = await Api.get(`/api/product/:${category}`);
+// console.log(productsCategory);
+
+
 // 상품 리스트 섹션
 const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
@@ -34,10 +42,35 @@ let productInnerData = "";
 // 카테고리목록에 넣을 데이터 변수
 let categoryInnerData = "";
 
+setCookie('categoryCookie', URLSearch.get("category"));
+
+//카테고리쿠키 생성함수
+function setCookie(cName, cValue){
+    let cookies = cName + '=' + cValue + '; path=/ ';
+    document.cookie = cookies;
+}
+//카테고리쿠키 가져오기
+function getCookie(cName){
+    cName = cName + '=';
+    let cookieData = document.cookie;
+    let start = cookieData.indexOf(cName);
+    let cValue = '';
+    if(start != -1){
+        start += cName.length;
+        let end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cValue = cookieData.substring(start, end);
+    }
+    return cValue;
+}
+
+
 // 카테고리 넣을 함수 구현
 function addCategoryListData(categoryData) {
-  categoryInnerData += `<li><a>${categoryData.name}</a></li>`;
+  categoryInnerData += `<li><a href = /products?category=${categoryData.name}>${categoryData.name}</a></li>`;
 }
+
+
 // 상품 넣을 함수 구현
 function addProductsListData(productData) {
   //"/product-detail?id="
@@ -63,20 +96,20 @@ function addProductsListData(productData) {
     `;
 }
 
-
-function pagination(productData) {
+let cookieCategory = getCookie('categoryCookie');
+function pagination(productData, cookieCategory) {
     let paginationEl = ``;
     for (let i = 1; i <= productData.totalPage; i++) {
       paginationEl += `
           <td>
-              <a href="/products?page=${i}">
+              <a href="/products?category=${cookieCategory}&page=${i}">
                   ${i} 
               </a>
           </td>
         `;
     }
-    console.log(paginationEl);
-    console.log(paginationClass);
+    // console.log(paginationEl);
+    // console.log(paginationClass);
     return paginationEl;
   }
 
@@ -85,7 +118,7 @@ categoryData.map((categoryData) => addCategoryListData(categoryData));
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
-paginationClass.innerHTML = pagination(productData);
+paginationClass.innerHTML = pagination(productData, cookieCategory);
 
 
 //scroll up button

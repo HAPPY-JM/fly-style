@@ -50,6 +50,7 @@ class CategoryService {
     return deleteCategory;
   }
 
+  //카테고리 이름으로 카테고리 찾기
   async findByName(name) {
     const category = await this.categoryModel.findByName(name);
     return category;

@@ -30,23 +30,23 @@ productRouter.post(
   }
 );
 
-//상품 목록
-productRouter.get("/", async (req, res) => {
+// //상품 목록
+// productRouter.get("/", async (req, res) => {
 
-    const page = Number(req.query.page || 1); // 현재 페이지 번호
-    const perPage = Number(req.query.perPage || 12); // 한 페이지당 표시할 상품 수
+//     const page = Number(req.query.page || 1); // 현재 페이지 번호
+//     const perPage = Number(req.query.perPage || 12); // 한 페이지당 표시할 상품 수
 
 
-    const productList = await productService.productList();
+//     const productList = await productService.productList();
     
-    const [total, productsPerPage] = await Promise.all([
-        productList.length,
-        productService.pagination(productList, page, perPage)
-    ]);
-    const totalPage = Math.ceil(total/perPage);
+//     const [total, productsPerPage] = await Promise.all([
+//         productList.length,
+//         productService.pagination(productList, page, perPage)
+//     ]);
+//     const totalPage = Math.ceil(total/perPage);
 
-    res.send({ productsPerPage, totalPage });
-});
+//     res.send({ productsPerPage, totalPage });
+// });
 
 
 //상품 수정 (login 확인, admin 확인)
@@ -82,12 +82,23 @@ productRouter.delete("/:id", async (req, res) => {
 
 ///api/product/shirts
 //카테고리별 상품
-productRouter.get("/lists/:category", async (req, res) => {
-  const name = req.params.category;
-  const category = await categoryService.findByName(name);
-  // console.log(category._id);
-  const categoryProducts = await productService.findByCategory(category._id);
-  res.json(categoryProducts);
+productRouter.get("/:category", async (req, res) => {
+
+  const page = Number(req.query.page || 1); // 현재 페이지 번호
+  const perPage =  12; // 한 페이지당 표시할 상품 수
+  const categoryName = req.params.category;
+  // const category = await categoryService.findByName(categoryName);
+
+  const productList = await productService.productList(categoryName);
+  
+  const [total, productsPerPage] = await Promise.all([
+      productList.length,
+      productService.pagination(productList, page, perPage)
+  ]);
+  const totalPage = Math.ceil(total/perPage);
+
+  res.send({ productsPerPage, totalPage, categoryName });
+
 });
 
 //상품 상세 보기

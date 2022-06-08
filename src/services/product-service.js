@@ -30,16 +30,21 @@ class ProductService {
     return createdNewProduct;
   }
 
-  //상품 목록
-  async productList() {
-    const products = await this.productModel.findAll();
-    return products;
+  //상품 목록(카테고리)
+  async productList(categoryName) {
+    if(categoryName === "all"){
+      const products = await this.productModel.findAll();
+      return products;
+    }else{
+      const findProduct = await this.productModel.findByCategory(categoryName);
+      return findProduct;
+    }
   }
 
   //페이지네이션
   async pagination(productList, page, perPage){
-    const protuctsPaging = await productList.slice(perPage * (page - 1), perPage * (page - 1) + perPage);
-    return protuctsPaging;
+    const productsPaging = await productList.slice(perPage * (page - 1), perPage * (page - 1) + perPage);
+    return productsPaging;
   }
 
   //상품 수정
@@ -54,11 +59,11 @@ class ProductService {
     return deleteProduct;
   }
 
-  //카테고리로 상품 찾기
-  async findByCategory(category) {
-    const findProduct = await this.productModel.findByCategory(category);
-    return findProduct;
-  }
+  // //카테고리로 상품 찾기
+  // async findByCategory(category) {
+  //   const findProduct = await this.productModel.findByCategory(category);
+  //   return findProduct;
+  // }
 
   //상품 상세
   async viewProductData(productId) {
