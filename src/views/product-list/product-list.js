@@ -42,16 +42,28 @@ let productInnerData = "";
 // 카테고리목록에 넣을 데이터 변수
 let categoryInnerData = "";
 
+setCookie('categoryCookie', URLSearch.get("category"));
 
-// //hrefCategory
-// function hrefCate(category){
-//     if(category == "all"){
-//         return href = "/products";
-//     }else{
-//         return href = `/products?category=${category}`;
-//     }
-// }
-// const hrefCategory = hrefCate(category);
+//카테고리쿠키 생성함수
+function setCookie(cName, cValue){
+    let cookies = cName + '=' + cValue + '; path=/ ';
+    document.cookie = cookies;
+}
+//카테고리쿠키 가져오기
+function getCookie(cName){
+    cName = cName + '=';
+    let cookieData = document.cookie;
+    let start = cookieData.indexOf(cName);
+    let cValue = '';
+    if(start != -1){
+        start += cName.length;
+        let end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cValue = cookieData.substring(start, end);
+    }
+    return cValue;
+}
+
 
 // 카테고리 넣을 함수 구현
 function addCategoryListData(categoryData) {
@@ -84,13 +96,13 @@ function addProductsListData(productData) {
     `;
 }
 
-
-function pagination(productData, categoryData) {
+let cookieCategory = getCookie('categoryCookie');
+function pagination(productData, cookieCategory) {
     let paginationEl = ``;
     for (let i = 1; i <= productData.totalPage; i++) {
       paginationEl += `
           <td>
-              <a href="/products?category=${productData.categoryname}&page=${i}">
+              <a href="/products?category=${cookieCategory}&page=${i}">
                   ${i} 
               </a>
           </td>
@@ -106,7 +118,7 @@ categoryData.map((categoryData) => addCategoryListData(categoryData));
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
-paginationClass.innerHTML = pagination(productData);
+paginationClass.innerHTML = pagination(productData, cookieCategory);
 
 
 //scroll up button
