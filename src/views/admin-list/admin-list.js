@@ -1,10 +1,19 @@
 
-// import * as Api from "/api.js";
+ import * as Api from "/api.js";
 
 import header from "/header.js";
 import { $ } from "/utils.js";
 
 // 요소(element), input 혹은 상수
+
+const order = await Api.get('/api/admins/order/lists');
+
+console.log(order);
+console.log('----------------------------------------');
+console.log(order[0]);
+console.log('----------------------------------------');
+// console.log(order[0]._id);
+console.log('----------------------------------------');
 
 //const headerParent = $("body");
 const headerParent = $(".hero");
@@ -19,31 +28,11 @@ async function addAllElements() {
 const deleteBtn = document.querySelectorAll('.user-order-data td:last-child button');
 const tbody = $('.table tbody');
 
-for(let i = 0 ; i < deleteBtn.length; i ++){
-  deleteBtn[i].setAttribute('id',`deleteBtnId_${i+1}`);
-}
+// for(let i = 0 ; i < deleteBtn.length; i ++){
+//   deleteBtn[i].setAttribute('id',`deleteBtnId_${i+1}`);
+// }
 let innerTrData = "";
-for(let i = 0 ; i < 10 ; i ++){
-  innerTrData += 
-  `<tr>
-  <td>admin</td>
-  <td>2022-06-0${i+1}</td>
-  <td>
-    <ul>
-      <li>남자옷</li>
-      <li>남자옷</li>
-      <li>남자옷</li>
-      <li>남자옷</li>
-    </ul>
 
-  </td>
-  <td>10개</td>
-  <td>배송중</td>
-  <td>
-    <button class="button is-danger is-light" onclick="deleteRow(this)">삭제</button>
-  </td>
-</tr>`
-}
 
 tbody.innerHTML = innerTrData;
 

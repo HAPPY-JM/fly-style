@@ -21,6 +21,9 @@
   <!-- 커스텀 css, js -->
   <link rel="stylesheet" href="admin-list.css" />
   <script src="admin-list.js" type="module" defer></script>
+  <!-- Link Swiper's CSS -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -29,9 +32,6 @@
     <!-- Hero head: will stick at the top -->
 
     <!-- Hero content: will be in the middle -->
-
-    <!-- Hero head: will stick at the top -->
-
     <main>
       <div class="title">주문 목록</div>
       <hr />
@@ -64,19 +64,32 @@
         </tbody>
       </table>
     </main>
-    <!-- Hero content: will be in the middle -->
+
 
   </section>
   <!-- Hero footer: will stick at the bottom -->
   <script>
     function deleteRow(o) {
-      //no clue what to put here?
-      let i = o.parentNode.parentNode.rowIndex;
-      document.querySelector('#mainTable').deleteRow(i);
-      // var p=o.parentNode.parentNode;
-      //     p.parentNode.removeChild(p);
-    }
+      swal({
+        title: "해당 주문 내역을 삭제하시겠습니까?",
+        text: "삭제하면 복구할 수 없습니다!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("삭제 완료되었습니다.", {
+              icon: "success",
+            });
+            let i = o.parentNode.parentNode.rowIndex;
+            document.querySelector('#mainTable').deleteRow(i);
+          } else {
+            swal("Good!");
+          }
+        });
 
+    }
   </script>
 </body>
 
