@@ -82,6 +82,38 @@ main .section .card-content{
     margin-top: 10px;
 }
 
+.temp{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
+}
+
+/* footer{
+    position: relative;
+} */
+
+
   
 .main-item-list{
   display: flex;
