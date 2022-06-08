@@ -1,4 +1,4 @@
-const list = () => {
+export const list = () => {
   return JSON.parse(window.localStorage.getItem("cart")) || [];
 };
 
@@ -28,3 +28,13 @@ export const update = (id, field, value) =>
       product._id === id ? { ...product, [field]: value } : product
     )
   );
+
+const total = (cb) =>
+  list().reduce(
+    (sum, product) =>
+      isCallback(cb) ? cb(sum, product) : (sum += subtotal(product)),
+    0
+  );
+
+const subtotal = (product) =>
+  isCalcable(product) ? product.price * product.quantity : 0;

@@ -49,7 +49,7 @@ export default function header(parent) {
     cart();
   } else if (role === "admin") {
     login.innerHTML = "logout";
-    join.innerHTML = "admin";
+    join.innerHTML = "adminPage";
   } else {
     login.innerHTML = "logout";
     join.innerHTML = "myPage";

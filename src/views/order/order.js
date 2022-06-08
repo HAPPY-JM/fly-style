@@ -1,10 +1,12 @@
 import * as Api from "/api.js";
 import * as fnc from "/useful-functions.js";
-import { $, getToken } from "/utils.js";
+import header from "/header.js";
+import { $ } from "/utils.js";
 
 // 요소(element), input 혹은 상수
 
 const buyButton = $("#buyButton");
+const headerParent = $("#contentWrap");
 
 getProductRender();
 addAllEvents();
@@ -13,6 +15,7 @@ addAllEvents();
 async function getProductRender() {
   //  const data = await getDataFromApi();
   landingRender();
+  header(headerParent);
 }
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.

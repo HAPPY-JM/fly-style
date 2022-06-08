@@ -13,10 +13,11 @@ productRouter.post(
   async (req, res, next) => {
     try {
       const { name, category, price, content, brand, size } = req.body;
-
+      const categorys = await categoryService.findByName(category);
+    
       const newProduct = await productService.addProduct({
         name,
-        category,
+        category:categorys._id,
         price,
         content,
         brand,
