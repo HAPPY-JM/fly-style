@@ -39,6 +39,7 @@
     
 <!-- 메인 -->
         <main>
+
           <!-- 상단 주문결제 프로세스 표시 -->
           <section class="hero" id="showOrderProcess">
             <div class="hero-body">
@@ -54,6 +55,52 @@
 
             </div>
           </section>
+
+          <section class="section">
+            <!-- 장바구니 안 -->
+            <div class="container cart-main">
+                <!-- 장바구니  -->
+                <table class="table cart-table">
+                  <colgroup>
+                    <col width="50%">
+                    <col width="15%">
+                    <col width="15%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th >제품정보</th>
+                            <th>가격</th>
+                            <th>수량</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="orderCheck" class="cart-items">
+                            <td class="cart-products-info">
+                                <figure>
+                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
+                                        alt="신발">
+                                </figure>
+                                <div class="product-info">
+                                    <div class="product-name title is-5">신발명</div>
+                                   
+                                </div>
+                            </td>
+                            <td class="cart-product-price">
+                                <div>34,000원</div>
+                            </td>
+                            <td class="cart-products-count">
+                                <div class="product-count">
+                                    <p id="productCounts">2</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+
 
           <!-- 배송지 정보란 -->
           <div id="orderInfo">

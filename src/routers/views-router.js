@@ -18,6 +18,9 @@ viewsRouter.use("/dkssudgktpdyadmin", serveStatic("login"));
 viewsRouter.use("/products", serveStatic("product-list"));
 viewsRouter.use("/cart", serveStatic("cart"));
 viewsRouter.use("/order", serveStatic("order"));
+viewsRouter.use("/myPage", serveStatic("my-page"));
+
+
 
 viewsRouter.use("/admin", serveStatic("admin-page"));
 viewsRouter.use("/adminList", serveStatic("admin-list"));
