@@ -36,6 +36,12 @@ class ProductService {
     return products;
   }
 
+  //페이지네이션
+  async pagination(productList, page, perPage){
+    const protuctsPaging = await productList.slice(perPage * (page - 1), perPage * (page - 1) + perPage);
+    return protuctsPaging;
+  }
+
   //상품 수정
   async editProduct(productId, update) {
     const editProduct = await this.productModel.editProduct(productId, update);
