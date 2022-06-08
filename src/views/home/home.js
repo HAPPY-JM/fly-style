@@ -29,7 +29,7 @@ async function addAllElements() {
 
 // 카테고리 넣을 함수 구현
 function categories(categoryData) {
-  categoryInnerData += `<li><a>${categoryData.name}</a></li>`;
+  categoryInnerData += `<li><a href = "/products?category=${categoryData.name}">${categoryData.name}</a></li>`;
 }
 
 categoryData.map((categoryData) => categories(categoryData));
