@@ -67,7 +67,7 @@
   <main>
     <div class="title">주문 목록</div>
     <hr />
-    <table class="table is-hoverable">
+    <table class="table is-hoverable" id="mainTable">
       <colgroup>
         <col width="15%">
         <col width="15%">
@@ -92,52 +92,83 @@
         </tr>
       </tfoot>
       <tbody>
-        <tr>
+
+        <!-- <tr class="user-order-data">
           <td>admin</td>
           <td>2022-06-08</td>
           <td>남자옷</td>
           <td>10개</td>
           <td>배송중</td>
           <td>
-            <button class="button">삭제</button>
+            <button class="button is-danger is-light">삭제</button>
           </td>
         </tr>
-        <tr>
+        <tr class="user-order-data">
           <td>admin</td>
           <td>2022-06-08</td>
           <td>남자옷</td>
           <td>10개</td>
           <td>배송중</td>
           <td>
-            <button class="button">삭제</button>
+            <button class="button is-danger is-light">삭제</button>
           </td>
         </tr>
+        <tr class="user-order-data">
+          <td>admin</td>
+          <td>2022-06-08</td>
+          <td>남자옷</td>
+          <td>10개</td>
+          <td>배송중</td>
+          <td>
+            <button class="button is-danger is-light">삭제</button>
+          </td>
+        </tr>
+        <tr class="user-order-data">
+          <td>admin</td>
+          <td>2022-06-08</td>
+          <td>남자옷</td>
+          <td>10개</td>
+          <td>배송중</td>
+          <td>
+            <button class="button is-danger is-light" onclick="deleteRow(this)">삭제</button>
+          </td>
+        </tr>
+        <tr>
+          <td>admin</td>
+          <td>2022-06-08</td>
+          <td>
+            <ul>
+              <li>남자옷</li>
+              <li>남자옷</li>
+              <li>남자옷</li>
+              <li>남자옷</li>
+            </ul>
+
+          </td>
+          <td>10개</td>
+          <td>배송중</td>
+          <td>
+            <button class="button is-danger is-light" onclick="deleteRow(this)">삭제</button>
+          </td>
+        </tr> -->
+
       </tbody>
     </table>
   </main>
   <!-- Hero content: will be in the middle -->
-  <!-- <div class="hero-body">
-      <div class="main-content">
-        <div class="title">주문 목록</div>
-        <hr />
-        <div class="container is-max-widescreen">
-          <div class="notification is-primary">
-            <div class="order-container">
-              <div class="orders-top">
-                <div class="date">날짜</div>
-                <div class="order">구매상품</div>
-                <div class="quantity">개수</div>
-                <div class="status">배송상태</div>
-                <div class="delete">취소하기</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
   <!-- </section> -->
   <!-- Hero footer: will stick at the bottom -->
+  <script>
+    function deleteRow(o) {
+      //no clue what to put here?
+      let i = o.parentNode.parentNode.rowIndex;
+      document.querySelector('#mainTable').deleteRow(i);
+      // var p=o.parentNode.parentNode;
+      //     p.parentNode.removeChild(p);
+    }
+
+  </script>
 </body>
 
 </html>
