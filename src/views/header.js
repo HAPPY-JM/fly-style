@@ -9,11 +9,6 @@ export default function header(parent) {
           <a class="navbar-item" href='/'>
             <img src="../fly-style-logo.png" alt="logo" />
           </a>
-          <span class="navbar-burger" data-target="navbarMenuHeroC">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
         </div>
         <div id="navbarMenuHeroC" class="navbar-menu">
           <div class="navbar-end" id='buttons'>
