@@ -11,6 +11,8 @@ viewsRouter.use("/register", serveStatic("register"));
 viewsRouter.use("/login", serveStatic("login"));
 
 viewsRouter.use("/product", serveStatic("/product-detail"));
+viewsRouter.use("/admin", serveStatic("/admin-page"));
+
 viewsRouter.use("/dkssudgktpdyadmin", serveStatic("login"));
 
 viewsRouter.use("/products", serveStatic("product-list"));

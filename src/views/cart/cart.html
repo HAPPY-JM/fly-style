@@ -1,240 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- 아이콘 -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/elice-rabbit-favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/elice-rabbit-favicon.png"
+    />
     <!-- bulma css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <!-- 폰트 어썸: 아이콘 -->
-    <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://kit.fontawesome.com/7630448495.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- 커스텀 css, js -->
     <link rel="stylesheet" href="cart.css" />
     <script src="cart.js" type="module" defer></script>
-</head>
+  </head>
 
-<body>
-    <!-- 헤더 -->
-    <div class="hero-head">
-        <header class="navbar">
-            <div class="container">
-                <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <img src="../fly-style-logo.png" alt="logo" />
-                    </a>
-                    <span class="navbar-burger" data-target="navbarMenuHeroC">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </div>
-                <div id="navbarMenuHeroC" class="navbar-menu">
-                    <div class="navbar-end">
-                        <a class="navbar-item">
-                            <span class="icon">
-                                <i class="fas fa-cart-shopping">　</i>
-                            </span>
-                            cart
-                        </a>
-                        <a class="navbar-item">
-                            <span>login</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div>
-
+  <body>
     <main>
-        <!-- 카트입니다 -->
-        <section class="section">
-            <div class="cart-header">
-                <div class="title">
-                    <p class="is-size-2">장바구니</p>
+      <!-- 카트입니다 -->
+      <section class="section">
+        <div class="cart-header">
+          <div class="title">
+            <p class="is-size-2">&nbsp;&nbsp;&nbsp;장바구니</p>
+          </div>
+          <div class="subtitle">
+            <p class="is-size-6">
+              &gt; &nbsp; 주문결제 &nbsp; &gt; &nbsp;주문완료
+            </p>
+          </div>
+        </div>
+        <!-- 장바구니 안 -->
+        <div class="container cart-main">
+          <!-- 장바구니  -->
+          <table class="table cart-table">
+            <colgroup>
+              <col width="5%" />
+              <col width="20%" />
+              <col width="40%" />
+              <col width="10%" />
+              <col width="15%" />
+              <col width="10%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>
+                  <label class="checkbox">
+                    <input type="checkbox" />
+                  </label>
+                </th>
+                <th>전체 선택</th>
+                <th></th>
+                <th class="has-text-centered">가격</th>
+                <th class="has-text-centered">수량</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+
+          <!-- 주문 정보 -->
+          <div class="tile order-list">
+            <div class="box order-summary">
+              <div class="header">
+                <p>결제정보</p>
+              </div>
+              <div class="order-info">
+                <div class="info">
+                  <p class="order-count">상품수</p>
+                  <p id="productsCount">1개</p>
                 </div>
-                <div class="subtitle">
-                    <p class="is-size-6">
-                        &gt; &nbsp; 주문결제 &nbsp; &gt; &nbsp;주문완료
-                    </p>
+                <div class="info">
+                  <p class="order-price">상품금액</p>
+                  <p id="productsTotal">50,000원</p>
                 </div>
+                <div class="info">
+                  <p class="order-delivery">배송비</p>
+                  <p id="deliveryFee">3,000원</p>
+                </div>
+              </div>
+              <div class="total">
+                <p class="total-label">총 결제금액</p>
+                <p class="total-price" id="orderTotal">22,000원</p>
+              </div>
+              <div class="purchase">
+                <button class="button is-info" id="purchaseButton">
+                  구매하기
+                </button>
+              </div>
             </div>
-            <!-- 장바구니 안 -->
-            <div class="container cart-main">
-                <!-- 장바구니  -->
-                <table class="table cart-table">
-                    <colgroup>
-                        <col width="5%">
-                        <col width="50%">
-                        <col width="10%">
-                        <col width="15%">
-                        <col width="10%">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <td>
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                </label>
-                            </td>
-                            <th>전체 선택</th>
-                            <th>가격</th>
-                            <th>수량</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="cart-items">
-                            <td class="cart-items-checkbox">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                </label>
-                            </td>
-                            <td class="cart-products-info">
-                                <figure>
-                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
-                                        alt="신발">
-                                </figure>
-                                <div class="product-info">
-                                    <div class="product-name title is-5">신발명</div>
-                                    <div class="product-description subtitle is-7">신발 설명</div>
-                                </div>
-                            </td>
-                            <td class="cart-product-price">
-                                <div>34,000원</div>
-                            </td>
-                            <!-- <td></td> -->
-                            <td class="cart-products-count">
-                                <div class="product-count">
-                                    <button>-</button>
-                                    <input class="input" type="number" min="1" max="99" value="1" />
-                                    <button>+</button>
-                                </div>
-                            </td>
-                            <td class="cart-delete-btn">
-                                <div>
-                                    <button class="button is-text">삭제</button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr class="cart-items">
-                            <td class="cart-items-checkbox">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                </label>
-                            </td>
-                            <td class="cart-products-info">
-                                <figure>
-                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
-                                        alt="신발">
-                                </figure>
-                                <div class="product-info">
-                                    <div class="product-name title is-5">신발명</div>
-                                    <div class="product-description subtitle is-7">신발 설명</div>
-                                </div>
-                            </td>
-                            <td class="cart-product-price">
-                                <div>34,000원</div>
-                            </td>
-                            <!-- <td></td> -->
-                            <td class="cart-products-count">
-                                <div class="product-count">
-                                    <button>-</button>
-                                    <input class="input" type="number" min="1" max="99" value="1" />
-                                    <button>+</button>
-                                </div>
-                            </td>
-                            <td class="cart-delete-btn">
-                                <div>
-                                    <button class="button is-text">삭제</button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr class="cart-items">
-                            <td class="cart-items-checkbox">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                </label>
-                            </td>
-                            <td class="cart-products-info">
-                                <figure>
-                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
-                                        alt="신발">
-                                </figure>
-                                <div class="product-info">
-                                    <div class="product-name title is-5">신발명</div>
-                                    <div class="product-description subtitle is-7">신발 설명</div>
-                                </div>
-                            </td>
-                            <td class="cart-product-price">
-                                <div>34,000원</div>
-                            </td>
-                            <!-- <td></td> -->
-                            <td class="cart-products-count">
-                                <div class="product-count">
-                                    <button>-</button>
-                                    <input class="input" type="number" min="1" max="99" value="1" />
-                                    <button>+</button>
-                                </div>
-                            </td>
-                            <td class="cart-delete-btn">
-                                <div>
-                                    <button class="button is-text">삭제</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- 주문 정보 -->
-                <div class="tile order-list">
-                    <div class="box order-summary">
-                        <div class="header">
-                            <p>결제정보</p>
-                        </div>
-                        <div class="order-info">
-                            <div class="info">
-                                <p class="order-count">상품수</p>
-                                <p id="productsCount">1개</p>
-                            </div>
-                            <div class="info">
-                                <p class="order-price">상품금액</p>
-                                <p id="productsTotal">19,000원</p>
-                            </div>
-                            <div class="info">
-                                <p class="order-delivery">배송비</p>
-                                <p id="deliveryFee">3,000원</p>
-                            </div>
-                        </div>
-                        <div class="total">
-                            <p class="total-label">총 결제금액</p>
-                            <p class="total-price" id="orderTotal">22,000원</p>
-                        </div>
-                        <div class="purchase">
-                            <button class="button is-info" id="purchaseButton">
-                                구매하기
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-
-
+          </div>
+        </div>
+      </section>
     </main>
 
     <div class="hero-foot">
-        contributed by Team-5 @elice <br>
-        all rights reserved
+      contributed by Team-5 @elice <br />
+      all rights reserved
     </div>
-
-</body>
-
+  </body>
 </html>
