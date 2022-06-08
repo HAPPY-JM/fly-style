@@ -120,7 +120,7 @@ async function del(endpoint, params = "", data = {}) {
   return result;
 }
 
-async function formDataPost(endpoint, data) {
+async function formDataPost(endpoint, formdata) {
   const apiUrl = endpoint;
   console.log(endpoint)
   console.log(`%cPOST 요청: ${apiUrl}`, 'color: #296aba;');
@@ -128,10 +128,9 @@ async function formDataPost(endpoint, data) {
   const res = await fetch(apiUrl, {
     method: 'POST',
     headers: {
-      'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
     },
-    body: data,
+    body: formdata,
   });
 
   // 응답 코드가 4XX 계열일 때 (400, 403 등)

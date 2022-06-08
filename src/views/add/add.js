@@ -23,6 +23,6 @@ async function submitEvent(e) {
     console.log(image);
     formdata.append('file',image);
     console.log(JSON.stringify(formdata));
-    const result=await Api.formPost('/api/uplodimg',formdata);
+    const result=await Api.formDataPost('/api/product/uplodimg',formdata);
     console.log(result);
     }
