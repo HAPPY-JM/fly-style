@@ -1,5 +1,18 @@
-import * as Api from "/api.js";
-import { $ } from "/utils.js";
+import * as Api from "../api.js";
+import { $ } from "../utils.js";
+const URLSearch = new URLSearchParams(location.search);
+const page = Number(URLSearch.get("page")) || 1;
+
+
+// 요소(element), input 혹은 상수
+const headerParent = $("body");
+addAllElements();
+
+// html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
+async function addAllElements() {
+  header(headerParent);
+}
+
 
 //localhost:5000/products/?category="slfjsalkfjalsfjl"
 //const URLSearch = new URLSearchParams(location.search);
@@ -15,13 +28,16 @@ import { $ } from "/utils.js";
 // const response = await fetch(url);
 // const data = await response.json();
 // api에서 상품리스트 데이터와 카테고리 데이터 받아오기
-const productData = await Api.get("/api/product");
+const productData = await Api.get(`/api/product?page=${page}`);
 const categoryData = await Api.get("/api/category");
-
+console.log(productData);
 // 상품 리스트 섹션
 const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
-const categorySection = $(".header-category-list");
+const categorySection = $('.header-category-list');
+//페이지네이션
+const paginationClass = $("#pagination");
+
 
 // 상품 목록에 넣을 데이터 변수
 let productInnerData = "";
@@ -57,11 +73,30 @@ function addProductsListData(productData) {
     `;
 }
 
-productData.map((productData) => addProductsListData(productData));
+
+function pagination(productData) {
+    let paginationEl = ``;
+    for (let i = 1; i <= productData.totalPage; i++) {
+      paginationEl += `
+          <td>
+              <a href="/products?page=${i}">
+                  ${i} 
+              </a>
+          </td>
+        `;
+    }
+    console.log(paginationEl);
+    console.log(paginationClass);
+    return paginationEl;
+  }
+
+productData.productsPerPage.map((productData) => addProductsListData(productData));
 categoryData.map((categoryData) => addCategoryListData(categoryData));
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
+paginationClass.innerHTML = pagination(productData);
+
 
 //scroll up button
 function scrollUp(e) {

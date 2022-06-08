@@ -54,33 +54,20 @@ html, body{
   padding-top: 0;
 }
 
-.container{
-  width: 100%;
-  margin: 0;
-}
+/*  */
 
-.notification{
-  width: 100%;
-  border-radius: 1rem;
-}
-
-.main-content{
+main{
   display: flex;
   flex-direction: column;
-  color: slategray;
-  width: 100%;
+  align-items: center;
 }
 
-.hero.is-success .title{
-  color: slategray;
+.table {
+  width: 80%;
+  border-collapse: collapse;
 }
 
-.order-container{
-  min-width: 100%;
-}
-
-.orders-top{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.table thead{
+  height: 3rem;
+  background-color: #00D1B2;
 }

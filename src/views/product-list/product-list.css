@@ -82,24 +82,39 @@ main .section .card-content{
     margin-top: 10px;
 }
 
-<<<<<<< Updated upstream
-  
-=======
-.image img:hover{
-  transform: scale(1.1);
-  overflow: hidden;
-}
-
 .temp{
   display: flex;
   flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
 }
 
 /* footer{
     position: relative;
 } */
 
->>>>>>> Stashed changes
+
+  
 .main-item-list{
   display: flex;
   justify-content: center;
@@ -107,7 +122,7 @@ main .section .card-content{
   flex-direction: column;
 }
 
-/* 페이지네이션 */
+
 #pagination{
   display: flex;
   flex-direction: row;
