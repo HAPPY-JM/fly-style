@@ -2,6 +2,9 @@ import * as Api from "../api.js";
 import { $ } from "../utils.js";
 const URLSearch = new URLSearchParams(location.search);
 const page = Number(URLSearch.get("page")) || 1;
+const category = categoryData.name;
+console.log(page);
+console.log(category);
 
 
 //localhost:5000/products/?category="slfjsalkfjalsfjl"
@@ -18,9 +21,14 @@ const page = Number(URLSearch.get("page")) || 1;
 // const response = await fetch(url);
 // const data = await response.json();
 // api에서 상품리스트 데이터와 카테고리 데이터 받아오기
-const productData = await Api.get(`/api/product?page=${page}`);
+const productData = await Api.get(`/api/product/${category}?page=${page}`);
 const categoryData = await Api.get("/api/category");
 console.log(productData);
+// //카테고리별 상품데이터 가져오기
+// const productsCategory = await Api.get(`/api/product/:${category}`);
+// console.log(productsCategory);
+
+
 // 상품 리스트 섹션
 const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
@@ -34,10 +42,25 @@ let productInnerData = "";
 // 카테고리목록에 넣을 데이터 변수
 let categoryInnerData = "";
 
-// 카테고리 넣을 함수 구현
-function addCategoryListData(categoryData) {
-  categoryInnerData += `<li><a>${categoryData.name}</a></li>`;
+
+//hrefCategory
+function hrefCate(category){
+    let href = "";
+    if(category =="all"){
+        href = "/products";
+    }else{
+        href = `/products/${category}`;
+    }
+    return href;
 }
+const hrefCategory = hrefCate(category);
+
+// 카테고리 넣을 함수 구현
+function addCategoryListData(categoryData, hrefCategory) {
+  categoryInnerData += `<li><a href = ${hrefCategory}>${categoryData.name}</a></li>`;
+}
+
+
 // 상품 넣을 함수 구현
 function addProductsListData(productData) {
   //"/product-detail?id="
@@ -64,19 +87,19 @@ function addProductsListData(productData) {
 }
 
 
-function pagination(productData) {
+function pagination(productData, categoryData) {
     let paginationEl = ``;
     for (let i = 1; i <= productData.totalPage; i++) {
       paginationEl += `
           <td>
-              <a href="/products?page=${i}">
+              <a href="/products/${categoryData.name}?page=${i}">
                   ${i} 
               </a>
           </td>
         `;
     }
-    console.log(paginationEl);
-    console.log(paginationClass);
+    // console.log(paginationEl);
+    // console.log(paginationClass);
     return paginationEl;
   }
 
