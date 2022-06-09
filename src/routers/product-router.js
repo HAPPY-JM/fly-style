@@ -91,22 +91,13 @@ productRouter.post(
 //   }
 // );
 
-// //상품 목록
-// productRouter.get("/", async (req, res) => {
+//상품 목록
+productRouter.get("/", async (req, res) => {
 
-//     const page = Number(req.query.page || 1); // 현재 페이지 번호
-//     const perPage = Number(req.query.perPage || 12); // 한 페이지당 표시할 상품 수
+    const productList = await productService.findAll();
 
-//     const productList = await productService.productList();
-
-//     const [total, productsPerPage] = await Promise.all([
-//         productList.length,
-//         productService.pagination(productList, page, perPage)
-//     ]);
-//     const totalPage = Math.ceil(total/perPage);
-
-//     res.send({ productsPerPage, totalPage });
-// });
+    res.json(productList);
+});
 
 //상품 수정 (login 확인, admin 확인)
 productRouter.patch("/:id", async (req, res) => {

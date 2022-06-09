@@ -61,6 +61,12 @@ class ProductService {
     }
   }
 
+    //상품 목록
+    async findAll() {
+      const products = await this.productModel.findAll();
+      return products;
+    }
+
   //페이지네이션
   async pagination(productList, page, perPage) {
     const productsPaging = await productList.slice(

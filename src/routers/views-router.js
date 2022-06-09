@@ -24,6 +24,7 @@ viewsRouter.use("/myPage", serveStatic("my-page"));
 viewsRouter.use("/admin", serveStatic("admin-page"));
 viewsRouter.use("/adminList", serveStatic("admin-list"));
 
+viewsRouter.use("/inventory", serveStatic("inventory"));
 
 viewsRouter.use("/productform", serveStatic("productForm"));
 viewsRouter.use("/categoryform", serveStatic("categoryForm"));
