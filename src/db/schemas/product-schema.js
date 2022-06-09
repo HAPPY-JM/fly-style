@@ -34,15 +34,11 @@ const ProductSchema = new Schema(
       required : true,
     },
 
-    size: {
-      type: Array,
-      items: { type: String },
-      default: ["free"],
-    },
-    stock: {
-      type: Number,
+    size: [{ 
+      sizetype:{ type: String, default: "free" },
+      stock: {type: Number, default:0},
       required: true,
-    }
+    }],
   },
   {
     collection: "products",
