@@ -11,7 +11,7 @@ const ProductSchema = new Schema(
     category: {
       // type: Schema.Types.ObjectId,
       // ref: "category",
-      type : String,
+      type: String,
       required: true,
     },
 
@@ -33,11 +33,12 @@ const ProductSchema = new Schema(
 
     // },
 
-    size: {
-      type: Array,
-      items: { type: String },
-      default: ["free"],
-    },
+    size: [
+      {
+        name: "String",
+        stock: { type: "Number", default: 0 },
+      },
+    ],
   },
   {
     collection: "products",
