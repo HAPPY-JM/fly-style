@@ -4,7 +4,6 @@ import * as Cart from "/cart_fnc.js";
 import header from "/header.js";
 
 // 요소(element), input 혹은 상수
-const token = sessionStorage.getItem("token");
 
 const buttonBuy = $("#buttonBuy");
 const productPrice = $("#productPrice");
@@ -14,7 +13,10 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const sizeOption=$("#sizeOption");
+let quantity = Number($("#quantity").value);
+const quantityField = $("#quantity");
+let size = productSize.value;
+console.log(size);
 getProductRender();
 addAllEvents();
 
@@ -28,29 +30,32 @@ async function getProductRender() {
 function addAllEvents() {
   buttonBuy.addEventListener("click", order);
   buttonBasket.addEventListener("click", addCart);
+  quantityField.addEventListener("change", () => {
+    quantity = Number(quantityField.value);
+    console.log(quantity);
+  });
+  productSize.addEventListener("change", () => {
+    size = productSize.value;
+    console.log(size);
+  });
 }
 
 function landingRender(data) {
-  if (token === "null" || !token) {
-    login.innerHTML = "로그인";
-  } else {
-    login.innerHTML = "로그아웃";
-  }
-  console.log(data.size)
+  console.log(data.size);
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
   // productSize
-  
-  for(let i=0;i<data.size.length;i++){
-    let sizeSelect=document.createElement("option");
-    sizeSelect.innerText=data.size[i];
+
+  for (let i = 0; i < data.size.length; i++) {
+    let sizeSelect = document.createElement("option");
+    sizeSelect.innerText = data.size[i];
     productSize.appendChild(sizeSelect);
   }
 }
 
 function order() {
-  if (sessionStorage.getItem("order")) {
+  if (localStorage.getItem("order")) {
     return alert("오류가 있습니다");
   }
   if (getToken() === "null" || !getToken()) {
@@ -58,19 +63,23 @@ function order() {
     window.location.href = "/login";
     return;
   }
-  const quantity = 2;
+  if (size === "null") {
+    alert("사이즈를 선택해 주세요.");
+    return;
+  }
   Cart.add(data, quantity, "order");
   location.href = "/order ";
 }
 
 function addCart() {
-  if (Cart.exists(data._id, "cart")) {
-    alert(`이미존재합니다. 추가하시겠습니까?`);
-    Cart.add(data, 2, "cart");
-    console.log(Cart.list("cart"));
+  if (size === "null") {
+    alert("사이즈를 선택해 주세요.");
     return;
   }
-  Cart.add(data, 2, "cart");
+  if (Cart.exists(data._id, "cart")) {
+    alert(`이미존재합니다. 추가하시겠습니까?`);
+  }
+  Cart.add(data, size, quantity, "cart");
   console.log(Cart.list("cart"));
   alert("장바구니에 추가되었습니다.");
 }
@@ -84,10 +93,3 @@ async function getDataFromApi() {
   console.log(data);
   return data;
 }
-
-
-
-const test = await Api.get("/api/category");
-console.log('------------')
-console.log(test);
-console.log('------------')

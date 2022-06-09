@@ -57,30 +57,6 @@ function setOrderDatas() {
   totalPrice.innerHTML = `${Fnc.addCommas(total)}원`;
 }
 
-// function setProductTotal() {
-//   const productPrice = document.querySelectorAll(".cart-product-price");
-//   let total = 0;
-//   for (let j = 0; j < productPrice.length; j++) {
-//     total += Fnc.convertToNumber(productPrice[j].innerText);
-//   }
-//   productTotal.innerHTML = `${Fnc.addCommas(total)}원`;
-// }
-
-// function setDeliveryFee() {
-//   if (Fnc.convertToNumber(productTotal.innerText) >= 50000) {
-//     deliveryFee.innerHTML = `0원`;
-//   } else {
-//     deliveryFee.innerHTML = `3,000원`;
-//   }
-// }
-
-// function setTotalPrice() {
-//   const total =
-//     Fnc.convertToNumber(productTotal.innerHTML) +
-//     Fnc.convertToNumber(deliveryFee.innerHTML);
-//   totalPrice.innerHTML = `${Fnc.addCommas(total)}원`;
-// }
-
 function addtableTrData(data) {
   tableInnerData += `
   <tr class="cart-items">
@@ -101,6 +77,9 @@ function addtableTrData(data) {
             <div class="product-name title is-5">${data.name}</div>
             <div class="product-description subtitle is-7">${data.content}</div>
         </div>
+    </td>
+    <td class="cart-product-size">
+        <div>${data.size}</div>
     </td>
     <td class="cart-product-price">
         <div>${data.price * data.quantity}</div>
@@ -123,6 +102,7 @@ function addtableTrData(data) {
 
 
     `;
+  console.log(tableInnerData);
 }
 
 function getCartDatas() {
@@ -169,7 +149,7 @@ function addButtonEvents() {
     });
     deleteBtns[i].addEventListener("click", () => {
       alert(`삭제하시겠습니까?`);
-      Cart.remove(lists[i]._id, "cart");
+      Cart.remove(lists[i]._id, lists[i].size, "cart");
       location.reload();
       return;
     });
