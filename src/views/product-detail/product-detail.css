@@ -139,21 +139,27 @@ img{
   padding: 1.5rem 5rem 1.5rem 5rem;
   background-color: #2a76d9   ;
   color: white;
+  transition-property: background-color,color;
+  transition-duration: 0.5s;
 }
 #buttonBuy:hover{
   background-color: rgb(232, 242, 249);
   color: black;
   }
+
 #buttonBasket{
   margin: 5%;
   padding: 1.5rem 5rem 1.5rem 5rem;
   background-color: #8AADEC  ;
   color: white;
+  transition-property: background-color,color;
+  transition-duration: 0.5s;
 }
 #buttonBasket:hover{
 background-color: rgb(232, 242, 249);
 color: black;
 }
+
 .input.is-info, select.is-info{
 width: 10rem;
 height: 3rem;
