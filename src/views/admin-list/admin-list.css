@@ -77,7 +77,8 @@ main{
 
 .table thead{
   height: 4rem;
-  background-color: #00D1B2;
+  background-color: #8AADEC;
+  /* #8AADEC , #5CA2FF*/
 }
 
 .table thead tr{
