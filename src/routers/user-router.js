@@ -6,6 +6,20 @@ import { userService } from "../services";
 
 const userRouter = Router();
 
+userRouter.get("/user", loginRequired, async (req, res, next) => {
+  const userId = req.currentUserId;
+  console.log(userId);
+  try {
+    if (is.emptyString(userId)) {
+      throw new Error("로그인된 유저가 아닙니다.");
+    }
+    const user = await userService.getUser(userId);
+    res.status(201).json(user);
+  } catch (e) {
+    next(e);
+  }
+});
+
 // 회원가입 api (아래는 /register이지만, 실제로는 /api/register로 요청해야 함.)
 userRouter.post("/register", async (req, res, next) => {
   try {
@@ -67,7 +81,7 @@ userRouter.post("/login", async function (req, res, next) {
 
 // 사용자 정보 수정
 // (예를 들어 /api/users/abc12345 로 요청하면 req.params.userId는 'abc12345' 문자열로 됨)
-userRouter.patch("users/:userId", async function (req, res, next) {
+userRouter.patch("user/:userId", async function (req, res, next) {
   try {
     const { userId } = req.params;
     const { fullName, password, address, phoneNumber } = req.body;

@@ -37,7 +37,7 @@ const OrderSchema = new Schema(
     delivery: {
       type: {
         name: String,
-        phoneNumber: Number,
+        phoneNumber: String,
         Address,
         comment: String, //배송관련요청
       },

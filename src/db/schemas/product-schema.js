@@ -27,9 +27,9 @@ const ProductSchema = new Schema(
       type: String,
     },
 
-    Img:{
-      type : String,
-      required : true,
+    Img: {
+      type: String,
+      required: true,
     },
 
     size: [{ 
