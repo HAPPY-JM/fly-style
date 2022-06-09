@@ -15,11 +15,6 @@ html, body{
   cursor: pointer;
 }
 
-.tablist {
-  height: 70px;
-  background-color: lemonchiffon;
-}
-
 .navbar-item img{
   max-height: 4rem;
 }
@@ -28,26 +23,42 @@ html, body{
   background-color: #fff;
 }
 
-.hero.is-success {
-  background-color: #fff;
-  color: black;
-}
-
-.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
-  background-color: #e2e2e2;
-  color: black;
-}
-
 .hero{
   justify-content: space-evenly;
 }
 
+
+.categories{
+  display: flex;
+  padding: 0.5em 2em;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.categories a{
+  color: black;
+  text-transform: uppercase;
+  line-height: 2.5;
+  background-image: linear-gradient(transparent calc(100% - 3px), 3px, lightgrey);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.categories a:hover{
+  background-size: 100% 100%;
+}
+
+/******************메뉴******************/
+
+
 /******************메인******************/
 .hero-body{
-  display: flex;
   flex-direction: column;
   padding-top: 0;
 }
+
 
 .main-content{
   flex: 3;
@@ -59,18 +70,14 @@ html, body{
 }
 
 ul{
-  list-style:none;
+  list-style: none;
 }
 
-/* tablist */
-.tabs a{
-  padding: 0.5em 2em;
-}
 
 /* 이미지 슬라이더 "swiper" */
 .swiper {
-  width: 60%;
-  height: 60%;
+  width: inherit;
+  height: inherit;
 }
 
 .swiper-slide {
@@ -94,7 +101,7 @@ ul{
 
 .swiper-slide img {
   display: block;
-  width: 100%;
+  width: inherit;
   height: inherit ;
   object-fit: cover;
   overflow: hidden;
@@ -124,10 +131,24 @@ ul{
 
 /******************푸터******************/
 .hero-foot{
-  color: grey;
-  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  padding-bottom: 4rem;
+  color: lightgrey;
+  background-color: #404B59;
   font-size: smaller;
 }
+
+.footer-description{
+  padding-left: 4.5rem;
+}
+
+.logo-footer{
+  width: 15rem;
+}
+
+
 
 
 /******************폰트******************/
@@ -137,3 +158,7 @@ ul{
     font-weight: normal;
     font-style: normal;
 }
+
+
+/******************미디어쿼리******************/
+/*@media screen and (max-width: 900px)*/
