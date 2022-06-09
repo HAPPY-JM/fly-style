@@ -64,6 +64,22 @@ productRouter.patch("/:id", async (req, res) => {
   res.json(editProduct);
 });
 
+productRouter.patch("/quantity/:id", async (req, res, next) => {
+  const _id = req.params.id;
+  const { size } = req.body;
+  const quantity = Number(req.body.quantity);
+  try {
+    const updatedProduct = await productService.updateQuantity({
+      _id,
+      quantity,
+      size,
+    });
+    res.json(updatedProduct);
+  } catch (e) {
+    next(e);
+  }
+});
+
 //상품 삭제 (login 확인, admin 확인)
 productRouter.delete("/:id", async (req, res) => {
   const productId = req.params.id;
