@@ -72,13 +72,15 @@ html, body{
 
 
 }
-#orderInfo{
+.orderInfo{
 
   flex-direction: column;
   justify-content: center;
+  padding: 1rem 0 0 3rem;
 }
 #orderInfodiv{
   margin: 5% auto 5% auto;
+
   width: 65%;
 
 }
@@ -95,9 +97,17 @@ html, body{
 .info{
   margin-bottom: 20px;
 }
-
+.total{
+  margin: 2rem 0 0 3rem;
+}
 .buy{
-  margin-top: 20px;
+  display: flex;
+  margin: 1rem 2rem 2rem 0;
+  flex-direction: row-reverse;
+
+}
+.button.is-info{
+  background-color:#5CA2FF ;
 }
 
 .title.is-5{
