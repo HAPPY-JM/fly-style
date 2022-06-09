@@ -12,7 +12,7 @@ export default function header(parent) {
         </div>
         <div id="navbarMenuHeroC" class="navbar-menu">
           <div class="navbar-end" id='buttons'>
-            
+       
             <a class="navbar-item" id='login'>
               <span>login</span>
             </a>
