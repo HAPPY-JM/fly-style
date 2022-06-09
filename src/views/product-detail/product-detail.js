@@ -13,8 +13,8 @@ const productDetail = $("#productDetail");
 const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
-const size = "free";
-
+const productSize = $("#productSize");
+const sizeOption=$("#sizeOption");
 getProductRender();
 addAllEvents();
 
@@ -31,9 +31,22 @@ function addAllEvents() {
 }
 
 function landingRender(data) {
+  if (token === "null" || !token) {
+    login.innerHTML = "로그인";
+  } else {
+    login.innerHTML = "로그아웃";
+  }
+  console.log(data.size)
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
+  // productSize
+  
+  for(let i=0;i<data.size.length;i++){
+    let sizeSelect=document.createElement("option");
+    sizeSelect.innerText=data.size[i];
+    productSize.appendChild(sizeSelect);
+  }
 }
 
 function order() {
@@ -71,3 +84,10 @@ async function getDataFromApi() {
   console.log(data);
   return data;
 }
+
+
+
+const test = await Api.get("/api/category");
+console.log('------------')
+console.log(test);
+console.log('------------')

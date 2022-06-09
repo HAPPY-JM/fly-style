@@ -35,6 +35,19 @@ body {
   color: black;
 }
 
+.hero.is-success .title {
+  color: black;
+}
+.hero.is-success .subtitle {
+  color: black;
+}
+
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+
 .hero.is-success .navbar-link.is-active,
 .hero.is-success .navbar-link:hover,
 .hero.is-success a.navbar-item.is-active,
@@ -47,13 +60,15 @@ body {
   justify-content: space-evenly;
 }
 
-/* 메인 */
+/************* 메인 ***************************/
 
 main {
+  /* background-color: red; */
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section {
@@ -89,6 +104,16 @@ figure img {
   width: 90%;
 }
 
+figure {
+  /* position: relative; */
+  width: 100%;
+}
+
+figure img {
+  overflow: hidden;
+}
+
+
 /* .cart-products-info{
   display: flex;
   align-items: center;
@@ -121,8 +146,9 @@ input::-webkit-inner-spin-button {
   margin-top: 1em;
   height: auto;
 }
-.order-list .order-summary {
-  height: auto;
+.tile .order-summary div.order-list-button{
+  display: flex;
+  align-items: center;
 }
 
 .order-list .header p {

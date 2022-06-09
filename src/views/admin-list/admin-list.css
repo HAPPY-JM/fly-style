@@ -1,3 +1,7 @@
+html{
+  font-size: 16px;
+}
+
 html, body{
   margin: 0;
   height: 100vh;
@@ -10,6 +14,9 @@ html, body{
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
 
+.hero.is-success .title {
+  color: black;
+}
 .navbar-menu{
   margin: 1rem;
 }
@@ -54,33 +61,44 @@ html, body{
   padding-top: 0;
 }
 
-.container{
-  width: 100%;
-  margin: 0;
-}
+/*  */
 
-.notification{
-  width: 100%;
-  border-radius: 1rem;
-}
-
-.main-content{
+main{
+  margin-top: 3%;
   display: flex;
   flex-direction: column;
-  color: slategray;
-  width: 100%;
+  align-items: center;
 }
 
-.hero.is-success .title{
-  color: slategray;
+.table {
+  width: 80%;
+  border-collapse: collapse;
 }
 
-.order-container{
-  min-width: 100%;
+.table thead{
+  height: 4rem;
+  background-color: #00D1B2;
 }
 
-.orders-top{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.table thead tr{
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+
+}
+
+.table thead tr th{
+  color: white;
+  vertical-align: middle;
+}
+
+.table tbody tr{
+  /* background-color: red; */
+  vertical-align: middle;
+}
+
+.table tbody tr td{
+  /* background-color: green; */
+  vertical-align: middle;
+  text-align: center;
 }
