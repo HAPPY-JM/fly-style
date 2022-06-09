@@ -33,7 +33,6 @@ export default function header(parent) {
   parent.prepend(element);
   const join = $("#join");
   const login = $("#login");
-  console.log(getToken());
   const token = getToken();
   const role = getRole();
 
@@ -70,7 +69,6 @@ export default function header(parent) {
   login.addEventListener("click", loginOut);
 
   function loginOut() {
-    console.log(token);
     if (token === "null" || !token) {
       location.href = "/login";
     } else {
@@ -78,8 +76,4 @@ export default function header(parent) {
       location.reload();
     }
   }
-
-  //   join.addEventListener("click", () => {
-  //     console.log("로그인 페이지로 이동");
-  //   });
 }
