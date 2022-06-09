@@ -29,14 +29,15 @@ const ProductSchema = new Schema(
       type: String,
     },
 
-    // Img:{
-
-    // },
+    Img: {
+      type: String,
+      required: true,
+    },
 
     size: [
       {
-        name: "String",
-        stock: { type: "Number", default: 0 },
+        sizetype: { type: String, default: "free" },
+        stock: { type: Number, default: 0 },
       },
     ],
   },
