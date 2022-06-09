@@ -49,7 +49,7 @@ function landingRender(data) {
 
   for (let i = 0; i < data.size.length; i++) {
     let sizeSelect = document.createElement("option");
-    sizeSelect.innerText = data.size[i];
+    sizeSelect.innerText = data.size[i].name;
     productSize.appendChild(sizeSelect);
   }
 }
@@ -67,7 +67,7 @@ function order() {
     alert("사이즈를 선택해 주세요.");
     return;
   }
-  Cart.add(data, quantity, "order");
+  Cart.add(data, size, quantity, "order");
   location.href = "/order ";
 }
 
