@@ -33,7 +33,6 @@ function addAllElements() {
 
 function setOrderDatas() {
   const checkBoxs = document.querySelectorAll(".checkBoxs");
-  console.log(checkBoxs);
   const quantitys = document.querySelectorAll("#quantityinput");
   const productPrice = document.querySelectorAll(".cart-product-price");
   let totalCount = 0;
@@ -62,7 +61,7 @@ function addtableTrData(data) {
   <tr class="cart-items">
     <td class="cart-items-checkbox">
         <label class="checkbox">
-            <input class='checkBoxs' type="checkbox">
+            <input class='checkBoxs' type="checkbox" checked>
         </label>
     </td>
     <td class="cart-imgs-info">
@@ -102,7 +101,6 @@ function addtableTrData(data) {
 
 
     `;
-  console.log(tableInnerData);
 }
 
 function getCartDatas() {
@@ -128,21 +126,33 @@ function addButtonEvents() {
       setOrderDatas();
     });
     minusBtns[i].addEventListener("click", () => {
-      const product = Cart.get(lists[i]._id, "cart");
+      const product = Cart.get(lists[i]._id, lists[i].size, "cart");
       if (product.quantity <= 1) {
         return;
       }
-      Cart.update(product._id, "quantity", product.quantity - 1, "cart");
+      Cart.update(
+        product._id,
+        product.size,
+        "quantity",
+        product.quantity - 1,
+        "cart"
+      );
       quantityField[i].value = product.quantity - 1;
       productPrice[i].innerText = product.price * (product.quantity - 1);
       setOrderDatas();
     });
     plusBtns[i].addEventListener("click", () => {
-      const product = Cart.get(lists[i]._id, "cart");
+      const product = Cart.get(lists[i]._id, lists[i].size, "cart");
       if (product.quantity >= 99) {
         return;
       }
-      Cart.update(product._id, "quantity", product.quantity + 1, "cart");
+      Cart.update(
+        product._id,
+        product.size,
+        "quantity",
+        product.quantity + 1,
+        "cart"
+      );
       quantityField[i].value = product.quantity + 1;
       productPrice[i].innerText = product.price * (product.quantity + 1);
       setOrderDatas();
@@ -158,9 +168,16 @@ function addButtonEvents() {
 
 async function purchase() {
   const checkBoxs = document.querySelectorAll(".checkBoxs");
+  const orderlists = Cart.list("cart");
+  Cart.clear("order");
   for (let j = 0; j < lists.length; j++) {
     if (checkBoxs[j].checked) {
-      Cart.add(lists[j], lists[j].quantity, "order");
+      Cart.add(
+        orderlists[j],
+        orderlists[j].size,
+        orderlists[j].quantity,
+        "order"
+      );
     }
   }
   location.href = `/order?cart=true`;
