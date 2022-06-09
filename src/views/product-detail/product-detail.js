@@ -67,7 +67,7 @@ async function getDataFromApi() {
   const URLSearch = new URLSearchParams(location.search);
   //(?id=여기부분)
   const id = URLSearch.get("_id");
-  const data = await Api.get(`/api/product`, id);
+  const data = await Api.get(`/api/product/detail`, id);
   console.log(data);
   return data;
 }
