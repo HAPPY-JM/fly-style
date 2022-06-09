@@ -4,9 +4,9 @@ import { CategorySchema } from "../schemas/category-schema";
 const Category = model("category", CategorySchema);
 
 export class CategoryModel {
-  async findByName(name) {
+  async findByName(categoryName) {
     //특정 이름의 카테고리 찾기
-    const nameCategory = await Category.findOne({ name });
+    const nameCategory = await Category.findOne({ name: categoryName });
     return nameCategory;
   }
 
