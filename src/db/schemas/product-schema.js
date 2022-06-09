@@ -9,8 +9,6 @@ const ProductSchema = new Schema(
     },
 
     category: {
-      // type: Schema.Types.ObjectId,
-      // ref: "category",
       type : String,
       required: true,
     },
@@ -35,9 +33,8 @@ const ProductSchema = new Schema(
     },
 
     size: [{ 
-      sizetype:{ type: String, default: "free" },
-      stock: {type: Number, default:0},
-      required: true,
+      sizetype:{ type: String },
+      stock: {type: Number},
     }],
   },
   {
