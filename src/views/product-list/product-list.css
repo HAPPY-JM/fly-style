@@ -56,6 +56,12 @@ main {
     display: flex;
 }
 
+/* 카테고리 선택 시 현재 카테고리 출력 */
+.selected-category{
+  text-align: center;
+  font-weight: bold;
+}
+
 /* 제품 목록 아이템 */
 main .section {
     width: 100%;
