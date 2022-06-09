@@ -39,6 +39,10 @@ const ProductSchema = new Schema(
       items: { type: String },
       default: ["free"],
     },
+    stock: {
+      type: Number,
+      required: true,
+    }
   },
   {
     collection: "products",
