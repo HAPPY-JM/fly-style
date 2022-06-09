@@ -21,7 +21,8 @@ const upload = multer({
 })
 const productRouter = Router();
 
-productRouter.post('/uplodimg', upload.single("file") , async(req,res)=>{
+productRouter.post('/uplodimg', upload.single("image-file") , async(req,res)=>{
+  const {name, price, content, brand}=req.body;
   console.log(req.file)
   // const {} = req.file;
   // console.log(pathImage)
@@ -29,38 +30,46 @@ productRouter.post('/uplodimg', upload.single("file") , async(req,res)=>{
   console.log(req.body)
   const {location} = req.file
   console.log(location);
-  
-  console.log(req.body);
-  const URL = JSON.parse(JSON.stringify(req.body))
+
+
+  const productInfo={
+    name,
+    price,
+    content,
+    brand,
+    Img:location
+  };
+  const result=await productService.addProduct(productInfo);
+  console.log(result);
   // console.log(URL)
   // res.status(201).json({URL})
-  res.status(201).json(location);
+  res.status(201).json(result);
 })
 
 //상품 등록 (login 확인, admin 확인)/
 //POST /api/product/ => 상품등록하는 라우팅
 //Ajpi.post('/api/product',productinfo)=> 상품등록하는 라우팅
-productRouter.post(
-  "/",
-  async (req, res, next) => {
-    try {
-      const { name, category, price, content, brand, size } = req.body;
+// productRouter.post(
+//   "/",
+//   async (req, res, next) => {
+//     try {
+//       const { name, category, price, content, brand, size } = req.body;
 
-      const newProduct = await productService.addProduct({
-        name,
-        category,
-        price,
-        content,
-        brand,
-        size,
-      });
+//       const newProduct = await productService.addProduct({
+//         name,
+//         category,
+//         price,
+//         content,
+//         brand,
+//         size,
+//       });
 
-      res.json(newProduct); //이부분은 json으로 받아온뒤에 프론트에서 보내주어도 괜찮을 듯 하다 아니면 그냥 프론트단으로 제품등록이 완료되었습니다 아니면 전체 리스트? 를 보여주는게 더 나을듯
-    } catch (err) {
-      next(err);
-    }
-  }
-);
+//       res.json(newProduct); //이부분은 json으로 받아온뒤에 프론트에서 보내주어도 괜찮을 듯 하다 아니면 그냥 프론트단으로 제품등록이 완료되었습니다 아니면 전체 리스트? 를 보여주는게 더 나을듯
+//     } catch (err) {
+//       next(err);
+//     }
+//   }
+// );
 
 //상품 목록
 productRouter.get("/", async (req, res) => {

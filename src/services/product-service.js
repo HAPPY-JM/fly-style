@@ -11,7 +11,7 @@ class ProductService {
   // 상품등록
   async addProduct(productInfo) {
     // 객체 destructuring
-    const { name, category, price, content, brand, size } = productInfo;
+    const { name, category, price, Img, content, brand, size } = productInfo;
 
     // 상품명 중복 확인
     const nameProduct = await this.productModel.findByName(name);
@@ -22,7 +22,7 @@ class ProductService {
     }
     // 상품명 중복은 이제 아니므로, 상품등록을 진행함
 
-    const newProductInfo = { name, category, price, content, brand, size };
+    const newProductInfo = { name, category, price,Img, content, brand, size };
 
     // db에 저장
     const createdNewProduct = await this.productModel.create(newProductInfo);
