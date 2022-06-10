@@ -91,7 +91,8 @@ async function handleSubmit(e) {
     const editData = {
       fullName : fullName,
       email : email,
-      password : password
+      password : password,
+      currentPassword : user.password,
     }
 
     await Api.patch(`/api/user`, editData, `${user._id}`);
