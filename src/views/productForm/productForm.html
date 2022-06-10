@@ -114,7 +114,7 @@
               </div>
             </div>
 
-            <div class="field">
+            <!-- <div class="field">
               <label class="label" for="shortDescriptionInput">요약 설명</label>
               <div class="control">
                 <textarea
@@ -125,7 +125,7 @@
                   autocomplete="on"
                 ></textarea>
               </div>
-            </div>
+            </div> -->
 
             <div class="field">
               <label class="label" for="detailDescriptionInput"
@@ -165,22 +165,33 @@
                 </label>
               </div>
             </div>
-            <div class="wrap">
+            <!-- <div class="wrap">
               <div>리스트?
                 <input type="text" name="st_department" list="depList">
                 <input type="submit" id="sizeLIstsubmit"/>
               </div>
-            </div>
+            </div> -->
             <div class="field">
-              <label class="label" for="inventoryInput">재고 수</label>
+              <label class="label" for="inventoryInput">사이즈 ,재고 수</label>
               <div class="control">
-                <input
-                  class="input"
-                  id="inventoryInput"
-                  type="number"
-                  placeholder="10"
-                  autocomplete="on"
+                사이즈 :<input 
+                class="input"
+                id="sizeInput"
+                type="text" 
+                placeholder="XL , L , M , 105 , 100 , ....."
+                autocomplete="on"
                 />
+                수량:<input
+                class="input"
+                id="inventoryInput"
+                type="number"
+                placeholder="10"
+                autocomplete="on"
+                />
+                <button id="inventorySubmit">추가</button>
+                <ul id="outputdata" >
+                  
+                </ul>
               </div>
             </div>
 

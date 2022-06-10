@@ -9,7 +9,7 @@ const ProductSchema = new Schema(
     },
 
     category: {
-      type : String,
+      type: String,
       required: true,
     },
 
@@ -32,10 +32,12 @@ const ProductSchema = new Schema(
       required: true,
     },
 
-    size: [{ 
-      sizetype:{ type: String },
-      stock: {type: Number},
-    }],
+    size: [
+      {
+        name: { type: String },
+        stock: { type: Number },
+      },
+    ],
   },
   {
     collection: "products",

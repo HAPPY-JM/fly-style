@@ -25,20 +25,18 @@ productRouter.post(
   "/uplodimg",
   upload.single("image-file"),
   async (req, res) => {
-    const { name, price, content, brand } = req.body;
-    console.log(req.file);
-    // const {} = req.file;
-    // console.log(pathImage)
-    // await Post.create({})
-    console.log(req.body);
+    const { name, price, content, brand, size } = req.body;
+    const sizeobj = JSON.parse(size);
+    console.log(sizeobj);
     const { location } = req.file;
-    console.log(location);
 
     const productInfo = {
       name,
       price,
       content,
       brand,
+      size: sizeobj,
+      category: "ㄴㄴㄴ",
       Img: location,
     };
     const result = await productService.addProduct(productInfo);
@@ -93,10 +91,9 @@ productRouter.post(
 
 //상품 목록
 productRouter.get("/", async (req, res) => {
+  const productList = await productService.findAll();
 
-    const productList = await productService.findAll();
-
-    res.json(productList);
+  res.json(productList);
 });
 
 //상품 수정 (login 확인, admin 확인)
