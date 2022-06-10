@@ -20,7 +20,7 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const sizeOption=$("#sizeOption");
+const productImage=$("#productImage");
 let quantity = Number($("#quantity").value);
 const quantityField = $("#quantity");
 let size = productSize.value;
@@ -74,6 +74,7 @@ function landingRender(data) {
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
+
   // productSize
   
   for (let i = 0; i < data.size.length; i++) {
@@ -81,6 +82,9 @@ function landingRender(data) {
     sizeSelect.innerText = data.size[i].name;
     productSize.appendChild(sizeSelect);
   }
+  productImage.innerHTML=`<img src="${data.Img}" alt="제품사진">`
+
+
 }
 
 function order() {
