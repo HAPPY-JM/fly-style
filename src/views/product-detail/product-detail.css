@@ -38,7 +38,7 @@ z-index: 10;
 /* 상단 메뉴바 구역 */
 
 .navbar{
-position: fixed;
+/* position: fixed; */
 width: 100%;
 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
@@ -179,7 +179,6 @@ margin-top: 2rem;
 /* 푸터 */
 #float-clear{
   clear: both;
-
 }
 
 footer{
@@ -193,3 +192,12 @@ footer{
   color: rgb(149, 172, 208);
 }
 
+/* 카테고리 */
+.header-category-list{
+  position: absolute;
+}
+
+.is-centered{
+  display: flex;
+  justify-content: center;
+}
