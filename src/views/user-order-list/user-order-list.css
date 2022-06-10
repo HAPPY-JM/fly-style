@@ -1,0 +1,105 @@
+html{
+  font-size: 16px;
+}
+
+html, body{
+  margin: 0;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.navbar{
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.hero.is-success .title {
+  color: black;
+}
+.navbar-menu{
+  margin: 1rem;
+}
+
+.navbar-item{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-item img{
+  max-height: 4rem;
+}
+
+#login_status{
+  color: lightslategray;
+}
+
+#login_status:hover{
+  background-color: #fff;
+  cursor: default;
+}
+
+.hero.is-success {
+  background-color: #fff;
+  color: black;
+}
+
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+.hero{
+  justify-content: space-evenly;
+}
+
+.hero-body{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0;
+}
+
+/*  */
+
+main{
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.table thead{
+  height: 4rem;
+  background-color: #00D1B2;
+}
+
+.table thead tr{
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+
+}
+
+.table thead tr th{
+  background-color: #5CA2FF;
+  color: white;
+  vertical-align: middle;
+}
+
+.table tbody tr{
+  /* background-color: red; */
+  vertical-align: middle;
+}
+
+.table tbody tr td{
+  /* background-color: green; */
+  vertical-align: middle;
+  text-align: center;
+}
