@@ -113,6 +113,3 @@ async function getDataFromApi() {
   console.log(data);
   return data;
 }
-
-
-
