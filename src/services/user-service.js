@@ -125,14 +125,23 @@ class UserService {
     }
 
     // 업데이트 진행
-    user = await this.userModel.update({
+    const userUp = await this.userModel.update({
       userId,
       toUpdate,
     });
 
-    return user;
+    return userUp;
   }
+
+  async deleteUser(userId){
+    const userOut = await this.userModel.delete(userId);
+    return userOut;
+  }
+
+
 }
+
+
 
 const userService = new UserService(userModel);
 

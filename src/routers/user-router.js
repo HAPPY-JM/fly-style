@@ -81,7 +81,7 @@ userRouter.post("/login", async function (req, res, next) {
 
 // 사용자 정보 수정
 // (예를 들어 /api/users/abc12345 로 요청하면 req.params.userId는 'abc12345' 문자열로 됨)
-userRouter.patch("user/:userId", async function (req, res, next) {
+userRouter.patch("/user/:userId", async function (req, res, next) {
   try {
     const { userId } = req.params;
     const { fullName, email, password } = req.body;
@@ -119,5 +119,13 @@ userRouter.patch("user/:userId", async function (req, res, next) {
     next(error);
   }
 });
+
+userRouter.delete('/user/:id', async(req, res) => {
+  const userId = req.params.id;
+
+  const deleteUser = await userService.deleteUser(userId);
+
+  res.json(deleteUser);
+})
 
 export { userRouter };
