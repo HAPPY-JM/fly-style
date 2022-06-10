@@ -30,14 +30,18 @@ function addAllEvents() {
 
 async function landingRender() {
   if (orderProducts.length === 0) {
-    alert(`선택된 상품이 없습니다.`);
+    swal({
+      icon: "error",
+      text: "선택된 상품이 없습니다",
+    });
     location.href = "/cart";
   }
   console.log(orderProducts);
   orderProducts.map(async (data) => {
     const product = await Api.get(`/api/product/detail`, data._id);
     if (!product || product == "null" || product.quantity <= 0) {
-      alert("품절이거나 삭제된 상품이 있습니다. 주문목록을 수정해주세요");
+      swal(`품절이거나 삭제된 상품이 있습니다.
+      주문 목록을 수정해주세요`);
       location.href = document.referrer;
     }
   });
