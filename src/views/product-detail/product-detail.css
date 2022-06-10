@@ -38,7 +38,7 @@ z-index: 10;
 /* 상단 메뉴바 구역 */
 
 .navbar{
-position: fixed;
+/* position: fixed; */
 width: 100%;
 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
@@ -177,7 +177,6 @@ margin-top: 2rem;
 }
 
 /* 푸터 */
-
 .hero-foot{
   display: flex;
   flex-direction: column;
@@ -194,4 +193,14 @@ margin-top: 2rem;
 
 .logo-footer{
   width: 15rem;
+}
+
+/* 카테고리 */
+.header-category-list{
+  position: absolute;
+}
+
+.is-centered{
+  display: flex;
+  justify-content: center;
 }

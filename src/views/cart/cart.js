@@ -158,7 +158,10 @@ function addButtonEvents() {
       setOrderDatas();
     });
     deleteBtns[i].addEventListener("click", () => {
-      alert(`삭제하시겠습니까?`);
+      swal({
+        icon: "warning",
+        text: "삭제하시겠습니까?",
+      });
       Cart.remove(lists[i]._id, lists[i].size, "cart");
       location.reload();
       return;

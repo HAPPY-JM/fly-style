@@ -83,8 +83,8 @@ async function handleSubmit(e) {
     // 로그인 페이지 이동
   } catch (err) {
     console.error(err.stack);
-    alert({
-      icon: "error",
+    swal({
+      icon: "warning",
       text: `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
     });
   }

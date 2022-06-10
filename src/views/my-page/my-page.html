@@ -1,65 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <title>쇼핑-데모</title>
-    <!-- 아이콘 -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../fly-style-favicon.png"
-    />
-    <!-- bulma css 관련 -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <!-- 폰트 어썸: 아이콘 -->
-    <script
-      defer
-      src="https://kit.fontawesome.com/7630448495.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- 커스텀 css, js -->
-    <link rel="stylesheet" href="my-page.css" />
-    <script src="./my-page.js" type="module" defer></script>
-  </head>
-  <body>
-    <!-- 회원정보 -->
-    <section class="section">
-      <div class="container">
-        <div id="myPageTitle">
-          <h1 class="title">마이페이지</h1>
-        </div>
 
-        <div id="userInfodiv"></div>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <title>쇼핑-데모</title>
+  <!-- 아이콘 -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../fly-style-favicon.png" />
+  <!-- bulma css 관련 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <!-- 폰트 어썸: 아이콘 -->
+  <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
+  <!-- 커스텀 css, js -->
+  <link rel="stylesheet" href="my-page.css" />
+  <script src="/my-page.js" type="module" defer></script>
+  <!-- 모달 -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-        <div class="menuContainer">
-          <!-- 주문조회 -->
-          <a class="myOrderList" href="./my-page-order-list.html">
-            <button class="button is-info is-light" id="myPageOrder">
-              <p class="title is-3">
-                <i class="fa-solid fa-receipt" id="receipts"></i>
-                주문내역조회
-              </p>
-            </button>
-          </a>
+</head>
 
-          <!-- 회원정보 관리 -->
-
-          <a class="myInfo" href="">
-            <button class="button is-info is-light" id="myPageOrder">
-              <p class="title is-3">
-                <i class="fa-solid fa-user-gear"></i>
-                회원정보관리
-              </p>
-            </button>
-          </a>
-        </div>
+<body>
+  <!-- 회원정보 -->
+  <section class="section">
+    <div class="container">
+      <div id="myPageTitle">
+        <h1 class="title">마이페이지</h1>
       </div>
-    </section>
-  </body>
+
+      <div id="userInfodiv"></div>
+
+      <div class="menuContainer">
+        <!-- 주문조회 -->
+        <a class="myOrderList" href="./my-page-order-list.html">
+          <button class="button is-info is-light" id="myPageOrder">
+            <p class="title is-3">
+              <i class="fa-solid fa-receipt" id="receipts"></i>
+              주문내역조회
+            </p>
+          </button>
+        </a>
+
+        <!-- 회원정보 관리 -->
+
+        <a class="myInfo" href="./my-page-info.html">
+          <button class="button is-info is-light" id="myPageOrder">
+            <p class="title is-3">
+              <i class="fa-solid fa-user-gear"></i>
+              회원정보관리
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>

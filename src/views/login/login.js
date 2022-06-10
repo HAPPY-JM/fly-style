@@ -34,9 +34,10 @@ async function handleSubmit(e) {
   const isPasswordValid = password.length >= 4;
 
   if (!isEmailValid || !isPasswordValid) {
-    return alert(
-      "비밀번호가 4글자 이상인지, 이메일 형태가 맞는지 확인해 주세요."
-    );
+    swal({
+    icon: "warning",
+    text: "비밀번호가 4글자 이상인지, 이메일 형태가 맞는지 확인해 주세요.",
+    });
   }
 
   // 로그인 api 요청
@@ -52,18 +53,18 @@ async function handleSubmit(e) {
 
     //일반 로그인 경로로 들어왔는데 역할이 admin이면 토큰 갈취당했을수도 있으므로 확인
     if (location.pathname !== "/dkssudgktpdyadmin/" && role === "admin") {
-      return alert("다른경로로 로그인 해주십시오");
+      return swal("다른 경로로 로그인 해주십시오");
     } else if (
       //admin 경로로 들어와서 유저가 로그인 할 수 있으므로 확인
       location.pathname === "/dkssudgktpdyadmin/" &&
       role !== "admin"
     ) {
-      return alert("권한이 없습니다");
+      return swal("권한이 없습니다");
     }
     console.log(token, role);
     setToken({ token, role });
 
-    alert(`정상적으로 로그인되었습니다.`);
+    swal(`정상적으로 로그인되었습니다.`);
     console.log(document.referrer);
     //admin 경로로 정상적으로 로그인한 관리자는
     if (location.pathname === "/dkssudgktpdyadmin/") {
@@ -82,7 +83,7 @@ async function handleSubmit(e) {
     }
   } catch (err) {
     console.error(err.stack);
-    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
+    swal(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 
   console.log('----------------document.referrer------------------');
