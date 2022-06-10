@@ -13,31 +13,22 @@ async function addAllElements() {
 }
 
 const orderList = await Api.get('/api/admins/order/lists');
-// console.log('1------------------');
-// console.log(order[0]);
-// console.log('2-----------------');
 
 // const URLSearch = new URLSearchParams(location.search);
 //   //(?id=여기부분)
 //   const id = URLSearch.get("_id");
 //   const data = await Api.get(`/api/product`, id);
 
-
 const table = $('table');
 
-// if(orderId !== null){
 //   console.log('---------orderId--------------------------------');
 //   console.log(orderId);
 //   const orderData= await Api.get(`/api/order/detail/${orderId}`);
 //   console.log('----await Api.get(`/api/order/detail/오더아이디-------------------------------------');
 //   console.log(orderData);
-  
 //   const result = await Api.delete('/api/admins/order',orderId);
-  
 //   console.log('-----await Api.del-------------------------------------------')
 //   console.log(result);
-// }
-
 // console.log(orderId);
 //let products= await Api.get(`/api/product/${orderId}`);
 //console.log(products);
@@ -52,7 +43,6 @@ function deleteOrder(data) {
   const res =  data;
   console.log(res);
   //e.id;
-
   // swal({
   //   title: "해당 주문 내역을 삭제하시겠습니까?",
   //   text: "삭제하면 복구할 수 없습니다!",
@@ -87,7 +77,7 @@ function addTableTrData(data){
   <td>${data.products.quantity}개</td>
   <td>${data.orderStatus}</td>
   <td>
-    <button class="button is-danger is-light" onclick="deleteRow(this)"id=${data._id}>삭제</button>
+    <button class="button is-danger is-light" id=${data._id}>삭제</button>
   </td>
 </tr>
 <input type='hidden' value=${data._id} />
@@ -98,12 +88,32 @@ function addTableTrData(data){
 getOrderDatas();
 
 function getOrderDatas(){
-  const tbody = document.createElement("tbody");
-  orderList.map((data)=> {
-    addTableTrData(data);
-  });
+  // const tbody = document.createElement("tbody");
+  // orderList.map((data)=> {
+  //   addTableTrData(data);
+  // });
+  // tbody.innerHTML = innerTrData;
+  // table.appendChild(tbody);
+
+  Array(4)
+    .fill({
+      userId: {
+        email: "abc123"
+      },
+      createdAt: "2020-12-31",
+      products: {
+        _id: "1",
+        quantity: 10
+      },
+      id: 1
+    })
+    .map((item) => {
+      addTableTrData(item);
+    });
+
   tbody.innerHTML = innerTrData;
   table.appendChild(tbody);
+
 }
 
 //const table 
@@ -113,10 +123,41 @@ const tr = document.querySelectorAll('tbody tr');
 console.log('-------------------------------------');
 console.log(tr);
 
-for(let i = 0 ; i < tr.length ; i++){
-  const button = document.querySelector(`${tr[i]} button`);
-  console.log(button);
-}
+const deleteBtns = document.querySelectorAll(".button");
+
+deleteBtns.forEach((btn) => {
+  btn.addEventListener("click", () => deleteRow(btn));
+});
+
+function deleteRow(button) {
+    swal({
+      title: "해당 주문 내역을 삭제하시겠습니까?",
+      text: "삭제하면 복구할 수 없습니다!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("삭제 완료되었습니다.", {
+            icon: "success",
+          });
+          console.log(button);
+          console.log(button);
+  
+          //let i = o.parentNode.parentNode.rowIndex;
+          //document.querySelector('#mainTable').deleteRow(i);
+        } else {
+          swal("Good!");
+        }
+      });
+    }
+
+// let button = "";
+// for(let i = 0 ; i < tr.length ; i++){
+//   button = document.querySelector(`${tr}:nth-child(${i+1}) button`);
+//   console.log(button);
+// }
 // for(let i = 0 ; i < order.length ; i ++){
 //   innerTrData += 
 //   `<tr>
@@ -141,7 +182,7 @@ for(let i = 0 ; i < tr.length ; i++){
 
 
 
-console.log(innerTrData);
+//console.log(innerTrData);
 
 // function deleteRow(o) {
 //   swal({
@@ -163,5 +204,3 @@ console.log(innerTrData);
 //         swal("Good!");
 //       }
 //     });
-
-// }
