@@ -79,12 +79,12 @@ async function handleSubmit(e) {
 
   formdata.append("fullName", fullName);
   formdata.append("email", email);
-  formdata.append("address", address);
+  formdata.append("password", password);
 
   // 회원가입 api 요청
   try {
 
-    await Api.patch("/api/register", {data});
+    await Api.formDataPatch("/api/register", formdata);
 
     swal({
       icon: "success",
