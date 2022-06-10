@@ -70,7 +70,7 @@ async function handleSubmit(e) {
       //관리자 루트 페이지로~~
       window.location.href = "/admin";
       // await Api.get("/admins"); //href admin-page
-    } else if (document.referrer.includes("login") || !document.referrer || document.referrer.includes("register")) {
+    } else if (document.referrer.includes("login") || document.referrer.includes("register") || !document.referrer) {
       window.location.href = "/";
       // 회원가입 후에는 홈 화면으로 이동
     } 
