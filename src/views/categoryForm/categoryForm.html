@@ -54,21 +54,6 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
-
-        <!-- <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-end breadcrumb my-auto" aria-label="breadcrumbs">
-            <ul id="navbar">
-              <li>
-                <a href="/cart" aria-current="page">
-                  <span class="icon">
-                    <i class="fas fa-cart-shopping"></i>
-                  </span>
-                  <span>카트</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div> -->
       </div>
     </nav>
 
@@ -96,13 +81,13 @@
 
 
             <div class="mt-5">
-              <button type="submit" class="button is-primary is-fullwidth" id="submitaddButton" >
+              <button type="submit" class="button is-primary is-fullwidth" id="submitaddButton" onclick="alertAdd()" >
                 카테고리 등록
               </button>
-              <button class="button is-primary is-fullwidth" id="submiteditButton">
+              <button class="button is-primary is-fullwidth" id="submiteditButton" onclick="alertEdit()">
                 카테고리 수정
               </button>
-              <button class="button is-primary is-fullwidth" id="submitdeleteButton">
+              <button class="button is-primary is-fullwidth" id="submitdeleteButton" onclick="alertDelete()">
                 카테고리 삭제
               </button>
             </div>
