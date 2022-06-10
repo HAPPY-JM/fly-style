@@ -82,7 +82,9 @@ justify-content: center;
 /* 여기부터 바디 */
 
 #productDetailContentWrap{
-  margin-top: 150px;   
+  display: flex;
+
+  margin-top: 2rem;   
 }
 /* 이미지div */
 img{
@@ -93,8 +95,6 @@ img{
 
 /* 이미지 float 왼쪽으로 배치 */
 #productImage{
-  position: fixed;
-  float: left;
   width: 50%;
   padding:5%;
   text-align:right;
@@ -102,7 +102,7 @@ img{
 
 /* 제품인포 div */
 #productInfodiv{
-  float: right;
+  /* float: right; */
   height: auto;
   width: 50%;
   padding:5% 5% 5% 7%;
