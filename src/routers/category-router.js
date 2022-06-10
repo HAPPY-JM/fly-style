@@ -8,6 +8,8 @@ const categoryRouter = Router();
 //카테고리 등록 (login 확인, admin 확인)
 categoryRouter.post(
   "/",
+  loginRequired,
+  adminRequired,
   async (req, res, next) => {
     try {
       const { name } = req.body;
@@ -34,28 +36,34 @@ categoryRouter.get("/:category", async (req, res) => {
   const findCategory = await categoryService.findByName(categoryName);
 
   res.json(findCategory);
-})
+});
 
 //카테고리 수정 (login 확인, admin 확인)
-categoryRouter.patch("/:id", async (req, res, next) => {
+categoryRouter.patch(
+  "/:id",
+  loginRequired,
+  adminRequired,
+  async (req, res, next) => {
+    try {
+      const categoryId = req.params.id;
+      const { name } = req.body;
 
+      const editCategory = await categoryService.editCategory(categoryId, {
+        name,
+      });
 
-  try {
-    const categoryId = req.params.id;
-    const { name } = req.body;
-
-    const editCategory = await categoryService.editCategory(categoryId, { name });
-
-    res.json(editCategory);
-  } catch (err) {
-    next(err);
+      res.json(editCategory);
+    } catch (err) {
+      next(err);
+    }
   }
-
-});
+);
 
 //카테고리 삭제 (login 확인, admin 확인)
 categoryRouter.delete(
   "/:id",
+  loginRequired,
+  adminRequired,
   async (req, res) => {
     const categoryId = req.params.id;
 
