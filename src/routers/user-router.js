@@ -84,7 +84,8 @@ userRouter.post("/login", async function (req, res, next) {
 userRouter.patch("user/:userId", async function (req, res, next) {
   try {
     const { userId } = req.params;
-    const { fullName, password, address, phoneNumber } = req.body;
+    const {data} = req.body;
+    const { fullName, password, address } = data;
 
     // body data로부터, 확인용으로 사용할 현재 비밀번호를 추출함.
     const currentPassword = req.body.currentPassword;
@@ -102,7 +103,6 @@ userRouter.patch("user/:userId", async function (req, res, next) {
       ...(fullName && { fullName }),
       ...(password && { password }),
       ...(address && { address }),
-      ...(phoneNumber && { phoneNumber }),
     };
 
     // 사용자 정보를 업데이트함.

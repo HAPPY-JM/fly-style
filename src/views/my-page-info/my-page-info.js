@@ -70,15 +70,21 @@ async function handleSubmit(e) {
     });
   }
 
+  let formdata = new FormData();
+
+  formdata.append("fullName", fullName);
+  formdata.append("email", email);
+  formdata.append("address", address);
+
   // 회원가입 api 요청
   try {
-    const data = { fullName, email, password };
 
-    await Api.patch("/api/register", data);
+
+    await Api.patch("/api/register", {data});
 
     swal({
       icon: "success",
-      text: "정상적으로 ㅅㅜㅈㅓㅇ되었습니다.",
+      text: "정상적으로 수정되었습니다.",
       type: "success",
     }).then(function () {
       window.location.href = "/login";
@@ -86,11 +92,8 @@ async function handleSubmit(e) {
 
     // 로그인 페이지 이동
   } catch (err) {
-    console.error(err.stack);
-    alert({
-      icon: "error",
-      text: `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
-    });
+    console.log(err);
+    // alert(err);
   }
 }
 

@@ -20,6 +20,9 @@ viewsRouter.use("/cart", serveStatic("cart"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/order/complete", serveStatic("order-complete"));
 viewsRouter.use("/myPage", serveStatic("my-page"));
+viewsRouter.use("/mypageinfo", serveStatic("my-page-info"));
+viewsRouter.use("/mypageorderlist", serveStatic("my-page-order-list"));
+
 
 viewsRouter.use("/admin", serveStatic("admin-page"));
 viewsRouter.use("/adminList", serveStatic("admin-list"));
