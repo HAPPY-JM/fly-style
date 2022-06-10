@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { userService, orderService } from "../services";
-import mongoose from "mongoose";
+import { userService, orderService} from "../services";
 
 const adminRouter = Router();
 

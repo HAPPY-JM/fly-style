@@ -21,7 +21,7 @@ function productInnerData(productData){
     innerProduct += `
     
     <tr>
-        <td><a href = "/productform?product=${productData._id}">${productData.name}</a></td>
+        <td><a href = "/productform?product=${productData.name}">${productData.name}</a></td>
         <td>${productData.category}</td>
     </tr>
     

@@ -25,7 +25,7 @@ productRouter.post(
   "/uplodimg",
   upload.single("image-file"),
   async (req, res) => {
-    const { name, price, content, brand, size, category } = req.body;
+    const { name, price, content, brand, size } = req.body;
     const sizeobj = JSON.parse(size);
     console.log(sizeobj);
     const { location } = req.file;
@@ -36,7 +36,7 @@ productRouter.post(
       content,
       brand,
       size: sizeobj,
-      category,
+      category: "ㄴㄴㄴ",
       Img: location,
     };
     const result = await productService.addProduct(productInfo);

@@ -17,6 +17,7 @@ async function addAllElements() {
   header(headerParent);
 }
 
+
 //localhost:5000/products/?category="slfjsalkfjalsfjl"
 //const URLSearch = new URLSearchParams(location.search);
 //(?id=여기부분)
@@ -38,48 +39,52 @@ console.log(productData);
 // const productsCategory = await Api.get(`/api/product/:${category}`);
 // console.log(productsCategory);
 
+
 // 상품 리스트 섹션
 const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
-const categorySection = $(".header-category-list");
+const categorySection = $('.header-category-list');
 
 // 카테고리 섹션 - 현재 카테코리 출력
-const selectedCategory = $(".selected-category");
+const selectedCategory=$('.selected-category');
 
 //페이지네이션
 const paginationClass = $("#pagination");
+
 
 // 상품 목록에 넣을 데이터 변수
 let productInnerData = "";
 // 카테고리목록에 넣을 데이터 변수
 let categoryInnerData = "";
 
-setCookie("categoryCookie", URLSearch.get("category"));
+setCookie('categoryCookie', URLSearch.get("category"));
 
 //카테고리쿠키 생성함수
-function setCookie(cName, cValue) {
-  let cookies = cName + "=" + cValue + "; path=/ ";
-  document.cookie = cookies;
+function setCookie(cName, cValue){
+    let cookies = cName + '=' + cValue + '; path=/ ';
+    document.cookie = cookies;
 }
 //카테고리쿠키 가져오기
-function getCookie(cName) {
-  cName = cName + "=";
-  let cookieData = document.cookie;
-  let start = cookieData.indexOf(cName);
-  let cValue = "";
-  if (start != -1) {
-    start += cName.length;
-    let end = cookieData.indexOf(";", start);
-    if (end == -1) end = cookieData.length;
-    cValue = cookieData.substring(start, end);
-  }
-  return cValue;
+function getCookie(cName){
+    cName = cName + '=';
+    let cookieData = document.cookie;
+    let start = cookieData.indexOf(cName);
+    let cValue = '';
+    if(start != -1){
+        start += cName.length;
+        let end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cValue = cookieData.substring(start, end);
+    }
+    return cValue;
 }
+
 
 // 카테고리 넣을 함수 구현
 function addCategoryListData(categoryData) {
   categoryInnerData += `<li><a href = /products?category=${categoryData.name}>${categoryData.name}</a></li>`;
 }
+
 
 // 상품 넣을 함수 구현
 function addProductsListData(productData) {
@@ -89,7 +94,7 @@ function addProductsListData(productData) {
     <a href="/product?_id=${productData._id}">
         <div class="card-image">
             <figure class="image is-square">
-                <img src="${productData.Img}" alt="Placeholder image">
+                <img src="${productData.imgSrc}" alt="Placeholder image">
             </figure> 
         </div>
         <div class="card-content">
@@ -106,45 +111,43 @@ function addProductsListData(productData) {
     `;
 }
 
-let cookieCategory = getCookie("categoryCookie");
+let cookieCategory = getCookie('categoryCookie');
 function pagination(productData, cookieCategory) {
-  let paginationEl = ``;
-  for (let i = 1; i <= productData.totalPage; i++) {
-    paginationEl += `
+    let paginationEl = ``;
+    for (let i = 1; i <= productData.totalPage; i++) {
+      paginationEl += `
           <td>
               <a href="/products?category=${cookieCategory}&page=${i}">
                   ${i} 
               </a>
           </td>
         `;
+    }
+    // console.log(paginationEl);
+    // console.log(paginationClass);
+    return paginationEl;
   }
-  // console.log(paginationEl);
-  // console.log(paginationClass);
-  return paginationEl;
-}
 
-productData.productsPerPage.map((productData) =>
-  addProductsListData(productData)
-);
+productData.productsPerPage.map((productData) => addProductsListData(productData));
 categoryData.map((categoryData) => addCategoryListData(categoryData));
-console.log("----------------------------");
+console.log('----------------------------');
 console.log(productData.categoryName);
-console.log("----------------------------");
+console.log('----------------------------');
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
 paginationClass.innerHTML = pagination(productData, cookieCategory);
-if (productData.categoryName == "null") {
-  selectedCategory.innerText = "TOP";
-} else {
-  selectedCategory.innerText = productData.categoryName;
+if(productData.categoryName=='null'){
+    selectedCategory.innerText= "TOP";
+}else{
+    selectedCategory.innerText= productData.categoryName;
 }
 //scroll up button
 function scrollUp(e) {
-  let target = document.getElementById(e);
-  target.addEventListener("click", function () {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  });
-}
-
-scrollUp("scroll-btn");
+    let target = document.getElementById(e);
+    target.addEventListener("click", function(){
+      window.scrollTo({top:0, left:0, behavior:'smooth'});
+    })
+  }
+  
+  scrollUp("scroll-btn");

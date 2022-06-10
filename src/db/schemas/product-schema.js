@@ -33,7 +33,7 @@ const ProductSchema = new Schema(
     },
 
     size: [{ 
-      name:{ type: String, default: "free" },
+      sizetype:{ type: String, default: "free" },
       stock: {type: Number, default:0},
     }],
   },
