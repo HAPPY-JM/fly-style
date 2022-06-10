@@ -163,12 +163,35 @@ footer{
 }
 .cart-items .cart-product-price div{
   display: flex;
+  justify-content: center;
+}
+
+/* .product-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */
+
+
+/* 사이즈, 가격 레이아웃 수정 필요 세로 중앙정렬이 안됨 */
+.cart-items .cart-product-size{
+  vertical-align: middle;
+  height: 100%;
+}
+.cart-items .order-size{
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.product-info{
+.cart-items .cart-product-price{
+  vertical-align: middle;
+  height: 100%;
+}
+.cart-items .order-price{
+  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 /* 상품 수량 */
@@ -182,11 +205,15 @@ footer{
   justify-content: center;
 }
 
+
+
 .container.cart-main{
   width: 80%;
   display: flex;
   justify-content: center;
 }
+
+
 
 .cart-items .cart-products-count{
   border: none;
