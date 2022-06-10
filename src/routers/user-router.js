@@ -81,16 +81,15 @@ userRouter.post("/login", async function (req, res, next) {
 
 // 사용자 정보 수정
 // (예를 들어 /api/users/abc12345 로 요청하면 req.params.userId는 'abc12345' 문자열로 됨)
-userRouter.patch("user/:userId", async function (req, res, next) {
+userRouter.patch("/user/:userId", async function (req, res, next) {
   try {
     const { userId } = req.params;
-    const { fullName, password, address, phoneNumber } = req.body;
+    const { fullName, email, password, currentPassword } = req.body;
 
     // body data로부터, 확인용으로 사용할 현재 비밀번호를 추출함.
-    const currentPassword = req.body.currentPassword;
 
     // currentPassword 없을 시, 진행 불가
-    if (!currentPassword) {
+    if (currentPassword) {
       throw new Error("정보를 변경하려면, 현재의 비밀번호가 필요합니다.");
     }
 
@@ -101,8 +100,10 @@ userRouter.patch("user/:userId", async function (req, res, next) {
     const toUpdate = {
       ...(fullName && { fullName }),
       ...(password && { password }),
-      ...(address && { address }),
-      ...(phoneNumber && { phoneNumber }),
+      ...(email && { email }),
+      // fullName,
+      // password,
+      // email,
     };
 
     // 사용자 정보를 업데이트함.
@@ -117,5 +118,13 @@ userRouter.patch("user/:userId", async function (req, res, next) {
     next(error);
   }
 });
+
+userRouter.delete('/user/:id', async(req, res) => {
+  const userId = req.params.id;
+
+  const deleteUser = await userService.deleteUser(userId);
+
+  res.json(deleteUser);
+})
 
 export { userRouter };

@@ -12,6 +12,7 @@ const emailInput = document.querySelector("#emailInput");
 const passwordInput = document.querySelector("#passwordInput");
 const passwordConfirmInput = document.querySelector("#passwordConfirmInput");
 const submitButton = document.querySelector("#submitButton");
+const quitButton = document.querySelector("#quitButton");
 const headerParent = $("body");
 
 emailInput.value = user.email; 
@@ -28,6 +29,7 @@ function addAllElements() {
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
   submitButton.addEventListener("click", handleSubmit);
+  quitButton.addEventListener("click", userQuit);
 }
 
 // 수정 진행
@@ -75,12 +77,25 @@ async function handleSubmit(e) {
     });
   }
 
-  // 수정 api 요청
+  // let formdata = new FormData();
+
+  // formdata.append("fullName", fullName);
+  // formdata.append("email", email);
+  // formdata.append("password", password);
+
+  // console.log(formdata);
+
+  // 회원가입 api 요청
   try {
-    const data = { fullName, email, password };
-    console.log(data);
-    const changeData = await Api.patch("/api/user", data);
-    console.log(changeData);
+
+    const editData = {
+      fullName : fullName,
+      email : email,
+      password : password,
+      currentPassword : user.password,
+    }
+
+    await Api.patch(`/api/user`, editData, `${user._id}`);
 
     swal({
       icon: "success",
@@ -91,15 +106,19 @@ async function handleSubmit(e) {
     });
     // 로그인 페이지 이동
   } catch (err) {
-    console.error(err.stack);
-    swal({
-      icon: "warning",
-      text: `문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`,
-    });
+    // console.log(err);
+    alert(err);
   }
 }
 
 // user
 // user name
+async function userQuit(e){
+  e.preventDefault();
 
+  const userId = user._id;
+
+  await Api.delete(`/api/user`, userId, `${user._id}`);
+  alert("탈퇴했습니다");
+}
 
