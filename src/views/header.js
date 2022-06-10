@@ -7,7 +7,7 @@ export default function header(parent) {
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href='/'>
-            <img src="../fly-style-logo.png" alt="logo" />
+            <img src="/fly-style-logo.png" alt="logo" />
           </a>
         </div>
         <div id="navbarMenuHeroC" class="navbar-menu">
