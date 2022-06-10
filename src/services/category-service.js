@@ -37,6 +37,17 @@ class CategoryService {
 
   //카테고리 수정
   async editCategory(categoryId, update) {
+
+    // 카테고리 중복 확인
+    const nameCategory = await this.categoryModel.findByName(update);
+    if (nameCategory) {
+      throw new Error(
+        "이 카테고리는 이미 존재합니다. 다른 카테고리를 입력해 주세요."
+      );
+    }
+
+    // 카테고리 중복은 이제 아니므로, 카테고리수정을 진행함
+
     const editCategory = await this.categoryModel.editCategory(
       categoryId,
       update

@@ -19,11 +19,14 @@ async function addCategory(e){
 
     const name = categoryInput.value;
 
-    await Api.post(`/api/category`, {name});
+    try{
+        await Api.post(`/api/category`, {name});
 
-    alert(`카테고리 <${name}>이(가) 등록되었습니다.`);
-    window.location.href="/inventory";
-    
+        alert(`카테고리 <${name}>이(가) 등록되었습니다.`);
+        window.location.href="/inventory";
+    }catch(err){
+        alert(err);
+    }
 }
 addCategoryBtn.addEventListener('click', addCategory);
 
@@ -37,11 +40,14 @@ async function editCategory(e){
 
     const name = categoryInput.value;
 
-    await Api.patch(`/api/category/${categoryData._id}`, {name});
+    try{
+        await Api.patch(`/api/category/${categoryData._id}`, {name});
 
-    alert(`<${category}> 카테고리의 카테고리명이 <${name}>(으)로 수정되었습니다.`);
-    window.location.href="/inventory";
-    
+        alert(`<${category}> 카테고리의 카테고리명이 <${name}>(으)로 수정되었습니다.`);
+        window.location.href="/inventory";
+    }catch(err){
+        alert(err);
+    }
 }
 editCategoryBtn.addEventListener('click', editCategory);
 

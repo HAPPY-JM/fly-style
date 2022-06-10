@@ -42,13 +42,16 @@ categoryRouter.patch("/:id", async (req, res) => {
 
   const { name } = req.body;
 
-  const updateData = {
-    name
-  };
+  const updateData = {name};
 
-  const editCategory = await categoryService.editCategory(categoryId, updateData);
+  try {
+    const editCategory = await categoryService.editCategory(categoryId, updateData);
 
-  res.json(editCategory);
+    res.json(editCategory);
+  } catch (err) {
+    next(err);
+  }
+
 });
 
 //카테고리 삭제 (login 확인, admin 확인)
