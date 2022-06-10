@@ -85,15 +85,24 @@ function landingRender(data) {
 
 function order() {
   if (localStorage.getItem("order")) {
-    return alert("오류가 있습니다");
+    return swal({
+      icon: "warning",
+      text: "오류가 있습니다!",
+    });
   }
   if (getToken() === "null" || !getToken()) {
-    alert("유저만 주문할 수 있습니다. 로그인 해주세요.");
+    swal({
+      icon: "warning",
+      text: "유저만 주문할 수 있습니다. 로그인 해주세요.",
+    });
     window.location.href = "/login";
     return;
   }
   if (size === "null") {
-    alert("사이즈를 선택해 주세요.");
+    swal({
+      icon: "warning",
+      text: "사이즈를 선택해 주세요.",
+    });
     return;
   }
   Cart.add(data, size, quantity, "order");
@@ -114,11 +123,17 @@ location.href = "/order ";
 
 function addCart() {
   if (size === "null") {
-    alert("사이즈를 선택해 주세요.");
+    swal({
+      icon: "warning",
+      text: "사이즈를 선택해 주세요.",
+    });
     return;
   }
   if (Cart.exists(data._id)) {
-    alert(`이미존재합니다. 추가하시겠습니까?`);
+    swal({
+      icon: "warning",
+      text: "이미존재합니다. 추가하시겠습니까?",
+    });
   }
   Cart.add(data, size, quantity, "cart");
 }
