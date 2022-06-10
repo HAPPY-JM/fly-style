@@ -10,20 +10,6 @@ class OrderService {
 
   //주문추가
   async addOrder(orderInfo) {
-    // 객체 destructuring
-    // {
-    //     userId,
-    //     orderdate,
-    //     [products],
-    //     totalPrice,
-    //     delivery:{
-    //         name,
-    //         Adrress:{
-
-    //         },
-    //         Comment,
-    //     }
-    // }
     const {
       userId,
       totalPrice,
