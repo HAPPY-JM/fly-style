@@ -58,8 +58,8 @@ async function post(endpoint, data) {
 
 //리소스의 부분적인 수정 patch js->json
 // api 로 PATCH 요청 (/endpoint/params 로, JSON 데이터 형태로 요청함)
-async function patch(endpoint, data) {
-  const apiUrl = `${endpoint}`;
+async function patch(endpoint, data, params = "") {
+  const apiUrl = params ? `${endpoint}/${params}` : `${endpoint}`;
 
   // JSON.stringify 함수: Javascript 객체를 JSON 형태로 변환함.
   // 예시: {name: "Kim"} => {"name": "Kim"}
