@@ -17,6 +17,21 @@ const outputdata = document.getElementById("outputdata");
 const sizeInput = document.getElementById("sizeInput");
 const sizeList = document.querySelectorAll("sizeList");
 const size = [];
+const categories = await Api.get("/api/category");
+let category = "";
+console.log(categories);
+
+categories.map((data) => {
+  const select = document.createElement("option");
+  select.value = data.name;
+  select.innerText = data.name;
+  categorySelectBox.appendChild(select);
+});
+
+categorySelectBox.addEventListener("change", () => {
+  category = categorySelectBox.value;
+  console.log(category);
+});
 submitButton.addEventListener("click", submitEvent);
 imageInput.addEventListener("change", imageNameChange);
 inventorySubmit.addEventListener("click", sizeSubmitEvent);
@@ -56,7 +71,7 @@ async function submitEvent(e) {
   formdata.append("price", priceInput.value);
   formdata.append("content", detailDescriptionInput.value);
   formdata.append("brand", manufacturerInput.value);
-  formdata.append("category", categorySelectBox.value);
+  formdata.append("category", category);
   formdata.append("size", JSON.stringify(size));
   // formdata.append('',sizeInput.value)
   // formdata.append('',inventoryInput.value)

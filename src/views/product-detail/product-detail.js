@@ -14,7 +14,8 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const sizeOption=$("#sizeOption");
+const Img = $("#productImg");
+const sizeOption = $("#sizeOption");
 let quantity = Number($("#quantity").value);
 const quantityField = $("#quantity");
 let size = productSize.value;
@@ -53,8 +54,9 @@ function landingRender(data) {
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
+  Img.src = data.Img;
   // productSize
-  
+
   for (let i = 0; i < data.size.length; i++) {
     let sizeSelect = document.createElement("option");
     sizeSelect.innerText = data.size[i].name;
@@ -76,19 +78,19 @@ function order() {
     return;
   }
   Cart.add(data, size, quantity, "order");
-//   sessionStorage.setItem(
-//     `order`,
-//     JSON.stringify({
-//       productId: data._id,
-//       quantity,
-//       size,
-//       price: Number(data.price) * quantity,
-//     })
-//   );
-//   location.href = "/order?direct=true ";
-//   console.log(JSON.parse(sessionStorage.getItem(`order`)));
-// }
-location.href = "/order ";
+  //   sessionStorage.setItem(
+  //     `order`,
+  //     JSON.stringify({
+  //       productId: data._id,
+  //       quantity,
+  //       size,
+  //       price: Number(data.price) * quantity,
+  //     })
+  //   );
+  //   location.href = "/order?direct=true ";
+  //   console.log(JSON.parse(sessionStorage.getItem(`order`)));
+  // }
+  location.href = "/order ";
 }
 
 function addCart() {
