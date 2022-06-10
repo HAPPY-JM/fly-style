@@ -59,17 +59,43 @@
                     <col width="15%">
                     <col width="15%">
                     <col width="15%">
+                    <col width="15%">
+                    
                     </colgroup>
                     <thead>
                         <tr>
-                            <th >제품정보</th>
+                            <th>제품정보</th>
                             <th>사이즈</th>
                             <th>가격</th>
                             <th>수량</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <tr id="orderCheck" class="cart-items">
+                            <td class="cart-products-info">
+                                <figure>
+                                    <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
+                                        alt="신발">
+                                </figure>
+                                <div class="product-info">
+                                    <div class="product-name title is-5">신발명</div>
+                                   
+                                </div>
+                            </td>
+                            <td class="cart-product-size">
+                              <div class="order-size">  
+                              M
+                            </div>
+                            </td>
+                            <td class="cart-product-price">
+                              <div class="product-price">
+                              34,000원</div></td>
+                            <td class="cart-products-count">
+                                <div class="product-count">
+                                    <p>2</p>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -180,7 +206,7 @@
 
             <!-- 결제 정보란 -->
             <div class="box" id="orderInfodiv">
-              <h2 class="subtitle is-6">결제 정보</h2>
+              <h2 class="subtitle is-5">결제 정보</h2>
               <div class="orderInfo">
                 <div class="info">
                   <p class="title is-5">주문상품</p>
@@ -201,10 +227,12 @@
                 <p class="total-price" id="orderPriceTotal">0원</p>
               </div>
               <div class="buy">
+              <div class="buyBtn">
                 <button class="button is-info" id="buyButton">
                   결제하기
                 </button>
               </div>
+            </div>
             </div>
 
           </div>
