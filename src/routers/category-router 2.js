@@ -28,6 +28,14 @@ categoryRouter.get("/", async (req, res) => {
   res.json(categoryList);
 });
 
+//카테고리찾기
+categoryRouter.get("/:category", async (req, res) => {
+  const {categoryName} = req.params;
+  const findCategory = await categoryService.findByName(categoryName);
+
+  res.json(findCategory);
+})
+
 //카테고리 수정 (login 확인, admin 확인)
 categoryRouter.patch("/:id", async (req, res) => {
   const categoryId = req.params.id;

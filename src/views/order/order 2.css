@@ -1,0 +1,197 @@
+html, body{
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  margin: 0;
+  padding: 0;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+/* 헤더 */
+.navbar{
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.navbar-menu{
+    margin: 1rem;
+}
+  
+.navbar-item{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+  
+.navbar-item img{
+  max-height: 4rem;
+}
+  
+.hero.is-success {
+  background-color: #fff;
+  color: black;
+}
+  
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+  
+.hero{
+  justify-content: space-evenly;
+}
+  
+.hero-body{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: 3px solid rgb(223, 225, 228);
+}
+
+/* 메인 */
+#contentWrap{
+  width: 100%;
+  height: 100%;
+}
+
+#showOrderProcess{
+  margin: 10vh 5vw 0 5vw;
+}
+
+.box{
+  margin: 5vh 5vw 0 5vw;
+}
+/* #orderAddressInfo{
+    text-align: right;
+} */
+#addressInfodiv{
+  justify-content: center;
+  margin: 0 auto 5% auto;
+  width: 65%;
+
+
+}
+#orderInfo{
+
+  flex-direction: column;
+  justify-content: center;
+}
+#orderInfodiv{
+  margin: 5% auto 5% auto;
+  width: 65%;
+
+}
+
+.subtitle.is-5, .subtitle.is-6{
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgb(223, 225, 228);
+}
+
+.subtitle.is-6{
+  padding-bottom: 10px;
+}
+
+.info{
+  margin-bottom: 20px;
+}
+
+.buy{
+  margin-top: 20px;
+}
+
+.title.is-5{
+  margin-bottom: 0;
+}
+  /* 푸터 */
+
+#float-clear{
+    clear: both;
+}
+
+footer{
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background-color: rgb(232, 242, 249);
+  color: rgb(149, 172, 208);
+}
+
+
+
+
+
+
+
+
+
+/* 장바구니 */
+
+/* 카트 이미지 및 신발명 상품 설명 */
+.cart-products-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-collapse: collapse;
+
+}
+.cart-products-info figure{
+  width: 30%;
+}
+
+/* 카트 아이템 이미지 사진 */
+/* 신발명 신발 설명  */
+
+/* 카트 가격 */
+/* 카트 상품 가격 */
+.cart-items .cart-product-price{
+  vertical-align: middle;
+}
+.cart-items .cart-product-price div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-info{
+  flex-direction: column;
+}
+
+/* 상품 수량 */
+.cart-items .cart-products-count{
+  vertical-align: middle;
+  height: 100%;
+}
+.cart-items .cart-products-count .product-count{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container.cart-main{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.cart-items .cart-products-count{
+  border: none;
+
+}
+
+thead, tbody{
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.product-name.title.is-5, .product-description.subtitle.is-7{
+  display: block;
+}

@@ -22,7 +22,7 @@ const upload = multer({
 const productRouter = Router();
 
 productRouter.post('/uplodimg', upload.single("image-file") , async(req,res)=>{
-  const {name, price, content, brand}=req.body;
+  const {name, price, content, brand  }=req.body;
   console.log(req.file)
   // const {} = req.file;
   // console.log(pathImage)
@@ -37,7 +37,8 @@ productRouter.post('/uplodimg', upload.single("image-file") , async(req,res)=>{
     price,
     content,
     brand,
-    Img:location
+    Img:location,
+    
   };
   const result=await productService.addProduct(productInfo);
   console.log(result);

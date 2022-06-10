@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- 아이콘 -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/elice-rabbit-favicon.png" />
+  <!-- bulma css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <!-- 폰트 어썸: 아이콘 -->
+  <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
+  <!-- 커스텀 css, js -->
+  <link rel="stylesheet" href="cart.css" />
+  <script src="cart.js" type="module" defer></script>
+</head>
+
+<body>
+  <section class="hero is-success is-fullheight" id="headerParent">
+    <main>
+      <!-- 카트입니다 -->
+      <section class="section">
+        <div class="cart-header">
+          <div class="title">
+            <p class="is-size-2">&nbsp;&nbsp;&nbsp;장바구니</p>
+          </div>
+          <div class="subtitle">
+            <p class="is-size-6">
+              &gt; &nbsp; 주문결제 &nbsp; &gt; &nbsp;주문완료
+            </p>
+          </div>
+        </div>
+        <!-- 장바구니 안 -->
+        <div class="container cart-main">
+          <!-- 장바구니  -->
+          <table class="table cart-table">
+            <colgroup>
+              <col width="5%" />
+              <col width="20%" />
+              <col width="40%" />
+              <col width="10%" />
+              <col width="15%" />
+              <col width="10%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>
+                  <label class="checkbox">
+                    <input type="checkbox" />
+                  </label>
+                </th>
+                <th>전체 선택</th>
+                <th></th>
+                <th class="has-text-centered">가격</th>
+                <th class="has-text-centered">수량</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+
+          <!-- 주문 정보 -->
+          <div class="tile order-list">
+            <div class="box order-summary">
+              <div class="header">
+                <p>결제정보</p>
+              </div>
+              <div class="order-info">
+                <div class="info">
+                  <p class="order-count">상품수</p>
+                  <p id="productsCount">1개</p>
+                </div>
+                <div class="info">
+                  <p class="order-price">상품금액</p>
+                  <p id="productsTotal">50,000원</p>
+                </div>
+                <div class="info">
+                  <p class="order-delivery">배송비</p>
+                  <p id="deliveryFee">3,000원</p>
+                </div>
+              </div>
+              <div class="total">
+                <p class="total-label">총 결제금액</p>
+                <p class="total-price" id="orderTotal">22,000원</p>
+              </div>
+              <div class="purchase">
+                <button class="button is-info" id="purchaseButton">
+                  구매하기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="hero-foot">
+      contributed by Team-5 @elice <br />
+      all rights reserved
+    </div>
+  </section>
+</body>
+
+</html>
