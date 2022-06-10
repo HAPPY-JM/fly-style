@@ -57,10 +57,9 @@ categoryRouter.delete(
   async (req, res) => {
     const categoryId = req.params.id;
 
-    await categoryService.deleteCategory(categoryId);
+    const deleteCategory = await categoryService.deleteCategory(categoryId);
 
-    res.send(`카테고리를 삭제했습니다.`);
-    // res.redirect("/inventory");
+    res.json(deleteCategory);
   }
 );
 
