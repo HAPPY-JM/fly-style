@@ -75,7 +75,6 @@ async function handleSubmit(e) {
     });
   }
 
-<<<<<<< HEAD:src/views/my-page-info/my-page-info.js
   let formdata = new FormData();
 
   formdata.append("fullName", fullName);
@@ -85,16 +84,7 @@ async function handleSubmit(e) {
   // 회원가입 api 요청
   try {
 
-
     await Api.patch("/api/register", {data});
-=======
-  // 수정 api 요청
-  try {
-    const data = { fullName, email, password };
-    console.log(data);
-    const changeData = await Api.patch("/api/user", data);
-    console.log(changeData);
->>>>>>> 46798a39aadfee3c4b24fa84a26674db0ae92a22:src/views/my-page/my-page-info.js
 
     swal({
       icon: "success",
