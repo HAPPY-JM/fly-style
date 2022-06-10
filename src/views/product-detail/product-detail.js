@@ -17,7 +17,7 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const productImg = $("#productImage");
+const productImage = $("#productImage");
 let quantity = Number($("#quantity").value);
 const quantityField = $("#quantity");
 const categorySection = $(".header-category-list");
@@ -65,7 +65,7 @@ function landingRender(data) {
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${fnc.addCommas(data.price)}원`;
   productName.innerHTML = data.name;
-  productImg.src = data.Img;
+
   // productSize
 
   for (let i = 0; i < data.size.length; i++) {
