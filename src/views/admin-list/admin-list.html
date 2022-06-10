@@ -87,8 +87,9 @@
             const orderId = e.id;
             console.log(orderId);
             sessionStorage.setItem('orderId', orderId);
-            let i = e.parentNode.parentNode.rowIndex;
-            document.querySelector('#mainTable').deleteRow(i);
+            //let i = e.parentNode.parentNode.rowIndex;
+            //document.querySelector('#mainTable').deleteRow(i);
+            location.reload();
           } else {
             swal("Good!");
           }
