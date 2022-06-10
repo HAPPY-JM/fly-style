@@ -91,8 +91,8 @@ async function patch(endpoint, data) {
 
 // 아래 함수명에 관해, delete 단어는 자바스크립트의 reserved 단어이기에,
 // 여기서는 우선 delete 대신 del로 쓰고 아래 export 시에 delete로 alias 함.
-async function del(endpoint) {
-  const apiUrl = `${endpoint}`;
+async function del(endpoint, params = "") {
+  const apiUrl = params ? `${endpoint}/${params}` : `${endpoint}`;
 
   console.log(`DELETE 요청 ${apiUrl}`);
 
@@ -119,13 +119,13 @@ async function del(endpoint) {
 
 async function formDataPost(endpoint, formdata) {
   const apiUrl = endpoint;
-  console.log(endpoint)
-  console.log(`%cPOST 요청: ${apiUrl}`, 'color: #296aba;');
+  console.log(endpoint);
+  console.log(`%cPOST 요청: ${apiUrl}`, "color: #296aba;");
   // console.log(`%cPOST 요청 데이터: ${data}`, 'color: #296aba;');
   const res = await fetch(apiUrl, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
     },
     body: formdata,
   });
@@ -144,4 +144,4 @@ async function formDataPost(endpoint, formdata) {
 }
 
 // 아래처럼 export하면, import * as Api 로 할 시 Api.get, Api.post 등으로 쓸 수 있음.
-export { get, post, patch, formDataPost ,del as delete };
+export { get, post, patch, formDataPost, del as delete };
