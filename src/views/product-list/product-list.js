@@ -130,15 +130,18 @@ function pagination(productData, cookieCategory) {
 
 productData.productsPerPage.map((productData) => addProductsListData(productData));
 categoryData.map((categoryData) => addCategoryListData(categoryData));
-// console.log('----------------------------');
-// console.log(productData.categoryName);
-// console.log('----------------------------');
+console.log('----------------------------');
+console.log(productData.categoryName);
+console.log('----------------------------');
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
 paginationClass.innerHTML = pagination(productData, cookieCategory);
-selectedCategory.innerText= productData.categoryName;
-
+if(productData.categoryName=='null'){
+    selectedCategory.innerText= "TOP";
+}else{
+    selectedCategory.innerText= productData.categoryName;
+}
 //scroll up button
 function scrollUp(e) {
     let target = document.getElementById(e);
