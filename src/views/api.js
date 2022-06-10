@@ -147,7 +147,7 @@ async function formDataPatch(endpoint, formdata, params = "") {
   const apiUrl =  params ? `${endpoint}/${params}` : `${endpoint}`;
   console.log(endpoint);
   console.log(`%cPATCH 요청: ${apiUrl}`, "color: #296aba;");
-  console.log(`%cPATCH 요청 데이터: ${data}`, 'color: #296aba;');
+  // console.log(`%cPATCH 요청 데이터: ${data}`, 'color: #296aba;');
   const res = await fetch(apiUrl, {
     method: "PATCH",
     headers: {

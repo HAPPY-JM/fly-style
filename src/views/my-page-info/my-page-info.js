@@ -84,7 +84,7 @@ async function handleSubmit(e) {
   // 회원가입 api 요청
   try {
 
-    await Api.formDataPatch("/api/register", formdata);
+    await Api.formDataPatch(`/api/user/${user._id}`, formdata);
 
     swal({
       icon: "success",
@@ -95,8 +95,8 @@ async function handleSubmit(e) {
     });
     // 로그인 페이지 이동
   } catch (err) {
-    console.log(err);
-    // alert(err);
+    // console.log(err);
+    alert(err);
   }
 }
 
