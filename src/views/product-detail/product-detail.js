@@ -73,16 +73,23 @@ function landingRender(data) {
     sizeSelect.innerText = data.size[i].name;
     productSize.appendChild(sizeSelect);
   }
+  productImage.innerHTML = `<img src="${data.Img}" alt="제품사진">`;
 }
 
 function order() {
   if (getToken() === "null" || !getToken()) {
-    alert("유저만 주문할 수 있습니다. 로그인 해주세요.");
+    swal({
+      icon: "warning",
+      text: "유저만 주문할 수 있습니다. 로그인 해주세요.",
+    });
     window.location.href = "/login";
     return;
   }
   if (size === "null") {
-    alert("사이즈를 선택해 주세요.");
+    swal({
+      icon: "warning",
+      text: "사이즈를 선택해 주세요.",
+    });
     return;
   }
   if (Cart.list("order")) {
@@ -95,11 +102,17 @@ function order() {
 
 function addCart() {
   if (size === "null") {
-    alert("사이즈를 선택해 주세요.");
+    swal({
+      icon: "warning",
+      text: "사이즈를 선택해 주세요.",
+    });
     return;
   }
   if (Cart.exists(data._id)) {
-    alert(`이미존재합니다. 추가하시겠습니까?`);
+    swal({
+      icon: "warning",
+      text: "이미존재합니다. 추가하시겠습니까?",
+    });
   }
   Cart.add(data, size, quantity, "cart");
 }

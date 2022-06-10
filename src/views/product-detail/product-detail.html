@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,84 +17,95 @@
   <!-- bulma css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
   <!-- 폰트 어썸: 아이콘 -->
-  <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>    
+  <script defer src="https://kit.fontawesome.com/7630448495.js" crossorigin="anonymous"></script>
   <!-- 커스텀 css, js -->
   <link rel="stylesheet" href="product-detail.css">
   <script src="./product-detail.js" type="module" defer></script>
-  </head>
-
+  <!-- 모달 -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>      
+  <!-- 커스텀 css, js -->
+  <link rel="stylesheet" href="order.css">
+  <script src="./order.js" type="module" defer></script>
+</head>
 
 <!-- 여기부터 바디 -->
+
 <body>
+  <div class="tabs is-centered">
+    <ul class="header-category-list">
+      <!-- 카테고리 -->
+    </ul>
+  </div>
   <main>
-  <!-- 메인 컨텐츠(제품상세) -->
-    <div id="productDetailContentWrap">  
- 
+
+    <!-- 메인 컨텐츠(제품상세) -->
+    <div id="productDetailContentWrap">
+
       <!-- 이미지 파일을 띄우는 div -->
       <div id="productImage">
-        <img id="productImg" src="skirt.jpg" alt="스커트 제품사진(테스트)">
+   
       </div>
 
       <!-- 제품의 정보를 띄우는 div -->
       <div id="productInfodiv">
 
-      <!-- 제품 이름을 가져오는 p -->
-      <p id="productName" class="title is-3">상품이름</p>
-            
-      <!-- 제품 가격을 가져오는 div-->
-      <div id="productPrice">
-        <p class="title is-5">30,000원</p>
-      </div>
+        <!-- 제품 이름을 가져오는 p -->
+        <p id="productName" class="title is-3">상품이름</p>
+
+        <!-- 제품 가격을 가져오는 div-->
+        <div id="productPrice">
+          <p class="title is-5">30,000원</p>
+        </div>
 
         <div id="productSizewrap">
           <label class="label" for="size">사이즈</label>
           <div class="select is-info" id="productSizeSelecter">
-          <select name="size" id="productSize">
+            <select name="size" id="productSize">
 
-          <option id="sizeOption" value="null">선택하세요</option>
+              <option id="sizeOption" value="null">선택하세요</option>
 
-          </select>
-        </div>
-      </div>
-          <div id="productQuantitywrap">
-            <label class="label" for="quantity">수량</label>
-            <input id="quantity" class="input is-info" type="number" placeholder="수량입력">
+            </select>
           </div>
+        </div>
+        <div id="productQuantitywrap">
+          <label class="label" for="quantity">수량</label>
+          <input id="quantity" class="input is-info" type="number" placeholder="수량입력">
+        </div>
 
-      <!-- 구매하기, 장바구니 버튼의 div-->
-      <div id="productButton">
-        <button class="button is-link is-light" id="buttonBuy">구매하기</button>
-        <button class="button is-info is-light" id="buttonBasket">장바구니</button>
-      </div>
+        <!-- 구매하기, 장바구니 버튼의 div-->
+        <div id="productButton">
+          <button class="button is-link is-light" id="buttonBuy">구매하기</button>
+          <button class="button is-info is-light" id="buttonBasket">장바구니</button>
+        </div>
 
-      <div id="productDetaildiv">
+        <div id="productDetaildiv">
 
-      <!-- 제품 상세설명을 가져오는 p -->
-      <p id="productDetail">
-        제품 상세설명 란 : <br><br>
-        베이지색상 롱 랩스커트 입니다. <br>
-               
-      <!-- 아래는 상세설명이 길어질 경우를 테스트하기 위함 -->
-               
-      </div>
+          <!-- 제품 상세설명을 가져오는 p -->
+          <p id="productDetail">
+            제품 상세설명 란 : <br><br>
+            베이지색상 롱 랩스커트 입니다. <br>
+
+            <!-- 아래는 상세설명이 길어질 경우를 테스트하기 위함 -->
+
+        </div>
 
       </div>
     </div>
-      </main>
-      
-    <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <div class="logo-footer">
-         <img src="../fly-style-footer.png">
-      </div>
-      <div class="footer-description">
-        contributed by <span style="font-weight: bold;">Team-5</span> @elice <br>
-        Copyright ⓒ 2022. All rights reserved.
-      </div>
+  </main>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <div class="logo-footer">
+      <img src="../fly-style-footer.png">
     </div>
-      <!-- 최하단 푸터 -->
+    <div class="footer-description">
+      contributed by <span style="font-weight: bold;">Team-5</span> @elice <br>
+      Copyright ⓒ 2022. All rights reserved.
+    </div>
+  </div>
+  <!-- 최하단 푸터 -->
 
   </div>
 </body>
-</html>
 
+</html>
