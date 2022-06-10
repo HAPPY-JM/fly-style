@@ -88,6 +88,19 @@ main {
 
 .container .cart-table {
   margin-right: 5%;
+  width: 75%;
+}
+
+figure {
+  /* position: relative; */
+  width: 100%;
+}
+
+figure img {
+  overflow: hidden;
+}
+
+.tile .order-summary {
   width: 90%;
 }
 
@@ -125,31 +138,13 @@ input::-webkit-inner-spin-button {
 }
 
 /* 주문 정보 */
+/* .order-list {
+  width: 100%;
+} */
 
 .order-list {
   margin-top: 1em;
   height: auto;
-  width: 95%;
-
-}
-
-.tile:not(.is-child) {
-  display: flex;
-  width: 80%;
-  justify-content: space-around;
-}
-
-.tile .order-summary {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  /* background-color: rebeccapurple; */
-  
-}
-
-.tile .order-summary div.order-list-data{
-  width: 70%;
 }
 .tile .order-summary div.order-list-button{
   display: flex;
@@ -172,14 +167,13 @@ input::-webkit-inner-spin-button {
   margin-bottom: 0.3em;
   margin-top: 0.3em;
 }
+.button.is-info{
+  background-color: #5CA2FF ;
+}
 
 /* 푸터 */
 .hero-foot {
   color: grey;
   background-color: lightgrey;
   font-size: smaller;
-}
-
-@media screen and (max-width: 900px) {
-  
 }

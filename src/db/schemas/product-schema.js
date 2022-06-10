@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-// import { CategoryModel } from "../models/category-model";
+// import { CategorySchema } from "./category-schema";
 
 const ProductSchema = new Schema(
   {
@@ -9,9 +9,10 @@ const ProductSchema = new Schema(
     },
 
     category: {
-      type: Schema.Types.ObjectId,
-      ref: "category",
-      // required: true,
+      // type: Schema.Types.ObjectId,
+      // ref: "category",
+      type : String,
+      required: true,
     },
 
     price: {
@@ -28,15 +29,15 @@ const ProductSchema = new Schema(
       type: String,
     },
 
-    // Img:{
-
-    // },
-
-    size: {
-      type: Array,
-      items: { type: String },
-      default: ["free"],
+    Img:{
+      type : String,
+      required : true,
     },
+
+    size: [{ 
+      sizetype:{ type: String, default: "free" },
+      stock: {type: Number, default:0},
+    }],
   },
   {
     collection: "products",

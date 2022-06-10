@@ -1,9 +1,6 @@
 import * as Api from '/api.js';
 import header from "/header.js";
 import { validateEmail } from '/useful-functions.js';
-import header from "/header.js";
-import { $ } from "/utils.js";
-
 
 // 요소(element), input 혹은 상수
 const fullNameInput = document.querySelector('#fullNameInput');

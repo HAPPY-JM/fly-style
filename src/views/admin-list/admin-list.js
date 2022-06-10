@@ -1,6 +1,3 @@
-
- import * as Api from "/api.js";
-
 import header from "/header.js";
 import { $ } from "/utils.js";
 
