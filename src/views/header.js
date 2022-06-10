@@ -2,6 +2,7 @@ import { $, getToken, getRole, logout } from "/utils.js";
 
 export default function header(parent) {
   const headerEl = `
+  
   <div class="hero-head">
     <header class="navbar">
       <div class="container">
@@ -73,7 +74,11 @@ export default function header(parent) {
       location.href = "/login";
     } else {
       logout();
-      location.reload();
+      swal({
+        icon: "success",
+        text: "로그아웃되었습니다.",
+      }).then(() => location.reload());
+      return;
     }
   }
 }
