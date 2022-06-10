@@ -20,6 +20,9 @@ async function addCategory(e){
     const name = categoryInput.value;
 
     await Api.post(`/api/category`, {name});
+
+    alert(`카테고리 <${name}>이(가) 등록되었습니다.`);
+    window.location.href="/inventory";
     
 }
 addCategoryBtn.addEventListener('click', addCategory);
@@ -35,6 +38,9 @@ async function editCategory(e){
     const name = categoryInput.value;
 
     await Api.patch(`/api/category/${categoryData._id}`, {name});
+
+    alert(`<${category}> 카테고리의 카테고리명이 <${name}>(으)로 수정되었습니다.`);
+    window.location.href="/inventory";
     
 }
 editCategoryBtn.addEventListener('click', editCategory);
@@ -47,10 +53,9 @@ async function deleteCategory(e){
 
     await Api.delete(`/api/category/${categoryData._id}`);
 
-    // window.location = `/inventory`;
+    alert(`카테고리 <${categoryData.name}>이(가) 삭제되었습니다.`);
+    window.location.href="/inventory";
 }
 deleteCategoryBtn.addEventListener('click', deleteCategory);
-
-
 
 
