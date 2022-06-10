@@ -100,7 +100,7 @@ async function del(endpoint, params = "") {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      Authorization: `Bearer ${getToken()}`,
     },
   });
 
@@ -144,14 +144,15 @@ async function formDataPost(endpoint, formdata) {
 }
 
 async function formDataPatch(endpoint, formdata, params = "") {
-  const apiUrl =  params ? `${endpoint}/${params}` : `${endpoint}`;
-  console.log(endpoint);
-  console.log(`%cPATCH 요청: ${apiUrl}`, "color: #296aba;");
-  // console.log(`%cPATCH 요청 데이터: ${data}`, 'color: #296aba;');
+  const apiUrl = params ? `${endpoint}/${params}` : `${endpoint}`;
+
+  console.log(`%cPATCH 요청: ${apiUrl}`, "color: #059c4b;");
+  console.log(`%cPATCH 요청 데이터: ${formdata}`, "color: #059c4b;");
+
   const res = await fetch(apiUrl, {
-    method: "PATCH",
+    method: "PATCH", //리소스의 부분적인 수정
     headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      Authorization: `Bearer ${getToken()}`,
     },
     body: formdata,
   });

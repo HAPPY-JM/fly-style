@@ -30,7 +30,10 @@ function addAllEvents() {
 
 async function landingRender() {
   if (orderProducts.length === 0) {
-    alert(`선택된 상품이 없습니다.`);
+    swal({
+      icon: "error",
+      text: "선택된 상품이 없습니다",
+    });
     location.href = "/cart";
   }
   console.log(orderProducts);
@@ -38,7 +41,8 @@ async function landingRender() {
     const product = await Api.get(`/api/product/detail`, data._id);
     console.log(product);
     if (!product || product == "null" || product.quantity <= 0) {
-      alert("품절이거나 삭제된 상품이 있습니다. 주문목록을 수정해주세요");
+      swal(`품절이거나 삭제된 상품이 있습니다.
+      주문 목록을 수정해주세요`);
       location.href = document.referrer;
     }
   });
@@ -97,16 +101,6 @@ async function orderComplete() {
   const products = orderProducts.map((data) => {
     return { quantity: data.quantity, size: data.size, productId: data._id };
   });
-  console.log(
-    name,
-    phoneNumber,
-    zoneCode,
-    address1,
-    address2,
-    products,
-    totalPrice,
-    comment
-  );
 
   try {
     const result = await Api.post("/api/order", {
@@ -142,13 +136,3 @@ async function orderComplete() {
     });
   }
 }
-
-//'api/product/detail/:id'
-//서버에 상품 디테일 요청
-// async function getDataFromApi() {
-//   const URLSearch = new URLSearchParams(location.search);
-//   //(?id=여기부분)
-//   const id = URLSearch.get("id");
-//   const data = await Api.get(`/api/product`, id);
-//   return data;
-// }

@@ -37,18 +37,20 @@ categoryRouter.get("/:category", async (req, res) => {
 })
 
 //카테고리 수정 (login 확인, admin 확인)
-categoryRouter.patch("/:id", async (req, res) => {
-  const categoryId = req.params.id;
+categoryRouter.patch("/:id", async (req, res, next) => {
 
-  const { name } = req.body;
 
-  const updateData = {
-    name
-  };
+  try {
+    const categoryId = req.params.id;
+    const { name } = req.body;
 
-  const editCategory = await categoryService.editCategory(categoryId, updateData);
+    const editCategory = await categoryService.editCategory(categoryId, { name });
 
-  res.json(editCategory);
+    res.json(editCategory);
+  } catch (err) {
+    next(err);
+  }
+
 });
 
 //카테고리 삭제 (login 확인, admin 확인)
@@ -57,10 +59,9 @@ categoryRouter.delete(
   async (req, res) => {
     const categoryId = req.params.id;
 
-    await categoryService.deleteCategory(categoryId);
+    const deleteCategory = await categoryService.deleteCategory(categoryId);
 
-    res.send(`카테고리를 삭제했습니다.`);
-    // res.redirect("/inventory");
+    res.json(deleteCategory);
   }
 );
 

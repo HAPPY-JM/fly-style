@@ -66,8 +66,8 @@ function addtableTrData(data) {
     </td>
     <td class="cart-imgs-info">
         <figure>
-            <img src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m_webp"
-                alt="신발">
+            <img src="${data.Img}"
+                alt="제품사진">
         </figure>
         
     </td>
@@ -158,7 +158,10 @@ function addButtonEvents() {
       setOrderDatas();
     });
     deleteBtns[i].addEventListener("click", () => {
-      alert(`삭제하시겠습니까?`);
+      swal({
+        icon: "warning",
+        text: "삭제하시겠습니까?",
+      });
       Cart.remove(lists[i]._id, lists[i].size, "cart");
       location.reload();
       return;

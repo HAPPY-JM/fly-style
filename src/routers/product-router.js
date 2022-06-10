@@ -47,48 +47,6 @@ productRouter.post(
   }
 );
 
-//상품 등록 (login 확인, admin 확인)/
-//POST /api/product/ => 상품등록하는 라우팅
-//Ajpi.post('/api/product',productinfo)=> 상품등록하는 라우팅
-// <<<<<<< HEAD
-// productRouter.post(
-//   "/",
-//   async (req, res, next) => {
-//     try {
-//       const { name, category, price, content, brand, size } = req.body;
-//       const categorys = await categoryService.findByName(category);
-
-//       const newProduct = await productService.addProduct({
-//         name,
-//         category:categorys._id,
-//         price,
-//         content,
-//         brand,
-//         size,
-//       });
-
-// productRouter.post(
-//   "/",
-//   async (req, res, next) => {
-//     try {
-//       const { name, category, price, content, brand, size } = req.body;
-
-//       const newProduct = await productService.addProduct({
-//         name,
-//         category,
-//         price,
-//         content,
-//         brand,
-//         size,
-//       });
-
-//       res.json(newProduct); //이부분은 json으로 받아온뒤에 프론트에서 보내주어도 괜찮을 듯 하다 아니면 그냥 프론트단으로 제품등록이 완료되었습니다 아니면 전체 리스트? 를 보여주는게 더 나을듯
-//     } catch (err) {
-//       next(err);
-//     }
-//   }
-// );
-
 //상품 목록
 productRouter.get("/", async (req, res) => {
   const productList = await productService.findAll();
@@ -97,23 +55,31 @@ productRouter.get("/", async (req, res) => {
 });
 
 //상품 수정 (login 확인, admin 확인)
-productRouter.patch("/:id", async (req, res) => {
-  const productId = req.params.id;
+productRouter.patch("/:id", upload.single("image-file"), async (req, res) => {
+  const { id } = req.params;
+  const { name, price, content, brand, size, category } = req.body;
+  const sizeobj = JSON.parse(size);
+  console.log(sizeobj);
 
-  const { name, category, price, content, brand, size } = req.body;
-
-  const updateData = {
+  let productInfo = {
     name,
-    category,
     price,
     content,
     brand,
-    size,
+    size: sizeobj,
+    category,
   };
-
-  const editProduct = await productService.editProduct(productId, updateData);
-
-  res.json(editProduct);
+  if (!!req.file) {
+    const { location } = req.file;
+    productInfo.append("Img", location);
+  }
+  try {
+    const result = await productService.editProduct(id, productInfo);
+    console.log(result);
+    res.status(201).json(result);
+  } catch (e) {
+    next(e);
+  }
 });
 
 productRouter.patch("/quantity/:id", async (req, res, next) => {
