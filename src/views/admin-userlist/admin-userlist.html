@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>카테고리/상품 관리</title>
+    <title>회원리스트</title>
     <!-- 아이콘 -->
     <!-- <link
       rel="icon"
@@ -25,8 +25,8 @@
     <!-- AWS S3 사용하기 위한 파일 -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
     <!-- 커스텀 css, js -->
-    <link rel="stylesheet" href="inventory.css" />
-    <script src="inventory.js" type="module" defer></script>
+    <link rel="stylesheet" href="admin-userlist.css" />
+    <script src="admin-userlist.js" type="module" defer></script>
   </head>
   <body>
     <!-- 헤더 -->
@@ -53,64 +53,38 @@
       </div>
     </nav>
 
-    <!-- 카테고리 목록 -->
+    <!-- 유저 목록 -->
     <section class="section">
       <div class="container">
         <div class="block account-header">
-          <h1 class="subtitle is-4">카테고리</h1>
+          <h1 class="subtitle is-4">유저 목록</h1>
         </div>
         <div class="register-product-form-container">
           <form class="box register-product-form-box" id="registerProductForm">
-            <p class="title is-5 has-text-primary">카테고리 목록</p>
             <div class="field">
-              <ul id="categoryNameList">
-                  <!-- 카테고리목록 -->
-              </ul>
+                <table>
+                    <colgroup>
+                        <col width="100px" />
+                        <col width="100px" />
+                        <col width="100px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>유저 이름</th>
+                            <th>계정 유형</th>
+                            <th>이메일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminUserList">
+                    </tbody>
+                </table>
             </div>
             
-              <button type="button" class="button is-primary is-fullwidth" id="submitaddButton" onclick ="location.href='/categoryform';">
-                카테고리 등록
-              </button>
             </div>
           </form>
         </div>
       </div>
     </section>
-
-    <!-- 상품 목록 -->
-    <section class="section">
-        <div class="container">
-          <div class="block account-header">
-            <h1 class="subtitle is-4">상품</h1>
-          </div>
-          <div class="register-product-form-container">
-            <form class="box register-product-form-box" id="registerProductForm">
-              <p class="title is-5 has-text-primary">상품 목록 (최신순)</p>
-              <div class="field">
-                <table>
-                <colgroup>
-                    <col width="100px" />
-                    <col width="100px" />
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>상품이름</th>
-                        <th>상품카테고리</th>
-                    </tr>
-                </thead>
-                <tbody id="productList">
-                </tbody>
-                </table>
-              </div>
-              
-                <button type="button" class="button is-primary is-fullwidth" id="submitaddButton" onclick ="location.href='/productform';">
-                  상품 등록
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
 
   </body>
 </html>

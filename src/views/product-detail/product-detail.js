@@ -3,6 +3,12 @@ import { $, getToken } from "/utils.js";
 import * as Cart from "/cart_fnc.js";
 import header from "/header.js";
 
+const URLSearch = new URLSearchParams(location.search);
+const category = URLSearch.get("category");
+console.log( category);
+
+
+
 // 요소(element), input 혹은 상수
 const token = sessionStorage.getItem("token");
 
@@ -14,8 +20,7 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const Img = $("#productImg");
-const sizeOption = $("#sizeOption");
+const sizeOption=$("#sizeOption");
 let quantity = Number($("#quantity").value);
 const quantityField = $("#quantity");
 let size = productSize.value;
@@ -27,8 +32,23 @@ addAllEvents();
 async function getProductRender() {
   header(headerParent);
   landingRender(data);
-  header(headerParent);
+ // header(headerParent);
 }
+// 카테고리 섹션 - 메뉴 리스트
+const categorySection = $('.header-category-list');
+
+const categoryData = await Api.get("/api/category");
+console.log(categoryData);
+// 카테고리목록에 넣을 데이터 변수
+let categoryInnerData = "";
+// 카테고리 넣을 함수 구현
+function addCategoryListData(categoryData) {
+  categoryInnerData += `<li><a href = /products?category=${categoryData.name}>${categoryData.name}</a></li>`;
+}
+
+categoryData.map((categoryData) => addCategoryListData(categoryData));
+categorySection.innerHTML = categoryInnerData;
+console.log(categorySection);
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
@@ -54,9 +74,8 @@ function landingRender(data) {
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
-  Img.src = data.Img;
   // productSize
-
+  
   for (let i = 0; i < data.size.length; i++) {
     let sizeSelect = document.createElement("option");
     sizeSelect.innerText = data.size[i].name;
@@ -78,19 +97,19 @@ function order() {
     return;
   }
   Cart.add(data, size, quantity, "order");
-  //   sessionStorage.setItem(
-  //     `order`,
-  //     JSON.stringify({
-  //       productId: data._id,
-  //       quantity,
-  //       size,
-  //       price: Number(data.price) * quantity,
-  //     })
-  //   );
-  //   location.href = "/order?direct=true ";
-  //   console.log(JSON.parse(sessionStorage.getItem(`order`)));
-  // }
-  location.href = "/order ";
+//   sessionStorage.setItem(
+//     `order`,
+//     JSON.stringify({
+//       productId: data._id,
+//       quantity,
+//       size,
+//       price: Number(data.price) * quantity,
+//     })
+//   );
+//   location.href = "/order?direct=true ";
+//   console.log(JSON.parse(sessionStorage.getItem(`order`)));
+// }
+location.href = "/order ";
 }
 
 function addCart() {
@@ -113,6 +132,8 @@ async function getDataFromApi() {
   console.log(data);
   return data;
 }
+
+
 
 // const test = await Api.get("/api/category");
 // console.log('------------')
