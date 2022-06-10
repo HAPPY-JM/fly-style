@@ -14,6 +14,9 @@ const passwordConfirmInput = document.querySelector("#passwordConfirmInput");
 const submitButton = document.querySelector("#submitButton");
 const headerParent = $("body");
 
+emailInput.value = user.email; 
+fullNameInput.value = user.fullName; 
+  
 addAllElements();
 addAllEvents();
 
@@ -27,7 +30,7 @@ function addAllEvents() {
   submitButton.addEventListener("click", handleSubmit);
 }
 
-// 회원가입 진행
+// 수정 진행
 async function handleSubmit(e) {
   e.preventDefault();
 
@@ -35,6 +38,8 @@ async function handleSubmit(e) {
   const email = emailInput.value;
   const password = passwordInput.value;
   const passwordConfirm = passwordConfirmInput.value;
+
+
 
   // 잘 입력했는지 확인
   const isFullNameValid = fullName.length >= 2;
@@ -70,20 +75,20 @@ async function handleSubmit(e) {
     });
   }
 
-  // 회원가입 api 요청
+  // 수정 api 요청
   try {
     const data = { fullName, email, password };
-
-    await Api.patch("/api/register", data);
+    console.log(data);
+    const changeData = await Api.patch("/api/user", data);
+    console.log(changeData);
 
     swal({
       icon: "success",
-      text: "정상적으로 ㅅㅜㅈㅓㅇ되었습니다.",
+      text: "정상적으로 수정되었습니다.",
       type: "success",
     }).then(function () {
-      window.location.href = "/login";
+      window.location.href = "/myPage";
     });
-
     // 로그인 페이지 이동
   } catch (err) {
     console.error(err.stack);
@@ -96,14 +101,5 @@ async function handleSubmit(e) {
 
 // user
 // user name
-const userName = document.querySelector('#fullNameInput');
-const userEmail = document.querySelector('#emailInput');
-const password = document.querySelector('#passwordInput');
-const passwordCheck = document.querySelector('#passwordConfirmInput');
 
-userName.value = user.fullName;
-userEmail.value =user.email; 
-
-console.log(user.email);
-console.log(user.fullName);
 
