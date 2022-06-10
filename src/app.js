@@ -26,8 +26,8 @@ app.use(viewsRouter);
 // /api/login 으로 요청을 해야 하게 됨. 백엔드용 라우팅을 구분하기 위함임.
 app.use("/api", userRouter);
 
-app.use("/api/admins", /*loginRequired, adminRequired,*/ adminRouter);
-app.use("/api/order", /*loginRequired,*/ orderRouter);
+app.use("/api/admins", loginRequired, adminRequired, adminRouter);
+app.use("/api/order", loginRequired, orderRouter);
 
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
