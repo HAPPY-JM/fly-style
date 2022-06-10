@@ -24,7 +24,7 @@ const productRouter = Router();
 productRouter.post(
   "/uplodimg",
   upload.single("image-file"),
-  async (req, res) => {
+  async (req, res, next) => {
     const { name, price, content, brand, size, category } = req.body;
     const sizeobj = JSON.parse(size);
     console.log(sizeobj);
@@ -39,11 +39,15 @@ productRouter.post(
       category,
       Img: location,
     };
-    const result = await productService.addProduct(productInfo);
-    console.log(result);
-    // console.log(URL)
-    // res.status(201).json({URL})
-    res.status(201).json(result);
+    try {
+      const result = await productService.addProduct(productInfo);
+      console.log(result);
+      // console.log(URL)
+      // res.status(201).json({URL})
+      res.status(201).json(result);
+    } catch (e) {
+      next(e);
+    }
   }
 );
 
@@ -99,13 +103,14 @@ productRouter.patch("/quantity/:id", async (req, res, next) => {
 });
 
 //상품 삭제 (login 확인, admin 확인)
-productRouter.delete("/:id", async (req, res) => {
+productRouter.delete("/:id", async (req, res, next) => {
   const productId = req.params.id;
-
-  await productService.deleteProduct(productId);
-
-  res.send(`상품을 삭제했습니다.`);
-  // res.redirect("/api/product");
+  try {
+    const result = await productService.deleteProduct(productId);
+    res.json(result);
+  } catch (e) {
+    next(e);
+  }
 });
 
 ///api/product/shirts
