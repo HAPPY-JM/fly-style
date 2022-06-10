@@ -27,7 +27,7 @@ app.use(viewsRouter);
 app.use("/api", userRouter);
 
 app.use("/api/admins", /*loginRequired, adminRequired,*/ adminRouter);
-app.use("/api/order", /*loginRequired,*/ orderRouter);
+app.use("/api/order", loginRequired, orderRouter);
 
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);

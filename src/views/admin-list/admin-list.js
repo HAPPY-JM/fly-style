@@ -12,14 +12,14 @@ async function addAllElements() {
   header(headerParent);
 }
 
-const orderList = await Api.get('/api/admins/order/lists');
+const orderList = await Api.get("/api/admins/order/lists");
 
 // const URLSearch = new URLSearchParams(location.search);
 //   //(?id=여기부분)
 //   const id = URLSearch.get("_id");
 //   const data = await Api.get(`/api/product`, id);
 
-const table = $('table');
+const table = $("table");
 
 //   console.log('---------orderId--------------------------------');
 //   console.log(orderId);
@@ -33,14 +33,13 @@ const table = $('table');
 //let products= await Api.get(`/api/product/${orderId}`);
 //console.log(products);
 
+const tbody = $(".table tbody");
 
-const tbody = $('.table tbody');
-
-let innerTrData ="";
+let innerTrData = "";
 let productList = "";
 
 function deleteOrder(data) {
-  const res =  data;
+  const res = data;
   console.log(res);
   //e.id;
   // swal({
@@ -64,15 +63,16 @@ function deleteOrder(data) {
   //   });
 }
 
-function addTableTrData(data){
-  innerTrData += 
-  `<tr>
+function addTableTrData(data) {
+  innerTrData += `<tr>
   <td>${data.userId.email}</td>
-  <td>${data.createdAt.substring(0,10)}</td>
+  <td>${data.createdAt.substring(0, 10)}</td>
   <td>
+  <script>
     <ul>
-      ${data.products._id}
+     
     </ul>
+  <script>
   </td>
   <td>${data.products.quantity}개</td>
   <td>${data.orderStatus}</td>
@@ -81,13 +81,12 @@ function addTableTrData(data){
   </td>
 </tr>
 <input type='hidden' value=${data._id} />
-`
+`;
 }
-
 
 getOrderDatas();
 
-function getOrderDatas(){
+function getOrderDatas() {
   // const tbody = document.createElement("tbody");
   // orderList.map((data)=> {
   //   addTableTrData(data);
@@ -95,63 +94,48 @@ function getOrderDatas(){
   // tbody.innerHTML = innerTrData;
   // table.appendChild(tbody);
 
-  Array(4)
-    .fill({
-      userId: {
-        email: "abc123"
-      },
-      createdAt: "2020-12-31",
-      products: {
-        _id: "1",
-        quantity: 10
-      },
-      id: 1
-    })
-    .map((item) => {
-      addTableTrData(item);
-    });
+  orderList.map((item) => {
+    addTableTrData(item);
+  });
 
   tbody.innerHTML = innerTrData;
   table.appendChild(tbody);
-
 }
 
-//const table 
+//const table
 //console.log(table);
 
-const tr = document.querySelectorAll('tbody tr');
-console.log('-------------------------------------');
+const tr = document.querySelectorAll("tbody tr");
+console.log("-------------------------------------");
 console.log(tr);
 
 const deleteBtns = document.querySelectorAll(".button");
 
-deleteBtns.forEach((btn) => {
-  btn.addEventListener("click", () => deleteRow(btn));
-});
-
-function deleteRow(button) {
+for (let i = 0; i < orderList.length; i++) {
+  deleteBtns[i].addEventListener("click", () =>
     swal({
       title: "해당 주문 내역을 삭제하시겠습니까?",
       text: "삭제하면 복구할 수 없습니다!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        console.log(i);
+        console.log(orderList[i]);
+        const result = await Api.delete("/api/admins/order", orderList[i]._id);
+        console.log(result);
+        swal("삭제 완료되었습니다.", {
+          icon: "success",
+        }).then(location.reload());
+      } else {
+        swal("Good!");
+      }
     })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal("삭제 완료되었습니다.", {
-            icon: "success",
-          });
-          console.log(button);
-          console.log(button);
-  
-          //let i = o.parentNode.parentNode.rowIndex;
-          //document.querySelector('#mainTable').deleteRow(i);
-        } else {
-          swal("Good!");
-        }
-      });
-    }
+  );
+}
+
+function deleteRow() {}
 
 // let button = "";
 // for(let i = 0 ; i < tr.length ; i++){
@@ -159,7 +143,7 @@ function deleteRow(button) {
 //   console.log(button);
 // }
 // for(let i = 0 ; i < order.length ; i ++){
-//   innerTrData += 
+//   innerTrData +=
 //   `<tr>
 //   <td>${order[i].userId.email}</td>
 //   <td>${order[i].createdAt.substring(0,10)}</td>
@@ -179,8 +163,6 @@ function deleteRow(button) {
 // }
 
 //tbody.innerHTML = innerTrData;
-
-
 
 //console.log(innerTrData);
 
