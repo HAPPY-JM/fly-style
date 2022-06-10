@@ -1,7 +1,11 @@
+//barbel이란?
+//모든 실행 환경을 지원하기 위해 최신 ES6 이상의 문법들이 다른 실행환경에서도 돌아갈 수 있도록 소스코드의 형태를 바꿔 주는 것.
+//그냥 외워서 써야할듯..?
+
 {
   "presets": [
     [
-      "@babel/preset-env",
+      "@babel/preset-env", //plugin을 포함한 번들
       {
         "targets": {
           "node": "current"

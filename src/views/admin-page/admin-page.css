@@ -1,0 +1,175 @@
+html, body{
+  margin: 0;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.navbar{
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.navbar-menu{
+  margin: 1rem;
+}
+
+.navbar-item{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-item img{
+  max-height: 4rem;
+}
+
+#login_status{
+  color: lightslategray;
+}
+
+#login_status:hover{
+  background-color: #fff;
+  cursor: default;
+}
+
+.hero.is-success {
+  background-color: #fff;
+  color: black;
+}
+
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+.hero{
+  justify-content: space-evenly;
+}
+
+
+.hero-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  
+}
+
+.main_content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button.is-link.is-outlined{
+  background-color: transparent;
+  border-color: lightgrey;
+  color: lightslategray;
+}
+
+
+/* 주문 관리 */
+.order-list-box{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-list-description{
+  text-transform: uppercase;
+  line-height: 2;
+  background-image: linear-gradient(transparent calc(100% - 3px), #8ea0ff 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.order-list-description.color {
+  background-image: linear-gradient(transparent 60%, #6448ff 40%);
+}
+
+.order-list-description:hover{
+  background-size: 100% 100%;
+}
+
+#order-list{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#order-list:hover{
+  background-color: #8AADEC;
+  border: none;
+}
+
+/* 회원 관리 */
+.user-list-box{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-list-description{
+  text-transform: uppercase;
+  line-height: 2;
+  background-image: linear-gradient(transparent calc(100% - 3px), #8ea0ff 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.user-list-description.color {
+  background-image: linear-gradient(transparent 60%, #6448ff 40%);
+}
+
+.user-list-description:hover{
+  background-size: 100% 100%;
+}
+
+#user-list{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#user-list:hover{
+  background-color: #8AADEC;
+  border: none;
+}
+
+/* 상품 관리 */
+.inventory-list-box{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.inventory-list-description{
+  text-transform: uppercase;
+  line-height: 2;
+  background-image: linear-gradient(transparent calc(100% - 3px), #8ea0ff 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s;
+}
+
+.inventory-list-description.color {
+  background-image: linear-gradient(transparent 60%, #6448ff 40%);
+}
+
+.inventory-list-description:hover{
+  background-size: 100% 100%;
+}
+
+#inventory-list{
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+#inventory-list:hover{
+  background-color: #8AADEC;
+  border: none;
+}

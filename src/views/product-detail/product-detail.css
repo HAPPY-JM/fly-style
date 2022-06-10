@@ -1,0 +1,195 @@
+/* 페이지 상단 여백을 지우기 위함, 푸터 배치를 위함 */
+html, body{
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  margin: 0;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+/* body전체를 한번 감싸는 div */
+#body-wraper{
+  position: relative;
+  width: 100%;
+  height:auto;
+  min-height: 100%;
+  padding-bottom: 50px;
+  background-color: azure;    
+ 
+}
+
+/* 헤더 */
+
+header{
+position: fixed;
+float: right;
+width: 100%;
+background-color:#d9f2f7;
+border-bottom: 1px solid rgb(175, 175, 175);
+padding-bottom: 5px;
+z-index: 10;
+}
+
+
+/* 상단 메뉴바 구역 */
+
+.navbar{
+position: fixed;
+width: 100%;
+box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.navbar-menu{
+margin: 1rem;
+}
+
+.navbar-item{
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+
+.navbar-item img{
+max-height: 4rem;
+}
+
+.hero.is-success {
+background-color: #fff;
+color: black;
+}
+
+.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+background-color: #e2e2e2;
+color: black;
+}
+
+.hero{
+justify-content: space-evenly;
+}
+
+
+.hero-body{
+display: flex;
+padding-top: 0;
+align-items: center;
+justify-content: center;  
+}
+
+/* 여기부터 바디 */
+
+#productDetailContentWrap{
+  margin-top: 150px;   
+}
+/* 이미지div */
+img{
+
+  height: 100%;
+  max-height: 400px;
+}
+
+/* 이미지 float 왼쪽으로 배치 */
+#productImage{
+  position: fixed;
+  float: left;
+  width: 50%;
+  padding:5%;
+  text-align:right;
+}
+
+/* 제품인포 div */
+#productInfodiv{
+  float: right;
+  height: auto;
+  width: 50%;
+  padding:5% 5% 5% 7%;
+  border-left: 2px solid rgb(215, 215, 215);
+  overflow: auto;
+} 
+
+#productName{
+  font-size: 1.5rem;
+}
+
+/* top간격을 같은 비율로 가격, 버튼, 상세 */
+#productPrice, #productButton, #productDetail{
+  margin-top: 50px;
+}
+
+/* 상세부분은 간격을 더 줌 */
+#productDetaildiv{
+  margin-top: 50px;
+}
+
+#productSizewrap{
+  margin-top: 30px;
+}
+
+#productButton{
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* bulma 버튼 색상 커스텀 */
+#buttonBuy{
+  margin: 5%;
+  padding: 1.5rem 5rem 1.5rem 5rem;
+  background-color: #2a76d9   ;
+  color: white;
+  transition-property: background-color,color;
+  transition-duration: 0.5s;
+}
+#buttonBuy:hover{
+  background-color: rgb(232, 242, 249);
+  color: black;
+  }
+
+#buttonBasket{
+  margin: 5%;
+  padding: 1.5rem 5rem 1.5rem 5rem;
+  background-color: #8AADEC  ;
+  color: white;
+  transition-property: background-color,color;
+  transition-duration: 0.5s;
+}
+#buttonBasket:hover{
+background-color: rgb(232, 242, 249);
+color: black;
+}
+
+.input.is-info, select.is-info{
+width: 10rem;
+height: 3rem;
+border-color: #5CA2FF ;
+}
+
+
+#productSize{
+  width: 10rem;
+  height: 3rem;
+  border-color: #5CA2FF ;
+}
+#productQuantitywrap{
+margin-top: 2rem;
+}
+
+/* 푸터 */
+#float-clear{
+  clear: both;
+
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  text-align: center;
+  background-color: rgb(232, 242, 249);
+  color: rgb(149, 172, 208);
+}
+

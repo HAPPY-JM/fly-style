@@ -1,0 +1,183 @@
+/* 전체 */
+
+html, body{
+    margin: 0;
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    font-family: 'NEXON Lv1 Gothic OTF';
+  }
+
+/* 헤더 */
+.navbar{
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  }
+  
+  .navbar-menu{
+    margin: 1rem;
+  }
+  
+  .navbar-item{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-item img{
+    max-height: 4rem;
+  }
+  
+  .hero.is-success {
+    background-color: #fff;
+    color: black;
+  }
+  
+  .hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+    background-color: #e2e2e2;
+    color: black;
+  }
+  
+  .hero{
+    justify-content: space-evenly;
+  }
+  
+  .hero-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+
+/* 카테고리 */
+.tabs a{
+  text-transform: uppercase;
+}
+
+/* 메인 화면 ( 카테고리 , 목록 리스트 )*/
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+/* 카테고리 선택 시 현재 카테고리 출력 */
+.selected-category{
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 제품 목록 아이템 */
+main .section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 10%;
+    padding: 2em;
+}
+
+main .section .product-item {
+    margin: 1em;
+    width: 20%;
+    height: 30%;
+    padding: 1em;
+  }
+  
+main .section .card-content{
+    padding: 0.5rem 1rem;
+    color: black; 
+}
+
+.card-content .media-content p:last-child{
+    margin-top: 10px;
+}
+
+.temp{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
+}
+
+/* footer{
+    position: relative;
+} */
+
+
+  
+.main-item-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+#pagination{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagination a{
+  margin-right: 0.5em;
+}
+
+#pagination a:hover{
+  font-weight: bold;
+  color:  red;
+}
+
+#pagination a:active {
+  font-size: 1.5em;
+}
+
+
+.hero-foot{
+  color: grey;
+  background-color: lightgrey;
+  font-size: smaller;
+}
+
+/* 스크롤 업 버튼 */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #527ae7;
+  color: #fff;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.scroll-top:hover{
+  background-color: #3562dd;
+}

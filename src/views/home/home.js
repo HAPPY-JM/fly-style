@@ -2,59 +2,38 @@
 // 다만, 앞으로 ~.js 파일을 작성할 때 아래의 코드 구조를 참조할 수 있도록,
 // 코드 예시를 남겨 두었습니다.
 
-import * as Api from '/api.js';
-import { randomId } from '/useful-functions.js';
+import * as Api from "/api.js";
+import header from "/header.js";
+import { $ } from "/utils.js";
+const URLSearch = new URLSearchParams(location.search);
+const category = Number(URLSearch.get("category")) ;
+
+//카테고리 데이터 가져오기
+const categoryData = await Api.get(`/api/category`);
+console.log(categoryData);
+
+// 카테고리목록에 넣을 데이터 변수
+let categoryInnerData = "";
 
 // 요소(element), input 혹은 상수
-const landingDiv = document.querySelector('#landingDiv');
-const greetingDiv = document.querySelector('#greetingDiv');
-
+const headerParent = $(".hero");
 addAllElements();
-addAllEvents();
+
+//카테고리 nav
+const categoryNav = $(".categories");
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 async function addAllElements() {
-  insertTextToLanding();
-  insertTextToGreeting();
+  header(headerParent);
 }
 
-// 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
-function addAllEvents() {
-  landingDiv.addEventListener('click', alertLandingText);
-  greetingDiv.addEventListener('click', alertGreetingText);
+// 카테고리 넣을 함수 구현
+function categories(categoryData) {
+  categoryInnerData += `<li><a href = "/products?category=${categoryData.name}">${categoryData.name}</a></li>`;
 }
 
-function insertTextToLanding() {
-  landingDiv.insertAdjacentHTML(
-    'beforeend',
-    `
-      <h2>n팀 쇼핑몰의 랜딩 페이지입니다. 자바스크립트 파일에서 삽입되었습니다.</h2>
-    `
-  );
-}
+categoryData.map((categoryData) => categories(categoryData));
 
-function insertTextToGreeting() {
-  greetingDiv.insertAdjacentHTML(
-    'beforeend',
-    `
-      <h1>반갑습니다! 자바스크립트 파일에서 삽입되었습니다.</h1>
-    `
-  );
-}
+categoryNav.innerHTML = categoryInnerData;
 
-function alertLandingText() {
-  alert('n팀 쇼핑몰입니다. 안녕하세요.');
-}
 
-function alertGreetingText() {
-  alert('n팀 쇼핑몰에 오신 것을 환영합니다');
-}
-
-async function getDataFromApi() {
-  // 예시 URI입니다. 현재 주어진 프로젝트 코드에는 없는 URI입니다.
-  const data = await Api.get('/api/user/data');
-  const random = randomId();
-
-  console.log({ data });
-  console.log({ random });
-}
