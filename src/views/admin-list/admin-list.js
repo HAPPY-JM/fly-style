@@ -12,47 +12,36 @@ async function addAllElements() {
   header(headerParent);
 }
 
-const orderList = await Api.get('/api/admins/order/lists');
-// console.log('1------------------');
-// console.log(order[0]);
-// console.log('2-----------------');
+const orderList = await Api.get("/api/admins/order/lists");
 
 // const URLSearch = new URLSearchParams(location.search);
 //   //(?id=여기부분)
 //   const id = URLSearch.get("_id");
 //   const data = await Api.get(`/api/product`, id);
 
+const table = $("table");
 
-const table = $('table');
-
-// if(orderId !== null){
 //   console.log('---------orderId--------------------------------');
 //   console.log(orderId);
 //   const orderData= await Api.get(`/api/order/detail/${orderId}`);
 //   console.log('----await Api.get(`/api/order/detail/오더아이디-------------------------------------');
 //   console.log(orderData);
-  
 //   const result = await Api.delete('/api/admins/order',orderId);
-  
 //   console.log('-----await Api.del-------------------------------------------')
 //   console.log(result);
-// }
-
 // console.log(orderId);
 //let products= await Api.get(`/api/product/${orderId}`);
 //console.log(products);
 
+const tbody = $(".table tbody");
 
-const tbody = $('.table tbody');
-
-let innerTrData ="";
+let innerTrData = "";
 let productList = "";
 
 function deleteOrder(data) {
-  const res =  data;
+  const res = data;
   console.log(res);
   //e.id;
-
   // swal({
   //   title: "해당 주문 내역을 삭제하시겠습니까?",
   //   text: "삭제하면 복구할 수 없습니다!",
@@ -74,51 +63,87 @@ function deleteOrder(data) {
   //   });
 }
 
-function addTableTrData(data){
-  innerTrData += 
-  `<tr>
+function addTableTrData(data) {
+  innerTrData += `<tr>
   <td>${data.userId.email}</td>
-  <td>${data.createdAt.substring(0,10)}</td>
+  <td>${data.createdAt.substring(0, 10)}</td>
   <td>
+  <script>
     <ul>
-      ${data.products._id}
+     
     </ul>
+  <script>
   </td>
   <td>${data.products.quantity}개</td>
   <td>${data.orderStatus}</td>
   <td>
-    <button class="button is-danger is-light" onclick="deleteRow(this)"id=${data._id}>삭제</button>
+    <button class="button is-danger is-light" id=${data._id}>삭제</button>
   </td>
 </tr>
 <input type='hidden' value=${data._id} />
-`
+`;
 }
-
 
 getOrderDatas();
 
-function getOrderDatas(){
-  const tbody = document.createElement("tbody");
-  orderList.map((data)=> {
-    addTableTrData(data);
+function getOrderDatas() {
+  // const tbody = document.createElement("tbody");
+  // orderList.map((data)=> {
+  //   addTableTrData(data);
+  // });
+  // tbody.innerHTML = innerTrData;
+  // table.appendChild(tbody);
+
+  orderList.map((item) => {
+    addTableTrData(item);
   });
+
   tbody.innerHTML = innerTrData;
   table.appendChild(tbody);
 }
 
-//const table 
+//const table
 //console.log(table);
 
-const tr = document.querySelectorAll('tbody tr');
-console.log('-------------------------------------');
+const tr = document.querySelectorAll("tbody tr");
+console.log("-------------------------------------");
 console.log(tr);
 
-for(let i = 0 ; i < tr.length ; i++){
-  const button = document.querySelector(`${tr[i]} button`);
-  console.log(button);
+const deleteBtns = document.querySelectorAll(".button");
+
+for (let i = 0; i < orderList.length; i++) {
+  deleteBtns[i].addEventListener("click", () =>
+    swal({
+      title: "해당 주문 내역을 삭제하시겠습니까?",
+      text: "삭제하면 복구할 수 없습니다!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        console.log(i);
+        console.log(orderList[i]);
+        const result = await Api.delete("/api/admins/order", orderList[i]._id);
+        console.log(result);
+        swal("삭제 완료되었습니다.", {
+          icon: "success",
+        }).then(location.reload());
+      } else {
+        swal("Good!");
+      }
+    })
+  );
 }
+
+function deleteRow() {}
+
+// let button = "";
+// for(let i = 0 ; i < tr.length ; i++){
+//   button = document.querySelector(`${tr}:nth-child(${i+1}) button`);
+//   console.log(button);
+// }
 // for(let i = 0 ; i < order.length ; i ++){
-//   innerTrData += 
+//   innerTrData +=
 //   `<tr>
 //   <td>${order[i].userId.email}</td>
 //   <td>${order[i].createdAt.substring(0,10)}</td>
@@ -139,9 +164,7 @@ for(let i = 0 ; i < tr.length ; i++){
 
 //tbody.innerHTML = innerTrData;
 
-
-
-console.log(innerTrData);
+//console.log(innerTrData);
 
 // function deleteRow(o) {
 //   swal({
@@ -163,5 +186,3 @@ console.log(innerTrData);
 //         swal("Good!");
 //       }
 //     });
-
-// }
