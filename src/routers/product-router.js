@@ -24,7 +24,7 @@ const productRouter = Router();
 productRouter.post(
   "/uplodimg",
   upload.single("image-file"),
-  async (req, res) => {
+  async (req, res, next) => {
     const { name, price, content, brand, size, category } = req.body;
     const sizeobj = JSON.parse(size);
     console.log(sizeobj);
@@ -39,55 +39,17 @@ productRouter.post(
       category,
       Img: location,
     };
-    const result = await productService.addProduct(productInfo);
-    console.log(result);
-    // console.log(URL)
-    // res.status(201).json({URL})
-    res.status(201).json(result);
+    try {
+      const result = await productService.addProduct(productInfo);
+      console.log(result);
+      // console.log(URL)
+      // res.status(201).json({URL})
+      res.status(201).json(result);
+    } catch (e) {
+      next(e);
+    }
   }
 );
-
-//상품 등록 (login 확인, admin 확인)/
-//POST /api/product/ => 상품등록하는 라우팅
-//Ajpi.post('/api/product',productinfo)=> 상품등록하는 라우팅
-// <<<<<<< HEAD
-// productRouter.post(
-//   "/",
-//   async (req, res, next) => {
-//     try {
-//       const { name, category, price, content, brand, size } = req.body;
-//       const categorys = await categoryService.findByName(category);
-
-//       const newProduct = await productService.addProduct({
-//         name,
-//         category:categorys._id,
-//         price,
-//         content,
-//         brand,
-//         size,
-//       });
-
-// productRouter.post(
-//   "/",
-//   async (req, res, next) => {
-//     try {
-//       const { name, category, price, content, brand, size } = req.body;
-
-//       const newProduct = await productService.addProduct({
-//         name,
-//         category,
-//         price,
-//         content,
-//         brand,
-//         size,
-//       });
-
-//       res.json(newProduct); //이부분은 json으로 받아온뒤에 프론트에서 보내주어도 괜찮을 듯 하다 아니면 그냥 프론트단으로 제품등록이 완료되었습니다 아니면 전체 리스트? 를 보여주는게 더 나을듯
-//     } catch (err) {
-//       next(err);
-//     }
-//   }
-// );
 
 //상품 목록
 productRouter.get("/", async (req, res) => {
@@ -97,23 +59,31 @@ productRouter.get("/", async (req, res) => {
 });
 
 //상품 수정 (login 확인, admin 확인)
-productRouter.patch("/:id", async (req, res) => {
-  const productId = req.params.id;
+productRouter.patch("/:id", upload.single("image-file"), async (req, res) => {
+  const { id } = req.params;
+  const { name, price, content, brand, size, category } = req.body;
+  const sizeobj = JSON.parse(size);
+  console.log(sizeobj);
 
-  const { name, category, price, content, brand, size } = req.body;
-
-  const updateData = {
+  let productInfo = {
     name,
-    category,
     price,
     content,
     brand,
-    size,
+    size: sizeobj,
+    category,
   };
-
-  const editProduct = await productService.editProduct(productId, updateData);
-
-  res.json(editProduct);
+  if (!!req.file) {
+    const { location } = req.file;
+    productInfo.append("Img", location);
+  }
+  try {
+    const result = await productService.editProduct(id, productInfo);
+    console.log(result);
+    res.status(201).json(result);
+  } catch (e) {
+    next(e);
+  }
 });
 
 productRouter.patch("/quantity/:id", async (req, res, next) => {
@@ -133,13 +103,14 @@ productRouter.patch("/quantity/:id", async (req, res, next) => {
 });
 
 //상품 삭제 (login 확인, admin 확인)
-productRouter.delete("/:id", async (req, res) => {
+productRouter.delete("/:id", async (req, res, next) => {
   const productId = req.params.id;
-
-  await productService.deleteProduct(productId);
-
-  res.send(`상품을 삭제했습니다.`);
-  // res.redirect("/api/product");
+  try {
+    const result = await productService.deleteProduct(productId);
+    res.json(result);
+  } catch (e) {
+    next(e);
+  }
 });
 
 ///api/product/shirts

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>카테고리 폼</title>
+    <title>회원리스트</title>
     <!-- 아이콘 -->
     <!-- <link
       rel="icon"
@@ -25,8 +25,8 @@
     <!-- AWS S3 사용하기 위한 파일 -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
     <!-- 커스텀 css, js -->
-    <link rel="stylesheet" href="categoryForm.css" />
-    <script src="categoryForm.js" type="module" defer></script>
+    <link rel="stylesheet" href="admin-userlist.css" />
+    <script src="admin-userlist.js" type="module" defer></script>
   </head>
   <body>
     <!-- 헤더 -->
@@ -37,11 +37,7 @@
             <!-- <img src="/elice-rabbit.png" width="30" height="30" /> -->
             <span class="has-text-link">admin 홈</span>
           </a>
-          <a class="navbar-item" href="/inventory">
-            <!-- <img src="/elice-rabbit.png" width="30" height="30" /> -->
-            <span class="has-text-link">상품관리 홈</span>
-          </a>
-          
+
           <a
             role="button"
             class="navbar-burger"
@@ -57,43 +53,38 @@
       </div>
     </nav>
 
-    <!-- 카테고리 폼(Form) -->
+    <!-- 유저 목록 -->
     <section class="section">
       <div class="container">
         <div class="block account-header">
-          <h1 class="subtitle is-4">카테고리</h1>
+          <h1 class="subtitle is-4">유저 목록</h1>
         </div>
         <div class="register-product-form-container">
           <form class="box register-product-form-box" id="registerProductForm">
-            <p class="title is-5 has-text-primary">카테고리 등록/수정</p>
             <div class="field">
-              <label class="label" id="categoryNow" for="categoryInput">카테고리명</label>
-              <div class="control" id="categoryNameInput">
-                <input
-                  class="input"
-                  id="categoryInput"
-                  type="text"
-                  placeholder="입력하세요"
-                  autocomplete="on"
-                />
-              </div>
+                <table>
+                    <colgroup>
+                        <col width="100px" />
+                        <col width="100px" />
+                        <col width="100px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>유저 이름</th>
+                            <th>계정 유형</th>
+                            <th>이메일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminUserList">
+                    </tbody>
+                </table>
             </div>
-
-
-            <div class="mt-5">
-              <button type="submit" class="button is-primary is-fullwidth" id="submitaddButton">
-                카테고리 등록
-              </button>
-              <button class="button is-primary is-fullwidth" id="submiteditButton">
-                카테고리 수정
-              </button>
-              <button class="button is-primary is-fullwidth" id="submitdeleteButton">
-                카테고리 삭제
-              </button>
+            
             </div>
           </form>
         </div>
       </div>
     </section>
+
   </body>
 </html>

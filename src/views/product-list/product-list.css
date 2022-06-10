@@ -99,27 +99,6 @@ main .section .card-content{
 }
 
 
-#pagination{
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-
-#pagination a{
-  margin-right: 0.5em;
-}
-
-#pagination a:hover{
-  font-weight: bold;
-  color:  red;
-}
-
-#pagination a:active {
-  font-size: 1.5em;
-}
-
 /* footer{
     position: relative;
 } */
@@ -144,11 +123,14 @@ main .section .card-content{
 
 #pagination a{
   margin-right: 0.5em;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  color: black;
 }
 
 #pagination a:hover{
   font-weight: bold;
-  color:  red;
+  text-decoration: underline;
 }
 
 #pagination a:active {

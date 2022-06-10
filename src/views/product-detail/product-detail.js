@@ -2,9 +2,12 @@ import * as Api from "/api.js";
 import { $, getToken } from "/utils.js";
 import * as Cart from "/cart_fnc.js";
 import header from "/header.js";
+import * as fnc from "/useful-functions.js";
+const URLSearch = new URLSearchParams(location.search);
+const category = URLSearch.get("category");
+console.log(category);
 
 // 요소(element), input 혹은 상수
-const token = sessionStorage.getItem("token");
 
 const buttonBuy = $("#buttonBuy");
 const productPrice = $("#productPrice");
@@ -14,10 +17,10 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const Img = $("#productImg");
-const sizeOption = $("#sizeOption");
+const productImage = $("#productImage");
 let quantity = Number($("#quantity").value);
 const quantityField = $("#quantity");
+const categorySection = $(".header-category-list");
 let size = productSize.value;
 // console.log(size);
 getProductRender();
@@ -27,8 +30,22 @@ addAllEvents();
 async function getProductRender() {
   header(headerParent);
   landingRender(data);
-  header(headerParent);
+  // header(headerParent);
 }
+// 카테고리 섹션 - 메뉴 리스트
+
+const categoryData = await Api.get("/api/category");
+console.log(categoryData);
+// 카테고리목록에 넣을 데이터 변수
+let categoryInnerData = "";
+// 카테고리 넣을 함수 구현
+function addCategoryListData(categoryData) {
+  categoryInnerData += `<li><a href = /products?category=${categoryData.name}>${categoryData.name}</a></li>`;
+}
+
+categoryData.map((categoryData) => addCategoryListData(categoryData));
+categorySection.innerHTML = categoryInnerData;
+console.log(categorySection);
 
 // 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 function addAllEvents() {
@@ -45,16 +62,10 @@ function addAllEvents() {
 }
 
 function landingRender(data) {
-  // if (token === "null" || !token) {
-  //   login.innerHTML = "로그인";
-  // } else {
-  //   login.innerHTML = "로그아웃";
-  // }
-  // console.log(data.size)
   productDetail.innerHTML = data.content;
-  productPrice.innerHTML = `${data.price}원`;
+  productPrice.innerHTML = `${fnc.addCommas(data.price)}원`;
   productName.innerHTML = data.name;
-  Img.src = data.Img;
+
   // productSize
 
   for (let i = 0; i < data.size.length; i++) {
@@ -62,44 +73,53 @@ function landingRender(data) {
     sizeSelect.innerText = data.size[i].name;
     productSize.appendChild(sizeSelect);
   }
+  productImage.innerHTML = `<img src="${data.Img}" alt="제품사진">`;
 }
 
 function order() {
-  if (localStorage.getItem("order")) {
-    return alert("오류가 있습니다");
-  }
   if (getToken() === "null" || !getToken()) {
-    alert("유저만 주문할 수 있습니다. 로그인 해주세요.");
+    swal({
+      icon: "warning",
+      text: "유저만 주문할 수 있습니다. 로그인 해주세요.",
+    });
     window.location.href = "/login";
     return;
   }
   if (size === "null") {
-    alert("사이즈를 선택해 주세요.");
+    swal({
+      icon: "warning",
+      text: "사이즈를 선택해 주세요.",
+    });
     return;
   }
+  if (Cart.list("order")) {
+    Cart.clear("order");
+  }
   Cart.add(data, size, quantity, "order");
-  //   sessionStorage.setItem(
-  //     `order`,
-  //     JSON.stringify({
-  //       productId: data._id,
-  //       quantity,
-  //       size,
-  //       price: Number(data.price) * quantity,
-  //     })
-  //   );
-  //   location.href = "/order?direct=true ";
-  //   console.log(JSON.parse(sessionStorage.getItem(`order`)));
-  // }
+
   location.href = "/order ";
 }
 
 function addCart() {
   if (size === "null") {
-    alert("사이즈를 선택해 주세요.");
+    swal({
+      icon: "warning",
+      text: "사이즈를 선택해 주세요.",
+    });
     return;
   }
   if (Cart.exists(data._id)) {
-    alert(`이미존재합니다. 추가하시겠습니까?`);
+    swal({
+      icon: "warning",
+      text: "이미존재합니다. 추가하시겠습니까?",
+    });
+  }
+  // 시연을 위한 임시 코드 추가 
+  else if(!Cart.exists(data._id)){
+    swal({
+      icon: "success",
+      text: "장바구니에 추가되었습니다.",
+    });
   }
   Cart.add(data, size, quantity, "cart");
 }
@@ -113,3 +133,8 @@ async function getDataFromApi() {
   console.log(data);
   return data;
 }
+
+// const test = await Api.get("/api/category");
+// console.log('------------')
+// console.log(test);
+// console.log('------------')

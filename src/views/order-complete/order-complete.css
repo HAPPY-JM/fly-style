@@ -1,34 +1,35 @@
-html, body{
+html,
+body {
   margin: 0;
   height: 100vh;
   min-height: -webkit-fill-available;
-  font-family: 'NEXON Lv1 Gothic OTF';
+  font-family: "NEXON Lv1 Gothic OTF";
 }
 
-.navbar{
+.navbar {
   width: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-.navbar-menu{
+.navbar-menu {
   margin: 1rem;
 }
 
-.navbar-item{
+.navbar-item {
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
-.navbar-item img{
+.navbar-item img {
   max-height: 4rem;
 }
 
-#login_status{
+#login_status {
   color: lightslategray;
 }
 
-#login_status:hover{
+#login_status:hover {
   background-color: #fff;
   cursor: default;
 }
@@ -38,43 +39,45 @@ html, body{
   color: black;
 }
 
-.hero.is-success .navbar-link.is-active, .hero.is-success .navbar-link:hover, .hero.is-success a.navbar-item.is-active, .hero.is-success a.navbar-item:hover {
+.hero.is-success .navbar-link.is-active,
+.hero.is-success .navbar-link:hover,
+.hero.is-success a.navbar-item.is-active,
+.hero.is-success a.navbar-item:hover {
   background-color: #e2e2e2;
   color: black;
 }
 
-.hero{
+.hero {
   justify-content: space-evenly;
 }
 
-
-.hero-body{
+.hero-body {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 0;
 }
 
-.main_content{
+.main_content {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero.is-success .title{
+.hero.is-success .title {
   text-align: center;
   justify-content: center;
   align-items: center;
   color: black;
 }
 
-.button.is-link.is-outlined{
+.button.is-link.is-outlined {
   background-color: transparent;
   border-color: lightgrey;
   color: lightslategray;
 }
 
-.order-check-box{
+.order-check-box {
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -82,7 +85,7 @@ html, body{
   align-items: center;
 }
 
-.go-shopping-box{
+.go-shopping-box {
   display: flex;
   flex-direction: column;
   padding: 3rem;
