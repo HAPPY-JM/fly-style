@@ -27,6 +27,7 @@
     <!-- 커스텀 css, js -->
     <link rel="stylesheet" href="productForm.css" />
     <script src="productForm.js" type="module" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
     <!-- 헤더 -->
@@ -76,7 +77,9 @@
         </div>
         <div class="register-product-form-container">
           <form class="box register-product-form-box" id="registerProductForm">
-            <p class="title is-5 has-text-primary" id="titleOfProductForm">제품을 판매해 보세요</p>
+            <p class="title is-5 has-text-primary" id="titleOfProductForm">
+              제품을 판매해 보세요
+            </p>
             <div class="field">
               <label class="label" for="titleInput">제품 이름</label>
               <div class="control">
@@ -113,19 +116,6 @@
                 />
               </div>
             </div>
-
-            <!-- <div class="field">
-              <label class="label" for="shortDescriptionInput">요약 설명</label>
-              <div class="control">
-                <textarea
-                  class="textarea"
-                  id="shortDescriptionInput"
-                  rows="3"
-                  placeholder="제품에 대한 1~2문장의 설명을 적어 주세요."
-                  autocomplete="on"
-                ></textarea>
-              </div>
-            </div> -->
 
             <div class="field">
               <label class="label" for="detailDescriptionInput"
@@ -165,35 +155,11 @@
                 </label>
               </div>
             </div>
-            <!-- <div class="wrap">
-              <div>리스트?
-                <input type="text" name="st_department" list="depList">
-                <input type="submit" id="sizeLIstsubmit"/>
-              </div>
-            </div> -->
             <div class="field">
               <label class="label" for="inventoryInput">사이즈 ,재고 수</label>
               <div class="control">
-                사이즈 :<input 
-                class="input"
-                id="sizeInput"
-                type="text" 
-                placeholder="XL , L , M , 105 , 100 , ....."
-                autocomplete="on"
-                />
-                수량:<input
-                class="input"
-                id="inventoryInput"
-                type="number"
-                placeholder="10"
-                autocomplete="on"
-                />
-                <button class="button is-link is-outlined" id="inventorySubmit">
-                  추가
-                </button>
-                <ul id="outputdata" >
-                  
-                </ul>
+                <button id="inventorySubmit">추가</button>
+                <ul id="outputdata"></ul>
               </div>
             </div>
 
@@ -212,25 +178,6 @@
                 </div>
               </div>
             </div>
-            //검색 키워드
-            <!-- <div class="field">
-              <label class="label" for="searchKeywordInput">검색 키워드</label>
-              <div class="field has-addons">
-                <div class="control header-search-input is-flex-grow-1">
-                  <input
-                    class="input"
-                    id="searchKeywordInput"
-                    type="text"
-                    placeholder="남자옷"
-                  />
-                </div>
-                <div class="control">
-                  <button class="button is-primary" id="imgbutton">
-                    추가하기
-                  </button>
-                </div>
-              </div>
-            </div> -->
 
             <div
               class="field is-grouped is-grouped-multiline mt-3"

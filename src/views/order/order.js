@@ -101,16 +101,6 @@ async function orderComplete() {
   const products = orderProducts.map((data) => {
     return { quantity: data.quantity, size: data.size, productId: data._id };
   });
-  console.log(
-    name,
-    phoneNumber,
-    zoneCode,
-    address1,
-    address2,
-    products,
-    totalPrice,
-    comment
-  );
 
   try {
     const result = await Api.post("/api/order", {
@@ -146,13 +136,3 @@ async function orderComplete() {
     });
   }
 }
-
-//'api/product/detail/:id'
-//서버에 상품 디테일 요청
-// async function getDataFromApi() {
-//   const URLSearch = new URLSearchParams(location.search);
-//   //(?id=여기부분)
-//   const id = URLSearch.get("id");
-//   const data = await Api.get(`/api/product`, id);
-//   return data;
-// }

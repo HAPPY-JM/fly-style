@@ -2,15 +2,12 @@ import * as Api from "/api.js";
 import { $, getToken } from "/utils.js";
 import * as Cart from "/cart_fnc.js";
 import header from "/header.js";
-
+import * as fnc from "/useful-functions.js";
 const URLSearch = new URLSearchParams(location.search);
 const category = URLSearch.get("category");
-console.log( category);
-
-
+console.log(category);
 
 // 요소(element), input 혹은 상수
-const token = sessionStorage.getItem("token");
 
 const buttonBuy = $("#buttonBuy");
 const productPrice = $("#productPrice");
@@ -20,9 +17,10 @@ const buttonBasket = $("#buttonBasket");
 const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
-const productImage=$("#productImage");
+const productImg = $("#productImg");
 let quantity = Number($("#quantity").value);
 const quantityField = $("#quantity");
+const categorySection = $(".header-category-list");
 let size = productSize.value;
 // console.log(size);
 getProductRender();
@@ -32,10 +30,9 @@ addAllEvents();
 async function getProductRender() {
   header(headerParent);
   landingRender(data);
- // header(headerParent);
+  // header(headerParent);
 }
 // 카테고리 섹션 - 메뉴 리스트
-const categorySection = $('.header-category-list');
 
 const categoryData = await Api.get("/api/category");
 console.log(categoryData);
@@ -65,35 +62,21 @@ function addAllEvents() {
 }
 
 function landingRender(data) {
-  // if (token === "null" || !token) {
-  //   login.innerHTML = "로그인";
-  // } else {
-  //   login.innerHTML = "로그아웃";
-  // }
-  // console.log(data.size)
   productDetail.innerHTML = data.content;
-  productPrice.innerHTML = `${data.price}원`;
+  productPrice.innerHTML = `${fnc.addCommas(data.price)}원`;
   productName.innerHTML = data.name;
-
+  productImg.src = data.Img;
   // productSize
-  
+
   for (let i = 0; i < data.size.length; i++) {
     let sizeSelect = document.createElement("option");
     sizeSelect.innerText = data.size[i].name;
     productSize.appendChild(sizeSelect);
   }
-  productImage.innerHTML=`<img src="${data.Img}" alt="제품사진">`
-
-
+  productImage.innerHTML = `<img src="${data.Img}" alt="제품사진">`;
 }
 
 function order() {
-  if (localStorage.getItem("order")) {
-    return swal({
-      icon: "warning",
-      text: "오류가 있습니다!",
-    });
-  }
   if (getToken() === "null" || !getToken()) {
     swal({
       icon: "warning",
@@ -109,20 +92,12 @@ function order() {
     });
     return;
   }
+  if (Cart.list("order")) {
+    Cart.clear("order");
+  }
   Cart.add(data, size, quantity, "order");
-//   sessionStorage.setItem(
-//     `order`,
-//     JSON.stringify({
-//       productId: data._id,
-//       quantity,
-//       size,
-//       price: Number(data.price) * quantity,
-//     })
-//   );
-//   location.href = "/order?direct=true ";
-//   console.log(JSON.parse(sessionStorage.getItem(`order`)));
-// }
-location.href = "/order ";
+
+  location.href = "/order ";
 }
 
 function addCart() {
@@ -151,8 +126,6 @@ async function getDataFromApi() {
   console.log(data);
   return data;
 }
-
-
 
 // const test = await Api.get("/api/category");
 // console.log('------------')
