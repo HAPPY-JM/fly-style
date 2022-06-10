@@ -81,10 +81,12 @@ async function handleSubmit(e) {
   formdata.append("email", email);
   formdata.append("password", password);
 
+  console.log(formdata);
+
   // 회원가입 api 요청
   try {
 
-    await Api.formDataPatch(`/api/user/${user._id}`, formdata);
+    await Api.formDataPatch(`/api/user`, formdata, `${user._id}`);
 
     swal({
       icon: "success",
