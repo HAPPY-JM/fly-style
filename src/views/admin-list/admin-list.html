@@ -32,68 +32,69 @@
     <!-- Hero head: will stick at the top -->
     <section class="hero is-success is-fullheight" id="headerParent">
 
-    
-  
-    <!-- Hero content: will be in the middle -->
-    <main>
-      <div class="title">주문 목록</div>
-      <hr />
-      <table class="table is-hoverable" id="mainTable">
-        <colgroup>
-          <col width="15%">
-          <col width="15%">
-          <col width="30%">
-          <col width="10%">
-          <col width="15%">
-          <col width="15%">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>사용자 ID</th>
-            <th>주문 날짜</th>
-            <th>구매 상품</th>
-            <th>개수</th>
-            <th>배송상태</th>
-            <th>취소하기</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th colspan="6"></th>
-          </tr>
-        </tfoot>
-        <tbody>
-          <!-- 테이블 내용 정리 -->
-        </tbody>
-      </table>
-    </main>
 
 
-  </section>
-  <!-- Hero footer: will stick at the bottom -->
-  <script>
-    function deleteRow(o) {
-      swal({
-        title: "해당 주문 내역을 삭제하시겠습니까?",
-        text: "삭제하면 복구할 수 없습니다!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-        .then((willDelete) => {
-          if (willDelete) {
-            swal("삭제 완료되었습니다.", {
-              icon: "success",
-            });
-            let i = o.parentNode.parentNode.rowIndex;
-            document.querySelector('#mainTable').deleteRow(i);
-          } else {
-            swal("Good!");
-          }
-        });
+      <!-- Hero content: will be in the middle -->
+      <main>
+        <div class="title">주문 목록</div>
+        <hr />
+        <table class="table is-hoverable" id="mainTable">
+          <colgroup>
+            <col width="15%">
+            <col width="15%">
+            <col width="30%">
+            <col width="10%">
+            <col width="15%">
+            <col width="15%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>사용자 ID</th>
+              <th>주문 날짜</th>
+              <th>구매 상품</th>
+              <th>개수</th>
+              <th>배송상태</th>
+              <th>취소하기</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th colspan="6"></th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <!-- 테이블 내용 정리 -->
+          </tbody>
+        </table>
+      </main>
 
-    }
-  </script>
+
+    </section>
+    <!-- Hero footer: will stick at the bottom -->
+
+    <script>
+    // function deleteRow(o) {
+    //   swal({
+    //     title: "해당 주문 내역을 삭제하시겠습니까?",
+    //     text: "삭제하면 복구할 수 없습니다!",
+    //     icon: "warning",
+    //     buttons: true,
+    //     dangerMode: true,
+    //   })
+    //     .then((willDelete) => {
+    //       if (willDelete) {
+    //         swal("삭제 완료되었습니다.", {
+    //           icon: "success",
+    //         });
+    //         let i = o.parentNode.parentNode.rowIndex;
+    //         document.querySelector('#mainTable').deleteRow(i);
+    //       } else {
+    //         swal("Good!");
+    //       }
+    //     });
+
+    // }
+    </script>
 </body>
 
 </html>

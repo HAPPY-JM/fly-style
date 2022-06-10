@@ -25,7 +25,6 @@ const orderList = await Api.get('/api/admins/order/lists');
 
 const table = $('table');
 
-// const orderId = sessionStorage.getItem('orderId');
 // if(orderId !== null){
 //   console.log('---------orderId--------------------------------');
 //   console.log(orderId);
@@ -48,12 +47,6 @@ const tbody = $('.table tbody');
 
 let innerTrData ="";
 let productList = "";
-
-// for(let i = 0; i < data.products.length ; i++){
-
-// }
-
-
 
 function deleteOrder(data) {
   const res =  data;
@@ -94,7 +87,7 @@ function addTableTrData(data){
   <td>${data.products.quantity}개</td>
   <td>${data.orderStatus}</td>
   <td>
-    <button class="button is-danger is-light" id=${data._id}>wlrm삭제</button>
+    <button class="button is-danger is-light" onclick="deleteRow(this)"id=${data._id}>삭제</button>
   </td>
 </tr>
 <input type='hidden' value=${data._id} />
@@ -107,7 +100,6 @@ getOrderDatas();
 function getOrderDatas(){
   const tbody = document.createElement("tbody");
   orderList.map((data)=> {
-    // console.log('--------------');
     addTableTrData(data);
   });
   tbody.innerHTML = innerTrData;
