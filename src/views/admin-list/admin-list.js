@@ -80,7 +80,7 @@ for (let i = 0; i < orderList.length; i++) {
         console.log(result);
         swal("삭제 완료되었습니다.", {
           icon: "success",
-        }).then(location.reload());
+        }).then(() => location.reload());
       } else {
         swal("Good!");
       }
