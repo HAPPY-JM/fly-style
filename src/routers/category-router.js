@@ -14,7 +14,7 @@ categoryRouter.post(
 
       const newCategory = await categoryService.addCategory({ name });
 
-      res.json(newCategory);
+      res.status(201).json(newCategory);
     } catch (err) {
       next(err);
     }
@@ -30,7 +30,7 @@ categoryRouter.get("/", async (req, res) => {
 
 //카테고리찾기
 categoryRouter.get("/:category", async (req, res) => {
-  const {categoryName} = req.params;
+  const categoryName = req.params.category;
   const findCategory = await categoryService.findByName(categoryName);
 
   res.json(findCategory);
@@ -43,7 +43,7 @@ categoryRouter.patch("/:id", async (req, res) => {
   const { name } = req.body;
 
   const updateData = {
-    name,
+    name
   };
 
   const editCategory = await categoryService.editCategory(categoryId, updateData);
@@ -60,7 +60,7 @@ categoryRouter.delete(
     await categoryService.deleteCategory(categoryId);
 
     res.send(`카테고리를 삭제했습니다.`);
-    // res.redirect("/api/category");
+    // res.redirect("/inventory");
   }
 );
 

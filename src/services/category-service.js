@@ -51,8 +51,8 @@ class CategoryService {
   }
 
   //카테고리 이름으로 카테고리 찾기
-  async findByName(name) {
-    const category = await this.categoryModel.findByName(name);
+  async findByName(categoryName) {
+    const category = await this.categoryModel.findByName(categoryName);
     return category;
   }
 }

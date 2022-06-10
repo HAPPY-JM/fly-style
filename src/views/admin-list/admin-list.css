@@ -89,6 +89,7 @@ main{
 }
 
 .table thead tr th{
+  background-color: #5CA2FF;
   color: white;
   vertical-align: middle;
 }

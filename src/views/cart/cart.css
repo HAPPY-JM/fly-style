@@ -167,6 +167,9 @@ input::-webkit-inner-spin-button {
   margin-bottom: 0.3em;
   margin-top: 0.3em;
 }
+.button.is-info{
+  background-color: #5CA2FF ;
+}
 
 /* 푸터 */
 .hero-foot {

@@ -20,6 +20,7 @@ addAllEvents();
 
 // html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.
 async function getProductRender() {
+  header(headerParent);
   landingRender(data);
   header(headerParent);
 }
@@ -59,20 +60,27 @@ function order() {
     return;
   }
   const quantity = 2;
-  Cart.add(data, quantity, "order");
-  location.href = "/order ";
+  sessionStorage.setItem(
+    `order`,
+    JSON.stringify({
+      productId: data._id,
+      quantity,
+      size,
+      price: Number(data.price) * quantity,
+    })
+  );
+  location.href = "/order?direct=true ";
+  console.log(JSON.parse(sessionStorage.getItem(`order`)));
 }
 
 function addCart() {
-  if (Cart.exists(data._id, "cart")) {
+  if (Cart.exists(data._id)) {
     alert(`이미존재합니다. 추가하시겠습니까?`);
-    Cart.add(data, 2, "cart");
-    console.log(Cart.list("cart"));
+    Cart.add(data, 2);
+    Cart.add(data, 2);
     return;
   }
-  Cart.add(data, 2, "cart");
-  console.log(Cart.list("cart"));
-  alert("장바구니에 추가되었습니다.");
+  Cart.add(data, 2);
 }
 //'api/product/detail/:id'
 //서버에 상품 디테일 요청

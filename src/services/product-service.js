@@ -30,20 +30,49 @@ class ProductService {
     return createdNewProduct;
   }
 
+  async updateQuantity(orderInfo) {
+    const { _id, quantity, size } = orderInfo;
+    const product = await this.productModel.findById(_id);
+    const productSize = product.size.find((data) => data.name == size);
+    const productElse = product.size.filter((data) => data.name !== size);
+    const modifiedQuantity = productSize.stock - quantity;
+    console.log(modifiedQuantity);
+    if (modifiedQuantity <= 0 || !modifiedQuantity) {
+      throw new Error(
+        "상품의 수량이 모자랍니다. 수량을 변경하고 다시 주문해 주세요"
+      );
+    }
+
+    const updatedProduct = await this.productModel.editProduct(_id, {
+      size: [...productElse, { name: size, stock: modifiedQuantity }],
+    });
+
+    return updatedProduct;
+  }
+
   //상품 목록(카테고리)
   async productList(categoryName) {
-    if(categoryName === "all"){
+    if (categoryName === "all") {
       const products = await this.productModel.findAll();
       return products;
-    }else{
+    } else {
       const findProduct = await this.productModel.findByCategory(categoryName);
       return findProduct;
     }
   }
 
+    //상품 목록
+    async findAll() {
+      const products = await this.productModel.findAll();
+      return products;
+    }
+
   //페이지네이션
-  async pagination(productList, page, perPage){
-    const productsPaging = await productList.slice(perPage * (page - 1), perPage * (page - 1) + perPage);
+  async pagination(productList, page, perPage) {
+    const productsPaging = await productList.slice(
+      perPage * (page - 1),
+      perPage * (page - 1) + perPage
+    );
     return productsPaging;
   }
 

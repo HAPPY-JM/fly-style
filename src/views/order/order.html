@@ -55,13 +55,17 @@
                 <!-- 장바구니  -->
                 <table class="table cart-table">
                   <colgroup>
-                    <col width="50%">
+                    <col width="40%">
                     <col width="15%">
                     <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
+                    
                     </colgroup>
                     <thead>
                         <tr>
-                            <th >제품정보</th>
+                            <th>제품정보</th>
+                            <th>사이즈</th>
                             <th>가격</th>
                             <th>수량</th>
                         </tr>
@@ -78,12 +82,17 @@
                                    
                                 </div>
                             </td>
-                            <td class="cart-product-price">
-                                <div>34,000원</div>
+                            <td class="cart-product-size">
+                              <div class="order-size">  
+                              M
+                            </div>
                             </td>
+                            <td class="cart-product-price">
+                              <div class="product-price">
+                              34,000원</div></td>
                             <td class="cart-products-count">
                                 <div class="product-count">
-                                    <p id="productCounts">2</p>
+                                    <p>2</p>
                                 </div>
                             </td>
                         </tr>
@@ -124,7 +133,7 @@
                 <div class="field-body">
                   <div class="field">
                     <p class="control">
-                      <input class="input is-info" id="orderPhoneNumber" type="number"
+                      <input class="input is-info" id="orderPhoneNumber" type="text"
                         placeholder="- 없이 입력해 주세요."
                       />
                     </p>
@@ -197,7 +206,7 @@
 
             <!-- 결제 정보란 -->
             <div class="box" id="orderInfodiv">
-              <h2 class="subtitle is-6">결제 정보</h2>
+              <h2 class="subtitle is-5">결제 정보</h2>
               <div class="orderInfo">
                 <div class="info">
                   <p class="title is-5">주문상품</p>
@@ -206,22 +215,24 @@
 
                 <div class="info">
                   <p class="title is-5">상품총액</p>
-                  <p id="PriceTotal">30,000원</p>
+                  <p id="PriceTotal">0원</p>
                 </div>
                 <div class="info">
                   <p class="title is-5">배송비</p>
-                  <p id="deliveryFee">3,000원</p>
+                  <p id="deliveryFee">0원</p>
                 </div>
               </div>
               <div class="total">
                 <p class="title is-5">총 결제금액</p>
-                <p class="total-price" id="orderPriceTotal">33,000원</p>
+                <p class="total-price" id="orderPriceTotal">0원</p>
               </div>
               <div class="buy">
+              <div class="buyBtn">
                 <button class="button is-info" id="buyButton">
                   결제하기
                 </button>
               </div>
+            </div>
             </div>
 
           </div>

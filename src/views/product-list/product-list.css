@@ -48,12 +48,22 @@ html, body{
     padding-top: 0;
   }
 
+/* 카테고리 */
+.tabs a{
+  text-transform: uppercase;
+}
 
 /* 메인 화면 ( 카테고리 , 목록 리스트 )*/
 main {
     width: 100%;
     height: auto;
     display: flex;
+}
+
+/* 카테고리 선택 시 현재 카테고리 출력 */
+.selected-category{
+  text-align: center;
+  font-weight: bold;
 }
 
 /* 제품 목록 아이템 */

@@ -33,7 +33,6 @@ function addAllElements() {
 
 function setOrderDatas() {
   const checkBoxs = document.querySelectorAll(".checkBoxs");
-  console.log(checkBoxs);
   const quantitys = document.querySelectorAll("#quantityinput");
   const productPrice = document.querySelectorAll(".cart-product-price");
   let totalCount = 0;
@@ -57,36 +56,12 @@ function setOrderDatas() {
   totalPrice.innerHTML = `${Fnc.addCommas(total)}원`;
 }
 
-// function setProductTotal() {
-//   const productPrice = document.querySelectorAll(".cart-product-price");
-//   let total = 0;
-//   for (let j = 0; j < productPrice.length; j++) {
-//     total += Fnc.convertToNumber(productPrice[j].innerText);
-//   }
-//   productTotal.innerHTML = `${Fnc.addCommas(total)}원`;
-// }
-
-// function setDeliveryFee() {
-//   if (Fnc.convertToNumber(productTotal.innerText) >= 50000) {
-//     deliveryFee.innerHTML = `0원`;
-//   } else {
-//     deliveryFee.innerHTML = `3,000원`;
-//   }
-// }
-
-// function setTotalPrice() {
-//   const total =
-//     Fnc.convertToNumber(productTotal.innerHTML) +
-//     Fnc.convertToNumber(deliveryFee.innerHTML);
-//   totalPrice.innerHTML = `${Fnc.addCommas(total)}원`;
-// }
-
 function addtableTrData(data) {
   tableInnerData += `
   <tr class="cart-items">
     <td class="cart-items-checkbox">
         <label class="checkbox">
-            <input class='checkBoxs' type="checkbox">
+            <input class='checkBoxs' type="checkbox" checked>
         </label>
     </td>
     <td class="cart-imgs-info">
@@ -101,6 +76,9 @@ function addtableTrData(data) {
             <div class="product-name title is-5">${data.name}</div>
             <div class="product-description subtitle is-7">${data.content}</div>
         </div>
+    </td>
+    <td class="cart-product-size">
+        <div>${data.size}</div>
     </td>
     <td class="cart-product-price">
         <div>${data.price * data.quantity}</div>
@@ -148,28 +126,40 @@ function addButtonEvents() {
       setOrderDatas();
     });
     minusBtns[i].addEventListener("click", () => {
-      const product = Cart.get(lists[i]._id, "cart");
+      const product = Cart.get(lists[i]._id, lists[i].size, "cart");
       if (product.quantity <= 1) {
         return;
       }
-      Cart.update(product._id, "quantity", product.quantity - 1, "cart");
+      Cart.update(
+        product._id,
+        product.size,
+        "quantity",
+        product.quantity - 1,
+        "cart"
+      );
       quantityField[i].value = product.quantity - 1;
       productPrice[i].innerText = product.price * (product.quantity - 1);
       setOrderDatas();
     });
     plusBtns[i].addEventListener("click", () => {
-      const product = Cart.get(lists[i]._id, "cart");
+      const product = Cart.get(lists[i]._id, lists[i].size, "cart");
       if (product.quantity >= 99) {
         return;
       }
-      Cart.update(product._id, "quantity", product.quantity + 1, "cart");
+      Cart.update(
+        product._id,
+        product.size,
+        "quantity",
+        product.quantity + 1,
+        "cart"
+      );
       quantityField[i].value = product.quantity + 1;
       productPrice[i].innerText = product.price * (product.quantity + 1);
       setOrderDatas();
     });
     deleteBtns[i].addEventListener("click", () => {
       alert(`삭제하시겠습니까?`);
-      Cart.remove(lists[i]._id, "cart");
+      Cart.remove(lists[i]._id, lists[i].size, "cart");
       location.reload();
       return;
     });
@@ -178,9 +168,16 @@ function addButtonEvents() {
 
 async function purchase() {
   const checkBoxs = document.querySelectorAll(".checkBoxs");
+  const orderlists = Cart.list("cart");
+  Cart.clear("order");
   for (let j = 0; j < lists.length; j++) {
     if (checkBoxs[j].checked) {
-      Cart.add(lists[j], lists[j].quantity, "order");
+      Cart.add(
+        orderlists[j],
+        orderlists[j].size,
+        orderlists[j].quantity,
+        "order"
+      );
     }
   }
   location.href = `/order?cart=true`;

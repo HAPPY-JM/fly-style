@@ -136,26 +136,41 @@ img{
 /* bulma 버튼 색상 커스텀 */
 #buttonBuy{
   margin: 5%;
-  padding: 8% 10% 8% 10%;
-  background-color: #d6e4f7;
-  color: #4e7dc3;
+  padding: 1.5rem 5rem 1.5rem 5rem;
+  background-color: #2a76d9   ;
+  color: white;
+  transition-property: background-color,color;
+  transition-duration: 0.5s;
 }
+#buttonBuy:hover{
+  background-color: rgb(232, 242, 249);
+  color: black;
+  }
+
 #buttonBasket{
   margin: 5%;
-  padding: 8% 10% 8% 10%;
-  background-color: #b1c5e1;
-  color: #395f97;
+  padding: 1.5rem 5rem 1.5rem 5rem;
+  background-color: #8AADEC  ;
+  color: white;
+  transition-property: background-color,color;
+  transition-duration: 0.5s;
 }
+#buttonBasket:hover{
+background-color: rgb(232, 242, 249);
+color: black;
+}
+
 .input.is-info, select.is-info{
 width: 10rem;
 height: 3rem;
-border-color: #a4c1ee;
+border-color: #5CA2FF ;
 }
+
 
 #productSize{
   width: 10rem;
   height: 3rem;
-  border-color: #a4c1ee;
+  border-color: #5CA2FF ;
 }
 #productQuantitywrap{
 margin-top: 2rem;

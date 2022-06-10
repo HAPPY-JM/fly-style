@@ -44,6 +44,10 @@ console.log(productData);
 const productSection = $(".section");
 // 카테고리 섹션 - 메뉴 리스트
 const categorySection = $('.header-category-list');
+
+// 카테고리 섹션 - 현재 카테코리 출력
+const selectedCategory=$('.selected-category');
+
 //페이지네이션
 const paginationClass = $("#pagination");
 
@@ -126,15 +130,18 @@ function pagination(productData, cookieCategory) {
 
 productData.productsPerPage.map((productData) => addProductsListData(productData));
 categoryData.map((categoryData) => addCategoryListData(categoryData));
-// console.log('----------------------------');
-// console.log(productInnerData);
-// console.log('----------------------------');
+console.log('----------------------------');
+console.log(productData.categoryName);
+console.log('----------------------------');
 
 productSection.innerHTML = productInnerData;
 categorySection.innerHTML = categoryInnerData;
 paginationClass.innerHTML = pagination(productData, cookieCategory);
-
-
+if(productData.categoryName=='null'){
+    selectedCategory.innerText= "TOP";
+}else{
+    selectedCategory.innerText= productData.categoryName;
+}
 //scroll up button
 function scrollUp(e) {
     let target = document.getElementById(e);
@@ -144,16 +151,3 @@ function scrollUp(e) {
   }
   
   scrollUp("scroll-btn");
-
-var aTags = document.querySelectorAll('header a');
-for(var i = 0; i < aTags.length; i ++) {
-    aTags[i].onclick = function(e) {
-        e.preventDefault();
-        var target = document.querySelector(this.getAttribute("href"));
-
-        window.scrollTo({
-            'behavior': 'smooth',
-            'top': target.offsetTop
-        })
-    }
-}
