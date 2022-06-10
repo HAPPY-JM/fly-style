@@ -38,7 +38,7 @@ z-index: 10;
 /* 상단 메뉴바 구역 */
 
 .navbar{
-position: fixed;
+/* position: fixed; */
 width: 100%;
 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
@@ -177,19 +177,27 @@ margin-top: 2rem;
 }
 
 /* 푸터 */
-#float-clear{
-  clear: both;
 
+.hero-foot{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  padding-bottom: 4rem;
+  color: lightgrey;
+  background-color: #404B59;
+  font-size: smaller;
 }
 
-footer{
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  text-align: center;
-  background-color: rgb(232, 242, 249);
-  color: rgb(149, 172, 208);
+.footer-description{
+  padding-left: 4.5rem;
 }
 
+/* 카테고리 */
+.header-category-list{
+  position: absolute;
+}
+
+.is-centered{
+  display: flex;
+  justify-content: center;
+}

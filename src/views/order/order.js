@@ -92,8 +92,9 @@ async function orderComplete() {
   const address2 = $("#addressDetail").value;
   const totalPrice = fnc.convertToNumber($("#orderPriceTotal").innerText);
   const comment = $("#orderRequest").value;
+  console.log(orderProducts);
   const products = orderProducts.map((data) => {
-    return { quantity: data.quantity, productId: data._id };
+    return { quantity: data.quantity, size: data.size, productId: data._id };
   });
   console.log(
     name,
