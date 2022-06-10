@@ -70,14 +70,21 @@ async function handleSubmit(e) {
       //관리자 루트 페이지로~~
       window.location.href = "/admin";
       // await Api.get("/admins"); //href admin-page
-    } else if (document.referrer.includes("login") || !document.referrer) {
+    } else if (document.referrer.includes("login") || !document.referrer || document.referrer.includes("register")) {
       window.location.href = "/";
-      //console.log(window.location.href);
-    } else {
+      // 회원가입 후에는 홈 화면으로 이동
+    } 
+    // else if(document.referrer.includes("register")){
+    //   window.location.href = "/"; 
+    // } 
+    else {
       location.href = document.referrer;
     }
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
+
+  console.log('----------------document.referrer------------------');
+  console.log(sessionStorage.getItem('test'));
 }
