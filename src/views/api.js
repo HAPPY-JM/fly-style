@@ -100,7 +100,7 @@ async function del(endpoint, params = "") {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      Authorization: `Bearer ${getToken()}`,
     },
   });
 
@@ -143,5 +143,32 @@ async function formDataPost(endpoint, formdata) {
   return result;
 }
 
+async function formDataPatch(endpoint, formdata, params = "") {
+  const apiUrl = params ? `${endpoint}/${params}` : `${endpoint}`;
+
+  console.log(`%cPATCH 요청: ${apiUrl}`, "color: #059c4b;");
+  console.log(`%cPATCH 요청 데이터: ${formdata}`, "color: #059c4b;");
+
+  const res = await fetch(apiUrl, {
+    method: "PATCH", //리소스의 부분적인 수정
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: formdata,
+  });
+
+  // 응답 코드가 4XX 계열일 때 (400, 403 등)
+  if (!res.ok) {
+    const errorContent = await res.json();
+    const { reason } = errorContent;
+
+    throw new Error(reason);
+  }
+
+  const result = await res.json();
+
+  return result;
+}
+
 // 아래처럼 export하면, import * as Api 로 할 시 Api.get, Api.post 등으로 쓸 수 있음.
-export { get, post, patch, formDataPost, del as delete };
+export { get, post, patch, formDataPost, formDataPatch, del as delete };
