@@ -177,7 +177,6 @@ margin-top: 2rem;
 }
 
 /* 푸터 */
-
 .hero-foot{
   display: flex;
   flex-direction: column;
@@ -190,6 +189,10 @@ margin-top: 2rem;
 
 .footer-description{
   padding-left: 4.5rem;
+}
+
+.logo-footer{
+  width: 15rem;
 }
 
 /* 카테고리 */
