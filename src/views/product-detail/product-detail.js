@@ -114,7 +114,3 @@ async function getDataFromApi() {
 
 
 
-// const test = await Api.get("/api/category");
-// console.log('------------')
-// console.log(test);
-// console.log('------------')
