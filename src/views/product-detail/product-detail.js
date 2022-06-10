@@ -15,6 +15,10 @@ const headerParent = $("body");
 const data = await getDataFromApi();
 const productSize = $("#productSize");
 const sizeOption=$("#sizeOption");
+let quantity = Number($("#quantity").value);
+const quantityField = $("#quantity");
+let size = productSize.value;
+// console.log(size);
 getProductRender();
 addAllEvents();
 
@@ -29,29 +33,37 @@ async function getProductRender() {
 function addAllEvents() {
   buttonBuy.addEventListener("click", order);
   buttonBasket.addEventListener("click", addCart);
+  quantityField.addEventListener("change", () => {
+    quantity = Number(quantityField.value);
+    console.log(quantity);
+  });
+  productSize.addEventListener("change", () => {
+    size = productSize.value;
+    console.log(size);
+  });
 }
 
 function landingRender(data) {
-  if (token === "null" || !token) {
-    login.innerHTML = "로그인";
-  } else {
-    login.innerHTML = "로그아웃";
-  }
-  console.log(data.size)
+  // if (token === "null" || !token) {
+  //   login.innerHTML = "로그인";
+  // } else {
+  //   login.innerHTML = "로그아웃";
+  // }
+  // console.log(data.size)
   productDetail.innerHTML = data.content;
   productPrice.innerHTML = `${data.price}원`;
   productName.innerHTML = data.name;
   // productSize
   
-  for(let i=0;i<data.size.length;i++){
-    let sizeSelect=document.createElement("option");
-    sizeSelect.innerText=data.size[i];
+  for (let i = 0; i < data.size.length; i++) {
+    let sizeSelect = document.createElement("option");
+    sizeSelect.innerText = data.size[i].name;
     productSize.appendChild(sizeSelect);
   }
 }
 
 function order() {
-  if (sessionStorage.getItem("order")) {
+  if (localStorage.getItem("order")) {
     return alert("오류가 있습니다");
   }
   if (getToken() === "null" || !getToken()) {
@@ -59,28 +71,35 @@ function order() {
     window.location.href = "/login";
     return;
   }
-  const quantity = 2;
-  sessionStorage.setItem(
-    `order`,
-    JSON.stringify({
-      productId: data._id,
-      quantity,
-      size,
-      price: Number(data.price) * quantity,
-    })
-  );
-  location.href = "/order?direct=true ";
-  console.log(JSON.parse(sessionStorage.getItem(`order`)));
+  if (size === "null") {
+    alert("사이즈를 선택해 주세요.");
+    return;
+  }
+  Cart.add(data, size, quantity, "order");
+//   sessionStorage.setItem(
+//     `order`,
+//     JSON.stringify({
+//       productId: data._id,
+//       quantity,
+//       size,
+//       price: Number(data.price) * quantity,
+//     })
+//   );
+//   location.href = "/order?direct=true ";
+//   console.log(JSON.parse(sessionStorage.getItem(`order`)));
+// }
+location.href = "/order ";
 }
 
 function addCart() {
-  if (Cart.exists(data._id)) {
-    alert(`이미존재합니다. 추가하시겠습니까?`);
-    Cart.add(data, 2);
-    Cart.add(data, 2);
+  if (size === "null") {
+    alert("사이즈를 선택해 주세요.");
     return;
   }
-  Cart.add(data, 2);
+  if (Cart.exists(data._id)) {
+    alert(`이미존재합니다. 추가하시겠습니까?`);
+  }
+  Cart.add(data, size, quantity, "cart");
 }
 //'api/product/detail/:id'
 //서버에 상품 디테일 요청
@@ -88,14 +107,14 @@ async function getDataFromApi() {
   const URLSearch = new URLSearchParams(location.search);
   //(?id=여기부분)
   const id = URLSearch.get("_id");
-  const data = await Api.get(`/api/product`, id);
+  const data = await Api.get(`/api/product/detail`, id);
   console.log(data);
   return data;
 }
 
 
 
-const test = await Api.get("/api/category");
-console.log('------------')
-console.log(test);
-console.log('------------')
+// const test = await Api.get("/api/category");
+// console.log('------------')
+// console.log(test);
+// console.log('------------')
