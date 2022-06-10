@@ -26,11 +26,13 @@ async function addCategory(e){
         window.location.href="/inventory";
     }catch(err){
         alert(err);
+
     }
 }
 addCategoryBtn.addEventListener('click', addCategory);
 
-
+//카테고리명을 눌러서 폼으로 들어가게되면 category값이 생기게 되는데,
+//그럴 경우 input칸 안에 카테고리명을 미리 적어둠
 if(category){
     categoryInput.value = category;
 }
@@ -47,6 +49,7 @@ async function editCategory(e){
         window.location.href="/inventory";
     }catch(err){
         alert(err);
+        categoryInput.value = category;
     }
 }
 editCategoryBtn.addEventListener('click', editCategory);
