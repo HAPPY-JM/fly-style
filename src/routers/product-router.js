@@ -63,7 +63,7 @@ productRouter.get("/", async (req, res) => {
 });
 
 //상품 수정 (login 확인, admin 확인)
-productRouter.patch("/:id", loginRequired, adminRequired, upload.single("image-file"), async (req, res) => {
+productRouter.patch("/:id", /*loginRequired, adminRequired,*/ upload.single("image-file"), async (req, res) => {
   const { id } = req.params;
   const { name, price, content, brand, size, category } = req.body;
   const sizeobj = JSON.parse(size);
@@ -90,7 +90,7 @@ productRouter.patch("/:id", loginRequired, adminRequired, upload.single("image-f
   }
 });
 
-productRouter.patch("/quantity/:id", loginRequired, adminRequired, async (req, res, next) => {
+productRouter.patch("/quantity/:id", /*loginRequired, adminRequired,*/ async (req, res, next) => {
   const _id = req.params.id;
   const { size } = req.body;
   const quantity = Number(req.body.quantity);
@@ -107,7 +107,7 @@ productRouter.patch("/quantity/:id", loginRequired, adminRequired, async (req, r
 });
 
 //상품 삭제 (login 확인, admin 확인)
-productRouter.delete("/:id", loginRequired, adminRequired, async (req, res, next) => {
+productRouter.delete("/:id", /*loginRequired, adminRequired,*/ async (req, res, next) => {
   const productId = req.params.id;
   try {
     const result = await productService.deleteProduct(productId);
