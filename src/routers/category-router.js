@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { loginRequired, adminRequired } from "../middlewares";
+
 
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
 import { categoryService } from "../services";
@@ -8,6 +10,8 @@ const categoryRouter = Router();
 //카테고리 등록 (login 확인, admin 확인)
 categoryRouter.post(
   "/",
+  loginRequired,
+  adminRequired,
   async (req, res, next) => {
     try {
       const { name } = req.body;
@@ -39,6 +43,8 @@ categoryRouter.get("/:category", async (req, res) => {
 //카테고리 수정 (login 확인, admin 확인)
 categoryRouter.patch(
   "/:id",
+  loginRequired,
+  adminRequired,
   async (req, res, next) => {
     try {
       const categoryId = req.params.id;
@@ -58,6 +64,8 @@ categoryRouter.patch(
 //카테고리 삭제 (login 확인, admin 확인)
 categoryRouter.delete(
   "/:id",
+  loginRequired,
+  adminRequired,
   async (req, res) => {
     const categoryId = req.params.id;
 

@@ -1,6 +1,8 @@
 import { Router } from "express";
 // 폴더에서 import하면, 자동으로 폴더의 index.js에서 가져옴
 import { productService, categoryService } from "../services";
+import { loginRequired, adminRequired } from "../middlewares";
+
 import path from "path";
 import aws from "aws-sdk";
 import multerS3 from "multer-s3";
@@ -22,7 +24,9 @@ const upload = multer({
 const productRouter = Router();
 
 productRouter.post(
-  "/uplodimg",
+  "/uplodimg", 
+  loginRequired, 
+  adminRequired,
   upload.single("image-file"),
   async (req, res, next) => {
     const { name, price, content, brand, size, category } = req.body;
@@ -59,7 +63,7 @@ productRouter.get("/", async (req, res) => {
 });
 
 //상품 수정 (login 확인, admin 확인)
-productRouter.patch("/:id", upload.single("image-file"), async (req, res) => {
+productRouter.patch("/:id", loginRequired, adminRequired, upload.single("image-file"), async (req, res) => {
   const { id } = req.params;
   const { name, price, content, brand, size, category } = req.body;
   const sizeobj = JSON.parse(size);
@@ -86,7 +90,7 @@ productRouter.patch("/:id", upload.single("image-file"), async (req, res) => {
   }
 });
 
-productRouter.patch("/quantity/:id", async (req, res, next) => {
+productRouter.patch("/quantity/:id", loginRequired, adminRequired, async (req, res, next) => {
   const _id = req.params.id;
   const { size } = req.body;
   const quantity = Number(req.body.quantity);
@@ -103,7 +107,7 @@ productRouter.patch("/quantity/:id", async (req, res, next) => {
 });
 
 //상품 삭제 (login 확인, admin 확인)
-productRouter.delete("/:id", async (req, res, next) => {
+productRouter.delete("/:id", loginRequired, adminRequired, async (req, res, next) => {
   const productId = req.params.id;
   try {
     const result = await productService.deleteProduct(productId);
