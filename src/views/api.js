@@ -125,7 +125,7 @@ async function formDataPost(endpoint, formdata) {
   const res = await fetch(apiUrl, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      Authorization: `Bearer ${getToken()}`,
     },
     body: formdata,
   });
