@@ -114,6 +114,12 @@ function addCart() {
       text: "이미존재합니다. 추가하시겠습니까?",
     });
   }
+  else{
+    swal({
+      icon: "success",
+      text: "장바구니에 담겼습니다!",
+    });
+  }
   Cart.add(data, size, quantity, "cart");
 }
 //'api/product/detail/:id'
