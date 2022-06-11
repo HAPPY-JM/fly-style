@@ -114,11 +114,10 @@ function addCart() {
       text: "이미존재합니다. 추가하시겠습니까?",
     });
   }
-  // 시연을 위한 임시 코드 추가 
-  else if(!Cart.exists(data._id)){
+  else{
     swal({
       icon: "success",
-      text: "장바구니에 추가되었습니다.",
+      text: "장바구니에 담겼습니다!",
     });
   }
   Cart.add(data, size, quantity, "cart");
