@@ -17,6 +17,9 @@
 ## 주요 사용 기술
 
 ### 1. 프론트엔드
+<img  alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+<img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black">
 
 - **Vanilla javascript**, html, css (**Bulma css**)
 - Font-awesome 
@@ -26,6 +29,9 @@
 - 이외
 
 ### 2. 백엔드 
+<img alt="Express" src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white">
+<img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-8cbe68?style=for-the-badge&logo=MongoDB&logoColor=white">
+<img alt="AWS" src="https://img.shields.io/badge/Amazon AWS-f7f7f7?style=for-the-badge&logo=Amazon AWS&logoColor=f89400">
 
 - **Express** (nodemon, babel-node로 실행됩니다.)
 - Mongodb, Mongoose
