@@ -3,7 +3,7 @@
 제품들을 조회하고, 장바구니에 추가하고, 또 주문을 할 수 있는 쇼핑몰 웹 서비스 제작 프로젝트입니다. <br />
 [엘리스 예시 데모페이지](http://shopping-demo.elicecoding.com/) (링크는 프로젝트 기간에만 유효)
 
-### 페이지 바로가기 ▶ [Fly Style](http://www.com)
+### 페이지 바로가기 ▶ [Fly Style](http://kdt-sw2-busan-team05.elicecoding.com/)
 
 <br>
 
