@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://kdt-gitlab.elice.io/sw_track/class_02_busan/web_project/team5/shopping-mall-racer.git
