@@ -1,7 +1,6 @@
 # 스타일 날다 Fly Style
 
 제품들을 조회하고, 장바구니에 추가하고, 또 주문을 할 수 있는 쇼핑몰 웹 서비스 제작 프로젝트입니다. <br />
-[엘리스 예시 데모페이지](http://shopping-demo.elicecoding.com/) (링크는 프로젝트 기간에만 유효)
 
 ### 페이지 바로가기 ▶ [Fly Style](http://kdt-sw2-busan-team05.elicecoding.com/)
 
@@ -66,5 +65,5 @@ yarn start
 
 ---
 
-본 프로젝트에서 제공하는 모든 코드 등의는 저작권법에 의해 보호받는 ㈜엘리스의 자산이며, 무단 사용 및 도용, 복제 및 배포를 금합니다.
-Copyright 2022 엘리스 Inc. All rights reserved.
+<!--본 프로젝트에서 제공하는 모든 코드 등의는 저작권법에 의해 보호받는 ㈜엘리스의 자산이며, 무단 사용 및 도용, 복제 및 배포를 금합니다.
+Copyright 2022 엘리스 Inc. All rights reserved.-->
