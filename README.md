@@ -3,9 +3,9 @@
 제품들을 조회하고, 장바구니에 추가하고, 또 주문을 할 수 있는 쇼핑몰 웹 서비스 제작 프로젝트입니다. <br/>
 현재 React와 Typescript를 기반으로 리팩토링을 준비중에 있습니다. <br/>
 
-### 페이지 바로가기 ▶ [Fly Style](http://kdt-sw2-busan-team05.elicecoding.com/)
-
-<br>
+### 페이지 바로가기 ▶ [Fly Style](http://kdt-sw2-busan-team05.elicecoding.com/) <br/>
+배포 이슈 때문에 admin 계정 로그인이 되지 않아서 모든 기능들이 활성화되어 있지 않습니다. (리팩토링 때 고칠 예정입니다.) <br/>
+정상적인 작동을 확인하기 위해서는 클론 후 vscode에서 ```npm start``` 후 ```localhost:5000```로 확인해주세요! <br>
 
 ** 핵심 기능은 하기입니다. <br>
 1. 회원가입, 로그인, 회원정보 수정 등 **유저 정보 관련 CRUD** 
